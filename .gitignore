@@ -19,3 +19,11 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+.idea
+android
+ios
+web
+.metadata
+success_check.iml
+analysis_options.yaml
