@@ -15,21 +15,21 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
 
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    on<EmailChanged>((event, emit) async* {
+    on<EmailChanged>((event, emit) async {
       emit(state.copyWith(
         emailAddress: EmailAddress(event.emailStr),
         authFailureOrSuccessOption: none(),
       ));
     });
 
-    on<PasswordChanged>((event, emit) async* {
+    on<PasswordChanged>((event, emit) async {
       emit(state.copyWith(
         password: Password(event.passwordStr),
         authFailureOrSuccessOption: none(),
       ));
     });
 
-    on<RegisterWithEmailAndPasswordPressed>((event, emit) async* {
+    on<RegisterWithEmailAndPasswordPressed>((event, emit) async {
       Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 
       final isEmailValid = state.emailAddress.isValid();
@@ -54,9 +54,32 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       ));
     });
 
-    on<SignInWithEmailAndPasswordPressed>((event, emit) async* {});
+    on<SignInWithEmailAndPasswordPressed>((event, emit) async {
+      Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 
-    on<SignInWithGooglePressed>((event, emit) async* {
+      final isEmailValid = state.emailAddress.isValid();
+      final isPasswordValid = state.password.isValid();
+
+      if (isEmailValid && isPasswordValid) {
+        emit(state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ));
+
+        failureOrSuccess = some(await _authFacade.signInWithEmailAndPassword(
+          emailAddress: state.emailAddress,
+          password: state.password,
+        ));
+      }
+
+      emit(state.copyWith(
+        isSubmitting: false,
+        showErrorMessage: true,
+        authFailureOrSuccessOption: failureOrSuccess,
+      ));
+    });
+
+    on<SignInWithGooglePressed>((event, emit) async {
       emit(state.copyWith(
         isSubmitting: true,
         authFailureOrSuccessOption: none(),
