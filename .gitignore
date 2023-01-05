@@ -27,3 +27,5 @@ web
 .metadata
 success_check.iml
 analysis_options.yaml
+.flutter-plugins
+.flutter-plugins-dependencies
