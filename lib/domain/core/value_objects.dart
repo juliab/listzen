@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:success_check/domain/core/errors.dart';
 
-import 'failures.dart';
+import 'package:success_check/domain/core/failures.dart';
 
 abstract class ValueObject<T> {
   const ValueObject();
