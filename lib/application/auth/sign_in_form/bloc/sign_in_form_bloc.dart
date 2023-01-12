@@ -1,6 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:success_check/domain/auth/auth_failure.dart';
@@ -59,7 +60,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       emit(
         state.copyWith(
           isSubmitting: false,
-          showErrorMessage: true,
+          autovalidateMode: AutovalidateMode.always,
           authFailureOrSuccessOption: failureOrSuccess,
         ),
       );
@@ -90,7 +91,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       emit(
         state.copyWith(
           isSubmitting: false,
-          showErrorMessage: true,
+          autovalidateMode: AutovalidateMode.always,
           authFailureOrSuccessOption: failureOrSuccess,
         ),
       );

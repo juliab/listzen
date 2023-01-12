@@ -815,7 +815,7 @@ abstract class SignInWithGooglePressed implements SignInFormEvent {
 mixin _$SignInFormState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  bool get showErrorMessage => throw _privateConstructorUsedError;
+  AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -834,7 +834,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      bool showErrorMessage,
+      AutovalidateMode autovalidateMode,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -854,7 +854,7 @@ class _$SignInFormStateCopyWithImpl<$Res, $Val extends SignInFormState>
   $Res call({
     Object? emailAddress = null,
     Object? password = null,
-    Object? showErrorMessage = null,
+    Object? autovalidateMode = null,
     Object? isSubmitting = null,
     Object? authFailureOrSuccessOption = null,
   }) {
@@ -867,10 +867,10 @@ class _$SignInFormStateCopyWithImpl<$Res, $Val extends SignInFormState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessage: null == showErrorMessage
-          ? _value.showErrorMessage
-          : showErrorMessage // ignore: cast_nullable_to_non_nullable
-              as bool,
+      autovalidateMode: null == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
       isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -894,7 +894,7 @@ abstract class _$$_SignInFormStateCopyWith<$Res>
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      bool showErrorMessage,
+      AutovalidateMode autovalidateMode,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -912,7 +912,7 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
   $Res call({
     Object? emailAddress = null,
     Object? password = null,
-    Object? showErrorMessage = null,
+    Object? autovalidateMode = null,
     Object? isSubmitting = null,
     Object? authFailureOrSuccessOption = null,
   }) {
@@ -925,10 +925,10 @@ class __$$_SignInFormStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessage: null == showErrorMessage
-          ? _value.showErrorMessage
-          : showErrorMessage // ignore: cast_nullable_to_non_nullable
-              as bool,
+      autovalidateMode: null == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
       isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -947,7 +947,7 @@ class _$_SignInFormState implements _SignInFormState {
   const _$_SignInFormState(
       {required this.emailAddress,
       required this.password,
-      required this.showErrorMessage,
+      required this.autovalidateMode,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
 
@@ -956,7 +956,7 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   final Password password;
   @override
-  final bool showErrorMessage;
+  final AutovalidateMode autovalidateMode;
   @override
   final bool isSubmitting;
   @override
@@ -964,7 +964,7 @@ class _$_SignInFormState implements _SignInFormState {
 
   @override
   String toString() {
-    return 'SignInFormState(emailAddress: $emailAddress, password: $password, showErrorMessage: $showErrorMessage, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInFormState(emailAddress: $emailAddress, password: $password, autovalidateMode: $autovalidateMode, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -976,8 +976,8 @@ class _$_SignInFormState implements _SignInFormState {
                 other.emailAddress == emailAddress) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.showErrorMessage, showErrorMessage) ||
-                other.showErrorMessage == showErrorMessage) &&
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                other.autovalidateMode == autovalidateMode) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
             (identical(other.authFailureOrSuccessOption,
@@ -988,7 +988,7 @@ class _$_SignInFormState implements _SignInFormState {
 
   @override
   int get hashCode => Object.hash(runtimeType, emailAddress, password,
-      showErrorMessage, isSubmitting, authFailureOrSuccessOption);
+      autovalidateMode, isSubmitting, authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -1001,7 +1001,7 @@ abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
       {required final EmailAddress emailAddress,
       required final Password password,
-      required final bool showErrorMessage,
+      required final AutovalidateMode autovalidateMode,
       required final bool isSubmitting,
       required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_SignInFormState;
@@ -1011,7 +1011,7 @@ abstract class _SignInFormState implements SignInFormState {
   @override
   Password get password;
   @override
-  bool get showErrorMessage;
+  AutovalidateMode get autovalidateMode;
   @override
   bool get isSubmitting;
   @override

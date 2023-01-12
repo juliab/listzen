@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:success_check/injection.dart';
+import 'package:success_check/presentation/core/app_widget.dart';
 
-void main() {
+void main() async {
   configureDependencies();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const AppWidget();
   }
 }
