@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:success_check/injection.dart';
 import 'package:success_check/presentation/core/app_widget.dart';
@@ -5,6 +6,7 @@ import 'package:success_check/presentation/core/app_widget.dart';
 void main() async {
   configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(); // TODO hangle errors
   runApp(const MyApp());
 }
 
@@ -13,6 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppWidget();
+    return AppWidget();
   }
 }
