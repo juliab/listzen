@@ -1,6 +1,30 @@
 import 'package:dartz/dartz.dart';
+import 'package:kt_dart/collection.dart';
 
 import 'package:success_check/domain/core/failures.dart';
+
+Either<ValueFailure<String>, String> validateMaxStringLength(
+  String input,
+  int maxLength,
+) {
+  if (input.length >= maxLength) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.exceedingLength(failedValue: input, max: maxLength),
+    );
+  }
+}
+
+Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
+  if (input.isNotEmpty) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.empty(failedValue: input),
+    );
+  }
+}
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   const emailRegex =
