@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/injection.dart';
 
-import '../routes/router.gr.dart';
+import 'package:success_check/presentation/routes/router.gr.dart';
 
 class AppWidget extends StatelessWidget {
   AppWidget({super.key});
