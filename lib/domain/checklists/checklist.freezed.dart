@@ -15,28 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CheckList {
+mixin _$Checklist {
   UniqueId get id => throw _privateConstructorUsedError;
   CheckListName get name => throw _privateConstructorUsedError;
   List<Item> get items => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CheckListCopyWith<CheckList> get copyWith =>
+  $ChecklistCopyWith<Checklist> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CheckListCopyWith<$Res> {
-  factory $CheckListCopyWith(CheckList value, $Res Function(CheckList) then) =
-      _$CheckListCopyWithImpl<$Res, CheckList>;
+abstract class $ChecklistCopyWith<$Res> {
+  factory $ChecklistCopyWith(Checklist value, $Res Function(Checklist) then) =
+      _$ChecklistCopyWithImpl<$Res, Checklist>;
   @useResult
   $Res call({UniqueId id, CheckListName name, List<Item> items});
 }
 
 /// @nodoc
-class _$CheckListCopyWithImpl<$Res, $Val extends CheckList>
-    implements $CheckListCopyWith<$Res> {
-  _$CheckListCopyWithImpl(this._value, this._then);
+class _$ChecklistCopyWithImpl<$Res, $Val extends Checklist>
+    implements $ChecklistCopyWith<$Res> {
+  _$ChecklistCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,7 +68,7 @@ class _$CheckListCopyWithImpl<$Res, $Val extends CheckList>
 }
 
 /// @nodoc
-abstract class _$$_CheckListCopyWith<$Res> implements $CheckListCopyWith<$Res> {
+abstract class _$$_CheckListCopyWith<$Res> implements $ChecklistCopyWith<$Res> {
   factory _$$_CheckListCopyWith(
           _$_CheckList value, $Res Function(_$_CheckList) then) =
       __$$_CheckListCopyWithImpl<$Res>;
@@ -79,7 +79,7 @@ abstract class _$$_CheckListCopyWith<$Res> implements $CheckListCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CheckListCopyWithImpl<$Res>
-    extends _$CheckListCopyWithImpl<$Res, _$_CheckList>
+    extends _$ChecklistCopyWithImpl<$Res, _$_CheckList>
     implements _$$_CheckListCopyWith<$Res> {
   __$$_CheckListCopyWithImpl(
       _$_CheckList _value, $Res Function(_$_CheckList) _then)
@@ -131,7 +131,7 @@ class _$_CheckList extends _CheckList {
 
   @override
   String toString() {
-    return 'CheckList(id: $id, name: $name, items: $items)';
+    return 'Checklist(id: $id, name: $name, items: $items)';
   }
 
   @override
@@ -155,7 +155,7 @@ class _$_CheckList extends _CheckList {
       __$$_CheckListCopyWithImpl<_$_CheckList>(this, _$identity);
 }
 
-abstract class _CheckList extends CheckList {
+abstract class _CheckList extends Checklist {
   const factory _CheckList(
       {required final UniqueId id,
       required final CheckListName name,

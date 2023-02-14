@@ -8,16 +8,16 @@ import 'package:success_check/domain/core/failures.dart';
 part 'checklist.freezed.dart';
 
 @freezed
-abstract class CheckList with _$CheckList {
-  const CheckList._();
+abstract class Checklist with _$Checklist {
+  const Checklist._();
 
-  const factory CheckList({
+  const factory Checklist({
     required UniqueId id,
     required CheckListName name,
     required List<Item> items,
   }) = _CheckList;
 
-  factory CheckList.empty() => CheckList(
+  factory Checklist.empty() => Checklist(
         id: UniqueId(),
         name: CheckListName(''),
         items: [],
