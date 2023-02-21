@@ -7,6 +7,9 @@ include: package:lint/strict.yaml # For production apps
 
 # You might want to exclude auto-generated files from dart analysis
 analyzer:
+  errors:
+    invalid_null_aware_operator: ignore
+
   exclude:
     #- '**.freezed.dart'
     #- '**.g.dart'
@@ -26,3 +29,4 @@ linter:
     # prefer_single_quotes: true
     depend_on_referenced_packages: false
     sort_unnamed_constructors_first: false
+    void_checks: false
