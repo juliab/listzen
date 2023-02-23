@@ -4,5 +4,7 @@ part 'checklist_failure.freezed.dart';
 
 @freezed
 abstract class ChecklistFailure with _$ChecklistFailure {
-  const factory ChecklistFailure.unexpected() = _Unexpected;
+  const factory ChecklistFailure.unexpected() = Unexpected;
+  const factory ChecklistFailure.insufficientPermissions() =
+      InsufficientPermissions;
 }
