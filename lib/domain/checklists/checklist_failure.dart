@@ -7,4 +7,5 @@ abstract class ChecklistFailure with _$ChecklistFailure {
   const factory ChecklistFailure.unexpected() = Unexpected;
   const factory ChecklistFailure.insufficientPermissions() =
       InsufficientPermissions;
+  const factory ChecklistFailure.unableToAccess() = UnableToUpdate;
 }

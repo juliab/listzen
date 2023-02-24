@@ -70,20 +70,64 @@ class ChecklistRepository implements IChecklistRepository {
   }
 
   @override
-  Future<Either<ChecklistFailure, Unit>> create(Checklist checklist) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<Either<ChecklistFailure, Unit>> create(Checklist checklist) async {
+    try {
+      final userDoc = _firestore.userDocument();
+      final checklistDto = ChecklistDto.fromDomain(checklist);
+
+      await userDoc.checklistCollection
+          .doc(checklistDto.id)
+          .set(checklistDto.toJson());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('permission-denied')) {
+        return left(const ChecklistFailure.insufficientPermissions());
+      } else {
+        return left(const ChecklistFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<ChecklistFailure, Unit>> delete(Checklist checklist) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Either<ChecklistFailure, Unit>> update(Checklist checklist) async {
+    try {
+      final userDoc = _firestore.userDocument();
+      final checklistDto = ChecklistDto.fromDomain(checklist);
+
+      await userDoc.checklistCollection
+          .doc(checklistDto.id)
+          .update(checklistDto.toJson());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('permission-denied')) {
+        return left(const ChecklistFailure.insufficientPermissions());
+      } else if (e.message!.contains('not-found')) {
+        return left(const ChecklistFailure.unableToAccess());
+      } else {
+        return left(const ChecklistFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<ChecklistFailure, Unit>> update(Checklist checklist) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<Either<ChecklistFailure, Unit>> delete(Checklist checklist) async {
+    try {
+      final userDoc = _firestore.userDocument();
+      final checklistId = checklist.id.getOrCrash();
+
+      await userDoc.checklistCollection.doc(checklistId).delete();
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('permission-denied')) {
+        return left(const ChecklistFailure.insufficientPermissions());
+      } else if (e.message!.contains('not-found')) {
+        return left(const ChecklistFailure.unableToAccess());
+      } else {
+        return left(const ChecklistFailure.unexpected());
+      }
+    }
   }
 }
