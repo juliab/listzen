@@ -15,8 +15,10 @@ import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bl
     as _i10;
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart'
     as _i12;
-import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart'
+import 'package:success_check/application/checklists/checklist_form/checklist_form_bloc.dart'
     as _i13;
+import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart'
+    as _i14;
 import 'package:success_check/domain/auth/i_auth_facade.dart' as _i5;
 import 'package:success_check/domain/checklists/i_checklist_repository.dart'
     as _i7;
@@ -25,7 +27,7 @@ import 'package:success_check/infrastructure/auth/firebase_auth_facade.dart'
 import 'package:success_check/infrastructure/checklists/checklist_repository.dart'
     as _i8;
 
-import 'infrastructure/core/firebase_injectable_module.dart' as _i14;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i15;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -56,9 +58,11 @@ _i1.GetIt init(
   gh.factory<_i11.AuthBloc>(() => _i11.AuthBloc(gh<_i5.IAuthFacade>()));
   gh.factory<_i12.ChecklistActorBloc>(
       () => _i12.ChecklistActorBloc(gh<_i7.IChecklistRepository>()));
-  gh.factory<_i13.ChecklistWatcherBloc>(
-      () => _i13.ChecklistWatcherBloc(gh<_i7.IChecklistRepository>()));
+  gh.factory<_i13.ChecklistFormBloc>(
+      () => _i13.ChecklistFormBloc(gh<_i7.IChecklistRepository>()));
+  gh.factory<_i14.ChecklistWatcherBloc>(
+      () => _i14.ChecklistWatcherBloc(gh<_i7.IChecklistRepository>()));
   return getIt;
 }
 
-class _$FirebaseInjectableModule extends _i14.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i15.FirebaseInjectableModule {}
