@@ -28,3 +28,4 @@ web
 success_check.iml
 .flutter-plugins
 .flutter-plugins-dependencies
+.DS_Store

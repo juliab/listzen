@@ -14,11 +14,10 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) {},
           authenticated: (_) {
-            AutoRouter.of(context).push(const SignInPageRoute());
+            AutoRouter.of(context).push(const ChecklistsOverviewPageRoute());
           },
-          unauthenticated: (_) {
-            AutoRouter.of(context).push(const SignInPageRoute());
-          },
+          unauthenticated: (_) =>
+              AutoRouter.of(context).push(const SignInPageRoute()),
         );
       },
       child: const Scaffold(

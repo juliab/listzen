@@ -36,6 +36,9 @@ class AppWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: Colors.blue,
+          ),
           buttonTheme: ButtonThemeData(
             buttonColor: Colors.green[800],
             colorScheme: ColorScheme.fromSwatch().copyWith(

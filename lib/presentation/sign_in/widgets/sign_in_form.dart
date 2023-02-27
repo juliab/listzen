@@ -1,7 +1,11 @@
+import 'package:another_flushbar/flushbar.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_flushbar/flutter_flushbar.dart';
+import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+
+import 'package:success_check/presentation/routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -29,7 +33,9 @@ class SignInForm extends StatelessWidget {
               ),
             ).show(context);
           }, (_) {
-            // TODO navigate
+            AutoRouter.of(context).push(const ChecklistsOverviewPageRoute());
+            BlocProvider.of<AuthBloc>(context)
+                .add(const AuthEvent.authCheckRequested());
           }),
         );
       },
@@ -37,6 +43,7 @@ class SignInForm extends StatelessWidget {
         return Form(
           autovalidateMode: state.autovalidateMode,
           child: ListView(
+            padding: const EdgeInsets.all(8.0),
             children: [
               const Text(
                 '📝',
@@ -134,6 +141,12 @@ class SignInForm extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
+              if (state.isSubmitting) ...[
+                const SizedBox(
+                  height: 8,
+                ),
+                const LinearProgressIndicator(),
+              ]
             ],
           ),
         );

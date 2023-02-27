@@ -8,7 +8,7 @@ import 'package:success_check/domain/core/failures.dart';
 part 'checklist.freezed.dart';
 
 @freezed
-abstract class Checklist with _$Checklist {
+class Checklist with _$Checklist {
   const Checklist._();
 
   const factory Checklist({
