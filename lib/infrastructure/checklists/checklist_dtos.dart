@@ -46,7 +46,8 @@ abstract class ChecklistDto implements _$ChecklistDto {
     if (doc.data() == null) {
       throw const ServerError();
     }
-    return ChecklistDto.fromJson(doc.data()!).copyWith(id: doc.id);
+    final json = doc.data()?..putIfAbsent('id', () => doc.id);
+    return ChecklistDto.fromJson(json!);
   }
 }
 

@@ -498,26 +498,26 @@ mixin _$ChecklistWatcherState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadInSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadInSuccess value) loadSuccess,
+    required TResult Function(LoadFailure value) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadInSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(LoadInProgress value)? loadInProgress,
+    TResult? Function(LoadInSuccess value)? loadSuccess,
+    TResult? Function(LoadFailure value)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadInSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadInSuccess value)? loadSuccess,
+    TResult Function(LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -543,24 +543,23 @@ class _$ChecklistWatcherStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialCopyWith<$Res> {
+  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
+      __$$InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$Initial>
+    implements _$$InitialCopyWith<$Res> {
+  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$Initial implements Initial {
+  const _$Initial();
 
   @override
   String toString() {
@@ -570,7 +569,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$Initial);
   }
 
   @override
@@ -616,10 +615,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadInSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadInSuccess value) loadSuccess,
+    required TResult Function(LoadFailure value) loadFailure,
   }) {
     return initial(this);
   }
@@ -627,10 +626,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadInSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(LoadInProgress value)? loadInProgress,
+    TResult? Function(LoadInSuccess value)? loadSuccess,
+    TResult? Function(LoadFailure value)? loadFailure,
   }) {
     return initial?.call(this);
   }
@@ -638,10 +637,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadInSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadInSuccess value)? loadSuccess,
+    TResult Function(LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -651,30 +650,30 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ChecklistWatcherState {
-  const factory _Initial() = _$_Initial;
+abstract class Initial implements ChecklistWatcherState {
+  const factory Initial() = _$Initial;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressCopyWith<$Res> {
+  factory _$$LoadInProgressCopyWith(
+          _$LoadInProgress value, $Res Function(_$LoadInProgress) then) =
+      __$$LoadInProgressCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadInProgress>
+    implements _$$LoadInProgressCopyWith<$Res> {
+  __$$LoadInProgressCopyWithImpl(
+      _$LoadInProgress _value, $Res Function(_$LoadInProgress) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoadInProgress implements _LoadInProgress {
-  const _$_LoadInProgress();
+class _$LoadInProgress implements LoadInProgress {
+  const _$LoadInProgress();
 
   @override
   String toString() {
@@ -684,7 +683,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgress);
   }
 
   @override
@@ -730,10 +729,10 @@ class _$_LoadInProgress implements _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadInSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadInSuccess value) loadSuccess,
+    required TResult Function(LoadFailure value) loadFailure,
   }) {
     return loadInProgress(this);
   }
@@ -741,10 +740,10 @@ class _$_LoadInProgress implements _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadInSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(LoadInProgress value)? loadInProgress,
+    TResult? Function(LoadInSuccess value)? loadSuccess,
+    TResult? Function(LoadFailure value)? loadFailure,
   }) {
     return loadInProgress?.call(this);
   }
@@ -752,10 +751,10 @@ class _$_LoadInProgress implements _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadInSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadInSuccess value)? loadSuccess,
+    TResult Function(LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -765,25 +764,25 @@ class _$_LoadInProgress implements _LoadInProgress {
   }
 }
 
-abstract class _LoadInProgress implements ChecklistWatcherState {
-  const factory _LoadInProgress() = _$_LoadInProgress;
+abstract class LoadInProgress implements ChecklistWatcherState {
+  const factory LoadInProgress() = _$LoadInProgress;
 }
 
 /// @nodoc
-abstract class _$$_LoadInSuccessCopyWith<$Res> {
-  factory _$$_LoadInSuccessCopyWith(
-          _$_LoadInSuccess value, $Res Function(_$_LoadInSuccess) then) =
-      __$$_LoadInSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadInSuccessCopyWith<$Res> {
+  factory _$$LoadInSuccessCopyWith(
+          _$LoadInSuccess value, $Res Function(_$LoadInSuccess) then) =
+      __$$LoadInSuccessCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Checklist> checklists});
 }
 
 /// @nodoc
-class __$$_LoadInSuccessCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$_LoadInSuccess>
-    implements _$$_LoadInSuccessCopyWith<$Res> {
-  __$$_LoadInSuccessCopyWithImpl(
-      _$_LoadInSuccess _value, $Res Function(_$_LoadInSuccess) _then)
+class __$$LoadInSuccessCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadInSuccess>
+    implements _$$LoadInSuccessCopyWith<$Res> {
+  __$$LoadInSuccessCopyWithImpl(
+      _$LoadInSuccess _value, $Res Function(_$LoadInSuccess) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -791,7 +790,7 @@ class __$$_LoadInSuccessCopyWithImpl<$Res>
   $Res call({
     Object? checklists = null,
   }) {
-    return _then(_$_LoadInSuccess(
+    return _then(_$LoadInSuccess(
       null == checklists
           ? _value._checklists
           : checklists // ignore: cast_nullable_to_non_nullable
@@ -802,8 +801,8 @@ class __$$_LoadInSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadInSuccess implements _LoadInSuccess {
-  const _$_LoadInSuccess(final List<Checklist> checklists)
+class _$LoadInSuccess implements LoadInSuccess {
+  const _$LoadInSuccess(final List<Checklist> checklists)
       : _checklists = checklists;
 
   final List<Checklist> _checklists;
@@ -823,7 +822,7 @@ class _$_LoadInSuccess implements _LoadInSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadInSuccess &&
+            other is _$LoadInSuccess &&
             const DeepCollectionEquality()
                 .equals(other._checklists, _checklists));
   }
@@ -835,8 +834,8 @@ class _$_LoadInSuccess implements _LoadInSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadInSuccessCopyWith<_$_LoadInSuccess> get copyWith =>
-      __$$_LoadInSuccessCopyWithImpl<_$_LoadInSuccess>(this, _$identity);
+  _$$LoadInSuccessCopyWith<_$LoadInSuccess> get copyWith =>
+      __$$LoadInSuccessCopyWithImpl<_$LoadInSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -878,10 +877,10 @@ class _$_LoadInSuccess implements _LoadInSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadInSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadInSuccess value) loadSuccess,
+    required TResult Function(LoadFailure value) loadFailure,
   }) {
     return loadSuccess(this);
   }
@@ -889,10 +888,10 @@ class _$_LoadInSuccess implements _LoadInSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadInSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(LoadInProgress value)? loadInProgress,
+    TResult? Function(LoadInSuccess value)? loadSuccess,
+    TResult? Function(LoadFailure value)? loadFailure,
   }) {
     return loadSuccess?.call(this);
   }
@@ -900,10 +899,10 @@ class _$_LoadInSuccess implements _LoadInSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadInSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadInSuccess value)? loadSuccess,
+    TResult Function(LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -913,21 +912,21 @@ class _$_LoadInSuccess implements _LoadInSuccess {
   }
 }
 
-abstract class _LoadInSuccess implements ChecklistWatcherState {
-  const factory _LoadInSuccess(final List<Checklist> checklists) =
-      _$_LoadInSuccess;
+abstract class LoadInSuccess implements ChecklistWatcherState {
+  const factory LoadInSuccess(final List<Checklist> checklists) =
+      _$LoadInSuccess;
 
   List<Checklist> get checklists;
   @JsonKey(ignore: true)
-  _$$_LoadInSuccessCopyWith<_$_LoadInSuccess> get copyWith =>
+  _$$LoadInSuccessCopyWith<_$LoadInSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadFailureCopyWith<$Res> {
-  factory _$$_LoadFailureCopyWith(
-          _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
-      __$$_LoadFailureCopyWithImpl<$Res>;
+abstract class _$$LoadFailureCopyWith<$Res> {
+  factory _$$LoadFailureCopyWith(
+          _$LoadFailure value, $Res Function(_$LoadFailure) then) =
+      __$$LoadFailureCopyWithImpl<$Res>;
   @useResult
   $Res call({ChecklistFailure failure});
 
@@ -935,11 +934,11 @@ abstract class _$$_LoadFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$_LoadFailure>
-    implements _$$_LoadFailureCopyWith<$Res> {
-  __$$_LoadFailureCopyWithImpl(
-      _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
+class __$$LoadFailureCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadFailure>
+    implements _$$LoadFailureCopyWith<$Res> {
+  __$$LoadFailureCopyWithImpl(
+      _$LoadFailure _value, $Res Function(_$LoadFailure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -947,7 +946,7 @@ class __$$_LoadFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_LoadFailure(
+    return _then(_$LoadFailure(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -966,8 +965,8 @@ class __$$_LoadFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.failure);
+class _$LoadFailure implements LoadFailure {
+  const _$LoadFailure(this.failure);
 
   @override
   final ChecklistFailure failure;
@@ -981,7 +980,7 @@ class _$_LoadFailure implements _LoadFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadFailure &&
+            other is _$LoadFailure &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -991,8 +990,8 @@ class _$_LoadFailure implements _LoadFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
-      __$$_LoadFailureCopyWithImpl<_$_LoadFailure>(this, _$identity);
+  _$$LoadFailureCopyWith<_$LoadFailure> get copyWith =>
+      __$$LoadFailureCopyWithImpl<_$LoadFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1034,10 +1033,10 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadInSuccess value) loadSuccess,
-    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(Initial value) initial,
+    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadInSuccess value) loadSuccess,
+    required TResult Function(LoadFailure value) loadFailure,
   }) {
     return loadFailure(this);
   }
@@ -1045,10 +1044,10 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadInSuccess value)? loadSuccess,
-    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(Initial value)? initial,
+    TResult? Function(LoadInProgress value)? loadInProgress,
+    TResult? Function(LoadInSuccess value)? loadSuccess,
+    TResult? Function(LoadFailure value)? loadFailure,
   }) {
     return loadFailure?.call(this);
   }
@@ -1056,10 +1055,10 @@ class _$_LoadFailure implements _LoadFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadInSuccess value)? loadSuccess,
-    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(Initial value)? initial,
+    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadInSuccess value)? loadSuccess,
+    TResult Function(LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -1069,11 +1068,11 @@ class _$_LoadFailure implements _LoadFailure {
   }
 }
 
-abstract class _LoadFailure implements ChecklistWatcherState {
-  const factory _LoadFailure(final ChecklistFailure failure) = _$_LoadFailure;
+abstract class LoadFailure implements ChecklistWatcherState {
+  const factory LoadFailure(final ChecklistFailure failure) = _$LoadFailure;
 
   ChecklistFailure get failure;
   @JsonKey(ignore: true)
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
+  _$$LoadFailureCopyWith<_$LoadFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'package:success_check/domain/core/failures.dart';
 
@@ -7,7 +6,7 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
   int maxLength,
 ) {
-  if (input.length >= maxLength) {
+  if (input.length <= maxLength) {
     return right(input);
   } else {
     return left(

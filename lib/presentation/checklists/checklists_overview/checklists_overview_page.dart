@@ -6,6 +6,7 @@ import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
 
 import 'package:success_check/presentation/routes/router.gr.dart';
 
@@ -18,9 +19,7 @@ class ChecklistsOverviewPage extends StatelessWidget {
       providers: [
         BlocProvider<ChecklistWatcherBloc>(
           create: (context) => getIt<ChecklistWatcherBloc>()
-            ..add(
-              const ChecklistWatcherEvent.watchAllStarted(),
-            ),
+            ..add(const ChecklistWatcherEvent.watchAllStarted()),
         ),
         BlocProvider<ChecklistActorBloc>(
           create: (context) => getIt<ChecklistActorBloc>(),
@@ -79,6 +78,7 @@ class ChecklistsOverviewPage extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
+          body: const ChecklistsOverviewBody(),
         ),
       ),
     );

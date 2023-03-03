@@ -19,22 +19,23 @@ class ChecklistWatcherBloc
   final IChecklistRepository _checklistRepository;
 
   late StreamSubscription<Either<ChecklistFailure, List<Checklist>>>
-      _checklistStreamSubscription;
+      _allChecklistsStreamSubscription;
 
-  ChecklistWatcherBloc(this._checklistRepository) : super(const _Initial()) {
-    on<WatchAllStarted>((event, emit) async* {
+  late StreamSubscription<Either<ChecklistFailure, List<Checklist>>>
+      _uncompletedChecklistsStreamSubscription;
+
+  ChecklistWatcherBloc(this._checklistRepository) : super(const Initial()) {
+    on<WatchAllStarted>((event, emit) async {
       emit(const ChecklistWatcherState.loadInProgress());
-      await _checklistStreamSubscription?.cancel();
-      _checklistStreamSubscription = _checklistRepository.watchAll().listen(
+      _allChecklistsStreamSubscription = _checklistRepository.watchAll().listen(
             (failureOrChecklists) => add(
               ChecklistWatcherEvent.checklistsReceived(failureOrChecklists),
             ),
           );
     });
-    on<WatchUncompletedStarted>((event, emit) async* {
+    on<WatchUncompletedStarted>((event, emit) async {
       emit(const ChecklistWatcherState.loadInProgress());
-      await _checklistStreamSubscription?.cancel();
-      _checklistStreamSubscription =
+      _uncompletedChecklistsStreamSubscription =
           _checklistRepository.watchUncompleted().listen(
                 (failureOrChecklists) => add(
                   ChecklistWatcherEvent.checklistsReceived(failureOrChecklists),
@@ -53,7 +54,8 @@ class ChecklistWatcherBloc
 
   @override
   Future<void> close() async {
-    await _checklistStreamSubscription.cancel();
+    await _allChecklistsStreamSubscription.cancel();
+    await _uncompletedChecklistsStreamSubscription.cancel();
     return super.close();
   }
 }
