@@ -30,3 +30,5 @@ linter:
     depend_on_referenced_packages: false
     sort_unnamed_constructors_first: false
     void_checks: false
+    require_trailing_commas: false
+    sort_pub_dependencies: false

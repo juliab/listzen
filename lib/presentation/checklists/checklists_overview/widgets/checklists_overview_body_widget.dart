@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklist_card_widget.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/critical_failure_display_widget.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/error_checklist_card_widget.dart';
 
 class ChecklistsOverviewBody extends StatelessWidget {
   const ChecklistsOverviewBody({super.key});
@@ -19,27 +22,15 @@ class ChecklistsOverviewBody extends StatelessWidget {
             itemBuilder: (context, index) {
               final checklist = state.checklists[index];
               if (checklist.failureOption.isSome()) {
-                return Container(
-                  color: Colors.red,
-                  width: 100,
-                  height: 100,
-                );
+                return ErrorChecklistCard(checklist: checklist);
               } else {
-                return Container(
-                  color: Colors.green,
-                  width: 100,
-                  height: 100,
-                );
+                return ChecklistCard(checklist: checklist);
               }
             },
             itemCount: state.checklists.length,
           );
         },
-        loadFailure: (state) => Container(
-          color: Colors.yellow,
-          width: 200,
-          height: 200,
-        ),
+        loadFailure: (state) => CriticalFailureDisplay(failure: state.failure),
       );
     });
   }
