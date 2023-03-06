@@ -7,6 +7,7 @@ import 'package:success_check/application/checklists/checklist_actor/checklist_a
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
 import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch.dart';
 
 import 'package:success_check/presentation/routes/router.gr.dart';
 
@@ -67,9 +68,7 @@ class ChecklistsOverviewPage extends StatelessWidget {
               },
             ),
             actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.indeterminate_check_box))
+              UncompletedSwitch(),
             ],
           ),
           floatingActionButton: FloatingActionButton(
