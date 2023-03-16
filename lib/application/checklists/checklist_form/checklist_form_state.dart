@@ -4,7 +4,7 @@ part of 'checklist_form_bloc.dart';
 class ChecklistFormState with _$ChecklistFormState {
   const factory ChecklistFormState({
     required Checklist checklist,
-    required bool showErrorMessages,
+    required AutovalidateMode autovalidateMode,
     required bool isEditing,
     required bool isSaving,
     required Option<Either<ChecklistFailure, Unit>> saveFailureOrSuccessOption,
@@ -12,7 +12,7 @@ class ChecklistFormState with _$ChecklistFormState {
 
   factory ChecklistFormState.initial() => ChecklistFormState(
         checklist: Checklist.empty(),
-        showErrorMessages: false,
+        autovalidateMode: AutovalidateMode.disabled,
         isEditing: false,
         isSaving: false,
         saveFailureOrSuccessOption: none(),

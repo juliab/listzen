@@ -22,11 +22,11 @@ class ItemName extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  static const maxString = 300;
+  static const maxLength = 300;
 
   factory ItemName(String input) {
     return ItemName._(
-      validateMaxStringLength(input, maxString).flatMap(validateStringNotEmpty),
+      validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty),
     );
   }
 

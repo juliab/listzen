@@ -21,7 +21,7 @@ Map<String, dynamic> _$$_ChecklistDtoToJson(_$_ChecklistDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'items': instance.items,
+      'items': instance.items.map((e) => e.toJson()).toList(),
       'serverTimeStamp':
           const ServerTimeStampConverter().toJson(instance.serverTimeStamp),
     };

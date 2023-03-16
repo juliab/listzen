@@ -649,7 +649,7 @@ abstract class Saved implements ChecklistFormEvent {
 /// @nodoc
 mixin _$ChecklistFormState {
   Checklist get checklist => throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   Option<Either<ChecklistFailure, Unit>> get saveFailureOrSuccessOption =>
@@ -668,7 +668,7 @@ abstract class $ChecklistFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Checklist checklist,
-      bool showErrorMessages,
+      AutovalidateMode autovalidateMode,
       bool isEditing,
       bool isSaving,
       Option<Either<ChecklistFailure, Unit>> saveFailureOrSuccessOption});
@@ -690,7 +690,7 @@ class _$ChecklistFormStateCopyWithImpl<$Res, $Val extends ChecklistFormState>
   @override
   $Res call({
     Object? checklist = null,
-    Object? showErrorMessages = null,
+    Object? autovalidateMode = null,
     Object? isEditing = null,
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
@@ -700,10 +700,10 @@ class _$ChecklistFormStateCopyWithImpl<$Res, $Val extends ChecklistFormState>
           ? _value.checklist
           : checklist // ignore: cast_nullable_to_non_nullable
               as Checklist,
-      showErrorMessages: null == showErrorMessages
-          ? _value.showErrorMessages
-          : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+      autovalidateMode: null == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -738,7 +738,7 @@ abstract class _$$_ChecklistFormStateCopyWith<$Res>
   @useResult
   $Res call(
       {Checklist checklist,
-      bool showErrorMessages,
+      AutovalidateMode autovalidateMode,
       bool isEditing,
       bool isSaving,
       Option<Either<ChecklistFailure, Unit>> saveFailureOrSuccessOption});
@@ -759,7 +759,7 @@ class __$$_ChecklistFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? checklist = null,
-    Object? showErrorMessages = null,
+    Object? autovalidateMode = null,
     Object? isEditing = null,
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
@@ -769,10 +769,10 @@ class __$$_ChecklistFormStateCopyWithImpl<$Res>
           ? _value.checklist
           : checklist // ignore: cast_nullable_to_non_nullable
               as Checklist,
-      showErrorMessages: null == showErrorMessages
-          ? _value.showErrorMessages
-          : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+      autovalidateMode: null == autovalidateMode
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -794,7 +794,7 @@ class __$$_ChecklistFormStateCopyWithImpl<$Res>
 class _$_ChecklistFormState implements _ChecklistFormState {
   const _$_ChecklistFormState(
       {required this.checklist,
-      required this.showErrorMessages,
+      required this.autovalidateMode,
       required this.isEditing,
       required this.isSaving,
       required this.saveFailureOrSuccessOption});
@@ -802,7 +802,7 @@ class _$_ChecklistFormState implements _ChecklistFormState {
   @override
   final Checklist checklist;
   @override
-  final bool showErrorMessages;
+  final AutovalidateMode autovalidateMode;
   @override
   final bool isEditing;
   @override
@@ -812,7 +812,7 @@ class _$_ChecklistFormState implements _ChecklistFormState {
 
   @override
   String toString() {
-    return 'ChecklistFormState(checklist: $checklist, showErrorMessages: $showErrorMessages, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'ChecklistFormState(checklist: $checklist, autovalidateMode: $autovalidateMode, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -822,8 +822,8 @@ class _$_ChecklistFormState implements _ChecklistFormState {
             other is _$_ChecklistFormState &&
             (identical(other.checklist, checklist) ||
                 other.checklist == checklist) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                other.autovalidateMode == autovalidateMode) &&
             (identical(other.isEditing, isEditing) ||
                 other.isEditing == isEditing) &&
             (identical(other.isSaving, isSaving) ||
@@ -835,7 +835,7 @@ class _$_ChecklistFormState implements _ChecklistFormState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, checklist, showErrorMessages,
+  int get hashCode => Object.hash(runtimeType, checklist, autovalidateMode,
       isEditing, isSaving, saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -849,7 +849,7 @@ class _$_ChecklistFormState implements _ChecklistFormState {
 abstract class _ChecklistFormState implements ChecklistFormState {
   const factory _ChecklistFormState(
       {required final Checklist checklist,
-      required final bool showErrorMessages,
+      required final AutovalidateMode autovalidateMode,
       required final bool isEditing,
       required final bool isSaving,
       required final Option<Either<ChecklistFailure, Unit>>
@@ -858,7 +858,7 @@ abstract class _ChecklistFormState implements ChecklistFormState {
   @override
   Checklist get checklist;
   @override
-  bool get showErrorMessages;
+  AutovalidateMode get autovalidateMode;
   @override
   bool get isEditing;
   @override

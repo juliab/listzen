@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
@@ -49,8 +50,6 @@ class ChecklistFormBloc extends Bloc<ChecklistFormEvent, ChecklistFormState> {
       );
     });
     on<Saved>((event, emit) async {
-      Either<ChecklistFailure, Unit> failureOrSuccess = right(unit);
-
       emit(
         state.copyWith(
           isSaving: true,
@@ -58,17 +57,23 @@ class ChecklistFormBloc extends Bloc<ChecklistFormEvent, ChecklistFormState> {
         ),
       );
 
-      if (state.checklist.failureOption.isNone()) {
-        failureOrSuccess = state.isEditing
-            ? await _repository.update(state.checklist)
-            : await _repository.create(state.checklist);
+      if (state.checklist.failureOption.isSome()) {
+        emit(state.copyWith(
+          isSaving: false,
+          autovalidateMode: AutovalidateMode.always,
+        ));
       }
 
-      emit(state.copyWith(
-        isSaving: false,
-        showErrorMessages: true,
-        saveFailureOrSuccessOption: optionOf(failureOrSuccess),
-      ));
+      if (state.checklist.failureOption.isNone()) {
+        final failureOrSuccess = state.isEditing
+            ? await _repository.update(state.checklist)
+            : await _repository.create(state.checklist);
+
+        emit(state.copyWith(
+          isSaving: false,
+          saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+        ));
+      }
     });
   }
 }

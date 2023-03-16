@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
@@ -5,6 +7,8 @@ import 'package:success_check/application/checklists/checklist_actor/checklist_a
 import 'package:success_check/domain/checklists/checklist.dart';
 
 import 'package:success_check/domain/checklists/item.dart';
+
+import 'package:success_check/presentation/routes/router.gr.dart';
 
 class ChecklistCard extends StatelessWidget {
   final Checklist checklist;
@@ -19,7 +23,9 @@ class ChecklistCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          // TODO implement navigation
+          AutoRouter.of(context).push(
+            ChecklistFormPageRoute(editedChecklistOption: Some(checklist)),
+          );
         },
         onLongPress: () {
           final checklistActorBloc =
