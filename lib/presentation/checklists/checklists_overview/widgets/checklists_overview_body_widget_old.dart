@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklist_card_widget.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/critical_failure_display_widget.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/error_checklist_card_widget.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklist_card_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/critical_failure_display_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/error_checklist_card_widget_old.dart';
 
 class ChecklistsOverviewBody extends StatelessWidget {
   const ChecklistsOverviewBody({super.key});

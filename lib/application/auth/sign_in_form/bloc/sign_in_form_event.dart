@@ -11,4 +11,5 @@ class SignInFormEvent with _$SignInFormEvent {
       SignInWithEmailAndPasswordPressed;
   const factory SignInFormEvent.signInWithGooglePressed() =
       SignInWithGooglePressed;
+  const factory SignInFormEvent.resetPasswordPressed() = ResetPasswordPressed;
 }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:success_check/application/checklists/checklist_form/checklist_form_bloc.dart';
 
-import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes.dart';
+import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes_old.dart';
 
 class AddItemTile extends StatelessWidget {
   const AddItemTile({super.key});

@@ -5,9 +5,9 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:success_check/application/checklists/checklist_form/checklist_form_bloc.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/presentation/checklists/checklist_form/misc/build_context_x.dart';
+import 'package:success_check/presentation/checklists/checklist_form/misc/build_context_x_old.dart';
 
-import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes.dart';
+import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes_old.dart';
 
 class ItemsList extends StatelessWidget {
   const ItemsList({super.key});

@@ -8,10 +8,10 @@ import 'package:success_check/application/checklists/checklist_form/checklist_fo
 
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes.dart';
-import 'package:success_check/presentation/checklists/checklist_form/widgets/add_item_tile_widget.dart';
-import 'package:success_check/presentation/checklists/checklist_form/widgets/items_list_widget.dart';
-import 'package:success_check/presentation/checklists/checklist_form/widgets/name_field_widget.dart';
+import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes_old.dart';
+import 'package:success_check/presentation/checklists/checklist_form/widgets/add_item_tile_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklist_form/widgets/items_list_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklist_form/widgets/name_field_widget_old.dart';
 import 'package:success_check/presentation/routes/router.gr.dart';
 
 class ChecklistFormPage extends StatelessWidget {

@@ -62,7 +62,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-        return left(const AuthFailure.emailAlreadyInUse());
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
         return left(const AuthFailure.serverError());
       }
@@ -88,6 +88,13 @@ class FirebaseAuthFacade implements IAuthFacade {
     } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
     }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> resetPassword(
+      {required EmailAddress emailAddress}) async {
+    // TODO: implement resetPassword
+    throw UnimplementedError();
   }
 
   @override

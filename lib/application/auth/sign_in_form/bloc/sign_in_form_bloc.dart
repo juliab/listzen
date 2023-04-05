@@ -111,5 +111,14 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         ),
       );
     });
+
+    on<ResetPasswordPressed>((event, emit) {
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+    });
   }
 }

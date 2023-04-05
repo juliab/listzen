@@ -7,9 +7,8 @@ import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/checklists/checklist_form/checklist_form_page.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch_old.dart';
 
 import 'package:success_check/presentation/routes/router.gr.dart';
 
