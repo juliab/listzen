@@ -91,10 +91,21 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> resetPassword(
+  Future<Either<AuthFailure, Unit>> getResetPasswordEmail(
       {required EmailAddress emailAddress}) async {
-    // TODO: implement resetPassword
-    throw UnimplementedError();
+    final emailAddressStr = emailAddress.getOrCrash();
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(
+        email: emailAddressStr,
+      );
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return left(const AuthFailure.userNotFound());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    }
   }
 
   @override

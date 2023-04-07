@@ -9,7 +9,7 @@ Flushbar flushbar(String message) {
         style: const TextStyle(color: Colors.white),
       ),
     ),
-    duration: const Duration(seconds: 1),
+    duration: const Duration(milliseconds: 1500),
     padding: const EdgeInsets.only(
       top: 10,
       bottom: 40,

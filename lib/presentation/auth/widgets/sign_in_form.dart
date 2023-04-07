@@ -9,8 +9,7 @@ import 'package:success_check/presentation/auth/widgets/error_flushbar.dart';
 import 'package:success_check/presentation/auth/widgets/password_field.dart';
 import 'package:success_check/presentation/auth/widgets/sign_in_with_google_button.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
-
-import 'package:success_check/presentation/routes/router.gr.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -22,16 +21,16 @@ class SignInForm extends StatelessWidget {
         state.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
-            final errorMessage = failure.map(
-              cancelledByUser: (_) => 'Cancelled',
-              serverError: (_) => 'Server error',
-              emailAlreadyInUse: (_) => 'Email already in use',
+            final errorMessage = failure.maybeMap(
+              cancelledByUser: (_) => 'Sign in cancelled',
+              serverError: (_) => 'Server error. Please try again later.',
               invalidEmailAndPasswordCombination: (_) =>
                   'Invalid email and password combination',
+              orElse: () => 'Authentication error. Please contact support.',
             );
             flushbar(errorMessage).show(context);
           }, (_) {
-            AutoRouter.of(context).push(const ChecklistsOverviewPageRoute());
+            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
             BlocProvider.of<AuthBloc>(context)
                 .add(const AuthEvent.authCheckRequested());
           }),
@@ -79,7 +78,7 @@ class SignInForm extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     AutoRouter.of(context).push(
-                      const SignUpPageRoute(),
+                      const SignUpRoute(),
                     );
                   },
                   child: Row(

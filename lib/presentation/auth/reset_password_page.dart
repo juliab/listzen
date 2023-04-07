@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:success_check/injection.dart';
 import 'package:success_check/presentation/auth/widgets/reset_password_form.dart';
 import 'package:success_check/presentation/auth/widgets/top_image.dart';
 
+@RoutePage()
 class ResetPasswordPage extends StatelessWidget {
   const ResetPasswordPage({super.key});
 

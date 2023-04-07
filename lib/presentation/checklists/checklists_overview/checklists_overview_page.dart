@@ -7,11 +7,11 @@ import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
 import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch_old.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
-import 'package:success_check/presentation/routes/router.gr.dart';
-
+@RoutePage()
 class ChecklistsOverviewPage extends StatelessWidget {
   const ChecklistsOverviewPage({super.key});
 
@@ -33,7 +33,7 @@ class ChecklistsOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) =>
-                    AutoRouter.of(context).push(const SignInPageRoute()),
+                    AutoRouter.of(context).push(const SignInRoute()),
                 orElse: () {},
               );
             },
@@ -59,10 +59,12 @@ class ChecklistsOverviewPage extends StatelessWidget {
           ),
         ],
         child: Scaffold(
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
           appBar: AppBar(
-            title: const Text('Checklists'),
+            title: const Text('Your checklists'),
             leading: IconButton(
-              icon: const Icon(Icons.exit_to_app),
+              icon: const Icon(Icons.logout),
               onPressed: () {
                 BlocProvider.of<AuthBloc>(context)
                     .add(const AuthEvent.signedOut());
@@ -72,13 +74,14 @@ class ChecklistsOverviewPage extends StatelessWidget {
               UncompletedSwitch(),
             ],
           ),
-          floatingActionButton: FloatingActionButton(
+          floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
               AutoRouter.of(context).push(
-                ChecklistFormPageRoute(editedChecklistOption: none()),
+                ChecklistFormRoute(editedChecklistOption: none()),
               );
             },
-            child: const Icon(Icons.add),
+            icon: const Icon(Icons.add),
+            label: const Text('Add checklist'),
           ),
           body: const ChecklistsOverviewBody(),
         ),

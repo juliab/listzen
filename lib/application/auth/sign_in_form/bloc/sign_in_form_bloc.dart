@@ -112,11 +112,29 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       );
     });
 
-    on<ResetPasswordPressed>((event, emit) {
+    on<ResetPasswordPressed>((event, emit) async {
+      Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
+
+      if (state.emailAddress.isValid()) {
+        emit(
+          state.copyWith(
+            isSubmitting: true,
+            authFailureOrSuccessOption: none(),
+          ),
+        );
+
+        failureOrSuccess = some(
+          await _authFacade.getResetPasswordEmail(
+            emailAddress: state.emailAddress,
+          ),
+        );
+      }
+
       emit(
         state.copyWith(
-          isSubmitting: true,
-          authFailureOrSuccessOption: none(),
+          isSubmitting: false,
+          autovalidateMode: AutovalidateMode.always,
+          authFailureOrSuccessOption: failureOrSuccess,
         ),
       );
     });

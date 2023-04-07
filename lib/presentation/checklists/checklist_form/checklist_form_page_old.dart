@@ -12,8 +12,9 @@ import 'package:success_check/presentation/checklists/checklist_form/misc/item_p
 import 'package:success_check/presentation/checklists/checklist_form/widgets/add_item_tile_widget_old.dart';
 import 'package:success_check/presentation/checklists/checklist_form/widgets/items_list_widget_old.dart';
 import 'package:success_check/presentation/checklists/checklist_form/widgets/name_field_widget_old.dart';
-import 'package:success_check/presentation/routes/router.gr.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
+@RoutePage()
 class ChecklistFormPage extends StatelessWidget {
   final Option<Checklist> editedChecklistOption;
 
@@ -44,7 +45,7 @@ class ChecklistFormPage extends StatelessWidget {
                 },
                 (_) {
                   AutoRouter.of(context)
-                      .popUntilRouteWithName(ChecklistsOverviewPageRoute.name);
+                      .popUntilRouteWithName(ChecklistsOverviewRoute.name);
                 },
               );
             },

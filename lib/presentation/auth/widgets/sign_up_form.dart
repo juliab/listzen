@@ -8,8 +8,9 @@ import 'package:success_check/presentation/auth/widgets/email_field.dart';
 import 'package:success_check/presentation/auth/widgets/error_flushbar.dart';
 import 'package:success_check/presentation/auth/widgets/password_field.dart';
 import 'package:success_check/presentation/auth/widgets/sign_in_with_google_button.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/checklists_overview_page.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
-import 'package:success_check/presentation/routes/router.gr.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
@@ -21,16 +22,14 @@ class SignUpForm extends StatelessWidget {
         state.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
-            final errorMessage = failure.map(
-              cancelledByUser: (_) => 'Cancelled',
-              serverError: (_) => 'Server error',
+            final errorMessage = failure.maybeMap(
+              serverError: (_) => 'Server error. Please try again later.',
               emailAlreadyInUse: (_) => 'Email already in use',
-              invalidEmailAndPasswordCombination: (_) =>
-                  'Invalid email and password combination',
+              orElse: () => 'Authentication error. Please contact support.',
             );
             flushbar(errorMessage).show(context);
           }, (_) {
-            AutoRouter.of(context).push(const ChecklistsOverviewPageRoute());
+            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
             BlocProvider.of<AuthBloc>(context)
                 .add(const AuthEvent.authCheckRequested());
           }),

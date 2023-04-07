@@ -2,8 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/auth/auth_bloc.dart';
-import 'package:success_check/presentation/routes/router.gr.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
+@RoutePage()
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
@@ -14,10 +15,10 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) {},
           authenticated: (_) {
-            AutoRouter.of(context).push(const ChecklistsOverviewPageRoute());
+            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
           },
           unauthenticated: (_) =>
-              AutoRouter.of(context).push(const SignInPageRoute()),
+              AutoRouter.of(context).push(const SignInRoute()),
         );
       },
       child: const Scaffold(

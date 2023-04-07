@@ -3,12 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
-
 import 'package:success_check/domain/checklists/checklist.dart';
-
 import 'package:success_check/domain/checklists/item.dart';
-
-import 'package:success_check/presentation/routes/router.gr.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
 class ChecklistCard extends StatelessWidget {
   final Checklist checklist;
@@ -24,7 +21,7 @@ class ChecklistCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           AutoRouter.of(context).push(
-            ChecklistFormPageRoute(editedChecklistOption: Some(checklist)),
+            ChecklistFormRoute(editedChecklistOption: Some(checklist)),
           );
         },
         onLongPress: () {
@@ -33,27 +30,30 @@ class ChecklistCard extends StatelessWidget {
           _showDeletionDialog(context, checklistActorBloc);
         },
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Text(
-                checklist.name.getOrCrash(),
-                style: const TextStyle(fontSize: 18),
+              Center(
+                child: Text(
+                  checklist.name.getOrCrash(),
+                  style: const TextStyle(fontSize: 18),
+                ),
               ),
-              if (checklist.items.isNotEmpty) ...[
-                const SizedBox(
-                  height: 4,
-                ),
-                Column(
-                  children: [
-                    ...checklist.items.map(
-                      (item) => ItemDisplay(
-                        item: item,
-                      ),
-                    ),
-                  ],
-                ),
-              ]
+              const SizedBox(height: 5),
+              // if (checklist.items.isNotEmpty) ...[
+              //   const SizedBox(
+              //     height: 4,
+              //   ),
+              //   Column(
+              //     children: [
+              //       ...checklist.items.map(
+              //         (item) => ItemDisplay(
+              //           item: item,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ]
             ],
           ),
         ),

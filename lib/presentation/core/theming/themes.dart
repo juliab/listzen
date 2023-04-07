@@ -23,13 +23,36 @@ ThemeData appTheme = ThemeData(
     bodyMedium: TextStyle(
       fontWeight: FontWeight.bold,
     ),
+    headlineSmall: TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+      letterSpacing: -1,
+    ),
+    titleMedium: TextStyle(
+      fontWeight: FontWeight.bold,
+    ),
+    titleLarge: TextStyle(
+      fontWeight: FontWeight.bold,
+    ),
+    labelLarge: TextStyle(
+      fontWeight: FontWeight.bold,
+      letterSpacing: -1,
+    ),
   ),
   scaffoldBackgroundColor: backgroundColor,
+  appBarTheme: const AppBarTheme(color: Color(0xFF8D81FB)),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
     focusedBorder: inputBorder(color: mainColor, width: 2.5),
     errorBorder: inputBorder(color: errorColor),
     focusedErrorBorder: inputBorder(color: errorColor, width: 2.5),
+  ),
+  cardTheme: CardTheme(
+    color: const Color(0xFFB3CDFF),
+    shape: RoundedRectangleBorder(
+      borderRadius: borderRadius,
+    ),
+    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ElevatedButton.styleFrom(
@@ -37,6 +60,12 @@ ThemeData appTheme = ThemeData(
         borderRadius: borderRadius,
       ),
       minimumSize: const Size.fromHeight(50),
+    ),
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: mainColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: borderRadius,
     ),
   ),
 );
@@ -56,7 +85,7 @@ InputBorder inputBorder({required Color color, double width = 1.5}) {
 }
 
 TextStyle buttonTextStyle = const TextStyle(
-  fontSize: 15,
+  fontSize: 16,
   fontWeight: FontWeight.bold,
 );
 

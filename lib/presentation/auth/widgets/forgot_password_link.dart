@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
-import 'package:success_check/presentation/routes/router.gr.dart';
+import 'package:success_check/presentation/routes/app_router.dart';
 
 class ForgotPasswordLink extends StatelessWidget {
   const ForgotPasswordLink({super.key});
@@ -10,7 +10,7 @@ class ForgotPasswordLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AutoRouter.of(context).push(const ResetPasswordPageRoute());
+        AutoRouter.of(context).push(const ResetPasswordRoute());
       },
       child: ShaderMask(
         blendMode: BlendMode.srcIn,

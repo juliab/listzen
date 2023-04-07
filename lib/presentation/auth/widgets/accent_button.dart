@@ -24,9 +24,7 @@ class AccentButton extends StatelessWidget {
       ),
       child: OutlinedButton(
         onPressed: () {
-          context.read<SignInFormBloc>().add(
-                event,
-              );
+          context.read<SignInFormBloc>().add(event);
         },
         child: Text(
           text,
