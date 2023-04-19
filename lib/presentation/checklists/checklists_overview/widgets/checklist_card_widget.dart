@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/domain/checklists/item.dart';
+import 'package:success_check/presentation/core/theming/themes.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 class ChecklistCard extends StatelessWidget {
@@ -17,76 +19,64 @@ class ChecklistCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          AutoRouter.of(context).push(
-            ChecklistFormRoute(editedChecklistOption: Some(checklist)),
-          );
-        },
-        onLongPress: () {
-          final checklistActorBloc =
-              BlocProvider.of<ChecklistActorBloc>(context);
-          _showDeletionDialog(context, checklistActorBloc);
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Center(
-                child: Text(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Slidable(
+        groupTag: '0',
+        endActionPane: ActionPane(
+          motion: const ScrollMotion(),
+          children: [
+            SlidableAction(
+              onPressed: (context) {
+                AutoRouter.of(context).push(
+                  EditChecklistRoute(editedChecklistOption: Some(checklist)),
+                );
+              },
+              icon: Icons.edit,
+              label: 'Edit',
+              backgroundColor: Colors.green,
+              foregroundColor: Colors.white,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            ),
+            SlidableAction(
+              onPressed: (context) {
+                BlocProvider.of<ChecklistActorBloc>(context)
+                    .add(ChecklistActorEvent.deleted(checklist));
+              },
+              icon: Icons.delete,
+              label: 'Delete',
+              backgroundColor: const Color(0xFFFE4A49),
+              foregroundColor: Colors.white,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            ),
+          ],
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: cardGradient,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: InkWell(
+            onTap: () {
+              AutoRouter.of(context).push(
+                EditChecklistRoute(editedChecklistOption: Some(checklist)),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: ListTile(
+                title: Text(
                   checklist.name.getOrCrash(),
-                  style: const TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 16),
                 ),
+                trailing: Text(
+                    '${checklist.getNumberOfUncompletedItems()} / ${checklist.items.length}'),
               ),
-              const SizedBox(height: 5),
-              // if (checklist.items.isNotEmpty) ...[
-              //   const SizedBox(
-              //     height: 4,
-              //   ),
-              //   Column(
-              //     children: [
-              //       ...checklist.items.map(
-              //         (item) => ItemDisplay(
-              //           item: item,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ]
-            ],
+            ),
           ),
         ),
       ),
     );
-  }
-
-  void _showDeletionDialog(BuildContext context, ChecklistActorBloc bloc) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Selected checklist:'),
-            content: Text(
-              checklist.name.getOrCrash(),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('CANCEL'),
-              ),
-              TextButton(
-                onPressed: () {
-                  bloc.add(ChecklistActorEvent.deleted(checklist));
-                  Navigator.pop(context);
-                },
-                child: const Text('DELETE'),
-              ),
-            ],
-          );
-        });
   }
 }
 

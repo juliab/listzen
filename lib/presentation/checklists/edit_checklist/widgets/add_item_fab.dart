@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:success_check/application/checklists/checklist_form/checklist_form_bloc.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/misc/item_presentation_classes.dart';
 
-import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes_old.dart';
-
-class AddItemTile extends StatelessWidget {
-  const AddItemTile({super.key});
+class AddItemFloatingActionButton extends StatelessWidget {
+  const AddItemFloatingActionButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +19,10 @@ class AddItemTile extends StatelessWidget {
               .toList();
         },
         builder: (context, state) {
-          return ListTile(
-            title: const Text('Add an item'),
-            leading: const Padding(
-              padding: EdgeInsets.all(12),
-              child: Icon(Icons.add),
-            ),
-            onTap: () {
+          return FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed: () {
+              FocusManager.instance.primaryFocus?.unfocus();
               Provider.of<FormItems>(context, listen: false)
                   .value
                   .add(ItemPrimitive.empty());

@@ -19,7 +19,7 @@ class AccentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: gradient,
+        gradient: buttonGradient,
         borderRadius: borderRadius,
       ),
       child: OutlinedButton(

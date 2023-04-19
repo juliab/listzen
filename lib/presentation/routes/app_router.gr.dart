@@ -48,20 +48,20 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SignUpPage(),
       );
     },
-    ChecklistFormRoute.name: (routeData) {
-      final args = routeData.argsAs<ChecklistFormRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ChecklistFormPage(
-          key: args.key,
-          editedChecklistOption: args.editedChecklistOption,
-        ),
-      );
-    },
     ChecklistsOverviewRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ChecklistsOverviewPage(),
+      );
+    },
+    EditChecklistRoute.name: (routeData) {
+      final args = routeData.argsAs<EditChecklistRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditChecklistPage(
+          key: args.key,
+          editedChecklistOption: args.editedChecklistOption,
+        ),
       );
     },
   };
@@ -163,44 +163,6 @@ class SignUpRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ChecklistFormPage]
-class ChecklistFormRoute extends PageRouteInfo<ChecklistFormRouteArgs> {
-  ChecklistFormRoute({
-    Key? key,
-    required Option<Checklist> editedChecklistOption,
-    List<PageRouteInfo>? children,
-  }) : super(
-          ChecklistFormRoute.name,
-          args: ChecklistFormRouteArgs(
-            key: key,
-            editedChecklistOption: editedChecklistOption,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'ChecklistFormRoute';
-
-  static const PageInfo<ChecklistFormRouteArgs> page =
-      PageInfo<ChecklistFormRouteArgs>(name);
-}
-
-class ChecklistFormRouteArgs {
-  const ChecklistFormRouteArgs({
-    this.key,
-    required this.editedChecklistOption,
-  });
-
-  final Key? key;
-
-  final Option<Checklist> editedChecklistOption;
-
-  @override
-  String toString() {
-    return 'ChecklistFormRouteArgs{key: $key, editedChecklistOption: $editedChecklistOption}';
-  }
-}
-
-/// generated route for
 /// [ChecklistsOverviewPage]
 class ChecklistsOverviewRoute extends PageRouteInfo<void> {
   const ChecklistsOverviewRoute({List<PageRouteInfo>? children})
@@ -212,4 +174,42 @@ class ChecklistsOverviewRoute extends PageRouteInfo<void> {
   static const String name = 'ChecklistsOverviewRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EditChecklistPage]
+class EditChecklistRoute extends PageRouteInfo<EditChecklistRouteArgs> {
+  EditChecklistRoute({
+    Key? key,
+    required Option<Checklist> editedChecklistOption,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditChecklistRoute.name,
+          args: EditChecklistRouteArgs(
+            key: key,
+            editedChecklistOption: editedChecklistOption,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditChecklistRoute';
+
+  static const PageInfo<EditChecklistRouteArgs> page =
+      PageInfo<EditChecklistRouteArgs>(name);
+}
+
+class EditChecklistRouteArgs {
+  const EditChecklistRouteArgs({
+    this.key,
+    required this.editedChecklistOption,
+  });
+
+  final Key? key;
+
+  final Option<Checklist> editedChecklistOption;
+
+  @override
+  String toString() {
+    return 'EditChecklistRouteArgs{key: $key, editedChecklistOption: $editedChecklistOption}';
+  }
 }

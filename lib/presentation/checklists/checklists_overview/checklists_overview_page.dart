@@ -77,13 +77,16 @@ class ChecklistsOverviewPage extends StatelessWidget {
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
               AutoRouter.of(context).push(
-                ChecklistFormRoute(editedChecklistOption: none()),
+                EditChecklistRoute(editedChecklistOption: none()),
               );
             },
             icon: const Icon(Icons.add),
             label: const Text('Add checklist'),
           ),
-          body: const ChecklistsOverviewBody(),
+          body: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: ChecklistsOverviewBody(),
+          ),
         ),
       ),
     );

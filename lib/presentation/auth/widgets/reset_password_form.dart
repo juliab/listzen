@@ -6,7 +6,6 @@ import 'package:success_check/presentation/auth/widgets/accent_button.dart';
 import 'package:success_check/presentation/auth/widgets/back_to_login_link.dart';
 import 'package:success_check/presentation/auth/widgets/email_field.dart';
 import 'package:success_check/presentation/auth/widgets/error_flushbar.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 class ResetPasswordForm extends StatelessWidget {
@@ -57,18 +56,6 @@ class ResetPasswordForm extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class Line extends StatelessWidget {
-  const Line({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Divider(
-      thickness: dividerThickness,
-      color: borderColor,
     );
   }
 }

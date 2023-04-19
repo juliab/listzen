@@ -14,7 +14,7 @@ class ForgotPasswordLink extends StatelessWidget {
       },
       child: ShaderMask(
         blendMode: BlendMode.srcIn,
-        shaderCallback: (bounds) => gradient.createShader(
+        shaderCallback: (bounds) => buttonGradient.createShader(
           Rect.fromLTWH(0, 0, bounds.width, bounds.height),
         ),
         child: const Text(

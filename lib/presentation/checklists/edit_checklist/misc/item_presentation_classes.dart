@@ -5,7 +5,7 @@ import 'package:success_check/domain/auth/value_objects.dart';
 import 'package:success_check/domain/checklists/item.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
 
-part 'item_presentation_classes_old.freezed.dart';
+part 'item_presentation_classes.freezed.dart';
 
 class FormItems extends ValueNotifier<List<ItemPrimitive>> {
   FormItems() : super(<ItemPrimitive>[]);

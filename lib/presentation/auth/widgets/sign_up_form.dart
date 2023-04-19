@@ -56,14 +56,14 @@ class SignUpForm extends StatelessWidget {
                 const SizedBox(height: 20),
                 Row(
                   children: [
-                    const Expanded(child: Line()),
+                    const Expanded(child: Divider()),
                     const SizedBox(width: 10),
                     Text(
                       'or',
                       style: TextStyle(color: borderColor),
                     ),
                     const SizedBox(width: 10),
-                    const Expanded(child: Line()),
+                    const Expanded(child: Divider()),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -103,18 +103,6 @@ class SignUpForm extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class Line extends StatelessWidget {
-  const Line({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Divider(
-      thickness: dividerThickness,
-      color: borderColor,
     );
   }
 }

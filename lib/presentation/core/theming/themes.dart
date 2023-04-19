@@ -8,14 +8,55 @@ Color greyColor = const Color(0xFF9398A4);
 Color borderColor = const Color(0xFFDBDBDB);
 Color errorColor = Colors.red;
 
-Gradient gradient = const LinearGradient(colors: [
+BorderRadius cardBorderRadius = BorderRadius.circular(20);
+double cardHeight = 70;
+
+InputBorder cardInputBorder = OutlineInputBorder(
+  borderSide: BorderSide.none,
+  borderRadius: cardBorderRadius,
+);
+
+InputDecoration cardInputDecoration = InputDecoration(
+  contentPadding: const EdgeInsets.symmetric(
+    horizontal: 15,
+    vertical: 25,
+  ),
+  enabledBorder: cardInputBorder,
+  focusedBorder: cardInputBorder,
+  errorBorder: cardInputBorder,
+  focusedErrorBorder: cardInputBorder,
+  counterText: '',
+  hintText: 'Enter checklist name',
+  hintStyle: const TextStyle(
+    color: Colors.grey,
+    fontWeight: FontWeight.normal,
+  ),
+);
+
+double checkboxSize = 30;
+
+BoxDecoration checkboxDecoration = BoxDecoration(
+  borderRadius: BorderRadius.circular(4),
+  border: Border.all(
+    color: greyColor,
+    width: 2,
+  ),
+);
+
+Gradient buttonGradient = const LinearGradient(colors: [
   Color(0xFF5CB0FA),
   Color(0xFF6069FA),
   Color(0xFF8D81FB),
 ]);
 
+Gradient cardGradient = const LinearGradient(colors: [
+  Color(0xFF17805D),
+  Color(0xFF02797A),
+  Color(0xFF218F85),
+  Color(0xFF32A293),
+]);
+
 BorderRadius borderRadius = BorderRadius.circular(12);
-double dividerThickness = 1.2;
 
 ThemeData appTheme = ThemeData(
   fontFamily: 'Montserrat',
@@ -40,7 +81,9 @@ ThemeData appTheme = ThemeData(
     ),
   ),
   scaffoldBackgroundColor: backgroundColor,
-  appBarTheme: const AppBarTheme(color: Color(0xFF8D81FB)),
+  appBarTheme: const AppBarTheme(
+    color: Color(0xFFdb8e0e),
+  ),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
     focusedBorder: inputBorder(color: mainColor, width: 2.5),
@@ -48,7 +91,6 @@ ThemeData appTheme = ThemeData(
     focusedErrorBorder: inputBorder(color: errorColor, width: 2.5),
   ),
   cardTheme: CardTheme(
-    color: const Color(0xFFB3CDFF),
     shape: RoundedRectangleBorder(
       borderRadius: borderRadius,
     ),
@@ -63,10 +105,19 @@ ThemeData appTheme = ThemeData(
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor: mainColor,
+    backgroundColor: const Color(0xFFdb8e0e),
     shape: RoundedRectangleBorder(
-      borderRadius: borderRadius,
+      borderRadius: BorderRadius.circular(20),
     ),
+  ),
+  checkboxTheme: CheckboxThemeData(
+    side: BorderSide.none,
+    fillColor: MaterialStateProperty.all(Colors.transparent),
+    checkColor: MaterialStateProperty.all(Colors.green),
+  ),
+  dividerTheme: DividerThemeData(
+    color: borderColor,
+    thickness: 1.2,
   ),
 );
 
@@ -83,6 +134,15 @@ InputBorder inputBorder({required Color color, double width = 1.5}) {
     borderRadius: borderRadius,
   );
 }
+
+InputDecoration noBordersInputDecoration = const InputDecoration(
+  counterText: '',
+  border: InputBorder.none,
+  enabledBorder: InputBorder.none,
+  focusedBorder: InputBorder.none,
+  errorBorder: InputBorder.none,
+  focusedErrorBorder: InputBorder.none,
+);
 
 TextStyle buttonTextStyle = const TextStyle(
   fontSize: 16,

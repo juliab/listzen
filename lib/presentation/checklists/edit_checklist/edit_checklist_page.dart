@@ -5,24 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:success_check/application/checklists/checklist_form/checklist_form_bloc.dart';
-
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes_old.dart';
-import 'package:success_check/presentation/checklists/checklist_form/widgets/add_item_tile_widget_old.dart';
-import 'package:success_check/presentation/checklists/checklist_form/widgets/items_list_widget_old.dart';
-import 'package:success_check/presentation/checklists/checklist_form/widgets/name_field_widget_old.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/misc/item_presentation_classes.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/widgets/add_item_fab.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/widgets/name_field_widget.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 @RoutePage()
-class ChecklistFormPage extends StatelessWidget {
+class EditChecklistPage extends StatelessWidget {
   final Option<Checklist> editedChecklistOption;
 
-  const ChecklistFormPage({super.key, required this.editedChecklistOption});
+  const EditChecklistPage({super.key, required this.editedChecklistOption});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<ChecklistFormBloc>(
       create: (context) => getIt<ChecklistFormBloc>()
         ..add(ChecklistFormEvent.initialized(editedChecklistOption)),
       child: BlocConsumer<ChecklistFormBloc, ChecklistFormState>(
@@ -74,45 +73,49 @@ class ChecklistFormPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: BlocBuilder<ChecklistFormBloc, ChecklistFormState>(
-          buildWhen: (previous, current) =>
-              previous.isEditing != current.isEditing,
-          builder: (context, state) {
-            return Text(
-                state.isEditing ? 'Edit checklist' : 'Create checklist');
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.check),
-            onPressed: () {
-              BlocProvider.of<ChecklistFormBloc>(context)
-                  .add(const ChecklistFormEvent.saved());
+    return ChangeNotifierProvider(
+      create: (_) => FormItems(),
+      child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        appBar: AppBar(
+          title: BlocBuilder<ChecklistFormBloc, ChecklistFormState>(
+            buildWhen: (previous, current) =>
+                previous.isEditing != current.isEditing,
+            builder: (context, state) {
+              return Text(
+                  state.isEditing ? 'Edit checklist' : 'Create checklist');
             },
           ),
-        ],
-      ),
-      body: BlocBuilder<ChecklistFormBloc, ChecklistFormState>(
-        buildWhen: (previous, current) =>
-            previous.autovalidateMode != current.autovalidateMode,
-        builder: (context, state) {
-          return ChangeNotifierProvider(
-            create: (_) => FormItems(),
-            child: Form(
-                autovalidateMode: state.autovalidateMode,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: const [
-                      NameField(),
-                      ItemsList(),
-                      AddItemTile(),
-                    ],
-                  ),
-                )),
-          );
-        },
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.check),
+              onPressed: () {
+                BlocProvider.of<ChecklistFormBloc>(context)
+                    .add(const ChecklistFormEvent.saved());
+              },
+            ),
+          ],
+        ),
+        floatingActionButton: const AddItemFloatingActionButton(),
+        body: BlocBuilder<ChecklistFormBloc, ChecklistFormState>(
+          buildWhen: (previous, current) =>
+              previous.autovalidateMode != current.autovalidateMode,
+          builder: (context, state) {
+            return Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Form(
+                  autovalidateMode: state.autovalidateMode,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: const [
+                        NameField(),
+                        ItemsList(),
+                      ],
+                    ),
+                  )),
+            );
+          },
+        ),
       ),
     );
   }
