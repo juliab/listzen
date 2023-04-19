@@ -7,7 +7,7 @@ import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/domain/checklists/checklist_failure.dart';
 import 'package:success_check/domain/checklists/i_checklist_repository.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/presentation/checklists/checklist_form/misc/item_presentation_classes_old.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/misc/item_presentation_classes.dart';
 
 part 'checklist_form_bloc.freezed.dart';
 part 'checklist_form_event.dart';
