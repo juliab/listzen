@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/domain/checklists/item.dart';
+import 'package:success_check/presentation/checklists/components/checklist_info_tile.dart';
+import 'package:success_check/presentation/checklists/components/checklist_statistics_widget.dart';
+import 'package:success_check/presentation/checklists/view_checklist/view_checklist_dialog.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
@@ -26,53 +28,19 @@ class ChecklistCard extends StatelessWidget {
         endActionPane: ActionPane(
           motion: const ScrollMotion(),
           children: [
-            SlidableAction(
-              onPressed: (context) {
-                AutoRouter.of(context).push(
-                  EditChecklistRoute(editedChecklistOption: Some(checklist)),
-                );
-              },
-              icon: Icons.edit,
-              label: 'Edit',
-              backgroundColor: Colors.green,
-              foregroundColor: Colors.white,
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
-            ),
-            SlidableAction(
-              onPressed: (context) {
-                BlocProvider.of<ChecklistActorBloc>(context)
-                    .add(ChecklistActorEvent.deleted(checklist));
-              },
-              icon: Icons.delete,
-              label: 'Delete',
-              backgroundColor: const Color(0xFFFE4A49),
-              foregroundColor: Colors.white,
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
-            ),
+            EditSlidableAction(checklist: checklist),
+            DeleteSlidableAction(checklist: checklist),
           ],
         ),
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: cardGradient,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: InkWell(
-            onTap: () {
-              AutoRouter.of(context).push(
-                EditChecklistRoute(editedChecklistOption: Some(checklist)),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: ListTile(
-                title: Text(
-                  checklist.name.getOrCrash(),
-                  style: const TextStyle(fontSize: 16),
-                ),
-                trailing: Text(
-                    '${checklist.getNumberOfUncompletedItems()} / ${checklist.items.length}'),
-              ),
-            ),
+        child: InkWell(
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (_) => ViewChecklistDialog(checklist: checklist));
+          },
+          child: ChecklistInfoTile.readOnly(
+            name: checklist.name.getOrCrash(),
+            statistics: ChecklistStatisticsWidget(checklist: checklist),
           ),
         ),
       ),
@@ -80,30 +48,51 @@ class ChecklistCard extends StatelessWidget {
   }
 }
 
-class ItemDisplay extends StatelessWidget {
-  final Item item;
+class EditSlidableAction extends StatelessWidget {
+  final Checklist checklist;
 
-  const ItemDisplay({
+  const EditSlidableAction({
     super.key,
-    required this.item,
+    required this.checklist,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (item.done)
-          Icon(
-            Icons.check_box,
-            color: Theme.of(context).indicatorColor,
-          ),
-        if (!item.done)
-          Icon(
-            Icons.check_box_outline_blank,
-            color: Theme.of(context).disabledColor,
-          ),
-        Text(item.name.getOrCrash()),
-      ],
+    return SlidableAction(
+      onPressed: (context) {
+        AutoRouter.of(context).push(
+          EditChecklistRoute(editedChecklistOption: Some(checklist)),
+        );
+      },
+      icon: Icons.edit,
+      label: 'Edit',
+      backgroundColor: editActionButtonColor,
+      foregroundColor: backgroundColor,
+      borderRadius: cardBorderRadius,
+    );
+  }
+}
+
+class DeleteSlidableAction extends StatelessWidget {
+  final Checklist checklist;
+
+  const DeleteSlidableAction({
+    super.key,
+    required this.checklist,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SlidableAction(
+      onPressed: (context) {
+        BlocProvider.of<ChecklistActorBloc>(context)
+            .add(ChecklistActorEvent.deleted(checklist));
+      },
+      icon: Icons.delete,
+      label: 'Delete',
+      backgroundColor: errorColor,
+      foregroundColor: backgroundColor,
+      borderRadius: cardBorderRadius,
     );
   }
 }

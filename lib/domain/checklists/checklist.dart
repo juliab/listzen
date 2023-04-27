@@ -40,7 +40,11 @@ class Checklist with _$Checklist {
         .fold((f) => some(f), (_) => none());
   }
 
-  int getNumberOfUncompletedItems() {
+  int getNumberOfCompletedItems() {
     return items.where((item) => item.done).length;
+  }
+
+  bool isCompleted() {
+    return items.isNotEmpty && items.where((item) => !item.done).isEmpty;
   }
 }

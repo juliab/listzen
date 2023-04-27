@@ -19,6 +19,7 @@ mixin _$Item {
   UniqueId get id => throw _privateConstructorUsedError;
   ItemName get name => throw _privateConstructorUsedError;
   bool get done => throw _privateConstructorUsedError;
+  bool get isNew => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ItemCopyWith<Item> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,7 @@ abstract class $ItemCopyWith<$Res> {
   factory $ItemCopyWith(Item value, $Res Function(Item) then) =
       _$ItemCopyWithImpl<$Res, Item>;
   @useResult
-  $Res call({UniqueId id, ItemName name, bool done});
+  $Res call({UniqueId id, ItemName name, bool done, bool isNew});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
     Object? id = null,
     Object? name = null,
     Object? done = null,
+    Object? isNew = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +64,10 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
               as bool,
+      isNew: null == isNew
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -72,7 +78,7 @@ abstract class _$$_ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
       __$$_ItemCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, ItemName name, bool done});
+  $Res call({UniqueId id, ItemName name, bool done, bool isNew});
 }
 
 /// @nodoc
@@ -87,6 +93,7 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
     Object? id = null,
     Object? name = null,
     Object? done = null,
+    Object? isNew = null,
   }) {
     return _then(_$_Item(
       id: null == id
@@ -101,6 +108,10 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
               as bool,
+      isNew: null == isNew
+          ? _value.isNew
+          : isNew // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -108,7 +119,11 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
 /// @nodoc
 
 class _$_Item extends _Item {
-  const _$_Item({required this.id, required this.name, required this.done})
+  const _$_Item(
+      {required this.id,
+      required this.name,
+      required this.done,
+      this.isNew = false})
       : super._();
 
   @override
@@ -117,10 +132,13 @@ class _$_Item extends _Item {
   final ItemName name;
   @override
   final bool done;
+  @override
+  @JsonKey()
+  final bool isNew;
 
   @override
   String toString() {
-    return 'Item(id: $id, name: $name, done: $done)';
+    return 'Item(id: $id, name: $name, done: $done, isNew: $isNew)';
   }
 
   @override
@@ -130,11 +148,12 @@ class _$_Item extends _Item {
             other is _$_Item &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.done, done) || other.done == done));
+            (identical(other.done, done) || other.done == done) &&
+            (identical(other.isNew, isNew) || other.isNew == isNew));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, done);
+  int get hashCode => Object.hash(runtimeType, id, name, done, isNew);
 
   @JsonKey(ignore: true)
   @override
@@ -147,7 +166,8 @@ abstract class _Item extends Item {
   const factory _Item(
       {required final UniqueId id,
       required final ItemName name,
-      required final bool done}) = _$_Item;
+      required final bool done,
+      final bool isNew}) = _$_Item;
   const _Item._() : super._();
 
   @override
@@ -156,6 +176,8 @@ abstract class _Item extends Item {
   ItemName get name;
   @override
   bool get done;
+  @override
+  bool get isNew;
   @override
   @JsonKey(ignore: true)
   _$$_ItemCopyWith<_$_Item> get copyWith => throw _privateConstructorUsedError;

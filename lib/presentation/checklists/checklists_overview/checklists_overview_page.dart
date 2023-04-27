@@ -8,7 +8,7 @@ import 'package:success_check/application/checklists/checklist_actor/checklist_a
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
 import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch_old.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -40,6 +40,7 @@ class ChecklistsOverviewPage extends StatelessWidget {
           ),
           BlocListener<ChecklistActorBloc, ChecklistActorState>(
             listener: (context, state) {
+              // TODO test delete errors
               state.maybeMap(
                 deleteFailure: (state) {
                   FlushbarHelper.createError(

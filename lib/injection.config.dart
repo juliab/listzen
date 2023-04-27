@@ -15,7 +15,7 @@ import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bl
     as _i10;
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart'
     as _i12;
-import 'package:success_check/application/checklists/checklist_form/checklist_form_bloc.dart'
+import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart'
     as _i13;
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart'
     as _i14;
@@ -60,8 +60,8 @@ _i1.GetIt init(
   gh.factory<_i11.AuthBloc>(() => _i11.AuthBloc(gh<_i6.IAuthFacade>()));
   gh.factory<_i12.ChecklistActorBloc>(
       () => _i12.ChecklistActorBloc(gh<_i8.IChecklistRepository>()));
-  gh.factory<_i13.ChecklistFormBloc>(
-      () => _i13.ChecklistFormBloc(gh<_i8.IChecklistRepository>()));
+  gh.factory<_i13.ChecklistEditBloc>(
+      () => _i13.ChecklistEditBloc(gh<_i8.IChecklistRepository>()));
   gh.factory<_i14.ChecklistWatcherBloc>(
       () => _i14.ChecklistWatcherBloc(gh<_i8.IChecklistRepository>()));
   return getIt;

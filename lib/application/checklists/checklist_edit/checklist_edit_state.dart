@@ -1,8 +1,8 @@
-part of 'checklist_form_bloc.dart';
+part of 'checklist_edit_bloc.dart';
 
 @freezed
-class ChecklistFormState with _$ChecklistFormState {
-  const factory ChecklistFormState({
+class ChecklistEditState with _$ChecklistEditState {
+  const factory ChecklistEditState({
     required Checklist checklist,
     required AutovalidateMode autovalidateMode,
     required bool isEditing,
@@ -10,7 +10,7 @@ class ChecklistFormState with _$ChecklistFormState {
     required Option<Either<ChecklistFailure, Unit>> saveFailureOrSuccessOption,
   }) = _ChecklistFormState;
 
-  factory ChecklistFormState.initial() => ChecklistFormState(
+  factory ChecklistEditState.initial() => ChecklistEditState(
         checklist: Checklist.empty(),
         autovalidateMode: AutovalidateMode.disabled,
         isEditing: false,

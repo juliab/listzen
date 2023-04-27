@@ -6,7 +6,9 @@ Color blackColor = Colors.black;
 Color darkColor = const Color(0xFF393939);
 Color greyColor = const Color(0xFF9398A4);
 Color borderColor = const Color(0xFFDBDBDB);
-Color errorColor = Colors.red;
+Color errorColor = const Color(0xFFFE4A49);
+Color editActionButtonColor = Colors.green;
+Color whiteColorWithOpacity = Colors.white.withOpacity(0.6);
 
 BorderRadius cardBorderRadius = BorderRadius.circular(20);
 double cardHeight = 70;
@@ -17,10 +19,7 @@ InputBorder cardInputBorder = OutlineInputBorder(
 );
 
 InputDecoration cardInputDecoration = InputDecoration(
-  contentPadding: const EdgeInsets.symmetric(
-    horizontal: 15,
-    vertical: 25,
-  ),
+  contentPadding: EdgeInsets.zero,
   enabledBorder: cardInputBorder,
   focusedBorder: cardInputBorder,
   errorBorder: cardInputBorder,
@@ -35,13 +34,15 @@ InputDecoration cardInputDecoration = InputDecoration(
 
 double checkboxSize = 30;
 
-BoxDecoration checkboxDecoration = BoxDecoration(
-  borderRadius: BorderRadius.circular(4),
-  border: Border.all(
-    color: greyColor,
-    width: 2,
-  ),
-);
+BoxDecoration checkboxDecoration({required bool insideColoredCard}) {
+  return BoxDecoration(
+    borderRadius: BorderRadius.circular(4),
+    border: Border.all(
+      color: insideColoredCard ? whiteColorWithOpacity : greyColor,
+      width: 2,
+    ),
+  );
+}
 
 Gradient buttonGradient = const LinearGradient(colors: [
   Color(0xFF5CB0FA),

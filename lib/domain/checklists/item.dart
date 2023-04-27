@@ -14,12 +14,14 @@ class Item with _$Item {
     required UniqueId id,
     required ItemName name,
     required bool done,
+    @Default(false) bool isNew,
   }) = _Item;
 
   factory Item.empty() => Item(
         id: UniqueId(),
         name: ItemName(''),
         done: false,
+        isNew: true,
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
