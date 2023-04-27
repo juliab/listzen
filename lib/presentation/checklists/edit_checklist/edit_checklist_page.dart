@@ -99,16 +99,14 @@ class ChecklistFormPageScaffold extends StatelessWidget {
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Form(
-                autovalidateMode: state.autovalidateMode,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: const [
-                      EditChecklistInfoTile(),
-                      ItemsList(),
-                    ],
-                  ),
-                )),
+            child: SingleChildScrollView(
+              child: Column(
+                children: const [
+                  EditChecklistInfoTile(),
+                  ItemsList(),
+                ],
+              ),
+            ),
           );
         },
       ),

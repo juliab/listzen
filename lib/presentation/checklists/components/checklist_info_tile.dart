@@ -4,25 +4,25 @@ import 'package:success_check/presentation/core/theming/themes.dart';
 
 class ChecklistInfoTile extends StatelessWidget {
   final Widget content;
-  final Widget? completedCheckbox;
+  final Widget? completionStatusCheckbox;
   final Widget? statistics;
 
   const ChecklistInfoTile._({
     required this.content,
-    this.completedCheckbox,
+    this.completionStatusCheckbox,
     this.statistics,
   });
 
   factory ChecklistInfoTile.readOnly({
     required String name,
-    Widget? completedCheckbox,
+    Widget? completionStatusCheckbox,
     Widget? statistics,
   }) {
     return ChecklistInfoTile._(
       content: ReadOnlyChecklistNameField(
         name: name,
       ),
-      completedCheckbox: completedCheckbox,
+      completionStatusCheckbox: completionStatusCheckbox,
       statistics: statistics,
     );
   }
@@ -30,7 +30,7 @@ class ChecklistInfoTile extends StatelessWidget {
   factory ChecklistInfoTile.editable({
     required TextEditingController textEditingController,
     required Function(String value) onChanged,
-    Widget? completedCheckbox,
+    Widget? completionStatusCheckbox,
     Widget? statistics,
   }) {
     return ChecklistInfoTile._(
@@ -38,7 +38,7 @@ class ChecklistInfoTile extends StatelessWidget {
         textEditingController: textEditingController,
         onChanged: onChanged,
       ),
-      completedCheckbox: completedCheckbox,
+      completionStatusCheckbox: completionStatusCheckbox,
       statistics: statistics,
     );
   }
@@ -54,8 +54,8 @@ class ChecklistInfoTile extends StatelessWidget {
       height: cardHeight,
       child: Row(
         children: [
-          if (completedCheckbox != null) ...[
-            completedCheckbox!,
+          if (completionStatusCheckbox != null) ...[
+            completionStatusCheckbox!,
             const SizedBox(
               width: 20,
             ),

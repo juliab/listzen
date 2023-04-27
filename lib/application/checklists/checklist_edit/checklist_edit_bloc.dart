@@ -34,11 +34,12 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
         state.copyWith(
           checklist: state.checklist.copyWith(name: CheckListName(event.name)),
           saveFailureOrSuccessOption: none(),
+          autovalidateMode: AutovalidateMode.disabled,
         ),
       );
     });
     on<CompletionStatusChanged>(
-      (event, emit) {
+      (event, emit) async {
         emit(
           state.copyWith(
             checklist: state.checklist.copyWith(
@@ -49,6 +50,14 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
             saveFailureOrSuccessOption: none(),
           ),
         );
+
+        if (event.instantSave) {
+          final failureOrSuccess = await _repository.update(state.checklist);
+
+          emit(state.copyWith(
+            saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
+        }
       },
     );
     on<ItemAdded>(
@@ -79,12 +88,13 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
                 ),
             ),
             saveFailureOrSuccessOption: none(),
+            autovalidateMode: AutovalidateMode.disabled,
           ),
         );
       },
     );
     on<ItemCompletionStatusChanged>(
-      (event, emit) {
+      (event, emit) async {
         emit(
           state.copyWith(
             checklist: state.checklist.copyWith(
@@ -100,6 +110,13 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
             saveFailureOrSuccessOption: none(),
           ),
         );
+        if (event.instantSave) {
+          final failureOrSuccess = await _repository.update(state.checklist);
+
+          emit(state.copyWith(
+            saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
+        }
       },
     );
     on<ItemRemoved>(

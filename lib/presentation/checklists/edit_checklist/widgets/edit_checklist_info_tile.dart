@@ -5,7 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:success_check/presentation/checklists/components/checklist_info_tile.dart';
 import 'package:success_check/presentation/checklists/components/checklist_statistics_widget.dart';
-import 'package:success_check/presentation/checklists/components/completed_checkbox.dart';
+import 'package:success_check/presentation/checklists/components/completion_status_checkbox.dart';
 import 'package:success_check/presentation/checklists/components/validation_error_message.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
 
@@ -33,7 +33,7 @@ class EditChecklistInfoTile extends HookWidget {
                 onChanged: (value) =>
                     BlocProvider.of<ChecklistEditBloc>(context)
                         .add(ChecklistEditEvent.nameChanged(value)),
-                completedCheckbox: CompletedCheckbox(
+                completionStatusCheckbox: CompletionStatusCheckbox(
                   isCompleted: () => state.checklist.isCompleted(),
                   onChanged: (value) {
                     BlocProvider.of<ChecklistEditBloc>(context).add(
@@ -55,21 +55,6 @@ class EditChecklistInfoTile extends HookWidget {
           ),
         );
       },
-    );
-  }
-
-  Widget completedCheckbox(BuildContext context) {
-    return CompletedCheckbox(
-      isCompleted: () => BlocProvider.of<ChecklistEditBloc>(context)
-          .state
-          .checklist
-          .isCompleted(),
-      onChanged: (value) {
-        // BlocProvider.of<ChecklistEditBloc>(context)
-        //     .add(ChecklistEditEvent.itemsChanged(context.formItems));
-      },
-      decoration: checkboxDecoration(insideColoredCard: true),
-      checkColor: whiteColorWithOpacity,
     );
   }
 

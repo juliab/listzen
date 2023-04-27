@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:success_check/presentation/checklists/components/completed_checkbox.dart';
+import 'package:success_check/presentation/checklists/components/completion_status_checkbox.dart';
 import 'package:success_check/presentation/checklists/components/item_tile.dart';
 import 'package:success_check/presentation/checklists/components/validation_error_message.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
@@ -82,7 +82,7 @@ class EditItemTile extends HookWidget {
         .items[index];
 
     final textEditingController = useTextEditingController(
-        text: item.isNew ? '' : item.name.getOrCrash());
+        text: item.name.value.fold((f) => f.failedValue, (name) => name));
 
     return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
       builder: (context, state) {
@@ -97,7 +97,7 @@ class EditItemTile extends HookWidget {
             );
           },
           autofocus: item.isNew,
-          completedCheckbox: CompletedCheckbox(
+          completionStatusCheckbox: CompletionStatusCheckbox(
             isCompleted: () => BlocProvider.of<ChecklistEditBloc>(context)
                 .state
                 .checklist

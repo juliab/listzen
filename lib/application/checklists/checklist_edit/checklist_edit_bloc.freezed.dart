@@ -21,10 +21,11 @@ mixin _$ChecklistEditEvent {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -34,10 +35,11 @@ mixin _$ChecklistEditEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) =>
@@ -46,10 +48,11 @@ mixin _$ChecklistEditEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -184,10 +187,11 @@ class _$Initialized implements Initialized {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -200,10 +204,11 @@ class _$Initialized implements Initialized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -215,10 +220,11 @@ class _$Initialized implements Initialized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -360,10 +366,11 @@ class _$NameChanged implements NameChanged {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -376,10 +383,11 @@ class _$NameChanged implements NameChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -391,10 +399,11 @@ class _$NameChanged implements NameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -474,7 +483,7 @@ abstract class _$$CompletionStatusChangedCopyWith<$Res> {
           $Res Function(_$CompletionStatusChanged) then) =
       __$$CompletionStatusChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isDone});
+  $Res call({bool isDone, bool instantSave});
 }
 
 /// @nodoc
@@ -489,11 +498,16 @@ class __$$CompletionStatusChangedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isDone = null,
+    Object? instantSave = null,
   }) {
     return _then(_$CompletionStatusChanged(
       isDone: null == isDone
           ? _value.isDone
           : isDone // ignore: cast_nullable_to_non_nullable
+              as bool,
+      instantSave: null == instantSave
+          ? _value.instantSave
+          : instantSave // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -502,14 +516,18 @@ class __$$CompletionStatusChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CompletionStatusChanged implements CompletionStatusChanged {
-  const _$CompletionStatusChanged({required this.isDone});
+  const _$CompletionStatusChanged(
+      {required this.isDone, this.instantSave = false});
 
   @override
   final bool isDone;
+  @override
+  @JsonKey()
+  final bool instantSave;
 
   @override
   String toString() {
-    return 'ChecklistEditEvent.completionStatusChanged(isDone: $isDone)';
+    return 'ChecklistEditEvent.completionStatusChanged(isDone: $isDone, instantSave: $instantSave)';
   }
 
   @override
@@ -517,11 +535,13 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompletionStatusChanged &&
-            (identical(other.isDone, isDone) || other.isDone == isDone));
+            (identical(other.isDone, isDone) || other.isDone == isDone) &&
+            (identical(other.instantSave, instantSave) ||
+                other.instantSave == instantSave));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isDone);
+  int get hashCode => Object.hash(runtimeType, isDone, instantSave);
 
   @JsonKey(ignore: true)
   @override
@@ -536,15 +556,16 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
-    return completionStatusChanged(isDone);
+    return completionStatusChanged(isDone, instantSave);
   }
 
   @override
@@ -552,14 +573,15 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
-    return completionStatusChanged?.call(isDone);
+    return completionStatusChanged?.call(isDone, instantSave);
   }
 
   @override
@@ -567,16 +589,17 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (completionStatusChanged != null) {
-      return completionStatusChanged(isDone);
+      return completionStatusChanged(isDone, instantSave);
     }
     return orElse();
   }
@@ -636,10 +659,12 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
 }
 
 abstract class CompletionStatusChanged implements ChecklistEditEvent {
-  const factory CompletionStatusChanged({required final bool isDone}) =
-      _$CompletionStatusChanged;
+  const factory CompletionStatusChanged(
+      {required final bool isDone,
+      final bool instantSave}) = _$CompletionStatusChanged;
 
   bool get isDone;
+  bool get instantSave;
   @JsonKey(ignore: true)
   _$$CompletionStatusChangedCopyWith<_$CompletionStatusChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -686,10 +711,11 @@ class _$ItemAdded implements ItemAdded {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -702,10 +728,11 @@ class _$ItemAdded implements ItemAdded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -717,10 +744,11 @@ class _$ItemAdded implements ItemAdded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -864,10 +892,11 @@ class _$ItemNameChanged implements ItemNameChanged {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -880,10 +909,11 @@ class _$ItemNameChanged implements ItemNameChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -895,10 +925,11 @@ class _$ItemNameChanged implements ItemNameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -982,7 +1013,7 @@ abstract class _$$ItemCompletionStatusChangedCopyWith<$Res> {
           $Res Function(_$ItemCompletionStatusChanged) then) =
       __$$ItemCompletionStatusChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({int index, bool isDone});
+  $Res call({int index, bool isDone, bool instantSave});
 }
 
 /// @nodoc
@@ -1000,6 +1031,7 @@ class __$$ItemCompletionStatusChangedCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
     Object? isDone = null,
+    Object? instantSave = null,
   }) {
     return _then(_$ItemCompletionStatusChanged(
       index: null == index
@@ -1010,6 +1042,10 @@ class __$$ItemCompletionStatusChangedCopyWithImpl<$Res>
           ? _value.isDone
           : isDone // ignore: cast_nullable_to_non_nullable
               as bool,
+      instantSave: null == instantSave
+          ? _value.instantSave
+          : instantSave // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1018,16 +1054,19 @@ class __$$ItemCompletionStatusChangedCopyWithImpl<$Res>
 
 class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
   const _$ItemCompletionStatusChanged(
-      {required this.index, required this.isDone});
+      {required this.index, required this.isDone, this.instantSave = false});
 
   @override
   final int index;
   @override
   final bool isDone;
+  @override
+  @JsonKey()
+  final bool instantSave;
 
   @override
   String toString() {
-    return 'ChecklistEditEvent.itemCompletionStatusChanged(index: $index, isDone: $isDone)';
+    return 'ChecklistEditEvent.itemCompletionStatusChanged(index: $index, isDone: $isDone, instantSave: $instantSave)';
   }
 
   @override
@@ -1036,11 +1075,13 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         (other.runtimeType == runtimeType &&
             other is _$ItemCompletionStatusChanged &&
             (identical(other.index, index) || other.index == index) &&
-            (identical(other.isDone, isDone) || other.isDone == isDone));
+            (identical(other.isDone, isDone) || other.isDone == isDone) &&
+            (identical(other.instantSave, instantSave) ||
+                other.instantSave == instantSave));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index, isDone);
+  int get hashCode => Object.hash(runtimeType, index, isDone, instantSave);
 
   @JsonKey(ignore: true)
   @override
@@ -1055,15 +1096,16 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
-    return itemCompletionStatusChanged(index, isDone);
+    return itemCompletionStatusChanged(index, isDone, instantSave);
   }
 
   @override
@@ -1071,14 +1113,15 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
-    return itemCompletionStatusChanged?.call(index, isDone);
+    return itemCompletionStatusChanged?.call(index, isDone, instantSave);
   }
 
   @override
@@ -1086,16 +1129,17 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (itemCompletionStatusChanged != null) {
-      return itemCompletionStatusChanged(index, isDone);
+      return itemCompletionStatusChanged(index, isDone, instantSave);
     }
     return orElse();
   }
@@ -1157,10 +1201,12 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
 abstract class ItemCompletionStatusChanged implements ChecklistEditEvent {
   const factory ItemCompletionStatusChanged(
       {required final int index,
-      required final bool isDone}) = _$ItemCompletionStatusChanged;
+      required final bool isDone,
+      final bool instantSave}) = _$ItemCompletionStatusChanged;
 
   int get index;
   bool get isDone;
+  bool get instantSave;
   @JsonKey(ignore: true)
   _$$ItemCompletionStatusChangedCopyWith<_$ItemCompletionStatusChanged>
       get copyWith => throw _privateConstructorUsedError;
@@ -1233,10 +1279,11 @@ class _$ItemRemoved implements ItemRemoved {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -1249,10 +1296,11 @@ class _$ItemRemoved implements ItemRemoved {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -1264,10 +1312,11 @@ class _$ItemRemoved implements ItemRemoved {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -1380,10 +1429,11 @@ class _$Saved implements Saved {
     required TResult Function(Option<Checklist> initialChecklistOption)
         initialized,
     required TResult Function(String name) nameChanged,
-    required TResult Function(bool isDone) completionStatusChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
     required TResult Function() itemAdded,
     required TResult Function(int index, String name) itemNameChanged,
-    required TResult Function(int index, bool isDone)
+    required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
@@ -1396,10 +1446,11 @@ class _$Saved implements Saved {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult? Function(String name)? nameChanged,
-    TResult? Function(bool isDone)? completionStatusChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult? Function()? itemAdded,
     TResult? Function(int index, String name)? itemNameChanged,
-    TResult? Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -1411,10 +1462,11 @@ class _$Saved implements Saved {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<Checklist> initialChecklistOption)? initialized,
     TResult Function(String name)? nameChanged,
-    TResult Function(bool isDone)? completionStatusChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
     TResult Function()? itemAdded,
     TResult Function(int index, String name)? itemNameChanged,
-    TResult Function(int index, bool isDone)? itemCompletionStatusChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),

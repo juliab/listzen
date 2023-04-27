@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:success_check/presentation/core/theming/themes.dart';
 
-class CompletedCheckbox extends StatelessWidget {
+class CompletionStatusCheckbox extends StatelessWidget {
   final bool Function() isCompleted;
   final Function(bool?) onChanged;
   final Decoration decoration;
   final Color checkColor;
 
-  const CompletedCheckbox({
+  const CompletionStatusCheckbox({
     super.key,
     required this.isCompleted,
     required this.onChanged,

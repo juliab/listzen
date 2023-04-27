@@ -4,24 +4,24 @@ import 'package:success_check/presentation/core/theming/themes.dart';
 
 class ItemTile extends StatelessWidget {
   final Widget content;
-  final Widget? completedCheckbox;
+  final Widget? completionStatusCheckbox;
   final Function()? onRemove;
 
   const ItemTile._({
     required this.content,
-    this.completedCheckbox,
+    this.completionStatusCheckbox,
     this.onRemove,
   });
 
   factory ItemTile.readOnly({
     required String name,
-    Widget? completedCheckbox,
+    Widget? completionStatusCheckbox,
   }) {
     return ItemTile._(
       content: ReadOnlyItemNameField(
         name: name,
       ),
-      completedCheckbox: completedCheckbox,
+      completionStatusCheckbox: completionStatusCheckbox,
     );
   }
 
@@ -29,7 +29,7 @@ class ItemTile extends StatelessWidget {
     required TextEditingController textEditingController,
     required Function(String?) onChanged,
     required bool autofocus,
-    Widget? completedCheckbox,
+    Widget? completionStatusCheckbox,
     Function()? onRemove,
   }) {
     return ItemTile._(
@@ -38,7 +38,7 @@ class ItemTile extends StatelessWidget {
         onChanged: onChanged,
         autofocus: autofocus,
       ),
-      completedCheckbox: completedCheckbox,
+      completionStatusCheckbox: completionStatusCheckbox,
       onRemove: onRemove,
     );
   }
@@ -47,8 +47,8 @@ class ItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (completedCheckbox != null) ...[
-          completedCheckbox!,
+        if (completionStatusCheckbox != null) ...[
+          completionStatusCheckbox!,
           const SizedBox(
             width: 20,
           ),

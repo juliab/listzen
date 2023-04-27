@@ -7,8 +7,10 @@ class ChecklistEditEvent with _$ChecklistEditEvent {
 
   const factory ChecklistEditEvent.nameChanged(String name) = NameChanged;
 
-  const factory ChecklistEditEvent.completionStatusChanged(
-      {required bool isDone}) = CompletionStatusChanged;
+  const factory ChecklistEditEvent.completionStatusChanged({
+    required bool isDone,
+    @Default(false) bool instantSave,
+  }) = CompletionStatusChanged;
 
   const factory ChecklistEditEvent.itemAdded() = ItemAdded;
 
@@ -20,6 +22,7 @@ class ChecklistEditEvent with _$ChecklistEditEvent {
   const factory ChecklistEditEvent.itemCompletionStatusChanged({
     required int index,
     required bool isDone,
+    @Default(false) bool instantSave,
   }) = ItemCompletionStatusChanged;
 
   const factory ChecklistEditEvent.itemRemoved({required int index}) =
