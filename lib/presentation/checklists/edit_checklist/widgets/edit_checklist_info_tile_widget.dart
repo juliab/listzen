@@ -42,6 +42,7 @@ class EditChecklistInfoTile extends HookWidget {
                   },
                   decoration: checkboxDecoration(insideColoredCard: true),
                   checkColor: whiteColorWithOpacity,
+                  size: 30,
                 ),
                 statistics: ChecklistStatistics(checklist: state.checklist),
               ),

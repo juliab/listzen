@@ -48,7 +48,7 @@ InputDecoration cardInputDecoration = InputDecoration(
   ),
 );
 
-double checkboxSize = 30;
+const double checkboxSize = 25;
 
 BoxDecoration checkboxDecoration({required bool insideColoredCard}) {
   return BoxDecoration(
@@ -135,6 +135,9 @@ ThemeData appTheme = ThemeData(
   dividerTheme: DividerThemeData(
     color: borderColor,
     thickness: 1.2,
+    indent: 0,
+    endIndent: 0,
+    space: 0,
   ),
 );
 
@@ -164,6 +167,11 @@ InputDecoration noBordersInputDecoration = const InputDecoration(
 TextStyle buttonTextStyle = const TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
+);
+
+TextStyle itemTextStyle = const TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.normal,
 );
 
 TextStyle stickyNoteTextStyle = const TextStyle(

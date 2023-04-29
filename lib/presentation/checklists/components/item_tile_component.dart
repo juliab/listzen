@@ -57,6 +57,9 @@ class ItemTile extends StatelessWidget {
           child: content,
         ),
         if (onRemove != null) ...[
+          const SizedBox(
+            width: 20,
+          ),
           InkWell(
             onTap: onRemove,
             child: Icon(
@@ -104,6 +107,8 @@ class EditableItemNameField extends StatelessWidget {
       decoration: noBordersInputDecoration,
       maxLength: ItemName.maxLength,
       onChanged: onChanged,
+      maxLines: 3,
+      minLines: 1,
     );
   }
 }

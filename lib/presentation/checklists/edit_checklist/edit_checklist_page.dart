@@ -64,7 +64,7 @@ class EditChecklistPage extends StatelessWidget {
           builder: (context, state) {
             return Stack(
               children: [
-                const ChecklistFormPageScaffold(),
+                const EditChecklistPageScaffold(),
                 SavingInProgressOverlay(
                   isSaving: state.isSaving,
                 ),
@@ -77,8 +77,8 @@ class EditChecklistPage extends StatelessWidget {
   }
 }
 
-class ChecklistFormPageScaffold extends StatelessWidget {
-  const ChecklistFormPageScaffold({
+class EditChecklistPageScaffold extends StatelessWidget {
+  const EditChecklistPageScaffold({
     super.key,
   });
 
@@ -116,13 +116,11 @@ class ChecklistFormPageScaffold extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              EditChecklistInfoTile(),
-              ItemsList(),
-            ],
-          ),
+        child: Column(
+          children: const [
+            EditChecklistInfoTile(),
+            Flexible(child: ItemsList()),
+          ],
         ),
       ),
     );

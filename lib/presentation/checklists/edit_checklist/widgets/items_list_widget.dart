@@ -16,7 +16,7 @@ class ItemsList extends StatelessWidget {
     return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(horizontal: 17.0),
           child: ListView.builder(
             shrinkWrap: true,
             itemCount: state.checklist.items.length,

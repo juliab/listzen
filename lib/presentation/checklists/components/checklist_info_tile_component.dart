@@ -63,7 +63,12 @@ class ChecklistInfoTile extends StatelessWidget {
           Expanded(
             child: content,
           ),
-          if (statistics != null) ...[statistics!],
+          if (statistics != null) ...[
+            const SizedBox(
+              width: 20,
+            ),
+            statistics!
+          ],
         ],
       ),
     );

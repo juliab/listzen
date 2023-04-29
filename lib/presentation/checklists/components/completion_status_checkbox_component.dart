@@ -7,6 +7,7 @@ class CompletionStatusCheckbox extends StatelessWidget {
   final Function(bool?) onChanged;
   final Decoration decoration;
   final Color checkColor;
+  final double? size;
 
   const CompletionStatusCheckbox({
     super.key,
@@ -14,14 +15,15 @@ class CompletionStatusCheckbox extends StatelessWidget {
     required this.onChanged,
     required this.decoration,
     required this.checkColor,
+    this.size = checkboxSize,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: decoration,
-      width: checkboxSize,
-      height: checkboxSize,
+      width: size,
+      height: size,
       child: Transform.scale(
         scale: 1.5,
         child: Checkbox(

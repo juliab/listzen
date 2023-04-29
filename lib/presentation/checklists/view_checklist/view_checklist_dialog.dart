@@ -49,6 +49,7 @@ class ViewChecklistDialog extends StatelessWidget {
                                   isDone: value!, instantSave: true)),
                       decoration: checkboxDecoration(insideColoredCard: true),
                       checkColor: whiteColorWithOpacity,
+                      size: 30,
                     ),
                     statistics: ChecklistStatistics(checklist: state.checklist),
                   ),
@@ -57,7 +58,7 @@ class ViewChecklistDialog extends StatelessWidget {
                   ),
                   Flexible(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 17.0),
                       child: ListView.builder(
                         shrinkWrap: true,
                         itemCount: state.checklist.items.length,
