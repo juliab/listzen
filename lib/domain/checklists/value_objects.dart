@@ -3,19 +3,19 @@ import 'package:success_check/domain/core/failures.dart';
 import 'package:success_check/domain/core/value_objects.dart';
 import 'package:success_check/domain/core/value_validators.dart';
 
-class CheckListName extends ValueObject<String> {
+class ChecklistName extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
   static const maxString = 300;
 
-  factory CheckListName(String input) {
-    return CheckListName._(
+  factory ChecklistName(String input) {
+    return ChecklistName._(
       validateMaxStringLength(input, maxString).flatMap(validateStringNotEmpty),
     );
   }
 
-  CheckListName._(this.value);
+  ChecklistName._(this.value);
 }
 
 class ItemName extends ValueObject<String> {

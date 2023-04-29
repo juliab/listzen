@@ -1,14 +1,14 @@
-import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/checklists/edit_checklist/widgets/add_item_fab.dart';
-import 'package:success_check/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile.dart';
+import 'package:success_check/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:success_check/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
+import 'package:success_check/presentation/core/error_flushbar.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -19,46 +19,59 @@ class EditChecklistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ChecklistEditBloc>(
-      create: (context) => getIt<ChecklistEditBloc>()
-        ..add(ChecklistEditEvent.initialized(editedChecklistOption)),
-      child: BlocConsumer<ChecklistEditBloc, ChecklistEditState>(
-        listenWhen: (previous, current) =>
-            previous.saveFailureOrSuccessOption !=
-            current.saveFailureOrSuccessOption,
-        listener: (context, state) {
-          state.saveFailureOrSuccessOption.fold(
-            () => null,
-            (either) {
-              either.fold(
-                (failure) {
-                  FlushbarHelper.createError(
-                      message: failure.map(
-                    unexpected: (_) =>
-                        'Unexpected error occured, please contact support',
-                    insufficientPermissions: (_) => 'Insufficient permissions',
-                    unableToAccess: (_) => "Couldn't update checklist",
-                  )).show(context);
-                },
-                (_) {
-                  AutoRouter.of(context)
-                      .popUntilRouteWithName(ChecklistsOverviewRoute.name);
-                },
-              );
-            },
-          );
-        },
-        buildWhen: (previous, current) => previous.isSaving != current.isSaving,
-        builder: (context, state) {
-          return Stack(
-            children: [
-              const ChecklistFormPageScaffold(),
-              SavingInProgressOverlay(
-                isSaving: state.isSaving,
-              ),
-            ],
-          );
-        },
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) {
+        state.maybeMap(
+          unauthenticated: (_) =>
+              AutoRouter.of(context).push(const SignInRoute()),
+          orElse: () {},
+        );
+      },
+      child: BlocProvider<ChecklistEditBloc>(
+        create: (context) => getIt<ChecklistEditBloc>()
+          ..add(ChecklistEditEvent.initialized(editedChecklistOption)),
+        child: BlocConsumer<ChecklistEditBloc, ChecklistEditState>(
+          listenWhen: (previous, current) =>
+              previous.saveFailureOrSuccessOption !=
+              current.saveFailureOrSuccessOption,
+          listener: (context, state) {
+            state.saveFailureOrSuccessOption.fold(
+              () => null,
+              (either) {
+                either.fold(
+                  (failure) {
+                    ErrorFlushbar(
+                      title: 'Could not save checklist.',
+                      messsage: failure.map(
+                        unexpected: (_) =>
+                            'Unexpected error occured, please contact support.',
+                        insufficientPermissions: (_) =>
+                            'Insufficient permissions',
+                        unableToAccess: (_) => "Unable to access checklist",
+                      ),
+                    ).show(context);
+                  },
+                  (_) {
+                    AutoRouter.of(context)
+                        .popUntilRouteWithName(ChecklistsOverviewRoute.name);
+                  },
+                );
+              },
+            );
+          },
+          buildWhen: (previous, current) =>
+              previous.isSaving != current.isSaving,
+          builder: (context, state) {
+            return Stack(
+              children: [
+                const ChecklistFormPageScaffold(),
+                SavingInProgressOverlay(
+                  isSaving: state.isSaving,
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -92,23 +105,25 @@ class ChecklistFormPageScaffold extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: const AddItemFloatingActionButton(),
-      body: BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
-        buildWhen: (previous, current) =>
-            previous.autovalidateMode != current.autovalidateMode,
-        builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SingleChildScrollView(
-              child: Column(
-                children: const [
-                  EditChecklistInfoTile(),
-                  ItemsList(),
-                ],
-              ),
-            ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+          BlocProvider.of<ChecklistEditBloc>(context).add(
+            const ChecklistEditEvent.itemAdded(),
           );
         },
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              EditChecklistInfoTile(),
+              ItemsList(),
+            ],
+          ),
+        ),
       ),
     );
   }

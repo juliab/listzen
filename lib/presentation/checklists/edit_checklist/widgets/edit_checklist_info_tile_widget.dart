@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-
 import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:success_check/presentation/checklists/components/checklist_info_tile.dart';
-import 'package:success_check/presentation/checklists/components/checklist_statistics_widget.dart';
-import 'package:success_check/presentation/checklists/components/completion_status_checkbox.dart';
-import 'package:success_check/presentation/checklists/components/validation_error_message.dart';
+import 'package:success_check/domain/checklists/value_objects.dart';
+import 'package:success_check/presentation/checklists/components/checklist_info_tile_component.dart';
+import 'package:success_check/presentation/checklists/components/checklist_statistics_component.dart';
+import 'package:success_check/presentation/checklists/components/completion_status_checkbox_component.dart';
+import 'package:success_check/presentation/checklists/components/validation_error_message_component.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
 
 class EditChecklistInfoTile extends HookWidget {
@@ -43,12 +43,12 @@ class EditChecklistInfoTile extends HookWidget {
                   decoration: checkboxDecoration(insideColoredCard: true),
                   checkColor: whiteColorWithOpacity,
                 ),
-                statistics:
-                    ChecklistStatisticsWidget(checklist: state.checklist),
+                statistics: ChecklistStatistics(checklist: state.checklist),
               ),
-              if (state.autovalidateMode == AutovalidateMode.always) ...[
+              if (state.autovalidateMode == AutovalidateMode.always &&
+                  state.checklist.name.value.isLeft()) ...[
                 ValidationErrorMessage(
-                  message: _validationError(context),
+                  message: _validationError(state.checklist.name),
                 ),
               ]
             ],
@@ -58,19 +58,14 @@ class EditChecklistInfoTile extends HookWidget {
     );
   }
 
-  String _validationError(BuildContext context) {
-    return BlocProvider.of<ChecklistEditBloc>(context)
-        .state
-        .checklist
-        .name
-        .value
-        .fold(
-          (f) => f.maybeMap(
-            empty: (f) => 'Checklist name cannot be empty',
-            exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
-            orElse: () => '',
-          ),
-          (r) => '',
-        );
+  String _validationError(ChecklistName name) {
+    return name.value.fold(
+      (f) => f.maybeMap(
+        empty: (f) => 'Checklist name cannot be empty',
+        exceedingLength: (f) => 'Exceeding length, max: ${f.max}',
+        orElse: () => '',
+      ),
+      (r) => '',
+    );
   }
 }

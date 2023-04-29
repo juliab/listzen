@@ -32,7 +32,7 @@ abstract class ChecklistDto implements _$ChecklistDto {
   Checklist toDomain() {
     return Checklist(
       id: UniqueId.fromUniqueString(id),
-      name: CheckListName(name),
+      name: ChecklistName(name),
       items: items.map((itemDto) => itemDto.toDomain()).toList(),
     );
   }

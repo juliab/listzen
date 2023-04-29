@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:success_check/presentation/checklists/components/completion_status_checkbox.dart';
-import 'package:success_check/presentation/checklists/components/item_tile.dart';
-import 'package:success_check/presentation/checklists/components/validation_error_message.dart';
+import 'package:success_check/domain/checklists/value_objects.dart';
+import 'package:success_check/presentation/checklists/components/completion_status_checkbox_component.dart';
+import 'package:success_check/presentation/checklists/components/item_tile_component.dart';
+import 'package:success_check/presentation/checklists/components/validation_error_message_component.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
 
 class ItemsList extends StatelessWidget {
@@ -13,11 +14,6 @@ class ItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
-      buildWhen: (previous, current) {
-        return previous.checklist.items.length !=
-                current.checklist.items.length ||
-            previous.autovalidateMode != current.autovalidateMode;
-      },
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -25,16 +21,18 @@ class ItemsList extends StatelessWidget {
             shrinkWrap: true,
             itemCount: state.checklist.items.length,
             itemBuilder: (context, index) {
+              final item = state.checklist.items[index];
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   EditItemTile(
                     index: index,
-                    key: ValueKey(state.checklist.items[index].id),
+                    key: ValueKey(item.id),
                   ),
-                  if (state.autovalidateMode == AutovalidateMode.always) ...[
+                  if (state.autovalidateMode == AutovalidateMode.always &&
+                      item.name.value.isLeft()) ...[
                     ValidationErrorMessage(
-                      message: _validationError(index, context),
+                      message: _validationError(item.name),
                     ),
                   ],
                   const Divider(),
@@ -47,22 +45,16 @@ class ItemsList extends StatelessWidget {
     );
   }
 
-  String _validationError(int index, BuildContext context) {
-    return BlocProvider.of<ChecklistEditBloc>(context)
-        .state
-        .checklist
-        .items[index]
-        .name
-        .value
-        .fold(
-          (f) => f.maybeMap(
-            empty: (_) => 'Cannot be empty',
-            exceedingLength: (_) => 'Too long',
-            multiline: (_) => 'Has to be in a single line',
-            orElse: () => '',
-          ),
-          (_) => '',
-        );
+  String _validationError(ItemName name) {
+    return name.value.fold(
+      (f) => f.maybeMap(
+        empty: (_) => 'Cannot be empty',
+        exceedingLength: (_) => 'Too long',
+        multiline: (_) => 'Has to be in a single line',
+        orElse: () => '',
+      ),
+      (_) => '',
+    );
   }
 }
 

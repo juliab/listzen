@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,8 @@ import 'package:success_check/application/checklists/checklist_actor/checklist_a
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
 import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/uncompleted_switch_widget.dart';
+import 'package:success_check/presentation/core/error_flushbar.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -40,17 +40,16 @@ class ChecklistsOverviewPage extends StatelessWidget {
           ),
           BlocListener<ChecklistActorBloc, ChecklistActorState>(
             listener: (context, state) {
-              // TODO test delete errors
               state.maybeMap(
                 deleteFailure: (state) {
-                  FlushbarHelper.createError(
-                    duration: const Duration(seconds: 5),
-                    message: state.checklistFailure.map(
+                  ErrorFlushbar(
+                    title: 'Could not delete checklist.',
+                    messsage: state.checklistFailure.map(
                       unexpected: (_) =>
-                          'Unexpected error occured while deleting, please contact support',
+                          'Unexpected error occured while deleting, please contact support.',
                       insufficientPermissions: (_) =>
-                          'Insufficient permissions',
-                      unableToAccess: (_) => 'Impossible error',
+                          'Insufficient permissions.',
+                      unableToAccess: (_) => 'Impossible error.',
                     ),
                   ).show(context);
                 },
@@ -59,36 +58,45 @@ class ChecklistsOverviewPage extends StatelessWidget {
             },
           ),
         ],
-        child: Scaffold(
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          appBar: AppBar(
-            title: const Text('Your checklists'),
-            leading: IconButton(
-              icon: const Icon(Icons.logout),
-              onPressed: () {
-                BlocProvider.of<AuthBloc>(context)
-                    .add(const AuthEvent.signedOut());
-              },
-            ),
-            actions: const [
-              UncompletedSwitch(),
-            ],
-          ),
-          floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {
-              AutoRouter.of(context).push(
-                EditChecklistRoute(editedChecklistOption: none()),
-              );
-            },
-            icon: const Icon(Icons.add),
-            label: const Text('Add checklist'),
-          ),
-          body: const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: ChecklistsOverviewBody(),
-          ),
+        child: const ChecklistsOverviewScaffold(),
+      ),
+    );
+  }
+}
+
+class ChecklistsOverviewScaffold extends StatelessWidget {
+  const ChecklistsOverviewScaffold({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      appBar: AppBar(
+        title: const Text('Your checklists'),
+        leading: IconButton(
+          icon: const Icon(Icons.logout),
+          onPressed: () {
+            BlocProvider.of<AuthBloc>(context).add(const AuthEvent.signedOut());
+          },
         ),
+        actions: const [
+          UncompletedSwitch(),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          AutoRouter.of(context).push(
+            EditChecklistRoute(editedChecklistOption: none()),
+          );
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Add checklist'),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.all(12.0),
+        child: ChecklistsOverviewBody(),
       ),
     );
   }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:success_check/domain/checklists/checklist.dart';
 
-class ChecklistStatisticsWidget extends StatelessWidget {
+class ChecklistStatistics extends StatelessWidget {
   final Checklist checklist;
 
-  const ChecklistStatisticsWidget({
+  const ChecklistStatistics({
     super.key,
     required this.checklist,
   });

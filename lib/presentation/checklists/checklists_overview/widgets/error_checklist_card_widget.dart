@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
+import 'package:success_check/presentation/core/theming/themes.dart';
 
 class ErrorChecklistCard extends StatelessWidget {
   final Checklist checklist;
@@ -10,12 +11,13 @@ class ErrorChecklistCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Theme.of(context).colorScheme.error,
+      shape: cardInputBorder,
       child: Padding(
-        padding: const EdgeInsets.all(4),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: Column(
           children: [
             Text(
-              'Invalid checklist, please contact support',
+              'Invalid checklist, please contact support.',
               style: Theme.of(context)
                   .primaryTextTheme
                   .bodyMedium
@@ -23,7 +25,7 @@ class ErrorChecklistCard extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              'Details for nerds:',
+              'Details:',
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),
             Text(

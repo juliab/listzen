@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/presentation/checklists/components/checklist_info_tile.dart';
-import 'package:success_check/presentation/checklists/components/checklist_statistics_widget.dart';
+import 'package:success_check/presentation/checklists/components/checklist_info_tile_component.dart';
+import 'package:success_check/presentation/checklists/components/checklist_statistics_component.dart';
 import 'package:success_check/presentation/checklists/view_checklist/view_checklist_dialog.dart';
 import 'package:success_check/presentation/core/theming/themes.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
@@ -40,7 +40,7 @@ class ChecklistCard extends StatelessWidget {
           },
           child: ChecklistInfoTile.readOnly(
             name: checklist.name.getOrCrash(),
-            statistics: ChecklistStatisticsWidget(checklist: checklist),
+            statistics: ChecklistStatistics(checklist: checklist),
           ),
         ),
       ),

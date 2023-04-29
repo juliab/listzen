@@ -32,9 +32,8 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
     on<NameChanged>((event, emit) {
       emit(
         state.copyWith(
-          checklist: state.checklist.copyWith(name: CheckListName(event.name)),
+          checklist: state.checklist.copyWith(name: ChecklistName(event.name)),
           saveFailureOrSuccessOption: none(),
-          autovalidateMode: AutovalidateMode.disabled,
         ),
       );
     });
@@ -88,7 +87,7 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
                 ),
             ),
             saveFailureOrSuccessOption: none(),
-            autovalidateMode: AutovalidateMode.disabled,
+            //autovalidateMode: AutovalidateMode.disabled,
           ),
         );
       },

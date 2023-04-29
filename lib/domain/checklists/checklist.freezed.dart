@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Checklist {
   UniqueId get id => throw _privateConstructorUsedError;
-  CheckListName get name => throw _privateConstructorUsedError;
+  ChecklistName get name => throw _privateConstructorUsedError;
   List<Item> get items => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $ChecklistCopyWith<$Res> {
   factory $ChecklistCopyWith(Checklist value, $Res Function(Checklist) then) =
       _$ChecklistCopyWithImpl<$Res, Checklist>;
   @useResult
-  $Res call({UniqueId id, CheckListName name, List<Item> items});
+  $Res call({UniqueId id, ChecklistName name, List<Item> items});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$ChecklistCopyWithImpl<$Res, $Val extends Checklist>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as CheckListName,
+              as ChecklistName,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,7 @@ abstract class _$$_CheckListCopyWith<$Res> implements $ChecklistCopyWith<$Res> {
       __$$_CheckListCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, CheckListName name, List<Item> items});
+  $Res call({UniqueId id, ChecklistName name, List<Item> items});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class __$$_CheckListCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as CheckListName,
+              as ChecklistName,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ class _$_CheckList extends _CheckList {
   @override
   final UniqueId id;
   @override
-  final CheckListName name;
+  final ChecklistName name;
   final List<Item> _items;
   @override
   List<Item> get items {
@@ -158,14 +158,14 @@ class _$_CheckList extends _CheckList {
 abstract class _CheckList extends Checklist {
   const factory _CheckList(
       {required final UniqueId id,
-      required final CheckListName name,
+      required final ChecklistName name,
       required final List<Item> items}) = _$_CheckList;
   const _CheckList._() : super._();
 
   @override
   UniqueId get id;
   @override
-  CheckListName get name;
+  ChecklistName get name;
   @override
   List<Item> get items;
   @override

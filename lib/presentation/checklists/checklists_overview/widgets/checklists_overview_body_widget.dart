@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklist_card_widget.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/critical_failure_display_widget_old.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/widgets/error_checklist_card_widget_old.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/critical_failure_display_widget.dart';
+import 'package:success_check/presentation/checklists/checklists_overview/widgets/error_checklist_card_widget.dart';
 
 class ChecklistsOverviewBody extends StatelessWidget {
   const ChecklistsOverviewBody({super.key});
@@ -21,6 +21,7 @@ class ChecklistsOverviewBody extends StatelessWidget {
         loadSuccess: (state) {
           return SlidableAutoCloseBehavior(
             child: ListView.builder(
+              itemCount: state.checklists.length,
               itemBuilder: (context, index) {
                 final checklist = state.checklists[index];
                 if (checklist.failureOption.isSome()) {
@@ -29,7 +30,6 @@ class ChecklistsOverviewBody extends StatelessWidget {
                   return ChecklistCard(checklist: checklist);
                 }
               },
-              itemCount: state.checklists.length,
             ),
           );
         },

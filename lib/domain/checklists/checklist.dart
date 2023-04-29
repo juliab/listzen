@@ -13,13 +13,13 @@ class Checklist with _$Checklist {
 
   const factory Checklist({
     required UniqueId id,
-    required CheckListName name,
+    required ChecklistName name,
     required List<Item> items,
   }) = _CheckList;
 
   factory Checklist.empty() => Checklist(
         id: UniqueId(),
-        name: CheckListName(''),
+        name: ChecklistName(''),
         items: [],
       );
 

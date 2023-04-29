@@ -102,7 +102,7 @@ class EditableChecklistNameField extends StatelessWidget {
     return TextFormField(
       controller: textEditingController,
       decoration: cardInputDecoration,
-      maxLength: CheckListName.maxString,
+      maxLength: ChecklistName.maxString,
       onChanged: onChanged,
     );
   }

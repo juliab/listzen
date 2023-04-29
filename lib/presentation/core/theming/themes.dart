@@ -8,6 +8,22 @@ Color greyColor = const Color(0xFF9398A4);
 Color borderColor = const Color(0xFFDBDBDB);
 Color errorColor = const Color(0xFFFE4A49);
 Color editActionButtonColor = Colors.green;
+Color flushbarColor = const Color(0xFF0165A9);
+
+TextStyle flushbarTitleTextStyle = TextStyle(
+  color: backgroundColor,
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle flushbarMessageTextStyle = TextStyle(
+  color: backgroundColor,
+  fontSize: 14,
+  fontWeight: FontWeight.normal,
+);
+
+double flushbarIconSize = 40;
+
 Color whiteColorWithOpacity = Colors.white.withOpacity(0.6);
 
 BorderRadius cardBorderRadius = BorderRadius.circular(20);
