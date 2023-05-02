@@ -51,11 +51,11 @@ abstract class ChecklistDto implements _$ChecklistDto {
   }
 }
 
-class ServerTimeStampConverter implements JsonConverter<FieldValue, Object> {
+class ServerTimeStampConverter implements JsonConverter<FieldValue, dynamic> {
   const ServerTimeStampConverter();
 
   @override
-  FieldValue fromJson(Object json) {
+  FieldValue fromJson(dynamic json) {
     return FieldValue.serverTimestamp();
   }
 

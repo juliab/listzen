@@ -13,8 +13,8 @@ _$_ChecklistDto _$$_ChecklistDtoFromJson(Map<String, dynamic> json) =>
       items: (json['items'] as List<dynamic>)
           .map((e) => ItemDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      serverTimeStamp: const ServerTimeStampConverter()
-          .fromJson(json['serverTimeStamp'] as Object),
+      serverTimeStamp:
+          const ServerTimeStampConverter().fromJson(json['serverTimeStamp']),
     );
 
 Map<String, dynamic> _$$_ChecklistDtoToJson(_$_ChecklistDto instance) =>
