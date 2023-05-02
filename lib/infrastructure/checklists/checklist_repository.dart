@@ -18,7 +18,6 @@ class ChecklistRepository implements IChecklistRepository {
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() async* {
     final userDoc = _firestore.userDocument();
     yield* userDoc.checklistCollection
-        .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map(
           (snapshot) => right<ChecklistFailure, List<Checklist>>(
@@ -44,7 +43,6 @@ class ChecklistRepository implements IChecklistRepository {
   Stream<Either<ChecklistFailure, List<Checklist>>> watchUncompleted() async* {
     final userDoc = _firestore.userDocument();
     yield* userDoc.checklistCollection
-        .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map(
           (snapshot) => snapshot.docs.map(
