@@ -15,7 +15,6 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
 
-  // TODO check later if this method should return Future
   @override
   Option<sc.User> getSignedInUser() {
     final User? user = _firebaseAuth.currentUser;
