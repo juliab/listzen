@@ -25,6 +25,11 @@ class ChecklistEditEvent with _$ChecklistEditEvent {
     @Default(false) bool instantSave,
   }) = ItemCompletionStatusChanged;
 
+  const factory ChecklistEditEvent.itemsReordered({
+    required int oldIndex,
+    required int newIndex,
+  }) = ItemsReordered;
+
   const factory ChecklistEditEvent.itemRemoved({required int index}) =
       ItemRemoved;
 

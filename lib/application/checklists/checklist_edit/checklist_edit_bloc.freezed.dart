@@ -27,6 +27,7 @@ mixin _$ChecklistEditEvent {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) =>
@@ -40,6 +41,7 @@ mixin _$ChecklistEditEvent {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) =>
@@ -53,6 +55,7 @@ mixin _$ChecklistEditEvent {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -68,6 +71,7 @@ mixin _$ChecklistEditEvent {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) =>
@@ -81,6 +85,7 @@ mixin _$ChecklistEditEvent {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) =>
@@ -94,6 +99,7 @@ mixin _$ChecklistEditEvent {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -193,6 +199,7 @@ class _$Initialized implements Initialized {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -209,6 +216,7 @@ class _$Initialized implements Initialized {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -225,6 +233,7 @@ class _$Initialized implements Initialized {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -246,6 +255,7 @@ class _$Initialized implements Initialized {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -262,6 +272,7 @@ class _$Initialized implements Initialized {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -278,6 +289,7 @@ class _$Initialized implements Initialized {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -372,6 +384,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -388,6 +401,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -404,6 +418,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -425,6 +440,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -441,6 +457,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -457,6 +474,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -562,6 +580,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -578,6 +597,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -594,6 +614,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -615,6 +636,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -631,6 +653,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -647,6 +670,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -717,6 +741,7 @@ class _$ItemAdded implements ItemAdded {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -733,6 +758,7 @@ class _$ItemAdded implements ItemAdded {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -749,6 +775,7 @@ class _$ItemAdded implements ItemAdded {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -770,6 +797,7 @@ class _$ItemAdded implements ItemAdded {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -786,6 +814,7 @@ class _$ItemAdded implements ItemAdded {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -802,6 +831,7 @@ class _$ItemAdded implements ItemAdded {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -898,6 +928,7 @@ class _$ItemNameChanged implements ItemNameChanged {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -914,6 +945,7 @@ class _$ItemNameChanged implements ItemNameChanged {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -930,6 +962,7 @@ class _$ItemNameChanged implements ItemNameChanged {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -951,6 +984,7 @@ class _$ItemNameChanged implements ItemNameChanged {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -967,6 +1001,7 @@ class _$ItemNameChanged implements ItemNameChanged {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -983,6 +1018,7 @@ class _$ItemNameChanged implements ItemNameChanged {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -1102,6 +1138,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -1118,6 +1155,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -1134,6 +1172,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -1155,6 +1194,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -1171,6 +1211,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -1187,6 +1228,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -1210,6 +1252,203 @@ abstract class ItemCompletionStatusChanged implements ChecklistEditEvent {
   @JsonKey(ignore: true)
   _$$ItemCompletionStatusChangedCopyWith<_$ItemCompletionStatusChanged>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemsReorderedCopyWith<$Res> {
+  factory _$$ItemsReorderedCopyWith(
+          _$ItemsReordered value, $Res Function(_$ItemsReordered) then) =
+      __$$ItemsReorderedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int oldIndex, int newIndex});
+}
+
+/// @nodoc
+class __$$ItemsReorderedCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemsReordered>
+    implements _$$ItemsReorderedCopyWith<$Res> {
+  __$$ItemsReorderedCopyWithImpl(
+      _$ItemsReordered _value, $Res Function(_$ItemsReordered) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? oldIndex = null,
+    Object? newIndex = null,
+  }) {
+    return _then(_$ItemsReordered(
+      oldIndex: null == oldIndex
+          ? _value.oldIndex
+          : oldIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      newIndex: null == newIndex
+          ? _value.newIndex
+          : newIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemsReordered implements ItemsReordered {
+  const _$ItemsReordered({required this.oldIndex, required this.newIndex});
+
+  @override
+  final int oldIndex;
+  @override
+  final int newIndex;
+
+  @override
+  String toString() {
+    return 'ChecklistEditEvent.itemsReordered(oldIndex: $oldIndex, newIndex: $newIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemsReordered &&
+            (identical(other.oldIndex, oldIndex) ||
+                other.oldIndex == oldIndex) &&
+            (identical(other.newIndex, newIndex) ||
+                other.newIndex == newIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, oldIndex, newIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ItemsReorderedCopyWith<_$ItemsReordered> get copyWith =>
+      __$$ItemsReorderedCopyWithImpl<_$ItemsReordered>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Checklist> initialChecklistOption)
+        initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
+    required TResult Function() itemAdded,
+    required TResult Function(int index, String name) itemNameChanged,
+    required TResult Function(int index, bool isDone, bool instantSave)
+        itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
+    required TResult Function(int index) itemRemoved,
+    required TResult Function() saved,
+  }) {
+    return itemsReordered(oldIndex, newIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
+    TResult? Function()? itemAdded,
+    TResult? Function(int index, String name)? itemNameChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
+    TResult? Function(int index)? itemRemoved,
+    TResult? Function()? saved,
+  }) {
+    return itemsReordered?.call(oldIndex, newIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Checklist> initialChecklistOption)? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
+    TResult Function()? itemAdded,
+    TResult Function(int index, String name)? itemNameChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
+    TResult Function(int index)? itemRemoved,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (itemsReordered != null) {
+      return itemsReordered(oldIndex, newIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(CompletionStatusChanged value)
+        completionStatusChanged,
+    required TResult Function(ItemAdded value) itemAdded,
+    required TResult Function(ItemNameChanged value) itemNameChanged,
+    required TResult Function(ItemCompletionStatusChanged value)
+        itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
+    required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(Saved value) saved,
+  }) {
+    return itemsReordered(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(CompletionStatusChanged value)? completionStatusChanged,
+    TResult? Function(ItemAdded value)? itemAdded,
+    TResult? Function(ItemNameChanged value)? itemNameChanged,
+    TResult? Function(ItemCompletionStatusChanged value)?
+        itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
+    TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(Saved value)? saved,
+  }) {
+    return itemsReordered?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(CompletionStatusChanged value)? completionStatusChanged,
+    TResult Function(ItemAdded value)? itemAdded,
+    TResult Function(ItemNameChanged value)? itemNameChanged,
+    TResult Function(ItemCompletionStatusChanged value)?
+        itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
+    TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (itemsReordered != null) {
+      return itemsReordered(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemsReordered implements ChecklistEditEvent {
+  const factory ItemsReordered(
+      {required final int oldIndex,
+      required final int newIndex}) = _$ItemsReordered;
+
+  int get oldIndex;
+  int get newIndex;
+  @JsonKey(ignore: true)
+  _$$ItemsReorderedCopyWith<_$ItemsReordered> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1285,6 +1524,7 @@ class _$ItemRemoved implements ItemRemoved {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -1301,6 +1541,7 @@ class _$ItemRemoved implements ItemRemoved {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -1317,6 +1558,7 @@ class _$ItemRemoved implements ItemRemoved {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -1338,6 +1580,7 @@ class _$ItemRemoved implements ItemRemoved {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -1354,6 +1597,7 @@ class _$ItemRemoved implements ItemRemoved {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -1370,6 +1614,7 @@ class _$ItemRemoved implements ItemRemoved {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
@@ -1435,6 +1680,7 @@ class _$Saved implements Saved {
     required TResult Function(int index, String name) itemNameChanged,
     required TResult Function(int index, bool isDone, bool instantSave)
         itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
     required TResult Function() saved,
   }) {
@@ -1451,6 +1697,7 @@ class _$Saved implements Saved {
     TResult? Function(int index, String name)? itemNameChanged,
     TResult? Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
     TResult? Function()? saved,
   }) {
@@ -1467,6 +1714,7 @@ class _$Saved implements Saved {
     TResult Function(int index, String name)? itemNameChanged,
     TResult Function(int index, bool isDone, bool instantSave)?
         itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
     TResult Function()? saved,
     required TResult orElse(),
@@ -1488,6 +1736,7 @@ class _$Saved implements Saved {
     required TResult Function(ItemNameChanged value) itemNameChanged,
     required TResult Function(ItemCompletionStatusChanged value)
         itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
     required TResult Function(Saved value) saved,
   }) {
@@ -1504,6 +1753,7 @@ class _$Saved implements Saved {
     TResult? Function(ItemNameChanged value)? itemNameChanged,
     TResult? Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
     TResult? Function(Saved value)? saved,
   }) {
@@ -1520,6 +1770,7 @@ class _$Saved implements Saved {
     TResult Function(ItemNameChanged value)? itemNameChanged,
     TResult Function(ItemCompletionStatusChanged value)?
         itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
     TResult Function(Saved value)? saved,
     required TResult orElse(),

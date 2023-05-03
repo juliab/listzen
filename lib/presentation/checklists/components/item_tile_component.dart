@@ -6,12 +6,17 @@ class ItemTile extends StatelessWidget {
   final Widget content;
   final Widget? completionStatusCheckbox;
   final Function()? onRemove;
+  final bool reorderable;
+  final int? index;
 
   const ItemTile._({
     required this.content,
     this.completionStatusCheckbox,
     this.onRemove,
-  });
+    this.reorderable = false,
+    this.index,
+  }) : assert(reorderable && index != null || !reorderable,
+            'index must be set for reorderable checklist item');
 
   factory ItemTile.readOnly({
     required String name,
@@ -31,6 +36,8 @@ class ItemTile extends StatelessWidget {
     required bool autofocus,
     Widget? completionStatusCheckbox,
     Function()? onRemove,
+    bool reorderable = false,
+    int? index,
   }) {
     return ItemTile._(
       content: EditableItemNameField(
@@ -40,6 +47,8 @@ class ItemTile extends StatelessWidget {
       ),
       completionStatusCheckbox: completionStatusCheckbox,
       onRemove: onRemove,
+      reorderable: reorderable,
+      index: index,
     );
   }
 
@@ -50,19 +59,31 @@ class ItemTile extends StatelessWidget {
         if (completionStatusCheckbox != null) ...[
           completionStatusCheckbox!,
           const SizedBox(
-            width: 20,
+            width: 15,
           ),
         ],
         Expanded(
           child: content,
         ),
+        if (reorderable) ...[
+          const SizedBox(
+            width: 15,
+          ),
+          const ReorderableDragStartListener(
+            index: 0,
+            child: Icon(
+              Icons.swap_vert_outlined,
+              color: greyColor,
+            ),
+          ),
+        ],
         if (onRemove != null) ...[
           const SizedBox(
-            width: 20,
+            width: 15,
           ),
           InkWell(
             onTap: onRemove,
-            child: Icon(
+            child: const Icon(
               Icons.remove_circle,
               color: greyColor,
             ),

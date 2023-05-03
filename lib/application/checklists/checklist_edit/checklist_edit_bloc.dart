@@ -118,6 +118,23 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
         }
       },
     );
+    on<ItemsReordered>(
+      (event, emit) {
+        final oldIndex = event.oldIndex;
+        final newIndex =
+            oldIndex < event.newIndex ? event.newIndex - 1 : event.newIndex;
+        final item = state.checklist.items.elementAt(oldIndex);
+
+        emit(
+          state.copyWith(
+            checklist: state.checklist.copyWith(
+                items: [...state.checklist.items]
+                  ..removeAt(oldIndex)
+                  ..insert(newIndex, item)),
+          ),
+        );
+      },
+    );
     on<ItemRemoved>(
       (event, emit) {
         emit(
