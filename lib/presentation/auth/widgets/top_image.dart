@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class TopImage extends StatelessWidget {
   final String text;

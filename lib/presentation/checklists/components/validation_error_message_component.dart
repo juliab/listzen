@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class ValidationErrorMessage extends StatelessWidget {
   final String message;

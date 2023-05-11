@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flushbar/flutter_flushbar.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class ErrorFlushbar extends StatelessWidget {
-  final String title;
-  final String messsage;
+  final String? title;
+  final String? message;
   final Flushbar _flushbar;
+  final BuildContext context;
 
   ErrorFlushbar({
     super.key,
-    required this.title,
-    required this.messsage,
+    this.title,
+    this.message,
+    required this.context,
   }) : _flushbar = Flushbar(
-          backgroundColor: flushbarColor,
+          backgroundColor: flushbarBackgroundColor,
           duration: const Duration(seconds: 3),
           flushbarStyle: FlushbarStyle.GROUNDED,
           padding:
@@ -20,16 +22,24 @@ class ErrorFlushbar extends StatelessWidget {
           icon: Icon(
             Icons.error_outline,
             size: flushbarIconSize,
-            color: backgroundColor,
+            color: flushbarContentColor,
           ),
-          titleText: Text(
-            title,
-            style: flushbarTitleTextStyle,
-          ),
-          messageText: Text(
-            messsage,
-            style: flushbarMessageTextStyle,
-          ),
+          titleText: title != null
+              ? Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: flushbarContentColor,
+                      ),
+                )
+              : null,
+          messageText: message != null
+              ? Text(
+                  message,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: flushbarContentColor,
+                      ),
+                )
+              : null,
         );
 
   @override
@@ -37,7 +47,7 @@ class ErrorFlushbar extends StatelessWidget {
     return _flushbar;
   }
 
-  void show(BuildContext context) {
+  void show() {
     _flushbar.show(context);
   }
 }

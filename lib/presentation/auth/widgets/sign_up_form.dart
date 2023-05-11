@@ -5,11 +5,10 @@ import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:success_check/presentation/auth/widgets/accent_button.dart';
 import 'package:success_check/presentation/auth/widgets/email_field.dart';
-import 'package:success_check/presentation/auth/widgets/error_flushbar.dart';
 import 'package:success_check/presentation/auth/widgets/password_field.dart';
 import 'package:success_check/presentation/auth/widgets/sign_in_with_google_button.dart';
-import 'package:success_check/presentation/checklists/checklists_overview/checklists_overview_page.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/error_flushbar.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -18,23 +17,7 @@ class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
-      listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
-          () {},
-          (either) => either.fold((failure) {
-            final errorMessage = failure.maybeMap(
-              serverError: (_) => 'Server error. Please try again later.',
-              emailAlreadyInUse: (_) => 'Email already in use',
-              orElse: () => 'Authentication error. Please contact support.',
-            );
-            flushbar(errorMessage).show(context);
-          }, (_) {
-            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
-            BlocProvider.of<AuthBloc>(context)
-                .add(const AuthEvent.authCheckRequested());
-          }),
-        );
-      },
+      listener: _listenToAuthFailure,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, bottom: 60),
@@ -49,9 +32,12 @@ class SignUpForm extends StatelessWidget {
                   showForgotPasswordLink: false,
                 ),
                 const SizedBox(height: 20),
-                const AccentButton(
+                AccentButton(
                   text: 'Create account',
-                  event: SignInFormEvent.registerWithEmailAndPasswordPressed(),
+                  onPressed: () => context.read<SignInFormBloc>().add(
+                        const SignInFormEvent
+                            .registerWithEmailAndPasswordPressed(),
+                      ),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -60,7 +46,10 @@ class SignUpForm extends StatelessWidget {
                     const SizedBox(width: 10),
                     Text(
                       'or',
-                      style: TextStyle(color: borderColor),
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelLarge
+                          ?.copyWith(color: borderColor),
                     ),
                     const SizedBox(width: 10),
                     const Expanded(child: Divider()),
@@ -84,16 +73,18 @@ class SignUpForm extends StatelessWidget {
                     children: [
                       Text(
                         "Already have an account?",
-                        style: TextStyle(
-                          color: greyColor,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge
+                            ?.copyWith(color: greyColor),
                       ),
                       const SizedBox(width: 8),
                       Text(
                         'Login',
-                        style: TextStyle(
-                          color: darkColor,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge
+                            ?.copyWith(color: darkColor),
                       ),
                     ],
                   ),
@@ -103,6 +94,25 @@ class SignUpForm extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  void _listenToAuthFailure(BuildContext context, SignInFormState state) {
+    state.authFailureOrSuccessOption.fold(
+      () {},
+      (either) => either.fold((failure) {
+        final errorMessage = failure.maybeMap(
+          cancelledByUser: (_) => 'Sign in cancelled',
+          serverError: (_) => 'Server error. Please try again later.',
+          emailAlreadyInUse: (_) => 'Email already in use',
+          orElse: () => 'Authentication error. Please contact support.',
+        );
+        ErrorFlushbar(message: errorMessage, context: context).show();
+      }, (_) {
+        AutoRouter.of(context).push(const ChecklistsOverviewRoute());
+        BlocProvider.of<AuthBloc>(context)
+            .add(const AuthEvent.authCheckRequested());
+      }),
     );
   }
 }

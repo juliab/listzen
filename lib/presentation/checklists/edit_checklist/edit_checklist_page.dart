@@ -34,45 +34,45 @@ class EditChecklistPage extends StatelessWidget {
           listenWhen: (previous, current) =>
               previous.saveFailureOrSuccessOption !=
               current.saveFailureOrSuccessOption,
-          listener: (context, state) {
-            state.saveFailureOrSuccessOption.fold(
-              () => null,
-              (either) {
-                either.fold(
-                  (failure) {
-                    ErrorFlushbar(
-                      title: 'Could not save checklist.',
-                      messsage: failure.map(
-                        unexpected: (_) =>
-                            'Unexpected error occured, please contact support.',
-                        insufficientPermissions: (_) =>
-                            'Insufficient permissions',
-                        unableToAccess: (_) => "Unable to access checklist",
-                      ),
-                    ).show(context);
-                  },
-                  (_) {
-                    AutoRouter.of(context)
-                        .popUntilRouteWithName(ChecklistsOverviewRoute.name);
-                  },
-                );
-              },
-            );
-          },
+          listener: _listenToSaveResult,
           buildWhen: (previous, current) =>
               previous.isSaving != current.isSaving,
-          builder: (context, state) {
-            return Stack(
-              children: [
-                const EditChecklistPageScaffold(),
-                SavingInProgressOverlay(
-                  isSaving: state.isSaving,
-                ),
-              ],
-            );
-          },
+          builder: (context, state) => Stack(
+            children: [
+              const EditChecklistPageScaffold(),
+              SavingInProgressOverlay(
+                isSaving: state.isSaving,
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  void _listenToSaveResult(BuildContext context, ChecklistEditState state) {
+    state.saveFailureOrSuccessOption.fold(
+      () {},
+      (either) {
+        either.fold(
+          (failure) {
+            ErrorFlushbar(
+              title: 'Could not save checklist.',
+              message: failure.map(
+                unexpected: (_) =>
+                    'Unexpected error occured, please contact support.',
+                insufficientPermissions: (_) => 'Insufficient permissions',
+                unableToAccess: (_) => "Unable to access checklist",
+              ),
+              context: context,
+            ).show();
+          },
+          (_) {
+            AutoRouter.of(context)
+                .popUntilRouteWithName(ChecklistsOverviewRoute.name);
+          },
+        );
+      },
     );
   }
 }
@@ -90,18 +90,15 @@ class EditChecklistPageScaffold extends StatelessWidget {
         title: BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
           buildWhen: (previous, current) =>
               previous.isEditing != current.isEditing,
-          builder: (context, state) {
-            return Text(
-                state.isEditing ? 'Edit checklist' : 'Create checklist');
-          },
+          builder: (context, state) => Text(
+            state.isEditing ? 'Edit checklist' : 'Create checklist',
+          ),
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.check),
-            onPressed: () {
-              BlocProvider.of<ChecklistEditBloc>(context)
-                  .add(const ChecklistEditEvent.saved());
-            },
+            onPressed: () => BlocProvider.of<ChecklistEditBloc>(context)
+                .add(const ChecklistEditEvent.saved()),
           ),
         ],
       ),
@@ -153,10 +150,7 @@ class SavingInProgressOverlay extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 'Saving',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(color: Colors.white, fontSize: 16),
+                style: Theme.of(context).primaryTextTheme.titleMedium,
               ),
             ],
           ),

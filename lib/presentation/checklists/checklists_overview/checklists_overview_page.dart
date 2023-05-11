@@ -30,36 +30,34 @@ class ChecklistsOverviewPage extends StatelessWidget {
       child: MultiBlocListener(
         listeners: [
           BlocListener<AuthBloc, AuthState>(
-            listener: (context, state) {
-              state.maybeMap(
-                unauthenticated: (_) =>
-                    AutoRouter.of(context).push(const SignInRoute()),
-                orElse: () {},
-              );
-            },
+            listener: (context, state) => state.maybeMap(
+              unauthenticated: (_) =>
+                  AutoRouter.of(context).push(const SignInRoute()),
+              orElse: () => null,
+            ),
           ),
           BlocListener<ChecklistActorBloc, ChecklistActorState>(
-            listener: (context, state) {
-              state.maybeMap(
-                deleteFailure: (state) {
-                  ErrorFlushbar(
-                    title: 'Could not delete checklist.',
-                    messsage: state.checklistFailure.map(
-                      unexpected: (_) =>
-                          'Unexpected error occured while deleting, please contact support.',
-                      insufficientPermissions: (_) =>
-                          'Insufficient permissions.',
-                      unableToAccess: (_) => 'Impossible error.',
-                    ),
-                  ).show(context);
-                },
-                orElse: () {},
-              );
-            },
+            listener: _listenToDeleteResult,
           ),
         ],
         child: const ChecklistsOverviewScaffold(),
       ),
+    );
+  }
+
+  void _listenToDeleteResult(BuildContext context, ChecklistActorState state) {
+    state.maybeMap(
+      deleteFailure: (state) => ErrorFlushbar(
+        title: 'Could not delete checklist.',
+        message: state.checklistFailure.map(
+          unexpected: (_) =>
+              'Unexpected error occured while deleting, please contact support.',
+          insufficientPermissions: (_) => 'Insufficient permissions.',
+          unableToAccess: (_) => 'Impossible error.',
+        ),
+        context: context,
+      ).show(),
+      orElse: () {},
     );
   }
 }
@@ -74,23 +72,22 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        title: const Text('Your checklists'),
+        title: const Text(
+          'Your checklists',
+        ),
         leading: IconButton(
           icon: const Icon(Icons.logout),
-          onPressed: () {
-            BlocProvider.of<AuthBloc>(context).add(const AuthEvent.signedOut());
-          },
+          onPressed: () => BlocProvider.of<AuthBloc>(context)
+              .add(const AuthEvent.signedOut()),
         ),
         actions: const [
           UncompletedSwitch(),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          AutoRouter.of(context).push(
-            EditChecklistRoute(editedChecklistOption: none()),
-          );
-        },
+        onPressed: () => AutoRouter.of(context).push(
+          EditChecklistRoute(editedChecklistOption: none()),
+        ),
         icon: const Icon(Icons.add),
         label: const Text('Add checklist'),
       ),

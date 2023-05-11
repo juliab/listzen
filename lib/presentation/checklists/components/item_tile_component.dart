@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class ItemTile extends StatelessWidget {
   final Widget content;
@@ -56,6 +56,18 @@ class ItemTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        if (reorderable) ...[
+          const ReorderableDragStartListener(
+            index: 0,
+            child: Icon(
+              Icons.swap_vert_outlined,
+              color: greyColor,
+            ),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+        ],
         if (completionStatusCheckbox != null) ...[
           completionStatusCheckbox!,
           const SizedBox(
@@ -65,18 +77,6 @@ class ItemTile extends StatelessWidget {
         Expanded(
           child: content,
         ),
-        if (reorderable) ...[
-          const SizedBox(
-            width: 15,
-          ),
-          const ReorderableDragStartListener(
-            index: 0,
-            child: Icon(
-              Icons.swap_vert_outlined,
-              color: greyColor,
-            ),
-          ),
-        ],
         if (onRemove != null) ...[
           const SizedBox(
             width: 15,

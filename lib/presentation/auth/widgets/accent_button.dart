@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
-
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/auth/theming/style.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class AccentButton extends StatelessWidget {
   final String text;
-  final SignInFormEvent event;
+  final Function() onPressed;
 
   const AccentButton({
     super.key,
     required this.text,
-    required this.event,
+    required this.onPressed,
   });
 
   @override
@@ -20,12 +17,10 @@ class AccentButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: buttonGradient,
-        borderRadius: borderRadius,
+        borderRadius: standardBorderRadius,
       ),
       child: OutlinedButton(
-        onPressed: () {
-          context.read<SignInFormBloc>().add(event);
-        },
+        onPressed: onPressed,
         child: Text(
           text,
           style: buttonTextStyle.copyWith(color: backgroundColor),

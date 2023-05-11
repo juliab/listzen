@@ -26,7 +26,10 @@ class PasswordField extends StatelessWidget {
               builder: (context, state) {
                 return Row(
                   children: [
-                    const Text('Password'),
+                    Text(
+                      'Password',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
                     const SizedBox(width: 5),
                     if (state.password.value.isRight()) ...[
                       const Icon(

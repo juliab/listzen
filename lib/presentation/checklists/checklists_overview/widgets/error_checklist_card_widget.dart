@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class ErrorChecklistCard extends StatelessWidget {
   final Checklist checklist;
@@ -9,30 +9,33 @@ class ErrorChecklistCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).colorScheme.error,
-      shape: cardInputBorder,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Column(
-          children: [
-            Text(
-              'Invalid checklist, please contact support.',
-              style: Theme.of(context)
-                  .primaryTextTheme
-                  .bodyMedium
-                  ?.copyWith(fontSize: 18),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              'Details:',
-              style: Theme.of(context).primaryTextTheme.bodyMedium,
-            ),
-            Text(
-              checklist.failureOption.fold(() => '', (f) => f.toString()),
-              style: Theme.of(context).primaryTextTheme.bodyMedium,
-            ),
-          ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          borderRadius: cardBorderRadius,
+          color: Theme.of(context).colorScheme.error,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            children: [
+              Text(
+                'Invalid checklist, please contact support.',
+                style: Theme.of(context).primaryTextTheme.titleMedium,
+              ),
+              const SizedBox(height: 3),
+              Text(
+                'Details:',
+                style: Theme.of(context).primaryTextTheme.bodyMedium,
+              ),
+              Text(
+                checklist.failureOption.fold(() => '', (f) => f.toString()),
+                style: Theme.of(context).primaryTextTheme.bodyMedium,
+              ),
+            ],
+          ),
         ),
       ),
     );

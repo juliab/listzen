@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class ChecklistInfoTile extends StatelessWidget {
   final Widget content;
@@ -87,7 +87,11 @@ class ReadOnlyChecklistNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       name,
-      style: buttonTextStyle,
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: Colors.white.withOpacity(0.7),
+      ),
     );
   }
 }
@@ -106,9 +110,15 @@ class EditableChecklistNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textEditingController,
-      decoration: cardInputDecoration,
+      decoration:
+          cardInputDecoration.copyWith(hintText: 'Enter checklist name'),
       maxLength: ChecklistName.maxString,
       onChanged: onChanged,
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: Colors.white.withOpacity(0.7),
+      ),
     );
   }
 }

@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
 
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 class CompletionStatusCheckbox extends StatelessWidget {
   final bool Function() isCompleted;
   final Function(bool?) onChanged;
-  final Decoration decoration;
-  final Color checkColor;
-  final double? size;
+  final bool insideCard;
 
   const CompletionStatusCheckbox({
     super.key,
     required this.isCompleted,
     required this.onChanged,
-    required this.decoration,
-    required this.checkColor,
-    this.size = checkboxSize,
+    required this.insideCard,
   });
 
   @override
   Widget build(BuildContext context) {
+    final size = insideCard ? 30.0 : 25.0;
+
     return Container(
-      decoration: decoration,
+      decoration: checkboxDecoration(insideCard: insideCard),
       width: size,
       height: size,
       child: Transform.scale(
@@ -29,7 +27,7 @@ class CompletionStatusCheckbox extends StatelessWidget {
         child: Checkbox(
           onChanged: onChanged,
           value: isCompleted(),
-          checkColor: checkColor,
+          checkColor: insideCard ? whiteColorWithOpacity : Colors.green,
         ),
       ),
     );

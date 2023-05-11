@@ -17,7 +17,10 @@ class EmailField extends StatelessWidget {
           builder: (context, state) {
             return Row(
               children: [
-                const Text('Email'),
+                Text(
+                  'Email',
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
                 const SizedBox(width: 5),
                 if (state.emailAddress.value.isRight()) ...[
                   const Icon(

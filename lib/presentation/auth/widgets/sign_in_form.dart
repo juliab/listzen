@@ -5,10 +5,10 @@ import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:success_check/presentation/auth/widgets/accent_button.dart';
 import 'package:success_check/presentation/auth/widgets/email_field.dart';
-import 'package:success_check/presentation/auth/widgets/error_flushbar.dart';
 import 'package:success_check/presentation/auth/widgets/password_field.dart';
 import 'package:success_check/presentation/auth/widgets/sign_in_with_google_button.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/error_flushbar.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 class SignInForm extends StatelessWidget {
@@ -17,25 +17,7 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
-      listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
-          () {},
-          (either) => either.fold((failure) {
-            final errorMessage = failure.maybeMap(
-              cancelledByUser: (_) => 'Sign in cancelled',
-              serverError: (_) => 'Server error. Please try again later.',
-              invalidEmailAndPasswordCombination: (_) =>
-                  'Invalid email and password combination',
-              orElse: () => 'Authentication error. Please contact support.',
-            );
-            flushbar(errorMessage).show(context);
-          }, (_) {
-            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
-            BlocProvider.of<AuthBloc>(context)
-                .add(const AuthEvent.authCheckRequested());
-          }),
-        );
-      },
+      listener: _listenToAuthFailure,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, bottom: 60),
@@ -49,9 +31,11 @@ class SignInForm extends StatelessWidget {
                   showForgotPasswordLink: true,
                 ),
                 const SizedBox(height: 25),
-                const AccentButton(
+                AccentButton(
                   text: 'Login',
-                  event: SignInFormEvent.signInWithEmailAndPasswordPressed(),
+                  onPressed: () => context.read<SignInFormBloc>().add(
+                      const SignInFormEvent
+                          .signInWithEmailAndPasswordPressed()),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -60,7 +44,10 @@ class SignInForm extends StatelessWidget {
                     const SizedBox(width: 10),
                     Text(
                       'or',
-                      style: TextStyle(color: borderColor),
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelLarge
+                          ?.copyWith(color: borderColor),
                     ),
                     const SizedBox(width: 10),
                     const Expanded(child: Divider()),
@@ -76,26 +63,24 @@ class SignInForm extends StatelessWidget {
                 ],
                 const SizedBox(height: 30),
                 GestureDetector(
-                  onTap: () {
-                    AutoRouter.of(context).push(
-                      const SignUpRoute(),
-                    );
-                  },
+                  onTap: () => AutoRouter.of(context).push(const SignUpRoute()),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Don't have an account?",
-                        style: TextStyle(
-                          color: greyColor,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge
+                            ?.copyWith(color: greyColor),
                       ),
                       const SizedBox(width: 8),
                       Text(
                         'Sign up',
-                        style: TextStyle(
-                          color: darkColor,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge
+                            ?.copyWith(color: darkColor),
                       ),
                     ],
                   ),
@@ -105,6 +90,29 @@ class SignInForm extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  void _listenToAuthFailure(BuildContext context, SignInFormState state) {
+    state.authFailureOrSuccessOption.fold(
+      () {},
+      (either) => either.fold((failure) {
+        final errorMessage = failure.maybeMap(
+          cancelledByUser: (_) => 'Sign in cancelled',
+          serverError: (_) => 'Server error. Please try again later.',
+          invalidEmailAndPasswordCombination: (_) =>
+              'Invalid email and password combination',
+          orElse: () => 'Authentication error. Please contact support.',
+        );
+        ErrorFlushbar(
+          message: errorMessage,
+          context: context,
+        ).show();
+      }, (_) {
+        AutoRouter.of(context).push(const ChecklistsOverviewRoute());
+        BlocProvider.of<AuthBloc>(context)
+            .add(const AuthEvent.authCheckRequested());
+      }),
     );
   }
 }

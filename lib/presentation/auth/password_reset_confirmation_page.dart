@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:success_check/presentation/auth/theming/style.dart';
 import 'package:success_check/presentation/auth/widgets/back_to_login_link.dart';
 import 'package:success_check/presentation/auth/widgets/top_image.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/style.dart';
 
 @RoutePage()
 class PasswordResetConfirmationPage extends StatelessWidget {
@@ -69,21 +70,15 @@ class MailIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(40),
-        color: const Color(0xFFF9F5FE),
-      ),
+      decoration: outerCircleDecoration,
       padding: const EdgeInsets.all(10),
       child: Container(
         padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          color: const Color(0xFFF4EBFD),
-        ),
+        decoration: innerCircleDecoration,
         child: const Icon(
           Icons.mail_outline,
-          color: Color(0xFF7E5CC4),
-          size: 30,
+          color: mailIconColor,
+          size: mailIconSize,
         ),
       ),
     );

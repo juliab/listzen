@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/core/theming/themes.dart';
+import 'package:success_check/presentation/core/theming/app_theme.dart';
 import 'package:success_check/presentation/routes/app_router.dart';
 
 class AppWidget extends StatelessWidget {
