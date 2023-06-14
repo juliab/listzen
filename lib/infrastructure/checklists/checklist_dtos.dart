@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:success_check/domain/auth/auth_failure.dart';
 import 'package:success_check/domain/auth/value_objects.dart';
+import 'package:success_check/domain/checklists/card_color.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/domain/checklists/item.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
@@ -16,6 +17,7 @@ abstract class ChecklistDto implements _$ChecklistDto {
   const factory ChecklistDto({
     required String id,
     required String name,
+    required String color,
     required List<ItemDto> items,
     @ServerTimeStampConverter() required FieldValue serverTimeStamp,
   }) = _ChecklistDto;
@@ -24,6 +26,7 @@ abstract class ChecklistDto implements _$ChecklistDto {
     return ChecklistDto(
       id: checklist.id.getOrCrash(),
       name: checklist.name.getOrCrash(),
+      color: checklist.color.name,
       items: checklist.items.map((item) => ItemDto.fromDomain(item)).toList(),
       serverTimeStamp: FieldValue.serverTimestamp(),
     );
@@ -33,6 +36,7 @@ abstract class ChecklistDto implements _$ChecklistDto {
     return Checklist(
       id: UniqueId.fromUniqueString(id),
       name: ChecklistName(name),
+      color: ChecklistColor.values.byName(color),
       items: items.map((itemDto) => itemDto.toDomain()).toList(),
     );
   }

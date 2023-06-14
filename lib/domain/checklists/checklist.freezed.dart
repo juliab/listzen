@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Checklist {
   UniqueId get id => throw _privateConstructorUsedError;
   ChecklistName get name => throw _privateConstructorUsedError;
+  ChecklistColor get color => throw _privateConstructorUsedError;
   List<Item> get items => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,11 @@ abstract class $ChecklistCopyWith<$Res> {
   factory $ChecklistCopyWith(Checklist value, $Res Function(Checklist) then) =
       _$ChecklistCopyWithImpl<$Res, Checklist>;
   @useResult
-  $Res call({UniqueId id, ChecklistName name, List<Item> items});
+  $Res call(
+      {UniqueId id,
+      ChecklistName name,
+      ChecklistColor color,
+      List<Item> items});
 }
 
 /// @nodoc
@@ -48,6 +53,7 @@ class _$ChecklistCopyWithImpl<$Res, $Val extends Checklist>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? color = null,
     Object? items = null,
   }) {
     return _then(_value.copyWith(
@@ -59,6 +65,10 @@ class _$ChecklistCopyWithImpl<$Res, $Val extends Checklist>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as ChecklistName,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as ChecklistColor,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -74,7 +84,11 @@ abstract class _$$_CheckListCopyWith<$Res> implements $ChecklistCopyWith<$Res> {
       __$$_CheckListCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, ChecklistName name, List<Item> items});
+  $Res call(
+      {UniqueId id,
+      ChecklistName name,
+      ChecklistColor color,
+      List<Item> items});
 }
 
 /// @nodoc
@@ -90,6 +104,7 @@ class __$$_CheckListCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? color = null,
     Object? items = null,
   }) {
     return _then(_$_CheckList(
@@ -101,6 +116,10 @@ class __$$_CheckListCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as ChecklistName,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as ChecklistColor,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -113,7 +132,10 @@ class __$$_CheckListCopyWithImpl<$Res>
 
 class _$_CheckList extends _CheckList {
   const _$_CheckList(
-      {required this.id, required this.name, required final List<Item> items})
+      {required this.id,
+      required this.name,
+      required this.color,
+      required final List<Item> items})
       : _items = items,
         super._();
 
@@ -121,6 +143,8 @@ class _$_CheckList extends _CheckList {
   final UniqueId id;
   @override
   final ChecklistName name;
+  @override
+  final ChecklistColor color;
   final List<Item> _items;
   @override
   List<Item> get items {
@@ -131,7 +155,7 @@ class _$_CheckList extends _CheckList {
 
   @override
   String toString() {
-    return 'Checklist(id: $id, name: $name, items: $items)';
+    return 'Checklist(id: $id, name: $name, color: $color, items: $items)';
   }
 
   @override
@@ -141,12 +165,13 @@ class _$_CheckList extends _CheckList {
             other is _$_CheckList &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.color, color) || other.color == color) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(runtimeType, id, name, color,
+      const DeepCollectionEquality().hash(_items));
 
   @JsonKey(ignore: true)
   @override
@@ -159,6 +184,7 @@ abstract class _CheckList extends Checklist {
   const factory _CheckList(
       {required final UniqueId id,
       required final ChecklistName name,
+      required final ChecklistColor color,
       required final List<Item> items}) = _$_CheckList;
   const _CheckList._() : super._();
 
@@ -166,6 +192,8 @@ abstract class _CheckList extends Checklist {
   UniqueId get id;
   @override
   ChecklistName get name;
+  @override
+  ChecklistColor get color;
   @override
   List<Item> get items;
   @override

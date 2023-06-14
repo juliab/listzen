@@ -34,13 +34,14 @@ class ViewChecklistDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
+                    children: [
                       CloseButton(),
                     ],
                   ),
                   ChecklistInfoTile.readOnly(
+                    color: checklist.color,
                     name: checklist.name.getOrCrash(),
                     completionStatusCheckbox: CompletionStatusCheckbox(
                       isCompleted: () => state.checklist.isCompleted(),

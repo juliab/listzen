@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
+import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:success_check/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:success_check/injection.dart';
 import 'package:success_check/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
@@ -25,6 +26,9 @@ class ChecklistsOverviewPage extends StatelessWidget {
         ),
         BlocProvider<ChecklistActorBloc>(
           create: (context) => getIt<ChecklistActorBloc>(),
+        ),
+        BlocProvider<ChecklistEditBloc>(
+          create: (context) => getIt<ChecklistEditBloc>(),
         ),
       ],
       child: MultiBlocListener(

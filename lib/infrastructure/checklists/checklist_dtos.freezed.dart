@@ -22,6 +22,7 @@ ChecklistDto _$ChecklistDtoFromJson(Map<String, dynamic> json) {
 mixin _$ChecklistDto {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get color => throw _privateConstructorUsedError;
   List<ItemDto> get items => throw _privateConstructorUsedError;
   @ServerTimeStampConverter()
   FieldValue get serverTimeStamp => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $ChecklistDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
+      String color,
       List<ItemDto> items,
       @ServerTimeStampConverter() FieldValue serverTimeStamp});
 }
@@ -60,6 +62,7 @@ class _$ChecklistDtoCopyWithImpl<$Res, $Val extends ChecklistDto>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? color = null,
     Object? items = null,
     Object? serverTimeStamp = null,
   }) {
@@ -71,6 +74,10 @@ class _$ChecklistDtoCopyWithImpl<$Res, $Val extends ChecklistDto>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String,
       items: null == items
           ? _value.items
@@ -95,6 +102,7 @@ abstract class _$$_ChecklistDtoCopyWith<$Res>
   $Res call(
       {String id,
       String name,
+      String color,
       List<ItemDto> items,
       @ServerTimeStampConverter() FieldValue serverTimeStamp});
 }
@@ -112,6 +120,7 @@ class __$$_ChecklistDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? color = null,
     Object? items = null,
     Object? serverTimeStamp = null,
   }) {
@@ -123,6 +132,10 @@ class __$$_ChecklistDtoCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String,
       items: null == items
           ? _value._items
@@ -142,6 +155,7 @@ class _$_ChecklistDto extends _ChecklistDto {
   const _$_ChecklistDto(
       {required this.id,
       required this.name,
+      required this.color,
       required final List<ItemDto> items,
       @ServerTimeStampConverter() required this.serverTimeStamp})
       : _items = items,
@@ -154,6 +168,8 @@ class _$_ChecklistDto extends _ChecklistDto {
   final String id;
   @override
   final String name;
+  @override
+  final String color;
   final List<ItemDto> _items;
   @override
   List<ItemDto> get items {
@@ -168,7 +184,7 @@ class _$_ChecklistDto extends _ChecklistDto {
 
   @override
   String toString() {
-    return 'ChecklistDto(id: $id, name: $name, items: $items, serverTimeStamp: $serverTimeStamp)';
+    return 'ChecklistDto(id: $id, name: $name, color: $color, items: $items, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -178,6 +194,7 @@ class _$_ChecklistDto extends _ChecklistDto {
             other is _$_ChecklistDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.color, color) || other.color == color) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
             (identical(other.serverTimeStamp, serverTimeStamp) ||
                 other.serverTimeStamp == serverTimeStamp));
@@ -185,7 +202,7 @@ class _$_ChecklistDto extends _ChecklistDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name,
+  int get hashCode => Object.hash(runtimeType, id, name, color,
       const DeepCollectionEquality().hash(_items), serverTimeStamp);
 
   @JsonKey(ignore: true)
@@ -206,6 +223,7 @@ abstract class _ChecklistDto extends ChecklistDto {
   const factory _ChecklistDto(
       {required final String id,
       required final String name,
+      required final String color,
       required final List<ItemDto> items,
       @ServerTimeStampConverter()
           required final FieldValue serverTimeStamp}) = _$_ChecklistDto;
@@ -218,6 +236,8 @@ abstract class _ChecklistDto extends ChecklistDto {
   String get id;
   @override
   String get name;
+  @override
+  String get color;
   @override
   List<ItemDto> get items;
   @override

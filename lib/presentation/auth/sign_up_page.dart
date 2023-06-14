@@ -18,8 +18,8 @@ class SignUpPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 TopImage(text: 'SIGN UP'),
                 SignUpForm(),
               ],

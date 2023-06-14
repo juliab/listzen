@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:success_check/domain/checklists/card_color.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/domain/checklists/checklist_failure.dart';
 import 'package:success_check/domain/checklists/i_checklist_repository.dart';
@@ -146,6 +147,21 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
         );
       },
     );
+    on<ColorChanged>((event, emit) async {
+      emit(
+        state.copyWith(
+          checklist: state.checklist.copyWith(color: event.color),
+          saveFailureOrSuccessOption: none(),
+        ),
+      );
+      if (event.instantSave) {
+        final failureOrSuccess = await _repository.update(state.checklist);
+
+        emit(state.copyWith(
+          saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+        ));
+      }
+    });
     on<Saved>((event, emit) async {
       emit(
         state.copyWith(

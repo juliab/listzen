@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:success_check/domain/auth/value_objects.dart';
+import 'package:success_check/domain/checklists/card_color.dart';
 import 'package:success_check/domain/checklists/item.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
 import 'package:success_check/domain/core/failures.dart';
@@ -14,12 +15,14 @@ class Checklist with _$Checklist {
   const factory Checklist({
     required UniqueId id,
     required ChecklistName name,
+    required ChecklistColor color,
     required List<Item> items,
   }) = _CheckList;
 
   factory Checklist.empty() => Checklist(
         id: UniqueId(),
         name: ChecklistName(''),
+        color: ChecklistColor.teal,
         items: [],
       );
 

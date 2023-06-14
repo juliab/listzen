@@ -7,7 +7,6 @@ import 'package:success_check/presentation/checklists/components/checklist_info_
 import 'package:success_check/presentation/checklists/components/checklist_statistics_component.dart';
 import 'package:success_check/presentation/checklists/components/completion_status_checkbox_component.dart';
 import 'package:success_check/presentation/checklists/components/validation_error_message_component.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
 
 class EditChecklistInfoTile extends HookWidget {
   const EditChecklistInfoTile({super.key});
@@ -29,6 +28,7 @@ class EditChecklistInfoTile extends HookWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ChecklistInfoTile.editable(
+                color: state.checklist.color,
                 textEditingController: textEditingController,
                 onChanged: (value) =>
                     BlocProvider.of<ChecklistEditBloc>(context)

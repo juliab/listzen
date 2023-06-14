@@ -33,5 +33,10 @@ class ChecklistEditEvent with _$ChecklistEditEvent {
   const factory ChecklistEditEvent.itemRemoved({required int index}) =
       ItemRemoved;
 
+  const factory ChecklistEditEvent.colorChanged({
+    required ChecklistColor color,
+    @Default(false) bool instantSave,
+  }) = ColorChanged;
+
   const factory ChecklistEditEvent.saved() = Saved;
 }

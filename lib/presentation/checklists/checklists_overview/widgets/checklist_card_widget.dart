@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
+import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
+import 'package:success_check/domain/checklists/card_color.dart';
 import 'package:success_check/domain/checklists/checklist.dart';
 import 'package:success_check/presentation/checklists/components/checklist_info_tile_component.dart';
 import 'package:success_check/presentation/checklists/components/checklist_statistics_component.dart';
@@ -25,8 +27,17 @@ class ChecklistCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Slidable(
         groupTag: '0',
+        startActionPane: ActionPane(
+          extentRatio: 0.7,
+          motion: const DrawerMotion(),
+          children: ChecklistColor.values
+              .where((color) => color != checklist.color)
+              .map((color) =>
+                  ColorSlidableAction(checklist: checklist, color: color))
+              .toList(),
+        ),
         endActionPane: ActionPane(
-          motion: const ScrollMotion(),
+          motion: const DrawerMotion(),
           children: [
             EditSlidableAction(checklist: checklist),
             DeleteSlidableAction(checklist: checklist),
@@ -38,11 +49,40 @@ class ChecklistCard extends StatelessWidget {
             builder: (_) => ViewChecklistDialog(checklist: checklist),
           ),
           child: ChecklistInfoTile.readOnly(
+            color: checklist.color,
             name: checklist.name.getOrCrash(),
             statistics: ChecklistStatistics(checklist: checklist),
           ),
         ),
       ),
+    );
+  }
+}
+
+class ColorSlidableAction extends StatelessWidget {
+  final Checklist checklist;
+  final ChecklistColor color;
+
+  const ColorSlidableAction({
+    super.key,
+    required this.checklist,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SlidableAction(
+      onPressed: (context) {
+        BlocProvider.of<ChecklistEditBloc>(context)
+            .add(ChecklistEditEvent.initialized(some(checklist)));
+        BlocProvider.of<ChecklistEditBloc>(context).add(
+          ChecklistEditEvent.colorChanged(color: color, instantSave: true),
+        );
+      },
+      icon: Icons.colorize,
+      backgroundColor: Color(color.colorValues[0]),
+      foregroundColor: whiteColorWithOpacity,
+      borderRadius: standardBorderRadius,
     );
   }
 }

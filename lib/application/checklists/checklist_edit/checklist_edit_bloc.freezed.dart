@@ -29,6 +29,8 @@ mixin _$ChecklistEditEvent {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +45,7 @@ mixin _$ChecklistEditEvent {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +60,7 @@ mixin _$ChecklistEditEvent {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -73,6 +77,7 @@ mixin _$ChecklistEditEvent {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -87,6 +92,7 @@ mixin _$ChecklistEditEvent {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -101,6 +107,7 @@ mixin _$ChecklistEditEvent {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -201,6 +208,8 @@ class _$Initialized implements Initialized {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return initialized(initialChecklistOption);
@@ -218,6 +227,7 @@ class _$Initialized implements Initialized {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return initialized?.call(initialChecklistOption);
@@ -235,6 +245,7 @@ class _$Initialized implements Initialized {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -257,6 +268,7 @@ class _$Initialized implements Initialized {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return initialized(this);
@@ -274,6 +286,7 @@ class _$Initialized implements Initialized {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return initialized?.call(this);
@@ -291,6 +304,7 @@ class _$Initialized implements Initialized {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -386,6 +400,8 @@ class _$NameChanged implements NameChanged {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return nameChanged(name);
@@ -403,6 +419,7 @@ class _$NameChanged implements NameChanged {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return nameChanged?.call(name);
@@ -420,6 +437,7 @@ class _$NameChanged implements NameChanged {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -442,6 +460,7 @@ class _$NameChanged implements NameChanged {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return nameChanged(this);
@@ -459,6 +478,7 @@ class _$NameChanged implements NameChanged {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return nameChanged?.call(this);
@@ -476,6 +496,7 @@ class _$NameChanged implements NameChanged {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -582,6 +603,8 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return completionStatusChanged(isDone, instantSave);
@@ -599,6 +622,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return completionStatusChanged?.call(isDone, instantSave);
@@ -616,6 +640,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -638,6 +663,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return completionStatusChanged(this);
@@ -655,6 +681,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return completionStatusChanged?.call(this);
@@ -672,6 +699,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -743,6 +771,8 @@ class _$ItemAdded implements ItemAdded {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return itemAdded();
@@ -760,6 +790,7 @@ class _$ItemAdded implements ItemAdded {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return itemAdded?.call();
@@ -777,6 +808,7 @@ class _$ItemAdded implements ItemAdded {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -799,6 +831,7 @@ class _$ItemAdded implements ItemAdded {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return itemAdded(this);
@@ -816,6 +849,7 @@ class _$ItemAdded implements ItemAdded {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return itemAdded?.call(this);
@@ -833,6 +867,7 @@ class _$ItemAdded implements ItemAdded {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -930,6 +965,8 @@ class _$ItemNameChanged implements ItemNameChanged {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return itemNameChanged(index, name);
@@ -947,6 +984,7 @@ class _$ItemNameChanged implements ItemNameChanged {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return itemNameChanged?.call(index, name);
@@ -964,6 +1002,7 @@ class _$ItemNameChanged implements ItemNameChanged {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -986,6 +1025,7 @@ class _$ItemNameChanged implements ItemNameChanged {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return itemNameChanged(this);
@@ -1003,6 +1043,7 @@ class _$ItemNameChanged implements ItemNameChanged {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return itemNameChanged?.call(this);
@@ -1020,6 +1061,7 @@ class _$ItemNameChanged implements ItemNameChanged {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -1140,6 +1182,8 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return itemCompletionStatusChanged(index, isDone, instantSave);
@@ -1157,6 +1201,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return itemCompletionStatusChanged?.call(index, isDone, instantSave);
@@ -1174,6 +1219,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -1196,6 +1242,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return itemCompletionStatusChanged(this);
@@ -1213,6 +1260,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return itemCompletionStatusChanged?.call(this);
@@ -1230,6 +1278,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -1339,6 +1388,8 @@ class _$ItemsReordered implements ItemsReordered {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return itemsReordered(oldIndex, newIndex);
@@ -1356,6 +1407,7 @@ class _$ItemsReordered implements ItemsReordered {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return itemsReordered?.call(oldIndex, newIndex);
@@ -1373,6 +1425,7 @@ class _$ItemsReordered implements ItemsReordered {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -1395,6 +1448,7 @@ class _$ItemsReordered implements ItemsReordered {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return itemsReordered(this);
@@ -1412,6 +1466,7 @@ class _$ItemsReordered implements ItemsReordered {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return itemsReordered?.call(this);
@@ -1429,6 +1484,7 @@ class _$ItemsReordered implements ItemsReordered {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -1526,6 +1582,8 @@ class _$ItemRemoved implements ItemRemoved {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return itemRemoved(index);
@@ -1543,6 +1601,7 @@ class _$ItemRemoved implements ItemRemoved {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return itemRemoved?.call(index);
@@ -1560,6 +1619,7 @@ class _$ItemRemoved implements ItemRemoved {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -1582,6 +1642,7 @@ class _$ItemRemoved implements ItemRemoved {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return itemRemoved(this);
@@ -1599,6 +1660,7 @@ class _$ItemRemoved implements ItemRemoved {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return itemRemoved?.call(this);
@@ -1616,6 +1678,7 @@ class _$ItemRemoved implements ItemRemoved {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -1632,6 +1695,210 @@ abstract class ItemRemoved implements ChecklistEditEvent {
   int get index;
   @JsonKey(ignore: true)
   _$$ItemRemovedCopyWith<_$ItemRemoved> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ColorChangedCopyWith<$Res> {
+  factory _$$ColorChangedCopyWith(
+          _$ColorChanged value, $Res Function(_$ColorChanged) then) =
+      __$$ColorChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ChecklistColor color, bool instantSave});
+}
+
+/// @nodoc
+class __$$ColorChangedCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ColorChanged>
+    implements _$$ColorChangedCopyWith<$Res> {
+  __$$ColorChangedCopyWithImpl(
+      _$ColorChanged _value, $Res Function(_$ColorChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? color = null,
+    Object? instantSave = null,
+  }) {
+    return _then(_$ColorChanged(
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as ChecklistColor,
+      instantSave: null == instantSave
+          ? _value.instantSave
+          : instantSave // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ColorChanged implements ColorChanged {
+  const _$ColorChanged({required this.color, this.instantSave = false});
+
+  @override
+  final ChecklistColor color;
+  @override
+  @JsonKey()
+  final bool instantSave;
+
+  @override
+  String toString() {
+    return 'ChecklistEditEvent.colorChanged(color: $color, instantSave: $instantSave)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ColorChanged &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.instantSave, instantSave) ||
+                other.instantSave == instantSave));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, color, instantSave);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ColorChangedCopyWith<_$ColorChanged> get copyWith =>
+      __$$ColorChangedCopyWithImpl<_$ColorChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Checklist> initialChecklistOption)
+        initialized,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(bool isDone, bool instantSave)
+        completionStatusChanged,
+    required TResult Function() itemAdded,
+    required TResult Function(int index, String name) itemNameChanged,
+    required TResult Function(int index, bool isDone, bool instantSave)
+        itemCompletionStatusChanged,
+    required TResult Function(int oldIndex, int newIndex) itemsReordered,
+    required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
+    required TResult Function() saved,
+  }) {
+    return colorChanged(color, instantSave);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<Checklist> initialChecklistOption)? initialized,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(bool isDone, bool instantSave)? completionStatusChanged,
+    TResult? Function()? itemAdded,
+    TResult? Function(int index, String name)? itemNameChanged,
+    TResult? Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
+    TResult? Function(int oldIndex, int newIndex)? itemsReordered,
+    TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
+    TResult? Function()? saved,
+  }) {
+    return colorChanged?.call(color, instantSave);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Checklist> initialChecklistOption)? initialized,
+    TResult Function(String name)? nameChanged,
+    TResult Function(bool isDone, bool instantSave)? completionStatusChanged,
+    TResult Function()? itemAdded,
+    TResult Function(int index, String name)? itemNameChanged,
+    TResult Function(int index, bool isDone, bool instantSave)?
+        itemCompletionStatusChanged,
+    TResult Function(int oldIndex, int newIndex)? itemsReordered,
+    TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (colorChanged != null) {
+      return colorChanged(color, instantSave);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(CompletionStatusChanged value)
+        completionStatusChanged,
+    required TResult Function(ItemAdded value) itemAdded,
+    required TResult Function(ItemNameChanged value) itemNameChanged,
+    required TResult Function(ItemCompletionStatusChanged value)
+        itemCompletionStatusChanged,
+    required TResult Function(ItemsReordered value) itemsReordered,
+    required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
+    required TResult Function(Saved value) saved,
+  }) {
+    return colorChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(CompletionStatusChanged value)? completionStatusChanged,
+    TResult? Function(ItemAdded value)? itemAdded,
+    TResult? Function(ItemNameChanged value)? itemNameChanged,
+    TResult? Function(ItemCompletionStatusChanged value)?
+        itemCompletionStatusChanged,
+    TResult? Function(ItemsReordered value)? itemsReordered,
+    TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
+    TResult? Function(Saved value)? saved,
+  }) {
+    return colorChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(CompletionStatusChanged value)? completionStatusChanged,
+    TResult Function(ItemAdded value)? itemAdded,
+    TResult Function(ItemNameChanged value)? itemNameChanged,
+    TResult Function(ItemCompletionStatusChanged value)?
+        itemCompletionStatusChanged,
+    TResult Function(ItemsReordered value)? itemsReordered,
+    TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
+    TResult Function(Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (colorChanged != null) {
+      return colorChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ColorChanged implements ChecklistEditEvent {
+  const factory ColorChanged(
+      {required final ChecklistColor color,
+      final bool instantSave}) = _$ColorChanged;
+
+  ChecklistColor get color;
+  bool get instantSave;
+  @JsonKey(ignore: true)
+  _$$ColorChangedCopyWith<_$ColorChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1682,6 +1949,8 @@ class _$Saved implements Saved {
         itemCompletionStatusChanged,
     required TResult Function(int oldIndex, int newIndex) itemsReordered,
     required TResult Function(int index) itemRemoved,
+    required TResult Function(ChecklistColor color, bool instantSave)
+        colorChanged,
     required TResult Function() saved,
   }) {
     return saved();
@@ -1699,6 +1968,7 @@ class _$Saved implements Saved {
         itemCompletionStatusChanged,
     TResult? Function(int oldIndex, int newIndex)? itemsReordered,
     TResult? Function(int index)? itemRemoved,
+    TResult? Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -1716,6 +1986,7 @@ class _$Saved implements Saved {
         itemCompletionStatusChanged,
     TResult Function(int oldIndex, int newIndex)? itemsReordered,
     TResult Function(int index)? itemRemoved,
+    TResult Function(ChecklistColor color, bool instantSave)? colorChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -1738,6 +2009,7 @@ class _$Saved implements Saved {
         itemCompletionStatusChanged,
     required TResult Function(ItemsReordered value) itemsReordered,
     required TResult Function(ItemRemoved value) itemRemoved,
+    required TResult Function(ColorChanged value) colorChanged,
     required TResult Function(Saved value) saved,
   }) {
     return saved(this);
@@ -1755,6 +2027,7 @@ class _$Saved implements Saved {
         itemCompletionStatusChanged,
     TResult? Function(ItemsReordered value)? itemsReordered,
     TResult? Function(ItemRemoved value)? itemRemoved,
+    TResult? Function(ColorChanged value)? colorChanged,
     TResult? Function(Saved value)? saved,
   }) {
     return saved?.call(this);
@@ -1772,6 +2045,7 @@ class _$Saved implements Saved {
         itemCompletionStatusChanged,
     TResult Function(ItemsReordered value)? itemsReordered,
     TResult Function(ItemRemoved value)? itemRemoved,
+    TResult Function(ColorChanged value)? colorChanged,
     TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {

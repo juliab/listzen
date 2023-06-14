@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:success_check/domain/checklists/card_color.dart';
 import 'package:success_check/domain/checklists/value_objects.dart';
 import 'package:success_check/presentation/core/theming/style.dart';
 
 class ChecklistInfoTile extends StatelessWidget {
+  final ChecklistColor color;
   final Widget content;
   final Widget? completionStatusCheckbox;
   final Widget? statistics;
 
   const ChecklistInfoTile._({
+    required this.color,
     required this.content,
     this.completionStatusCheckbox,
     this.statistics,
   });
 
   factory ChecklistInfoTile.readOnly({
+    required ChecklistColor color,
     required String name,
     Widget? completionStatusCheckbox,
     Widget? statistics,
   }) {
     return ChecklistInfoTile._(
+      color: color,
       content: ReadOnlyChecklistNameField(
         name: name,
       ),
@@ -28,12 +33,14 @@ class ChecklistInfoTile extends StatelessWidget {
   }
 
   factory ChecklistInfoTile.editable({
+    required ChecklistColor color,
     required TextEditingController textEditingController,
     required Function(String value) onChanged,
     Widget? completionStatusCheckbox,
     Widget? statistics,
   }) {
     return ChecklistInfoTile._(
+      color: color,
       content: EditableChecklistNameField(
         textEditingController: textEditingController,
         onChanged: onChanged,
@@ -48,7 +55,9 @@ class ChecklistInfoTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        gradient: cardGradient,
+        gradient: LinearGradient(
+          colors: color.colorValues.map((value) => Color(value)).toList(),
+        ),
         borderRadius: cardBorderRadius,
       ),
       height: cardHeight,
