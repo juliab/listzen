@@ -31,16 +31,8 @@ InputDecoration noBordersInputDecoration = const InputDecoration(
 final TextStyle appBarTitleStyle =
     appTheme.textTheme.titleLarge!.copyWith(color: whiteColorWithOpacity);
 
-/* Flushbar */
-final flushbarContentColor = whiteColorWithOpacity;
-const Color flushbarBackgroundColor = Color(0xFF0165A9);
-TextStyle flushbarTitleTextStyle = appTheme.textTheme.titleMedium!.copyWith(
-  color: flushbarContentColor,
-);
-TextStyle flushbarMessageTextStyle = appTheme.textTheme.bodyMedium!.copyWith(
-  color: flushbarContentColor,
-);
-const double flushbarIconSize = 40;
+/* SnackBar */
+const EdgeInsetsGeometry snackbarPadding = EdgeInsets.only(top: 20);
 
 /* Card */
 BorderRadius cardBorderRadius = BorderRadius.circular(20);

@@ -28,7 +28,7 @@ dependencies:
   flutter_hooks: ^0.20.0
   flutter_slidable: ^3.0.0
   flutter_keyboard_visibility: ^5.4.1
-  flutter_flushbar: ^0.0.2
+  awesome_snackbar_content: ^0.1.3
 
 dev_dependencies:
   flutter_test:

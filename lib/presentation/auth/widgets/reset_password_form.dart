@@ -61,6 +61,7 @@ class ResetPasswordForm extends StatelessWidget {
             orElse: () => 'Authentication error. Please contact support.',
           );
           ErrorFlushbar(
+            title: 'Error',
             message: errorMessage,
             context: context,
           ).show();

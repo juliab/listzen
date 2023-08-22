@@ -111,7 +111,11 @@ class SignUpForm extends StatelessWidget {
           emailAlreadyInUse: (_) => 'Email already in use',
           orElse: () => 'Authentication error. Please contact support.',
         );
-        ErrorFlushbar(message: errorMessage, context: context).show();
+        ErrorFlushbar(
+          title: 'Error',
+          message: errorMessage,
+          context: context,
+        ).show();
       }, (_) {
         AutoRouter.of(context).push(const ChecklistsOverviewRoute());
         BlocProvider.of<AuthBloc>(context)
