@@ -9,24 +9,24 @@ ThemeData appTheme = ThemeData(
   primaryTextTheme: TextTheme(
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 16,
+      fontSize: 14,
       color: whiteColorWithOpacity,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.normal,
-      fontSize: 14,
+      fontSize: 12,
       color: whiteColorWithOpacity,
     ),
     bodyMedium: TextStyle(
       fontWeight: FontWeight.normal,
-      fontSize: 14,
+      fontSize: 12,
       color: whiteColorWithOpacity,
     ),
   ),
   textTheme: const TextTheme(
     bodyMedium: TextStyle(
       fontWeight: FontWeight.normal,
-      fontSize: 14,
+      fontSize: 12,
     ),
     headlineSmall: TextStyle(
       fontWeight: FontWeight.bold,
