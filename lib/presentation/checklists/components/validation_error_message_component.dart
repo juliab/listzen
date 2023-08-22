@@ -15,7 +15,7 @@ class ValidationErrorMessage extends StatelessWidget {
       padding: const EdgeInsets.only(top: 6.0, left: 6.0),
       child: Text(
         message,
-        style: TextStyle(color: errorColor, fontSize: 13),
+        style: const TextStyle(color: errorColor, fontSize: 13),
       ),
     );
   }

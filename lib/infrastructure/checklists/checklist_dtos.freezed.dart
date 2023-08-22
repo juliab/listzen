@@ -226,7 +226,7 @@ abstract class _ChecklistDto extends ChecklistDto {
       required final String color,
       required final List<ItemDto> items,
       @ServerTimeStampConverter()
-          required final FieldValue serverTimeStamp}) = _$_ChecklistDto;
+      required final FieldValue serverTimeStamp}) = _$_ChecklistDto;
   const _ChecklistDto._() : super._();
 
   factory _ChecklistDto.fromJson(Map<String, dynamic> json) =

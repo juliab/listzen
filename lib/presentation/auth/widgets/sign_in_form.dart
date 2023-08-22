@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:success_check/application/auth/auth_bloc.dart';
 import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:success_check/presentation/auth/theming/style.dart';
 import 'package:success_check/presentation/auth/widgets/accent_button.dart';
 import 'package:success_check/presentation/auth/widgets/email_field.dart';
 import 'package:success_check/presentation/auth/widgets/password_field.dart';
@@ -19,8 +20,11 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: _listenToAuthFailure,
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 60),
+        return Container(
+          height: 560,
+          decoration: formDecoration,
+          padding:
+              const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 40),
           child: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(

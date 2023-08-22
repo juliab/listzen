@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+/* Form decoration */
+const Decoration formDecoration = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.only(
+    topLeft: Radius.circular(40),
+    topRight: Radius.circular(40),
+  ),
+);
+
 /* Sign in / Sign up button */
 const Gradient buttonGradient = LinearGradient(colors: [
   Color(0xFF5CB0FA),
