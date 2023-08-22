@@ -40,7 +40,7 @@ ThemeData appTheme = ThemeData(
     ),
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 16,
+      fontSize: 14,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ ThemeData appTheme = ThemeData(
     labelLarge: TextStyle(
       fontWeight: FontWeight.bold,
       letterSpacing: -1,
-      fontSize: 15,
+      fontSize: 14,
     ),
   ),
   scaffoldBackgroundColor: backgroundColor,
@@ -66,9 +66,9 @@ ThemeData appTheme = ThemeData(
   ),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
-    focusedBorder: inputBorder(color: const Color(0xFF5E85FA), width: 2.5),
+    focusedBorder: inputBorder(color: const Color(0xFF5E85FA), width: 2),
     errorBorder: inputBorder(color: errorColor),
-    focusedErrorBorder: inputBorder(color: errorColor, width: 2.5),
+    focusedErrorBorder: inputBorder(color: errorColor, width: 2),
     errorStyle: const TextStyle(
       fontWeight: FontWeight.bold,
     ),
