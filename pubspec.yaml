@@ -38,6 +38,10 @@ dev_dependencies:
   injectable_generator: ^2.4.0
   json_serializable: ^6.7.1
   lint: ^2.1.2
+  flutter_native_splash: ^2.3.2
+
+flutter_native_splash:
+  background_image: assets/colorful-sticky-notes.jpg
 
 flutter:
   uses-material-design: true
