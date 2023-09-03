@@ -46,7 +46,7 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
   assets:
-    - assets/colorful-sticky-notes.jpg
+    - assets/main_image.jpg
     - icons/google.png
   fonts:
     - family: Architex

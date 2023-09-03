@@ -8,7 +8,7 @@ class MainImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/colorful-sticky-notes.jpg',
+      'assets/main_image.jpg',
       height: MediaQuery.of(context).size.height,
       fit: BoxFit.fitHeight,
     );
