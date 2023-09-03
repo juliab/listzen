@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class ErrorChecklistCard extends StatelessWidget {
   final Checklist checklist;

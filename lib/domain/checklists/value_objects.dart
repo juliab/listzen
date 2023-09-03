@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:success_check/domain/core/failures.dart';
-import 'package:success_check/domain/core/value_objects.dart';
-import 'package:success_check/domain/core/value_validators.dart';
+import 'package:listzen/domain/core/failures.dart';
+import 'package:listzen/domain/core/value_objects.dart';
+import 'package:listzen/domain/core/value_validators.dart';
 
 class ChecklistName extends ValueObject<String> {
   @override

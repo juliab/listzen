@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/domain/checklists/checklist_failure.dart';
+import 'package:listzen/domain/checklists/checklist_failure.dart';
 
 class CriticalFailureDisplay extends StatelessWidget {
   final ChecklistFailure failure;

@@ -1,16 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:success_check/application/auth/auth_bloc.dart';
-import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
-import 'package:success_check/presentation/auth/theming/style.dart';
-import 'package:success_check/presentation/auth/widgets/accent_button.dart';
-import 'package:success_check/presentation/auth/widgets/email_field.dart';
-import 'package:success_check/presentation/auth/widgets/password_field.dart';
-import 'package:success_check/presentation/auth/widgets/sign_in_with_google_button.dart';
-import 'package:success_check/presentation/core/error_flushbar.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
-import 'package:success_check/presentation/routes/app_router.dart';
+import 'package:listzen/application/auth/auth_bloc.dart';
+import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/auth/widgets/accent_button.dart';
+import 'package:listzen/presentation/auth/widgets/email_field.dart';
+import 'package:listzen/presentation/auth/widgets/password_field.dart';
+import 'package:listzen/presentation/auth/widgets/sign_in_with_google_button.dart';
+import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/routes/app_router.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});

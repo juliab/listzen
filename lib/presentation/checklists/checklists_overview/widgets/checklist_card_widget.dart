@@ -3,15 +3,15 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:success_check/application/checklists/checklist_actor/checklist_actor_bloc.dart';
-import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:success_check/domain/checklists/card_color.dart';
-import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/presentation/checklists/components/checklist_info_tile_component.dart';
-import 'package:success_check/presentation/checklists/components/checklist_statistics_component.dart';
-import 'package:success_check/presentation/checklists/view_checklist/view_checklist_dialog.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
-import 'package:success_check/presentation/routes/app_router.dart';
+import 'package:listzen/application/checklists/checklist_actor/checklist_actor_bloc.dart';
+import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
+import 'package:listzen/domain/checklists/card_color.dart';
+import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/presentation/checklists/components/checklist_info_tile_component.dart';
+import 'package:listzen/presentation/checklists/components/checklist_statistics_component.dart';
+import 'package:listzen/presentation/checklists/view_checklist/view_checklist_dialog.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/routes/app_router.dart';
 
 class ChecklistCard extends StatelessWidget {
   final Checklist checklist;

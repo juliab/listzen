@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:success_check/domain/auth/value_objects.dart';
+import 'package:listzen/domain/auth/value_objects.dart';
 
 part 'user.freezed.dart';
 

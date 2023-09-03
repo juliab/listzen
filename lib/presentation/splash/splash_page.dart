@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:success_check/application/auth/auth_bloc.dart';
-import 'package:success_check/presentation/routes/app_router.dart';
+import 'package:listzen/application/auth/auth_bloc.dart';
+import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()
 class SplashPage extends StatelessWidget {

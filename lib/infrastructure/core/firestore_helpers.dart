@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:success_check/domain/auth/i_auth_facade.dart';
-import 'package:success_check/domain/core/errors.dart';
-import 'package:success_check/injection.dart';
+import 'package:listzen/domain/auth/i_auth_facade.dart';
+import 'package:listzen/domain/core/errors.dart';
+import 'package:listzen/injection.dart';
 
 extension FirestoreX on FirebaseFirestore {
   DocumentReference<Map<String, dynamic>> userDocument() {

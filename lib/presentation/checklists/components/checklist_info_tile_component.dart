@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/domain/checklists/card_color.dart';
-import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/domain/checklists/card_color.dart';
+import 'package:listzen/domain/checklists/value_objects.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class ChecklistInfoTile extends StatelessWidget {
   final ChecklistColor color;

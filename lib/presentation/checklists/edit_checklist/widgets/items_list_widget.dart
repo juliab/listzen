@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/presentation/checklists/components/completion_status_checkbox_component.dart';
-import 'package:success_check/presentation/checklists/components/item_tile_component.dart';
-import 'package:success_check/presentation/checklists/components/validation_error_message_component.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
+import 'package:listzen/domain/checklists/value_objects.dart';
+import 'package:listzen/presentation/checklists/components/completion_status_checkbox_component.dart';
+import 'package:listzen/presentation/checklists/components/item_tile_component.dart';
+import 'package:listzen/presentation/checklists/components/validation_error_message_component.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class ItemsList extends StatelessWidget {
   const ItemsList({super.key});

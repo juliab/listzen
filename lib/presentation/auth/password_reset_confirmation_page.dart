@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:success_check/presentation/auth/theming/style.dart';
-import 'package:success_check/presentation/auth/widgets/back_to_login_link.dart';
-import 'package:success_check/presentation/auth/widgets/top_image.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/auth/widgets/back_to_login_link.dart';
+import 'package:listzen/presentation/auth/widgets/top_image.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 @RoutePage()
 class PasswordResetConfirmationPage extends StatelessWidget {

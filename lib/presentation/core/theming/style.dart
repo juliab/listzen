@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/presentation/core/theming/app_theme.dart';
+import 'package:listzen/presentation/core/theming/app_theme.dart';
 
 const Color backgroundColor = Colors.white;
 final Color whiteColorWithOpacity = Colors.white.withOpacity(0.8);

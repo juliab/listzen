@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
-import 'package:success_check/presentation/auth/theming/style.dart';
-import 'package:success_check/presentation/auth/widgets/accent_button.dart';
-import 'package:success_check/presentation/auth/widgets/back_to_login_link.dart';
-import 'package:success_check/presentation/auth/widgets/email_field.dart';
-import 'package:success_check/presentation/core/error_flushbar.dart';
-import 'package:success_check/presentation/routes/app_router.dart';
+import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/auth/widgets/accent_button.dart';
+import 'package:listzen/presentation/auth/widgets/back_to_login_link.dart';
+import 'package:listzen/presentation/auth/widgets/email_field.dart';
+import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/routes/app_router.dart';
 
 class ResetPasswordForm extends StatelessWidget {
   const ResetPasswordForm({super.key});

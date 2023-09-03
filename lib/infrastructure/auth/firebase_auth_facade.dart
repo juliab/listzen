@@ -2,11 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-import 'package:success_check/domain/auth/auth_failure.dart';
-import 'package:success_check/domain/auth/firebase_user_mapper.dart';
-import 'package:success_check/domain/auth/i_auth_facade.dart';
-import 'package:success_check/domain/auth/user.dart' as sc;
-import 'package:success_check/domain/auth/value_objects.dart';
+import 'package:listzen/domain/auth/auth_failure.dart';
+import 'package:listzen/domain/auth/firebase_user_mapper.dart';
+import 'package:listzen/domain/auth/i_auth_facade.dart';
+import 'package:listzen/domain/auth/user.dart' as sc;
+import 'package:listzen/domain/auth/value_objects.dart';
 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {

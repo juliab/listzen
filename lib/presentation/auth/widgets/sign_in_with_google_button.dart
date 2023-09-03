@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:success_check/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class SignInWithGoogleButton extends StatelessWidget {
   const SignInWithGoogleButton({super.key});

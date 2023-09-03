@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:success_check/presentation/core/theming/style.dart';
-import 'package:success_check/presentation/routes/app_router.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/routes/app_router.dart';
 
 class BackToLoginLink extends StatelessWidget {
   const BackToLoginLink({

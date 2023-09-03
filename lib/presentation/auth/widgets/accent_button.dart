@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/presentation/auth/theming/style.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class AccentButton extends StatelessWidget {
   final String text;

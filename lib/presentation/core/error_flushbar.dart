@@ -1,6 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class ErrorFlushbar extends StatelessWidget {
   final String title;

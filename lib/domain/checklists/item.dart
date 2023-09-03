@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:success_check/domain/auth/value_objects.dart';
-import 'package:success_check/domain/checklists/value_objects.dart';
-import 'package:success_check/domain/core/failures.dart';
+import 'package:listzen/domain/auth/value_objects.dart';
+import 'package:listzen/domain/checklists/value_objects.dart';
+import 'package:listzen/domain/core/failures.dart';
 
 part 'item.freezed.dart';
 

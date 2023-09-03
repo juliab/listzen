@@ -2,11 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/domain/checklists/checklist_failure.dart';
-import 'package:success_check/domain/checklists/i_checklist_repository.dart';
-import 'package:success_check/infrastructure/checklists/checklist_dtos.dart';
-import 'package:success_check/infrastructure/core/firestore_helpers.dart';
+import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/domain/checklists/checklist_failure.dart';
+import 'package:listzen/domain/checklists/i_checklist_repository.dart';
+import 'package:listzen/infrastructure/checklists/checklist_dtos.dart';
+import 'package:listzen/infrastructure/core/firestore_helpers.dart';
 
 @LazySingleton(as: IChecklistRepository)
 class ChecklistRepository implements IChecklistRepository {

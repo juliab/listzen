@@ -3,12 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:success_check/domain/checklists/card_color.dart';
-import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/domain/checklists/checklist_failure.dart';
-import 'package:success_check/domain/checklists/i_checklist_repository.dart';
-import 'package:success_check/domain/checklists/item.dart';
-import 'package:success_check/domain/checklists/value_objects.dart';
+import 'package:listzen/domain/checklists/card_color.dart';
+import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/domain/checklists/checklist_failure.dart';
+import 'package:listzen/domain/checklists/i_checklist_repository.dart';
+import 'package:listzen/domain/checklists/item.dart';
+import 'package:listzen/domain/checklists/value_objects.dart';
 
 part 'checklist_edit_bloc.freezed.dart';
 part 'checklist_edit_event.dart';

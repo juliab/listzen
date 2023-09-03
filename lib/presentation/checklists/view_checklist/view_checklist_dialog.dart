@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:success_check/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:success_check/domain/checklists/checklist.dart';
-import 'package:success_check/domain/checklists/item.dart';
-import 'package:success_check/injection.dart';
-import 'package:success_check/presentation/checklists/components/checklist_info_tile_component.dart';
-import 'package:success_check/presentation/checklists/components/checklist_statistics_component.dart';
-import 'package:success_check/presentation/checklists/components/completion_status_checkbox_component.dart';
-import 'package:success_check/presentation/checklists/components/item_tile_component.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
+import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/domain/checklists/item.dart';
+import 'package:listzen/injection.dart';
+import 'package:listzen/presentation/checklists/components/checklist_info_tile_component.dart';
+import 'package:listzen/presentation/checklists/components/checklist_statistics_component.dart';
+import 'package:listzen/presentation/checklists/components/completion_status_checkbox_component.dart';
+import 'package:listzen/presentation/checklists/components/item_tile_component.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class ViewChecklistDialog extends StatelessWidget {
   final Checklist checklist;

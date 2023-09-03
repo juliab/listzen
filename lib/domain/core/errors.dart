@@ -1,4 +1,4 @@
-import 'package:success_check/domain/core/failures.dart';
+import 'package:listzen/domain/core/failures.dart';
 
 class NotAuthenticatedError extends Error {}
 

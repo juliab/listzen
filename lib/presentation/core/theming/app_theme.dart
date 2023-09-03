@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:success_check/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 ThemeData appTheme = ThemeData(
   colorScheme: const ColorScheme.light(
