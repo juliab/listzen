@@ -44,10 +44,18 @@ class ChecklistCard extends StatelessWidget {
           ],
         ),
         child: InkWell(
-          onTap: () => showDialog(
-            context: context,
-            builder: (_) => ViewChecklistDialog(checklist: checklist),
-          ),
+          onTap: () {
+            if (checklist.items.isNotEmpty) {
+              showDialog(
+                context: context,
+                builder: (_) => ViewChecklistDialog(checklist: checklist),
+              );
+            } else {
+              AutoRouter.of(context).push(
+                EditChecklistRoute(editedChecklistOption: Some(checklist)),
+              );
+            }
+          },
           child: ChecklistInfoTile.readOnly(
             color: checklist.color,
             name: checklist.name.getOrCrash(),
