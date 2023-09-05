@@ -40,21 +40,24 @@ class ViewChecklistDialog extends StatelessWidget {
                       CloseButton(),
                     ],
                   ),
-                  ChecklistInfoTile.readOnly(
-                    color: checklist.color,
-                    name: checklist.name.getOrCrash(),
-                    completionStatusCheckbox: CompletionStatusCheckbox(
-                      isCompleted: () => state.checklist.isCompleted(),
-                      onChanged: (value) =>
-                          BlocProvider.of<ChecklistEditBloc>(context).add(
-                        ChecklistEditEvent.completionStatusChanged(
-                          isDone: value!,
-                          instantSave: true,
-                        ),
+                  GestureDetector(
+                    onTap: () =>
+                        BlocProvider.of<ChecklistEditBloc>(context).add(
+                      ChecklistEditEvent.completionStatusChanged(
+                        isDone: !state.checklist.isCompleted(),
+                        instantSave: true,
                       ),
-                      insideCard: true,
                     ),
-                    statistics: ChecklistStatistics(checklist: state.checklist),
+                    child: ChecklistInfoTile.readOnly(
+                      color: checklist.color,
+                      name: checklist.name.getOrCrash(),
+                      completionStatusCheckbox: CompletionStatusCheckbox(
+                        isCompleted: () => state.checklist.isCompleted(),
+                        insideCard: true,
+                      ),
+                      statistics:
+                          ChecklistStatistics(checklist: state.checklist),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -101,16 +104,17 @@ class ViewItemTile extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0),
-          child: ItemTile.readOnly(
-            name: item.name.getOrCrash(),
-            completionStatusCheckbox: CompletionStatusCheckbox(
-              isCompleted: () => item.done,
-              onChanged: (value) =>
-                  BlocProvider.of<ChecklistEditBloc>(context).add(
-                ChecklistEditEvent.itemCompletionStatusChanged(
-                    index: index, isDone: value!, instantSave: true),
+          child: GestureDetector(
+            onTap: () => BlocProvider.of<ChecklistEditBloc>(context).add(
+              ChecklistEditEvent.itemCompletionStatusChanged(
+                  index: index, isDone: !item.done, instantSave: true),
+            ),
+            child: ItemTile.readOnly(
+              name: item.name.getOrCrash(),
+              completionStatusCheckbox: CompletionStatusCheckbox(
+                isCompleted: () => item.done,
+                insideCard: false,
               ),
-              insideCard: false,
             ),
           ),
         ),

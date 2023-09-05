@@ -4,13 +4,13 @@ import 'package:listzen/presentation/core/theming/style.dart';
 
 class CompletionStatusCheckbox extends StatelessWidget {
   final bool Function() isCompleted;
-  final Function(bool?) onChanged;
+  final Function(bool?)? onChanged;
   final bool insideCard;
 
   const CompletionStatusCheckbox({
     super.key,
     required this.isCompleted,
-    required this.onChanged,
+    this.onChanged,
     required this.insideCard,
   });
 
