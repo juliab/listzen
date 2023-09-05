@@ -76,9 +76,6 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        title: const Text(
-          'Your checklists',
-        ),
         leading: IconButton(
           icon: const Icon(Icons.logout),
           onPressed: () => BlocProvider.of<AuthBloc>(context)
