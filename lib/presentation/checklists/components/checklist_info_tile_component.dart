@@ -118,6 +118,7 @@ class EditableChecklistNameField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: true,
       controller: textEditingController,
       decoration:
           cardInputDecoration.copyWith(hintText: 'Enter checklist name'),

@@ -15,20 +15,23 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: BlocProvider(
-        create: (context) => getIt<SignInFormBloc>(),
-        child: Stack(
-          children: [
-            const MainImage(),
-            KeyboardVisibilityBuilder(
-              builder: (context, isKeyboardVisible) => Align(
-                alignment: isKeyboardVisible
-                    ? const Alignment(0, -0.4)
-                    : Alignment.bottomCenter,
-                child: const SignInForm(),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        child: BlocProvider(
+          create: (context) => getIt<SignInFormBloc>(),
+          child: Stack(
+            children: [
+              const MainImage(),
+              KeyboardVisibilityBuilder(
+                builder: (context, isKeyboardVisible) => Align(
+                  alignment: isKeyboardVisible
+                      ? const Alignment(0, -0.4)
+                      : Alignment.bottomCenter,
+                  child: const SignInForm(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

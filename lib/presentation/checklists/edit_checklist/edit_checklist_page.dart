@@ -111,13 +111,16 @@ class EditChecklistPageScaffold extends StatelessWidget {
           );
         },
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            EditChecklistInfoTile(),
-            Flexible(child: ItemsList()),
-          ],
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        child: const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              EditChecklistInfoTile(),
+              Flexible(child: ItemsList()),
+            ],
+          ),
         ),
       ),
     );
