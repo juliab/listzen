@@ -8,7 +8,6 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
-import 'package:listzen/presentation/checklists/checklists_overview/widgets/uncompleted_switch_widget.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
@@ -81,9 +80,6 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
           onPressed: () => BlocProvider.of<AuthBloc>(context)
               .add(const AuthEvent.signedOut()),
         ),
-        actions: const [
-          UncompletedSwitch(),
-        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => AutoRouter.of(context).push(
