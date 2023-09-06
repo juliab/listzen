@@ -88,9 +88,12 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
         icon: const Icon(Icons.add),
         label: const Text('Add checklist'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(12.0),
-        child: ChecklistsOverviewBody(),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        child: const Padding(
+          padding: EdgeInsets.all(12.0),
+          child: ChecklistsOverviewBody(),
+        ),
       ),
     );
   }
