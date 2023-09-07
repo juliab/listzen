@@ -75,11 +75,20 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.logout),
-          onPressed: () => BlocProvider.of<AuthBloc>(context)
-              .add(const AuthEvent.signedOut()),
-        ),
+        automaticallyImplyLeading: false,
+        title: const Text('Checklists'),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.logout),
+        //   onPressed: () => BlocProvider.of<AuthBloc>(context)
+        //       .add(const AuthEvent.signedOut()),
+        // ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () => BlocProvider.of<AuthBloc>(context)
+                .add(const AuthEvent.signedOut()),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => AutoRouter.of(context).push(

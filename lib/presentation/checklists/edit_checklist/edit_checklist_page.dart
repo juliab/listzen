@@ -87,6 +87,7 @@ class EditChecklistPageScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
           buildWhen: (previous, current) =>
               previous.isEditing != current.isEditing,
