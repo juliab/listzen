@@ -87,7 +87,7 @@ class ColorSlidableAction extends StatelessWidget {
           ChecklistEditEvent.colorChanged(color: color, instantSave: true),
         );
       },
-      icon: Icons.colorize,
+      icon: Icons.color_lens,
       backgroundColor: Color(color.colorValues[0]),
       foregroundColor: whiteColorWithOpacity,
       borderRadius: standardBorderRadius,
