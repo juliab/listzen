@@ -77,11 +77,6 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Checklists'),
-        // leading: IconButton(
-        //   icon: const Icon(Icons.logout),
-        //   onPressed: () => BlocProvider.of<AuthBloc>(context)
-        //       .add(const AuthEvent.signedOut()),
-        // ),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),

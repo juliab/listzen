@@ -34,7 +34,6 @@ class ChecklistInfoTile extends StatelessWidget {
 
   factory ChecklistInfoTile.editable({
     required ChecklistColor color,
-    required bool focus,
     required TextEditingController textEditingController,
     required Function(String value) onChanged,
     Widget? completionStatusCheckbox,
@@ -43,7 +42,6 @@ class ChecklistInfoTile extends StatelessWidget {
     return ChecklistInfoTile._(
       color: color,
       content: EditableChecklistNameField(
-        focus: focus,
         textEditingController: textEditingController,
         onChanged: onChanged,
       ),
@@ -108,24 +106,19 @@ class ReadOnlyChecklistNameField extends StatelessWidget {
 }
 
 class EditableChecklistNameField extends StatelessWidget {
-  final bool focus;
   final TextEditingController textEditingController;
   final Function(String value) onChanged;
 
   const EditableChecklistNameField({
     super.key,
-    required this.focus,
     required this.textEditingController,
     required this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (!focus) {
-      FocusScope.of(context).requestFocus(FocusNode());
-    }
     return TextFormField(
-      autofocus: focus,
+      autofocus: true,
       textCapitalization: TextCapitalization.sentences,
       controller: textEditingController,
       decoration:

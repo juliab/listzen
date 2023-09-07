@@ -29,7 +29,6 @@ class EditChecklistInfoTile extends HookWidget {
             children: [
               ChecklistInfoTile.editable(
                 color: state.checklist.color,
-                focus: !state.isEditing,
                 textEditingController: textEditingController,
                 onChanged: (value) =>
                     BlocProvider.of<ChecklistEditBloc>(context)

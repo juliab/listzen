@@ -88,7 +88,6 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
                 ),
             ),
             saveFailureOrSuccessOption: none(),
-            //autovalidateMode: AutovalidateMode.disabled,
           ),
         );
       },
