@@ -4,12 +4,12 @@ import 'package:listzen/presentation/core/theming/app_theme.dart';
 const Color backgroundColor = Colors.white;
 final Color whiteColorWithOpacity = Colors.white.withOpacity(0.8);
 const Color blackColor = Colors.black;
-const Color appBarColor = Color(0xFF40272b); //Color(0xFFdb8e0e);
+const Color appBarColor = Color(0xFF40272b);
 const Color darkColor = Color(0xFF393939);
 const Color greyColor = Color(0xFF9398A4);
 const Color borderColor = Color(0xFFDBDBDB);
 const Color errorColor = Color(0xFFFE4A49);
-const Color editActionButtonColor = Colors.green;
+const Color greenColor = Colors.green;
 
 BorderRadius standardBorderRadius = BorderRadius.circular(12);
 

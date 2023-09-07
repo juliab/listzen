@@ -9,6 +9,7 @@ import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -87,7 +88,13 @@ class EditChecklistPageScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.cancel_outlined,
+            color: greyColor,
+          ),
+          onPressed: () => AutoRouter.of(context).pop(),
+        ),
         title: BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
           buildWhen: (previous, current) =>
               previous.isEditing != current.isEditing,
@@ -97,7 +104,10 @@ class EditChecklistPageScaffold extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.check),
+            icon: const Icon(
+              Icons.check,
+              color: greenColor,
+            ),
             onPressed: () => BlocProvider.of<ChecklistEditBloc>(context)
                 .add(const ChecklistEditEvent.saved()),
           ),

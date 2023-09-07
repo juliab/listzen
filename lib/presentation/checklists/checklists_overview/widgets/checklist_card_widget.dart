@@ -111,7 +111,7 @@ class EditSlidableAction extends StatelessWidget {
       ),
       icon: Icons.edit,
       label: 'Edit',
-      backgroundColor: editActionButtonColor,
+      backgroundColor: greenColor,
       foregroundColor: whiteColorWithOpacity,
       borderRadius: cardBorderRadius,
     );
