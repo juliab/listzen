@@ -31,4 +31,14 @@ class ItemName extends ValueObject<String> {
   }
 
   ItemName._(this.value);
+
+  bool isEmpty() {
+    return value.fold(
+      (f) => f.maybeMap(
+        empty: (_) => true,
+        orElse: () => false,
+      ),
+      (r) => false,
+    );
+  }
 }

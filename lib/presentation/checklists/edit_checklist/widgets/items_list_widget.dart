@@ -68,7 +68,6 @@ class ItemsList extends StatelessWidget {
 
   String _validationError(ItemName name) => name.value.fold(
         (f) => f.maybeMap(
-          empty: (_) => 'Cannot be empty',
           exceedingLength: (_) => 'Too long',
           multiline: (_) => 'Has to be in a single line',
           orElse: () => '',

@@ -169,6 +169,15 @@ class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
         ),
       );
 
+      emit(
+        state.copyWith(
+          checklist: state.checklist.copyWith(
+            items: [...state.checklist.items]
+              ..removeWhere((item) => item.name.isEmpty()),
+          ),
+        ),
+      );
+
       if (state.checklist.failureOption.isSome()) {
         emit(state.copyWith(
           isSaving: false,
