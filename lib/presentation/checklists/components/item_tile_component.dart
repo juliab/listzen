@@ -125,6 +125,7 @@ class EditableItemNameField extends StatelessWidget {
     return TextFormField(
       autofocus: autofocus,
       controller: textEditingController,
+      textCapitalization: TextCapitalization.sentences,
       decoration: noBordersInputDecoration,
       maxLength: ItemName.maxLength,
       onChanged: onChanged,
