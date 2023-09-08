@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -129,9 +130,29 @@ class DeleteSlidableAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlidableAction(
-      onPressed: (context) => BlocProvider.of<ChecklistActorBloc>(context).add(
-        ChecklistActorEvent.deleted(checklist),
-      ),
+      onPressed: (context) {
+        final provider = BlocProvider.of<ChecklistActorBloc>(context);
+        showCupertinoDialog(
+          context: context,
+          builder: (context) => CupertinoAlertDialog(
+            content: Text(
+                'Checklist "${checklist.name.getOrCrash()}" will be deleted permanently.\nPlease confirm.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  provider.add(ChecklistActorEvent.deleted(checklist));
+                  Navigator.pop(context);
+                },
+                child: const Text('DELETE'),
+              ),
+            ],
+          ),
+        );
+      },
       icon: Icons.delete,
       label: 'Delete',
       backgroundColor: errorColor,
