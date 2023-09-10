@@ -147,7 +147,10 @@ class DeleteSlidableAction extends StatelessWidget {
                   provider.add(ChecklistActorEvent.deleted(checklist));
                   Navigator.pop(context);
                 },
-                child: const Text('DELETE'),
+                child: const Text(
+                  'Delete',
+                  style: TextStyle(color: errorColor),
+                ),
               ),
             ],
           ),
