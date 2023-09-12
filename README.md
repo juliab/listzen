@@ -18,8 +18,6 @@ Welcome to ListZen app: Your Ultimate Checklist Companion!
 
 <img src="/assets/view_checklist.png" width="150">
 
-***User-Friendly Interface***: Our intuitive design ensures you stay on top of your tasks with ease. Navigate seamlessly through your checklists for a stress-free experience.
-
 ***Secure Sign-In***: Sign in to access your checklists securely, ensuring your data is protected.
 
 <img src="/assets/sign_in.png" width="150">
