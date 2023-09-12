@@ -2,7 +2,7 @@
 ![ListZen Icon](ios/Runner/Assets.xcassets/AppIcon.appiconset/100.png)
 # ListZen
 
-Welcome to ListZen app: Your Ultimate Checklist Companion!
+Welcome to **ListZen** app: Your Ultimate Checklist Companion!
 
 ## Key Features
 
