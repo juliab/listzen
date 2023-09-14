@@ -112,6 +112,22 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       );
     });
 
+    on<SignInWithApplePressed>((event, emit) async {
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+      final failureOrSuccess = some(await _authFacade.signInWithApple());
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: failureOrSuccess,
+        ),
+      );
+    });
+
     on<ResetPasswordPressed>((event, emit) async {
       Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 

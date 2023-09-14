@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
+
+const standardHeightSizedBox = SizedBox(height: 20);
 
 /* Form decoration */
 const Decoration formDecoration = BoxDecoration(
@@ -15,6 +18,12 @@ const Gradient buttonGradient = LinearGradient(colors: [
   Color(0xFF6069FA),
   Color(0xFF8D81FB),
 ]);
+
+/* Apple Sign in button */
+final appleButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all<Color>(blackColor),
+  foregroundColor: MaterialStateProperty.all<Color>(whiteColor),
+);
 
 /* Mail icon styles (Password Reset Confirmation Page) */
 BoxDecoration outerCircleDecoration = BoxDecoration(

@@ -7,7 +7,7 @@ import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/accent_button.dart';
 import 'package:listzen/presentation/auth/widgets/email_field.dart';
 import 'package:listzen/presentation/auth/widgets/password_field.dart';
-import 'package:listzen/presentation/auth/widgets/sign_in_with_google_button.dart';
+import 'package:listzen/presentation/auth/widgets/social_sign_in_buttons_section.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
@@ -21,7 +21,7 @@ class SignInForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return Container(
-          height: 560,
+          height: 600,
           decoration: formDecoration,
           padding:
               const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 40),
@@ -41,7 +41,7 @@ class SignInForm extends StatelessWidget {
                       const SignInFormEvent
                           .signInWithEmailAndPasswordPressed()),
                 ),
-                const SizedBox(height: 20),
+                standardHeightSizedBox,
                 Row(
                   children: [
                     const Expanded(child: Divider()),
@@ -57,8 +57,8 @@ class SignInForm extends StatelessWidget {
                     const Expanded(child: Divider()),
                   ],
                 ),
-                const SizedBox(height: 20),
-                const SignInWithGoogleButton(),
+                standardHeightSizedBox,
+                const SocialSignInButtonsSection(),
                 if (state.isSubmitting) ...[
                   const SizedBox(
                     height: 20,

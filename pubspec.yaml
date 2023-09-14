@@ -19,6 +19,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   get_it: ^7.6.0
   google_sign_in: ^6.1.4
+  sign_in_with_apple: ^5.0.0
+  crypto: ^3.0.3
   injectable: ^2.3.0
   json_annotation: ^4.8.1
   kt_dart: ^1.1.0
@@ -47,6 +49,7 @@ flutter:
   assets:
     - assets/main_image.jpg
     - icons/google.png
+    - icons/apple.png
   fonts:
     - family: Architex
       fonts:

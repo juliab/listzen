@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
+
+class SocialSignInButton extends StatelessWidget {
+  final Function() onPressed;
+  final Logo logo;
+  final Text text;
+  final ButtonStyle? style;
+
+  const SocialSignInButton({
+    super.key,
+    required this.onPressed,
+    required this.logo,
+    required this.text,
+    this.style,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: onPressed,
+      style: style,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          logo,
+          const SizedBox(width: 15),
+          text,
+        ],
+      ),
+    );
+  }
+}
+
+class Logo extends StatelessWidget {
+  final String name;
+  final Color? color;
+
+  const Logo({
+    super.key,
+    required this.name,
+    this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      name,
+      width: 23,
+      color: color,
+    );
+  }
+}

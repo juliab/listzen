@@ -7,7 +7,7 @@ import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/accent_button.dart';
 import 'package:listzen/presentation/auth/widgets/email_field.dart';
 import 'package:listzen/presentation/auth/widgets/password_field.dart';
-import 'package:listzen/presentation/auth/widgets/sign_in_with_google_button.dart';
+import 'package:listzen/presentation/auth/widgets/social_sign_in_buttons_section.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
@@ -21,7 +21,7 @@ class SignUpForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return Container(
-          height: 560,
+          height: 600,
           decoration: formDecoration,
           padding:
               const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 40),
@@ -31,11 +31,11 @@ class SignUpForm extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const EmailField(),
-                const SizedBox(height: 20),
+                standardHeightSizedBox,
                 const PasswordField(
                   showForgotPasswordLink: false,
                 ),
-                const SizedBox(height: 20),
+                standardHeightSizedBox,
                 AccentButton(
                   text: 'Create account',
                   onPressed: () => context.read<SignInFormBloc>().add(
@@ -43,7 +43,7 @@ class SignUpForm extends StatelessWidget {
                             .registerWithEmailAndPasswordPressed(),
                       ),
                 ),
-                const SizedBox(height: 20),
+                standardHeightSizedBox,
                 Row(
                   children: [
                     const Expanded(child: Divider()),
@@ -59,12 +59,10 @@ class SignUpForm extends StatelessWidget {
                     const Expanded(child: Divider()),
                   ],
                 ),
-                const SizedBox(height: 20),
-                const SignInWithGoogleButton(),
+                standardHeightSizedBox,
+                const SocialSignInButtonsSection(),
                 if (state.isSubmitting) ...[
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  standardHeightSizedBox,
                   const LinearProgressIndicator(),
                 ],
                 const SizedBox(height: 30),
