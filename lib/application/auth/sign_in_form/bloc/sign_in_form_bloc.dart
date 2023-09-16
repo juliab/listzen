@@ -99,6 +99,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<SignInWithGooglePressed>((event, emit) async {
       emit(
         state.copyWith(
+          autovalidateMode: AutovalidateMode.disabled,
           isSubmitting: true,
           authFailureOrSuccessOption: none(),
         ),
@@ -115,6 +116,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<SignInWithApplePressed>((event, emit) async {
       emit(
         state.copyWith(
+          autovalidateMode: AutovalidateMode.disabled,
           isSubmitting: true,
           authFailureOrSuccessOption: none(),
         ),

@@ -21,7 +21,7 @@ class SignInForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return Container(
-          height: 600,
+          height: 630,
           decoration: formDecoration,
           padding:
               const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 40),
