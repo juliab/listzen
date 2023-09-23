@@ -23,6 +23,8 @@ mixin _$AuthFailure {
     required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$AuthFailure {
     TResult? Function()? emailAlreadyInUse,
     TResult? Function()? invalidEmailAndPasswordCombination,
     TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$AuthFailure {
     TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +58,9 @@ mixin _$AuthFailure {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +71,8 @@ mixin _$AuthFailure {
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +83,8 @@ mixin _$AuthFailure {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +151,8 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
   }) {
     return cancelledByUser();
   }
@@ -150,6 +165,8 @@ class _$CancelledByUser implements CancelledByUser {
     TResult? Function()? emailAlreadyInUse,
     TResult? Function()? invalidEmailAndPasswordCombination,
     TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
   }) {
     return cancelledByUser?.call();
   }
@@ -162,6 +179,8 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -179,6 +198,9 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
   }) {
     return cancelledByUser(this);
   }
@@ -192,6 +214,8 @@ class _$CancelledByUser implements CancelledByUser {
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -205,6 +229,8 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -261,6 +287,8 @@ class _$ServerError implements ServerError {
     required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
   }) {
     return serverError();
   }
@@ -273,6 +301,8 @@ class _$ServerError implements ServerError {
     TResult? Function()? emailAlreadyInUse,
     TResult? Function()? invalidEmailAndPasswordCombination,
     TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
   }) {
     return serverError?.call();
   }
@@ -285,6 +315,8 @@ class _$ServerError implements ServerError {
     TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -302,6 +334,9 @@ class _$ServerError implements ServerError {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
   }) {
     return serverError(this);
   }
@@ -315,6 +350,8 @@ class _$ServerError implements ServerError {
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
   }) {
     return serverError?.call(this);
   }
@@ -328,6 +365,8 @@ class _$ServerError implements ServerError {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -384,6 +423,8 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
   }) {
     return emailAlreadyInUse();
   }
@@ -396,6 +437,8 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult? Function()? emailAlreadyInUse,
     TResult? Function()? invalidEmailAndPasswordCombination,
     TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -408,6 +451,8 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -425,6 +470,9 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -438,6 +486,8 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -451,6 +501,8 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -512,6 +564,8 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
   }) {
     return invalidEmailAndPasswordCombination();
   }
@@ -524,6 +578,8 @@ class _$InvalidEmailAndPasswordCombination
     TResult? Function()? emailAlreadyInUse,
     TResult? Function()? invalidEmailAndPasswordCombination,
     TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
   }) {
     return invalidEmailAndPasswordCombination?.call();
   }
@@ -536,6 +592,8 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPasswordCombination != null) {
@@ -553,6 +611,9 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
   }) {
     return invalidEmailAndPasswordCombination(this);
   }
@@ -566,6 +627,8 @@ class _$InvalidEmailAndPasswordCombination
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
   }) {
     return invalidEmailAndPasswordCombination?.call(this);
   }
@@ -579,6 +642,8 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (invalidEmailAndPasswordCombination != null) {
@@ -636,6 +701,8 @@ class _$UserNotFound implements UserNotFound {
     required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmailAndPasswordCombination,
     required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
   }) {
     return userNotFound();
   }
@@ -648,6 +715,8 @@ class _$UserNotFound implements UserNotFound {
     TResult? Function()? emailAlreadyInUse,
     TResult? Function()? invalidEmailAndPasswordCombination,
     TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
   }) {
     return userNotFound?.call();
   }
@@ -660,6 +729,8 @@ class _$UserNotFound implements UserNotFound {
     TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmailAndPasswordCombination,
     TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -677,6 +748,9 @@ class _$UserNotFound implements UserNotFound {
     required TResult Function(InvalidEmailAndPasswordCombination value)
         invalidEmailAndPasswordCombination,
     required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
   }) {
     return userNotFound(this);
   }
@@ -690,6 +764,8 @@ class _$UserNotFound implements UserNotFound {
     TResult? Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
   }) {
     return userNotFound?.call(this);
   }
@@ -703,6 +779,8 @@ class _$UserNotFound implements UserNotFound {
     TResult Function(InvalidEmailAndPasswordCombination value)?
         invalidEmailAndPasswordCombination,
     TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -714,4 +792,277 @@ class _$UserNotFound implements UserNotFound {
 
 abstract class UserNotFound implements AuthFailure {
   const factory UserNotFound() = _$UserNotFound;
+}
+
+/// @nodoc
+abstract class _$$UserRequiresRecentLoginCopyWith<$Res> {
+  factory _$$UserRequiresRecentLoginCopyWith(_$UserRequiresRecentLogin value,
+          $Res Function(_$UserRequiresRecentLogin) then) =
+      __$$UserRequiresRecentLoginCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserRequiresRecentLoginCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$UserRequiresRecentLogin>
+    implements _$$UserRequiresRecentLoginCopyWith<$Res> {
+  __$$UserRequiresRecentLoginCopyWithImpl(_$UserRequiresRecentLogin _value,
+      $Res Function(_$UserRequiresRecentLogin) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserRequiresRecentLogin implements UserRequiresRecentLogin {
+  const _$UserRequiresRecentLogin();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userRequiresRecentLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserRequiresRecentLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
+  }) {
+    return userRequiresRecentLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
+  }) {
+    return userRequiresRecentLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
+    required TResult orElse(),
+  }) {
+    if (userRequiresRecentLogin != null) {
+      return userRequiresRecentLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
+  }) {
+    return userRequiresRecentLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
+  }) {
+    return userRequiresRecentLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
+    required TResult orElse(),
+  }) {
+    if (userRequiresRecentLogin != null) {
+      return userRequiresRecentLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserRequiresRecentLogin implements AuthFailure {
+  const factory UserRequiresRecentLogin() = _$UserRequiresRecentLogin;
+}
+
+/// @nodoc
+abstract class _$$UserUnauthenticatedCopyWith<$Res> {
+  factory _$$UserUnauthenticatedCopyWith(_$UserUnauthenticated value,
+          $Res Function(_$UserUnauthenticated) then) =
+      __$$UserUnauthenticatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserUnauthenticatedCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$UserUnauthenticated>
+    implements _$$UserUnauthenticatedCopyWith<$Res> {
+  __$$UserUnauthenticatedCopyWithImpl(
+      _$UserUnauthenticated _value, $Res Function(_$UserUnauthenticated) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserUnauthenticated implements UserUnauthenticated {
+  const _$UserUnauthenticated();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userUnauthenticated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserUnauthenticated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() userNotFound,
+    required TResult Function() userRequiresRecentLogin,
+    required TResult Function() userUnauthenticated,
+  }) {
+    return userUnauthenticated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? invalidEmailAndPasswordCombination,
+    TResult? Function()? userNotFound,
+    TResult? Function()? userRequiresRecentLogin,
+    TResult? Function()? userUnauthenticated,
+  }) {
+    return userUnauthenticated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? userNotFound,
+    TResult Function()? userRequiresRecentLogin,
+    TResult Function()? userUnauthenticated,
+    required TResult orElse(),
+  }) {
+    if (userUnauthenticated != null) {
+      return userUnauthenticated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InvalidEmailAndPasswordCombination value)
+        invalidEmailAndPasswordCombination,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserRequiresRecentLogin value)
+        userRequiresRecentLogin,
+    required TResult Function(UserUnauthenticated value) userUnauthenticated,
+  }) {
+    return userUnauthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult? Function(UserUnauthenticated value)? userUnauthenticated,
+  }) {
+    return userUnauthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InvalidEmailAndPasswordCombination value)?
+        invalidEmailAndPasswordCombination,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserRequiresRecentLogin value)? userRequiresRecentLogin,
+    TResult Function(UserUnauthenticated value)? userUnauthenticated,
+    required TResult orElse(),
+  }) {
+    if (userUnauthenticated != null) {
+      return userUnauthenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserUnauthenticated implements AuthFailure {
+  const factory UserUnauthenticated() = _$UserUnauthenticated;
 }

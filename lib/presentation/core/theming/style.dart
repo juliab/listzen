@@ -5,10 +5,11 @@ const Color backgroundColor = Colors.white;
 final Color whiteColorWithOpacity = Colors.white.withOpacity(0.8);
 const Color blackColor = Colors.black;
 const Color whiteColor = Colors.white;
-const Color appBarColor = Color(0xFF40272b);
+const Color appBarColor = Color(0xFFf9e5b8);
 const Color darkColor = Color(0xFF393939);
 const Color greyColor = Color(0xFF9398A4);
 const Color borderColor = Color(0xFFDBDBDB);
+const Color focusedBorderColor = Color(0xFF5E85FA);
 const Color errorColor = Color(0xFFFE4A49);
 const Color greenColor = Colors.green;
 
@@ -28,9 +29,17 @@ InputDecoration noBordersInputDecoration = const InputDecoration(
   focusedErrorBorder: InputBorder.none,
 );
 
-/* AppBar */
-final TextStyle appBarTitleStyle =
-    appTheme.textTheme.titleLarge!.copyWith(color: whiteColorWithOpacity);
+InputDecoration switchBordersInputDecoration(bool hasError) {
+  return InputDecoration(
+    enabledBorder: hasError
+        ? inputBorder(color: errorColor)
+        : inputBorder(color: greyColor),
+    focusedBorder: hasError
+        ? inputBorder(color: errorColor)
+        : inputBorder(color: focusedBorderColor, width: 2),
+    counterText: '',
+  );
+}
 
 /* SnackBar */
 const EdgeInsetsGeometry snackbarPadding = EdgeInsets.only(top: 20);

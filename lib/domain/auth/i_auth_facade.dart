@@ -19,4 +19,5 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> getResetPasswordEmail({
     required EmailAddress emailAddress,
   });
+  Future<Either<AuthFailure, Unit>> deleteAccount();
 }

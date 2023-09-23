@@ -45,9 +45,8 @@ class FirebaseAuthFacade implements IAuthFacade {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
-      } else {
-        return left(const AuthFailure.serverError());
       }
+      return left(const AuthFailure.serverError());
     }
   }
 
@@ -67,9 +66,8 @@ class FirebaseAuthFacade implements IAuthFacade {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
-      } else {
-        return left(const AuthFailure.serverError());
       }
+      return left(const AuthFailure.serverError());
     }
   }
 
@@ -145,9 +143,8 @@ class FirebaseAuthFacade implements IAuthFacade {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         return left(const AuthFailure.userNotFound());
-      } else {
-        return left(const AuthFailure.serverError());
       }
+      return left(const AuthFailure.serverError());
     }
   }
 
@@ -156,4 +153,18 @@ class FirebaseAuthFacade implements IAuthFacade {
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
       ]);
+
+  @override
+  Future<Either<AuthFailure, Unit>> deleteAccount() async {
+    final User? user = _firebaseAuth.currentUser;
+    try {
+      await user!.delete();
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        return left(const AuthFailure.userRequiresRecentLogin());
+      }
+      return left(const AuthFailure.serverError());
+    }
+  }
 }

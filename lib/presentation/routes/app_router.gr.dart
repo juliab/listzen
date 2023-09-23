@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChecklistsOverviewPage(),
       );
     },
+    DeleteAccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DeleteAccountPage(),
+      );
+    },
     EditChecklistRoute.name: (routeData) {
       final args = routeData.argsAs<EditChecklistRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -78,6 +84,20 @@ class ChecklistsOverviewRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ChecklistsOverviewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DeleteAccountPage]
+class DeleteAccountRoute extends PageRouteInfo<void> {
+  const DeleteAccountRoute({List<PageRouteInfo>? children})
+      : super(
+          DeleteAccountRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DeleteAccountRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

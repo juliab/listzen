@@ -9,6 +9,8 @@ class SignInFormEvent with _$SignInFormEvent {
       RegisterWithEmailAndPasswordPressed;
   const factory SignInFormEvent.signInWithEmailAndPasswordPressed() =
       SignInWithEmailAndPasswordPressed;
+  const factory SignInFormEvent.reloginWithPasswordPressed() =
+      ReloginWithPasswordPressed;
   const factory SignInFormEvent.signInWithGooglePressed() =
       SignInWithGooglePressed;
   const factory SignInFormEvent.signInWithApplePressed() =

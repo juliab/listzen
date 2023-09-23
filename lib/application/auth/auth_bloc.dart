@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:listzen/domain/auth/i_auth_facade.dart';
+import 'package:listzen/domain/auth/user.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -16,7 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final userOption = _iAuthFacade.getSignedInUser();
       userOption.fold(
         () => emit(const AuthState.unauthenticated()),
-        (a) => emit(const AuthState.authenticated()),
+        (user) => emit(AuthState.authenticated(user)),
       );
     });
 

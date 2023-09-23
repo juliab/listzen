@@ -4,6 +4,7 @@ import 'package:listzen/domain/auth/value_objects.dart';
 
 extension FirebaseUserDomainX on User {
   sc.User toDomain() {
-    return sc.User(id: UniqueId.fromUniqueString(uid));
+    // if user signed in anonymously email will be empty
+    return sc.User(id: UniqueId.fromUniqueString(uid), email: email ?? '');
   }
 }

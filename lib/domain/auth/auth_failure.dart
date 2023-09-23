@@ -10,4 +10,6 @@ class AuthFailure with _$AuthFailure {
   const factory AuthFailure.invalidEmailAndPasswordCombination() =
       InvalidEmailAndPasswordCombination;
   const factory AuthFailure.userNotFound() = UserNotFound;
+  const factory AuthFailure.userRequiresRecentLogin() = UserRequiresRecentLogin;
+  const factory AuthFailure.userUnauthenticated() = UserUnauthenticated;
 }

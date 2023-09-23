@@ -8,6 +8,7 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
+import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
@@ -74,14 +75,21 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      endDrawer: const MyAccountDrawer(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Checklists'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () => BlocProvider.of<AuthBloc>(context)
-                .add(const AuthEvent.signedOut()),
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(
+                Icons.account_circle,
+              ),
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
           ),
         ],
       ),

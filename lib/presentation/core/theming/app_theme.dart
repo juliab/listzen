@@ -56,17 +56,17 @@ ThemeData appTheme = ThemeData(
     ),
   ),
   scaffoldBackgroundColor: backgroundColor,
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     color: appBarColor,
-    foregroundColor: whiteColorWithOpacity,
+    foregroundColor: darkColor,
     iconTheme: IconThemeData(
       size: 30,
-      color: whiteColorWithOpacity,
+      color: darkColor,
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
-    focusedBorder: inputBorder(color: const Color(0xFF5E85FA), width: 2),
+    focusedBorder: inputBorder(color: focusedBorderColor, width: 2),
     errorBorder: inputBorder(color: errorColor),
     focusedErrorBorder: inputBorder(color: errorColor, width: 2),
     errorStyle: const TextStyle(
@@ -92,7 +92,12 @@ ThemeData appTheme = ThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: cardBorderRadius,
     ),
-    foregroundColor: whiteColorWithOpacity,
+    foregroundColor: darkColor,
+    extendedTextStyle: const TextStyle(
+      fontWeight: FontWeight.bold,
+      letterSpacing: -0.5,
+      fontSize: 14,
+    ),
   ),
   checkboxTheme: CheckboxThemeData(
     side: BorderSide.none,

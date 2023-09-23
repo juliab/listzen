@@ -10,6 +10,7 @@ import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_chec
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -41,8 +42,9 @@ class EditChecklistPage extends StatelessWidget {
           builder: (context, state) => Stack(
             children: [
               const EditChecklistPageScaffold(),
-              SavingInProgressOverlay(
-                isSaving: state.isSaving,
+              InProgressOverlay(
+                inProgress: state.isSaving,
+                text: 'Saving',
               ),
             ],
           ),
@@ -130,42 +132,6 @@ class EditChecklistPageScaffold extends StatelessWidget {
             children: [
               EditChecklistInfoTile(),
               Flexible(child: ItemsList()),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class SavingInProgressOverlay extends StatelessWidget {
-  final bool isSaving;
-
-  const SavingInProgressOverlay({
-    super.key,
-    required this.isSaving,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IgnorePointer(
-      ignoring: !isSaving,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        color: isSaving ? Colors.black.withOpacity(0.8) : Colors.transparent,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Visibility(
-          visible: isSaving,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const CircularProgressIndicator(),
-              const SizedBox(height: 8),
-              Text(
-                'Saving',
-                style: Theme.of(context).primaryTextTheme.titleMedium,
-              ),
             ],
           ),
         ),

@@ -16,6 +16,7 @@ import 'package:google_sign_in/google_sign_in.dart' as _i5;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'application/auth/auth_bloc.dart' as _i11;
+import 'application/auth/delete_account/bloc/delete_account_bloc.dart' as _i15;
 import 'application/auth/sign_in_form/bloc/sign_in_form_bloc.dart' as _i10;
 import 'application/checklists/checklist_actor/checklist_actor_bloc.dart'
     as _i12;
@@ -26,7 +27,7 @@ import 'domain/auth/i_auth_facade.dart' as _i6;
 import 'domain/checklists/i_checklist_repository.dart' as _i8;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i7;
 import 'infrastructure/checklists/checklist_repository.dart' as _i9;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i15;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i16;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt init(
@@ -61,7 +62,9 @@ _i1.GetIt init(
       () => _i13.ChecklistEditBloc(gh<_i8.IChecklistRepository>()));
   gh.factory<_i14.ChecklistWatcherBloc>(
       () => _i14.ChecklistWatcherBloc(gh<_i8.IChecklistRepository>()));
+  gh.factory<_i15.DeleteAccountBloc>(
+      () => _i15.DeleteAccountBloc(gh<_i6.IAuthFacade>()));
   return getIt;
 }
 
-class _$FirebaseInjectableModule extends _i15.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i16.FirebaseInjectableModule {}

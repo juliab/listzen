@@ -131,26 +131,35 @@ class DeleteSlidableAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return SlidableAction(
       onPressed: (context) {
-        final provider = BlocProvider.of<ChecklistActorBloc>(context);
+        final bloc = BlocProvider.of<ChecklistActorBloc>(context);
         showCupertinoDialog(
           context: context,
           builder: (context) => CupertinoAlertDialog(
             content: Text(
-                'Checklist "${checklist.name.getOrCrash()}" will be deleted permanently.\nPlease confirm.'),
+              'Checklist "${checklist.name.getOrCrash()}" will be deleted '
+              'permanently.\nPlease confirm.',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: darkColor,
+                  ),
+            ),
             actions: [
               TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel'),
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(color: darkColor),
+                ),
+                onPressed: () => AutoRouter.of(context).pop(),
               ),
               TextButton(
-                onPressed: () {
-                  provider.add(ChecklistActorEvent.deleted(checklist));
-                  Navigator.pop(context);
-                },
                 child: const Text(
                   'Delete',
                   style: TextStyle(color: errorColor),
                 ),
+                onPressed: () {
+                  bloc.add(ChecklistActorEvent.deleted(checklist));
+                  AutoRouter.of(context).pop();
+                },
               ),
             ],
           ),

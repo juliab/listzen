@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:listzen/presentation/core/theming/style.dart';
 
 class SocialSignInButton extends StatelessWidget {
   final Function() onPressed;
