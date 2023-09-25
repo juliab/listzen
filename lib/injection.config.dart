@@ -62,8 +62,10 @@ _i1.GetIt init(
       () => _i13.ChecklistEditBloc(gh<_i8.IChecklistRepository>()));
   gh.factory<_i14.ChecklistWatcherBloc>(
       () => _i14.ChecklistWatcherBloc(gh<_i8.IChecklistRepository>()));
-  gh.factory<_i15.DeleteAccountBloc>(
-      () => _i15.DeleteAccountBloc(gh<_i6.IAuthFacade>()));
+  gh.factory<_i15.DeleteAccountBloc>(() => _i15.DeleteAccountBloc(
+        gh<_i6.IAuthFacade>(),
+        gh<_i8.IChecklistRepository>(),
+      ));
   return getIt;
 }
 

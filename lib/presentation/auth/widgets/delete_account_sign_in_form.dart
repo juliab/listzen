@@ -47,10 +47,9 @@ class DeleteAccountSignInForm extends StatelessWidget {
                 const SizedBox(height: 25),
                 AccentButton(
                   text: 'Login',
-                  onPressed: () {
-                    context.read<SignInFormBloc>().add(
-                        const SignInFormEvent.reloginWithPasswordPressed());
-                  },
+                  onPressed: () => context
+                      .read<SignInFormBloc>()
+                      .add(const SignInFormEvent.reloginWithPasswordPressed()),
                 ),
                 standardHeightSizedBox,
                 Row(
@@ -69,7 +68,9 @@ class DeleteAccountSignInForm extends StatelessWidget {
                   ],
                 ),
                 standardHeightSizedBox,
-                const SocialSignInButtonsSection(),
+                const SocialSignInButtonsSection(
+                  relogin: true,
+                ),
                 if (state.isSubmitting) ...[
                   const SizedBox(
                     height: 20,

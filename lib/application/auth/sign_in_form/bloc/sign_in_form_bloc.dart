@@ -99,23 +99,6 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<ReloginWithPasswordPressed>((event, emit) async {
       Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 
-      _authFacade.getSignedInUser().fold(() {
-        emit(
-          state.copyWith(
-            authFailureOrSuccessOption:
-                some(left(const AuthFailure.userUnauthenticated())),
-          ),
-        );
-        return;
-      }, (user) async {
-        emit(
-          state.copyWith(
-            emailAddress: EmailAddress(user.email),
-            authFailureOrSuccessOption: none(),
-          ),
-        );
-      });
-
       final isPasswordValid = state.password.isValid();
 
       if (isPasswordValid) {
@@ -127,8 +110,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         );
 
         failureOrSuccess = some(
-          await _authFacade.signInWithEmailAndPassword(
-            emailAddress: state.emailAddress,
+          await _authFacade.reauthenticateWithPassword(
             password: state.password,
           ),
         );
@@ -160,6 +142,27 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       );
     });
 
+    on<ReloginWithGooglePressed>((event, emit) async {
+      Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
+
+      emit(
+        state.copyWith(
+          autovalidateMode: AutovalidateMode.disabled,
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+
+      failureOrSuccess = some(await _authFacade.reauthenticateWithGoogle());
+
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: failureOrSuccess,
+        ),
+      );
+    });
+
     on<SignInWithApplePressed>((event, emit) async {
       emit(
         state.copyWith(
@@ -169,6 +172,27 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         ),
       );
       final failureOrSuccess = some(await _authFacade.signInWithApple());
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          authFailureOrSuccessOption: failureOrSuccess,
+        ),
+      );
+    });
+
+    on<ReloginWithApplePressed>((event, emit) async {
+      Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
+
+      emit(
+        state.copyWith(
+          autovalidateMode: AutovalidateMode.disabled,
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+
+      failureOrSuccess = some(await _authFacade.reauthenticateWithApple());
+
       emit(
         state.copyWith(
           isSubmitting: false,

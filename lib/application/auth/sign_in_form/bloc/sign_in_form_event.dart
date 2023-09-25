@@ -13,7 +13,11 @@ class SignInFormEvent with _$SignInFormEvent {
       ReloginWithPasswordPressed;
   const factory SignInFormEvent.signInWithGooglePressed() =
       SignInWithGooglePressed;
+  const factory SignInFormEvent.reloginWithGooglePressed() =
+      ReloginWithGooglePressed;
   const factory SignInFormEvent.signInWithApplePressed() =
       SignInWithApplePressed;
+  const factory SignInFormEvent.reloginWithApplePressed() =
+      ReloginWithApplePressed;
   const factory SignInFormEvent.resetPasswordPressed() = ResetPasswordPressed;
 }

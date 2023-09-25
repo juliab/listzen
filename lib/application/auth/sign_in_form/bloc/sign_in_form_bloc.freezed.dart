@@ -24,7 +24,9 @@ mixin _$SignInFormEvent {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,9 @@ mixin _$SignInFormEvent {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -48,7 +52,9 @@ mixin _$SignInFormEvent {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) =>
@@ -65,8 +71,12 @@ mixin _$SignInFormEvent {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -81,7 +91,9 @@ mixin _$SignInFormEvent {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -96,7 +108,9 @@ mixin _$SignInFormEvent {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) =>
@@ -192,7 +206,9 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return emailChanged(emailStr);
@@ -207,7 +223,9 @@ class _$EmailChanged implements EmailChanged {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return emailChanged?.call(emailStr);
@@ -222,7 +240,9 @@ class _$EmailChanged implements EmailChanged {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -245,8 +265,12 @@ class _$EmailChanged implements EmailChanged {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return emailChanged(this);
@@ -264,7 +288,9 @@ class _$EmailChanged implements EmailChanged {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return emailChanged?.call(this);
@@ -282,7 +308,9 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -373,7 +401,9 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return passwordChanged(passwordStr);
@@ -388,7 +418,9 @@ class _$PasswordChanged implements PasswordChanged {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return passwordChanged?.call(passwordStr);
@@ -403,7 +435,9 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -426,8 +460,12 @@ class _$PasswordChanged implements PasswordChanged {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return passwordChanged(this);
@@ -445,7 +483,9 @@ class _$PasswordChanged implements PasswordChanged {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return passwordChanged?.call(this);
@@ -463,7 +503,9 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -532,7 +574,9 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return registerWithEmailAndPasswordPressed();
@@ -547,7 +591,9 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return registerWithEmailAndPasswordPressed?.call();
@@ -562,7 +608,9 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -585,8 +633,12 @@ class _$RegisterWithEmailAndPasswordPressed
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return registerWithEmailAndPasswordPressed(this);
@@ -604,7 +656,9 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return registerWithEmailAndPasswordPressed?.call(this);
@@ -622,7 +676,9 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -687,7 +743,9 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return signInWithEmailAndPasswordPressed();
@@ -702,7 +760,9 @@ class _$SignInWithEmailAndPasswordPressed
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return signInWithEmailAndPasswordPressed?.call();
@@ -717,7 +777,9 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -740,8 +802,12 @@ class _$SignInWithEmailAndPasswordPressed
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return signInWithEmailAndPasswordPressed(this);
@@ -759,7 +825,9 @@ class _$SignInWithEmailAndPasswordPressed
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return signInWithEmailAndPasswordPressed?.call(this);
@@ -777,7 +845,9 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -840,7 +910,9 @@ class _$ReloginWithPasswordPressed implements ReloginWithPasswordPressed {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return reloginWithPasswordPressed();
@@ -855,7 +927,9 @@ class _$ReloginWithPasswordPressed implements ReloginWithPasswordPressed {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return reloginWithPasswordPressed?.call();
@@ -870,7 +944,9 @@ class _$ReloginWithPasswordPressed implements ReloginWithPasswordPressed {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -893,8 +969,12 @@ class _$ReloginWithPasswordPressed implements ReloginWithPasswordPressed {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return reloginWithPasswordPressed(this);
@@ -912,7 +992,9 @@ class _$ReloginWithPasswordPressed implements ReloginWithPasswordPressed {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return reloginWithPasswordPressed?.call(this);
@@ -930,7 +1012,9 @@ class _$ReloginWithPasswordPressed implements ReloginWithPasswordPressed {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -990,7 +1074,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return signInWithGooglePressed();
@@ -1005,7 +1091,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return signInWithGooglePressed?.call();
@@ -1020,7 +1108,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -1043,8 +1133,12 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return signInWithGooglePressed(this);
@@ -1062,7 +1156,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return signInWithGooglePressed?.call(this);
@@ -1080,7 +1176,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -1093,6 +1191,170 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
 
 abstract class SignInWithGooglePressed implements SignInFormEvent {
   const factory SignInWithGooglePressed() = _$SignInWithGooglePressed;
+}
+
+/// @nodoc
+abstract class _$$ReloginWithGooglePressedCopyWith<$Res> {
+  factory _$$ReloginWithGooglePressedCopyWith(_$ReloginWithGooglePressed value,
+          $Res Function(_$ReloginWithGooglePressed) then) =
+      __$$ReloginWithGooglePressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReloginWithGooglePressedCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res, _$ReloginWithGooglePressed>
+    implements _$$ReloginWithGooglePressedCopyWith<$Res> {
+  __$$ReloginWithGooglePressedCopyWithImpl(_$ReloginWithGooglePressed _value,
+      $Res Function(_$ReloginWithGooglePressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ReloginWithGooglePressed implements ReloginWithGooglePressed {
+  const _$ReloginWithGooglePressed();
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.reloginWithGooglePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReloginWithGooglePressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() reloginWithPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
+    required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
+    required TResult Function() resetPasswordPressed,
+  }) {
+    return reloginWithGooglePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? registerWithEmailAndPasswordPressed,
+    TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? reloginWithPasswordPressed,
+    TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
+    TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
+    TResult? Function()? resetPasswordPressed,
+  }) {
+    return reloginWithGooglePressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? reloginWithPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
+    TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
+    TResult Function()? resetPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (reloginWithGooglePressed != null) {
+      return reloginWithGooglePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(ReloginWithPasswordPressed value)
+        reloginWithPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
+    required TResult Function(SignInWithApplePressed value)
+        signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
+    required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
+  }) {
+    return reloginWithGooglePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult? Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult? Function(ReloginWithPasswordPressed value)?
+        reloginWithPasswordPressed,
+    TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
+    TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
+    TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
+  }) {
+    return reloginWithGooglePressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(ReloginWithPasswordPressed value)?
+        reloginWithPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
+    TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
+    TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (reloginWithGooglePressed != null) {
+      return reloginWithGooglePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReloginWithGooglePressed implements SignInFormEvent {
+  const factory ReloginWithGooglePressed() = _$ReloginWithGooglePressed;
 }
 
 /// @nodoc
@@ -1139,7 +1401,9 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return signInWithApplePressed();
@@ -1154,7 +1418,9 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return signInWithApplePressed?.call();
@@ -1169,7 +1435,9 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -1192,8 +1460,12 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return signInWithApplePressed(this);
@@ -1211,7 +1483,9 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return signInWithApplePressed?.call(this);
@@ -1229,7 +1503,9 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -1242,6 +1518,170 @@ class _$SignInWithApplePressed implements SignInWithApplePressed {
 
 abstract class SignInWithApplePressed implements SignInFormEvent {
   const factory SignInWithApplePressed() = _$SignInWithApplePressed;
+}
+
+/// @nodoc
+abstract class _$$ReloginWithApplePressedCopyWith<$Res> {
+  factory _$$ReloginWithApplePressedCopyWith(_$ReloginWithApplePressed value,
+          $Res Function(_$ReloginWithApplePressed) then) =
+      __$$ReloginWithApplePressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ReloginWithApplePressedCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res, _$ReloginWithApplePressed>
+    implements _$$ReloginWithApplePressedCopyWith<$Res> {
+  __$$ReloginWithApplePressedCopyWithImpl(_$ReloginWithApplePressed _value,
+      $Res Function(_$ReloginWithApplePressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ReloginWithApplePressed implements ReloginWithApplePressed {
+  const _$ReloginWithApplePressed();
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.reloginWithApplePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReloginWithApplePressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() reloginWithPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
+    required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
+    required TResult Function() resetPasswordPressed,
+  }) {
+    return reloginWithApplePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? registerWithEmailAndPasswordPressed,
+    TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? reloginWithPasswordPressed,
+    TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
+    TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
+    TResult? Function()? resetPasswordPressed,
+  }) {
+    return reloginWithApplePressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? reloginWithPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
+    TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
+    TResult Function()? resetPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (reloginWithApplePressed != null) {
+      return reloginWithApplePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(ReloginWithPasswordPressed value)
+        reloginWithPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
+    required TResult Function(SignInWithApplePressed value)
+        signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
+    required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
+  }) {
+    return reloginWithApplePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult? Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult? Function(ReloginWithPasswordPressed value)?
+        reloginWithPasswordPressed,
+    TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
+    TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
+    TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
+  }) {
+    return reloginWithApplePressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(ReloginWithPasswordPressed value)?
+        reloginWithPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
+    TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
+    TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
+    required TResult orElse(),
+  }) {
+    if (reloginWithApplePressed != null) {
+      return reloginWithApplePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReloginWithApplePressed implements SignInFormEvent {
+  const factory ReloginWithApplePressed() = _$ReloginWithApplePressed;
 }
 
 /// @nodoc
@@ -1288,7 +1728,9 @@ class _$ResetPasswordPressed implements ResetPasswordPressed {
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() reloginWithPasswordPressed,
     required TResult Function() signInWithGooglePressed,
+    required TResult Function() reloginWithGooglePressed,
     required TResult Function() signInWithApplePressed,
+    required TResult Function() reloginWithApplePressed,
     required TResult Function() resetPasswordPressed,
   }) {
     return resetPasswordPressed();
@@ -1303,7 +1745,9 @@ class _$ResetPasswordPressed implements ResetPasswordPressed {
     TResult? Function()? signInWithEmailAndPasswordPressed,
     TResult? Function()? reloginWithPasswordPressed,
     TResult? Function()? signInWithGooglePressed,
+    TResult? Function()? reloginWithGooglePressed,
     TResult? Function()? signInWithApplePressed,
+    TResult? Function()? reloginWithApplePressed,
     TResult? Function()? resetPasswordPressed,
   }) {
     return resetPasswordPressed?.call();
@@ -1318,7 +1762,9 @@ class _$ResetPasswordPressed implements ResetPasswordPressed {
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? reloginWithPasswordPressed,
     TResult Function()? signInWithGooglePressed,
+    TResult Function()? reloginWithGooglePressed,
     TResult Function()? signInWithApplePressed,
+    TResult Function()? reloginWithApplePressed,
     TResult Function()? resetPasswordPressed,
     required TResult orElse(),
   }) {
@@ -1341,8 +1787,12 @@ class _$ResetPasswordPressed implements ResetPasswordPressed {
         reloginWithPasswordPressed,
     required TResult Function(SignInWithGooglePressed value)
         signInWithGooglePressed,
+    required TResult Function(ReloginWithGooglePressed value)
+        reloginWithGooglePressed,
     required TResult Function(SignInWithApplePressed value)
         signInWithApplePressed,
+    required TResult Function(ReloginWithApplePressed value)
+        reloginWithApplePressed,
     required TResult Function(ResetPasswordPressed value) resetPasswordPressed,
   }) {
     return resetPasswordPressed(this);
@@ -1360,7 +1810,9 @@ class _$ResetPasswordPressed implements ResetPasswordPressed {
     TResult? Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult? Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult? Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult? Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult? Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult? Function(ResetPasswordPressed value)? resetPasswordPressed,
   }) {
     return resetPasswordPressed?.call(this);
@@ -1378,7 +1830,9 @@ class _$ResetPasswordPressed implements ResetPasswordPressed {
     TResult Function(ReloginWithPasswordPressed value)?
         reloginWithPasswordPressed,
     TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    TResult Function(ReloginWithGooglePressed value)? reloginWithGooglePressed,
     TResult Function(SignInWithApplePressed value)? signInWithApplePressed,
+    TResult Function(ReloginWithApplePressed value)? reloginWithApplePressed,
     TResult Function(ResetPasswordPressed value)? resetPasswordPressed,
     required TResult orElse(),
   }) {

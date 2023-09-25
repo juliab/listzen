@@ -6,14 +6,19 @@ import 'package:listzen/presentation/auth/widgets/social_sign_in_button.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
 class SocialSignInButtonsSection extends StatelessWidget {
-  const SocialSignInButtonsSection({super.key});
+  final bool relogin;
+
+  const SocialSignInButtonsSection({
+    super.key,
+    this.relogin = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     final signInWithGoogleButton = SocialSignInButton(
-      onPressed: () => context.read<SignInFormBloc>().add(
-            const SignInFormEvent.signInWithGooglePressed(),
-          ),
+      onPressed: () => context.read<SignInFormBloc>().add(relogin
+          ? const SignInFormEvent.reloginWithGooglePressed()
+          : const SignInFormEvent.signInWithGooglePressed()),
       logo: const Logo(name: 'icons/google.png'),
       text: Text(
         'Sign in with Google',
@@ -23,7 +28,9 @@ class SocialSignInButtonsSection extends StatelessWidget {
 
     final signInWithAppleButton = SocialSignInButton(
       onPressed: () => context.read<SignInFormBloc>().add(
-            const SignInFormEvent.signInWithApplePressed(),
+            relogin
+                ? const SignInFormEvent.reloginWithApplePressed()
+                : const SignInFormEvent.signInWithApplePressed(),
           ),
       logo: const Logo(
         name: 'icons/apple.png',

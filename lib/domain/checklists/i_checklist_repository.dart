@@ -9,4 +9,5 @@ abstract class IChecklistRepository {
   Future<Either<ChecklistFailure, Unit>> create(Checklist checklist);
   Future<Either<ChecklistFailure, Unit>> update(Checklist checklist);
   Future<Either<ChecklistFailure, Unit>> delete(Checklist checklist);
+  Future<Either<ChecklistFailure, Unit>> deleteAll();
 }

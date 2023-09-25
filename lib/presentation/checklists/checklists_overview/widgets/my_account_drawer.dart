@@ -40,9 +40,8 @@ class MyAccountDrawer extends StatelessWidget {
                   icon: Icons.person_remove,
                   title: 'Delete My Account',
                   dangerousArea: true,
-                  onTap: () {
-                    AutoRouter.of(context).push(const DeleteAccountRoute());
-                  },
+                  onTap: () =>
+                      AutoRouter.of(context).push(const DeleteAccountRoute()),
                 ),
               ],
             ),

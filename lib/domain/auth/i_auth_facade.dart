@@ -20,4 +20,9 @@ abstract class IAuthFacade {
     required EmailAddress emailAddress,
   });
   Future<Either<AuthFailure, Unit>> deleteAccount();
+  Future<Either<AuthFailure, Unit>> reauthenticateWithPassword({
+    required Password password,
+  });
+  Future<Either<AuthFailure, Unit>> reauthenticateWithGoogle();
+  Future<Either<AuthFailure, Unit>> reauthenticateWithApple();
 }

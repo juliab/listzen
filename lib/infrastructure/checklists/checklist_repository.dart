@@ -128,4 +128,27 @@ class ChecklistRepository implements IChecklistRepository {
       }
     }
   }
+
+  @override
+  Future<Either<ChecklistFailure, Unit>> deleteAll() async {
+    try {
+      final userDoc = _firestore.userDocument();
+
+      await userDoc.checklistCollection.get().then((snapshot) {
+        for (final ds in snapshot.docs) {
+          ds.reference.delete();
+        }
+      });
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code.contains('permission-denied')) {
+        return left(const ChecklistFailure.insufficientPermissions());
+      } else if (e.code.contains('not-found')) {
+        return left(const ChecklistFailure.unableToAccess());
+      } else {
+        return left(const ChecklistFailure.unexpected());
+      }
+    }
+  }
 }

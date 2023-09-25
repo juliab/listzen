@@ -101,7 +101,6 @@ class FirebaseAuthFacade implements IAuthFacade {
       final appleCredential = await SignInWithApple.getAppleIDCredential(
         scopes: [
           AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName,
         ],
         nonce: nonce,
       );
@@ -164,6 +163,83 @@ class FirebaseAuthFacade implements IAuthFacade {
       if (e.code == 'requires-recent-login') {
         return left(const AuthFailure.userRequiresRecentLogin());
       }
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> reauthenticateWithPassword(
+      {required Password password}) async {
+    final User? user = _firebaseAuth.currentUser;
+
+    if (user == null) {
+      return left(const AuthFailure.userUnauthenticated());
+    }
+
+    final passwordStr = password.getOrCrash();
+
+    try {
+      await user.reauthenticateWithCredential(EmailAuthProvider.credential(
+        email: user.email!,
+        password: passwordStr,
+      ));
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-mismatch' ||
+          e.code == 'user-not-found' ||
+          e.code == 'wrong-password') {
+        return left(const AuthFailure.invalidEmailAndPasswordCombination());
+      }
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> reauthenticateWithGoogle() async {
+    final User? user = _firebaseAuth.currentUser;
+    if (user == null) {
+      return left(const AuthFailure.userUnauthenticated());
+    }
+
+    try {
+      final googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) {
+        return left(const AuthFailure.cancelledByUser());
+      }
+      final googleAuthentication = await googleUser.authentication;
+
+      await user.reauthenticateWithCredential(
+          GoogleAuthProvider.credential(idToken: googleAuthentication.idToken));
+      return right(unit);
+    } on FirebaseAuthException catch (_) {
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> reauthenticateWithApple() async {
+    final User? user = _firebaseAuth.currentUser;
+    if (user == null) {
+      return left(const AuthFailure.userUnauthenticated());
+    }
+
+    final rawNonce = _generateNonce();
+    final nonce = _sha256ofString(rawNonce);
+
+    try {
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+        ],
+        nonce: nonce,
+      );
+      final oauthCredential = OAuthProvider("apple.com").credential(
+        idToken: appleCredential.identityToken,
+        rawNonce: rawNonce,
+      );
+      await user.reauthenticateWithCredential(oauthCredential);
+      return right(unit);
+    } on SignInWithAppleException catch (_) {
       return left(const AuthFailure.serverError());
     }
   }
