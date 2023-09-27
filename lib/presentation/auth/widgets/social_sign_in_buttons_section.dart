@@ -15,7 +15,27 @@ class SocialSignInButtonsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final signInWithGoogleButton = SocialSignInButton(
+    return Column(
+      children: [
+        SignInWithGoogleButton(relogin: relogin),
+        standardHeightSizedBox,
+        SignInWithAppleButton(relogin: relogin),
+      ],
+    );
+  }
+}
+
+class SignInWithGoogleButton extends StatelessWidget {
+  final bool relogin;
+
+  const SignInWithGoogleButton({
+    super.key,
+    required this.relogin,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SocialSignInButton(
       onPressed: () => context.read<SignInFormBloc>().add(relogin
           ? const SignInFormEvent.reloginWithGooglePressed()
           : const SignInFormEvent.signInWithGooglePressed()),
@@ -25,8 +45,20 @@ class SocialSignInButtonsSection extends StatelessWidget {
         style: buttonTextStyle.copyWith(color: blackColor),
       ),
     );
+  }
+}
 
-    final signInWithAppleButton = SocialSignInButton(
+class SignInWithAppleButton extends StatelessWidget {
+  final bool relogin;
+
+  const SignInWithAppleButton({
+    super.key,
+    required this.relogin,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SocialSignInButton(
       onPressed: () => context.read<SignInFormBloc>().add(
             relogin
                 ? const SignInFormEvent.reloginWithApplePressed()
@@ -41,14 +73,6 @@ class SocialSignInButtonsSection extends StatelessWidget {
         style: buttonTextStyle.copyWith(color: whiteColor),
       ),
       style: appleButtonStyle,
-    );
-
-    return Column(
-      children: [
-        signInWithGoogleButton,
-        standardHeightSizedBox,
-        signInWithAppleButton,
-      ],
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:listzen/domain/auth/user.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/accent_button.dart';
 import 'package:listzen/presentation/auth/widgets/password_field.dart';
@@ -35,42 +37,13 @@ class DeleteAccountSignInForm extends StatelessWidget {
                   'Deleting your account will remove all your checklists from '
                   'our database. This action cannot be reversed.\n\nTo '
                   'initiate the account deletion process, please re-login '
-                  'to the app using your preferred sign-in method.',
+                  'to the app.',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 const SizedBox(height: 35),
-                const PasswordField(
-                  showForgotPasswordLink: false,
-                ),
-                const SizedBox(height: 25),
-                AccentButton(
-                  text: 'Login',
-                  onPressed: () => context
-                      .read<SignInFormBloc>()
-                      .add(const SignInFormEvent.reloginWithPasswordPressed()),
-                ),
-                standardHeightSizedBox,
-                Row(
-                  children: [
-                    const Expanded(child: Divider()),
-                    const SizedBox(width: 10),
-                    Text(
-                      'or',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(color: borderColor),
-                    ),
-                    const SizedBox(width: 10),
-                    const Expanded(child: Divider()),
-                  ],
-                ),
-                standardHeightSizedBox,
-                const SocialSignInButtonsSection(
-                  relogin: true,
-                ),
+                const SignInButton(),
                 if (state.isSubmitting) ...[
                   const SizedBox(
                     height: 20,
@@ -101,6 +74,43 @@ class DeleteAccountSignInForm extends StatelessWidget {
               ],
             ),
           ),
+        );
+      },
+    );
+  }
+}
+
+class SignInButton extends StatelessWidget {
+  const SignInButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        return state.maybeMap(
+          authenticated: (value) {
+            switch (value.user.provider) {
+              case AuthProvider.apple:
+                return const SignInWithAppleButton(relogin: true);
+              case AuthProvider.google:
+                return const SignInWithGoogleButton(relogin: true);
+              case AuthProvider.email:
+                return Column(
+                  children: [
+                    const PasswordField(
+                      showForgotPasswordLink: false,
+                    ),
+                    const SizedBox(height: 25),
+                    AccentButton(
+                      text: 'Login',
+                      onPressed: () => context.read<SignInFormBloc>().add(
+                          const SignInFormEvent.reloginWithPasswordPressed()),
+                    ),
+                  ],
+                );
+            }
+          },
+          orElse: () => Container(),
         );
       },
     );
