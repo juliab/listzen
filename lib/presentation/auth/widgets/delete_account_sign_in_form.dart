@@ -18,7 +18,7 @@ class DeleteAccountSignInForm extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return Container(
-          height: 710,
+          height: 530,
           decoration: formDecoration,
           padding:
               const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 30),

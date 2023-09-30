@@ -28,6 +28,19 @@ class Password extends ValueObject<String> {
   const Password._(this.value);
 }
 
+class ConfirmPassword extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ConfirmPassword(String confirmPassword, String originalPassword) {
+    return ConfirmPassword._(
+      validateConfirmPassword(confirmPassword, originalPassword),
+    );
+  }
+
+  const ConfirmPassword._(this.value);
+}
+
 class UniqueId extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
