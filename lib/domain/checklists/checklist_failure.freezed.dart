@@ -21,6 +21,7 @@ mixin _$ChecklistFailure {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermissions,
     required TResult Function() unableToAccess,
+    required TResult Function() databaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$ChecklistFailure {
     TResult? Function()? unexpected,
     TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToAccess,
+    TResult? Function()? databaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$ChecklistFailure {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermissions,
     TResult Function()? unableToAccess,
+    TResult Function()? databaseError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$ChecklistFailure {
     required TResult Function(InsufficientPermissions value)
         insufficientPermissions,
     required TResult Function(UnableToUpdate value) unableToAccess,
+    required TResult Function(DatabaseError value) databaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$ChecklistFailure {
     TResult? Function(Unexpected value)? unexpected,
     TResult? Function(InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(UnableToUpdate value)? unableToAccess,
+    TResult? Function(DatabaseError value)? databaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$ChecklistFailure {
     TResult Function(Unexpected value)? unexpected,
     TResult Function(InsufficientPermissions value)? insufficientPermissions,
     TResult Function(UnableToUpdate value)? unableToAccess,
+    TResult Function(DatabaseError value)? databaseError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,25 +88,25 @@ class _$ChecklistFailureCopyWithImpl<$Res, $Val extends ChecklistFailure>
 }
 
 /// @nodoc
-abstract class _$$UnexpectedCopyWith<$Res> {
-  factory _$$UnexpectedCopyWith(
-          _$Unexpected value, $Res Function(_$Unexpected) then) =
-      __$$UnexpectedCopyWithImpl<$Res>;
+abstract class _$$UnexpectedImplCopyWith<$Res> {
+  factory _$$UnexpectedImplCopyWith(
+          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+      __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnexpectedCopyWithImpl<$Res>
-    extends _$ChecklistFailureCopyWithImpl<$Res, _$Unexpected>
-    implements _$$UnexpectedCopyWith<$Res> {
-  __$$UnexpectedCopyWithImpl(
-      _$Unexpected _value, $Res Function(_$Unexpected) _then)
+class __$$UnexpectedImplCopyWithImpl<$Res>
+    extends _$ChecklistFailureCopyWithImpl<$Res, _$UnexpectedImpl>
+    implements _$$UnexpectedImplCopyWith<$Res> {
+  __$$UnexpectedImplCopyWithImpl(
+      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Unexpected implements Unexpected {
-  const _$Unexpected();
+class _$UnexpectedImpl implements Unexpected {
+  const _$UnexpectedImpl();
 
   @override
   String toString() {
@@ -110,7 +116,7 @@ class _$Unexpected implements Unexpected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Unexpected);
+        (other.runtimeType == runtimeType && other is _$UnexpectedImpl);
   }
 
   @override
@@ -122,6 +128,7 @@ class _$Unexpected implements Unexpected {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermissions,
     required TResult Function() unableToAccess,
+    required TResult Function() databaseError,
   }) {
     return unexpected();
   }
@@ -132,6 +139,7 @@ class _$Unexpected implements Unexpected {
     TResult? Function()? unexpected,
     TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToAccess,
+    TResult? Function()? databaseError,
   }) {
     return unexpected?.call();
   }
@@ -142,6 +150,7 @@ class _$Unexpected implements Unexpected {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermissions,
     TResult Function()? unableToAccess,
+    TResult Function()? databaseError,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -157,6 +166,7 @@ class _$Unexpected implements Unexpected {
     required TResult Function(InsufficientPermissions value)
         insufficientPermissions,
     required TResult Function(UnableToUpdate value) unableToAccess,
+    required TResult Function(DatabaseError value) databaseError,
   }) {
     return unexpected(this);
   }
@@ -167,6 +177,7 @@ class _$Unexpected implements Unexpected {
     TResult? Function(Unexpected value)? unexpected,
     TResult? Function(InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(UnableToUpdate value)? unableToAccess,
+    TResult? Function(DatabaseError value)? databaseError,
   }) {
     return unexpected?.call(this);
   }
@@ -177,6 +188,7 @@ class _$Unexpected implements Unexpected {
     TResult Function(Unexpected value)? unexpected,
     TResult Function(InsufficientPermissions value)? insufficientPermissions,
     TResult Function(UnableToUpdate value)? unableToAccess,
+    TResult Function(DatabaseError value)? databaseError,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -187,29 +199,31 @@ class _$Unexpected implements Unexpected {
 }
 
 abstract class Unexpected implements ChecklistFailure {
-  const factory Unexpected() = _$Unexpected;
+  const factory Unexpected() = _$UnexpectedImpl;
 }
 
 /// @nodoc
-abstract class _$$InsufficientPermissionsCopyWith<$Res> {
-  factory _$$InsufficientPermissionsCopyWith(_$InsufficientPermissions value,
-          $Res Function(_$InsufficientPermissions) then) =
-      __$$InsufficientPermissionsCopyWithImpl<$Res>;
+abstract class _$$InsufficientPermissionsImplCopyWith<$Res> {
+  factory _$$InsufficientPermissionsImplCopyWith(
+          _$InsufficientPermissionsImpl value,
+          $Res Function(_$InsufficientPermissionsImpl) then) =
+      __$$InsufficientPermissionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InsufficientPermissionsCopyWithImpl<$Res>
-    extends _$ChecklistFailureCopyWithImpl<$Res, _$InsufficientPermissions>
-    implements _$$InsufficientPermissionsCopyWith<$Res> {
-  __$$InsufficientPermissionsCopyWithImpl(_$InsufficientPermissions _value,
-      $Res Function(_$InsufficientPermissions) _then)
+class __$$InsufficientPermissionsImplCopyWithImpl<$Res>
+    extends _$ChecklistFailureCopyWithImpl<$Res, _$InsufficientPermissionsImpl>
+    implements _$$InsufficientPermissionsImplCopyWith<$Res> {
+  __$$InsufficientPermissionsImplCopyWithImpl(
+      _$InsufficientPermissionsImpl _value,
+      $Res Function(_$InsufficientPermissionsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InsufficientPermissions implements InsufficientPermissions {
-  const _$InsufficientPermissions();
+class _$InsufficientPermissionsImpl implements InsufficientPermissions {
+  const _$InsufficientPermissionsImpl();
 
   @override
   String toString() {
@@ -220,7 +234,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InsufficientPermissions);
+            other is _$InsufficientPermissionsImpl);
   }
 
   @override
@@ -232,6 +246,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermissions,
     required TResult Function() unableToAccess,
+    required TResult Function() databaseError,
   }) {
     return insufficientPermissions();
   }
@@ -242,6 +257,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     TResult? Function()? unexpected,
     TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToAccess,
+    TResult? Function()? databaseError,
   }) {
     return insufficientPermissions?.call();
   }
@@ -252,6 +268,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermissions,
     TResult Function()? unableToAccess,
+    TResult Function()? databaseError,
     required TResult orElse(),
   }) {
     if (insufficientPermissions != null) {
@@ -267,6 +284,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     required TResult Function(InsufficientPermissions value)
         insufficientPermissions,
     required TResult Function(UnableToUpdate value) unableToAccess,
+    required TResult Function(DatabaseError value) databaseError,
   }) {
     return insufficientPermissions(this);
   }
@@ -277,6 +295,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     TResult? Function(Unexpected value)? unexpected,
     TResult? Function(InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(UnableToUpdate value)? unableToAccess,
+    TResult? Function(DatabaseError value)? databaseError,
   }) {
     return insufficientPermissions?.call(this);
   }
@@ -287,6 +306,7 @@ class _$InsufficientPermissions implements InsufficientPermissions {
     TResult Function(Unexpected value)? unexpected,
     TResult Function(InsufficientPermissions value)? insufficientPermissions,
     TResult Function(UnableToUpdate value)? unableToAccess,
+    TResult Function(DatabaseError value)? databaseError,
     required TResult orElse(),
   }) {
     if (insufficientPermissions != null) {
@@ -297,29 +317,29 @@ class _$InsufficientPermissions implements InsufficientPermissions {
 }
 
 abstract class InsufficientPermissions implements ChecklistFailure {
-  const factory InsufficientPermissions() = _$InsufficientPermissions;
+  const factory InsufficientPermissions() = _$InsufficientPermissionsImpl;
 }
 
 /// @nodoc
-abstract class _$$UnableToUpdateCopyWith<$Res> {
-  factory _$$UnableToUpdateCopyWith(
-          _$UnableToUpdate value, $Res Function(_$UnableToUpdate) then) =
-      __$$UnableToUpdateCopyWithImpl<$Res>;
+abstract class _$$UnableToUpdateImplCopyWith<$Res> {
+  factory _$$UnableToUpdateImplCopyWith(_$UnableToUpdateImpl value,
+          $Res Function(_$UnableToUpdateImpl) then) =
+      __$$UnableToUpdateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnableToUpdateCopyWithImpl<$Res>
-    extends _$ChecklistFailureCopyWithImpl<$Res, _$UnableToUpdate>
-    implements _$$UnableToUpdateCopyWith<$Res> {
-  __$$UnableToUpdateCopyWithImpl(
-      _$UnableToUpdate _value, $Res Function(_$UnableToUpdate) _then)
+class __$$UnableToUpdateImplCopyWithImpl<$Res>
+    extends _$ChecklistFailureCopyWithImpl<$Res, _$UnableToUpdateImpl>
+    implements _$$UnableToUpdateImplCopyWith<$Res> {
+  __$$UnableToUpdateImplCopyWithImpl(
+      _$UnableToUpdateImpl _value, $Res Function(_$UnableToUpdateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnableToUpdate implements UnableToUpdate {
-  const _$UnableToUpdate();
+class _$UnableToUpdateImpl implements UnableToUpdate {
+  const _$UnableToUpdateImpl();
 
   @override
   String toString() {
@@ -329,7 +349,7 @@ class _$UnableToUpdate implements UnableToUpdate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnableToUpdate);
+        (other.runtimeType == runtimeType && other is _$UnableToUpdateImpl);
   }
 
   @override
@@ -341,6 +361,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     required TResult Function() unexpected,
     required TResult Function() insufficientPermissions,
     required TResult Function() unableToAccess,
+    required TResult Function() databaseError,
   }) {
     return unableToAccess();
   }
@@ -351,6 +372,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     TResult? Function()? unexpected,
     TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToAccess,
+    TResult? Function()? databaseError,
   }) {
     return unableToAccess?.call();
   }
@@ -361,6 +383,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     TResult Function()? unexpected,
     TResult Function()? insufficientPermissions,
     TResult Function()? unableToAccess,
+    TResult Function()? databaseError,
     required TResult orElse(),
   }) {
     if (unableToAccess != null) {
@@ -376,6 +399,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     required TResult Function(InsufficientPermissions value)
         insufficientPermissions,
     required TResult Function(UnableToUpdate value) unableToAccess,
+    required TResult Function(DatabaseError value) databaseError,
   }) {
     return unableToAccess(this);
   }
@@ -386,6 +410,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     TResult? Function(Unexpected value)? unexpected,
     TResult? Function(InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(UnableToUpdate value)? unableToAccess,
+    TResult? Function(DatabaseError value)? databaseError,
   }) {
     return unableToAccess?.call(this);
   }
@@ -396,6 +421,7 @@ class _$UnableToUpdate implements UnableToUpdate {
     TResult Function(Unexpected value)? unexpected,
     TResult Function(InsufficientPermissions value)? insufficientPermissions,
     TResult Function(UnableToUpdate value)? unableToAccess,
+    TResult Function(DatabaseError value)? databaseError,
     required TResult orElse(),
   }) {
     if (unableToAccess != null) {
@@ -406,5 +432,120 @@ class _$UnableToUpdate implements UnableToUpdate {
 }
 
 abstract class UnableToUpdate implements ChecklistFailure {
-  const factory UnableToUpdate() = _$UnableToUpdate;
+  const factory UnableToUpdate() = _$UnableToUpdateImpl;
+}
+
+/// @nodoc
+abstract class _$$DatabaseErrorImplCopyWith<$Res> {
+  factory _$$DatabaseErrorImplCopyWith(
+          _$DatabaseErrorImpl value, $Res Function(_$DatabaseErrorImpl) then) =
+      __$$DatabaseErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DatabaseErrorImplCopyWithImpl<$Res>
+    extends _$ChecklistFailureCopyWithImpl<$Res, _$DatabaseErrorImpl>
+    implements _$$DatabaseErrorImplCopyWith<$Res> {
+  __$$DatabaseErrorImplCopyWithImpl(
+      _$DatabaseErrorImpl _value, $Res Function(_$DatabaseErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DatabaseErrorImpl implements DatabaseError {
+  const _$DatabaseErrorImpl();
+
+  @override
+  String toString() {
+    return 'ChecklistFailure.databaseError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DatabaseErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermissions,
+    required TResult Function() unableToAccess,
+    required TResult Function() databaseError,
+  }) {
+    return databaseError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? unableToAccess,
+    TResult? Function()? databaseError,
+  }) {
+    return databaseError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermissions,
+    TResult Function()? unableToAccess,
+    TResult Function()? databaseError,
+    required TResult orElse(),
+  }) {
+    if (databaseError != null) {
+      return databaseError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Unexpected value) unexpected,
+    required TResult Function(InsufficientPermissions value)
+        insufficientPermissions,
+    required TResult Function(UnableToUpdate value) unableToAccess,
+    required TResult Function(DatabaseError value) databaseError,
+  }) {
+    return databaseError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(UnableToUpdate value)? unableToAccess,
+    TResult? Function(DatabaseError value)? databaseError,
+  }) {
+    return databaseError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Unexpected value)? unexpected,
+    TResult Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult Function(UnableToUpdate value)? unableToAccess,
+    TResult Function(DatabaseError value)? databaseError,
+    required TResult orElse(),
+  }) {
+    if (databaseError != null) {
+      return databaseError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DatabaseError implements ChecklistFailure {
+  const factory DatabaseError() = _$DatabaseErrorImpl;
 }

@@ -8,4 +8,5 @@ class ChecklistFailure with _$ChecklistFailure {
   const factory ChecklistFailure.insufficientPermissions() =
       InsufficientPermissions;
   const factory ChecklistFailure.unableToAccess() = UnableToUpdate;
+  const factory ChecklistFailure.databaseError() = DatabaseError;
 }

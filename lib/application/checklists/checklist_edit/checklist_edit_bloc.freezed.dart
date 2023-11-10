@@ -133,20 +133,20 @@ class _$ChecklistEditEventCopyWithImpl<$Res, $Val extends ChecklistEditEvent>
 }
 
 /// @nodoc
-abstract class _$$InitializedCopyWith<$Res> {
-  factory _$$InitializedCopyWith(
-          _$Initialized value, $Res Function(_$Initialized) then) =
-      __$$InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedImplCopyWith<$Res> {
+  factory _$$InitializedImplCopyWith(
+          _$InitializedImpl value, $Res Function(_$InitializedImpl) then) =
+      __$$InitializedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<Checklist> initialChecklistOption});
 }
 
 /// @nodoc
-class __$$InitializedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$Initialized>
-    implements _$$InitializedCopyWith<$Res> {
-  __$$InitializedCopyWithImpl(
-      _$Initialized _value, $Res Function(_$Initialized) _then)
+class __$$InitializedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$InitializedImpl>
+    implements _$$InitializedImplCopyWith<$Res> {
+  __$$InitializedImplCopyWithImpl(
+      _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -154,7 +154,7 @@ class __$$InitializedCopyWithImpl<$Res>
   $Res call({
     Object? initialChecklistOption = null,
   }) {
-    return _then(_$Initialized(
+    return _then(_$InitializedImpl(
       null == initialChecklistOption
           ? _value.initialChecklistOption
           : initialChecklistOption // ignore: cast_nullable_to_non_nullable
@@ -165,8 +165,8 @@ class __$$InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Initialized implements Initialized {
-  const _$Initialized(this.initialChecklistOption);
+class _$InitializedImpl implements Initialized {
+  const _$InitializedImpl(this.initialChecklistOption);
 
   @override
   final Option<Checklist> initialChecklistOption;
@@ -180,7 +180,7 @@ class _$Initialized implements Initialized {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Initialized &&
+            other is _$InitializedImpl &&
             (identical(other.initialChecklistOption, initialChecklistOption) ||
                 other.initialChecklistOption == initialChecklistOption));
   }
@@ -191,8 +191,8 @@ class _$Initialized implements Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InitializedCopyWith<_$Initialized> get copyWith =>
-      __$$InitializedCopyWithImpl<_$Initialized>(this, _$identity);
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
+      __$$InitializedImplCopyWithImpl<_$InitializedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -317,29 +317,29 @@ class _$Initialized implements Initialized {
 
 abstract class Initialized implements ChecklistEditEvent {
   const factory Initialized(final Option<Checklist> initialChecklistOption) =
-      _$Initialized;
+      _$InitializedImpl;
 
   Option<Checklist> get initialChecklistOption;
   @JsonKey(ignore: true)
-  _$$InitializedCopyWith<_$Initialized> get copyWith =>
+  _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NameChangedCopyWith<$Res> {
-  factory _$$NameChangedCopyWith(
-          _$NameChanged value, $Res Function(_$NameChanged) then) =
-      __$$NameChangedCopyWithImpl<$Res>;
+abstract class _$$NameChangedImplCopyWith<$Res> {
+  factory _$$NameChangedImplCopyWith(
+          _$NameChangedImpl value, $Res Function(_$NameChangedImpl) then) =
+      __$$NameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$NameChangedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$NameChanged>
-    implements _$$NameChangedCopyWith<$Res> {
-  __$$NameChangedCopyWithImpl(
-      _$NameChanged _value, $Res Function(_$NameChanged) _then)
+class __$$NameChangedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$NameChangedImpl>
+    implements _$$NameChangedImplCopyWith<$Res> {
+  __$$NameChangedImplCopyWithImpl(
+      _$NameChangedImpl _value, $Res Function(_$NameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -347,7 +347,7 @@ class __$$NameChangedCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$NameChanged(
+    return _then(_$NameChangedImpl(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -358,8 +358,8 @@ class __$$NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NameChanged implements NameChanged {
-  const _$NameChanged(this.name);
+class _$NameChangedImpl implements NameChanged {
+  const _$NameChangedImpl(this.name);
 
   @override
   final String name;
@@ -373,7 +373,7 @@ class _$NameChanged implements NameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NameChanged &&
+            other is _$NameChangedImpl &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -383,8 +383,8 @@ class _$NameChanged implements NameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
-      __$$NameChangedCopyWithImpl<_$NameChanged>(this, _$identity);
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
+      __$$NameChangedImplCopyWithImpl<_$NameChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -508,29 +508,32 @@ class _$NameChanged implements NameChanged {
 }
 
 abstract class NameChanged implements ChecklistEditEvent {
-  const factory NameChanged(final String name) = _$NameChanged;
+  const factory NameChanged(final String name) = _$NameChangedImpl;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CompletionStatusChangedCopyWith<$Res> {
-  factory _$$CompletionStatusChangedCopyWith(_$CompletionStatusChanged value,
-          $Res Function(_$CompletionStatusChanged) then) =
-      __$$CompletionStatusChangedCopyWithImpl<$Res>;
+abstract class _$$CompletionStatusChangedImplCopyWith<$Res> {
+  factory _$$CompletionStatusChangedImplCopyWith(
+          _$CompletionStatusChangedImpl value,
+          $Res Function(_$CompletionStatusChangedImpl) then) =
+      __$$CompletionStatusChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isDone, bool instantSave});
 }
 
 /// @nodoc
-class __$$CompletionStatusChangedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$CompletionStatusChanged>
-    implements _$$CompletionStatusChangedCopyWith<$Res> {
-  __$$CompletionStatusChangedCopyWithImpl(_$CompletionStatusChanged _value,
-      $Res Function(_$CompletionStatusChanged) _then)
+class __$$CompletionStatusChangedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res,
+        _$CompletionStatusChangedImpl>
+    implements _$$CompletionStatusChangedImplCopyWith<$Res> {
+  __$$CompletionStatusChangedImplCopyWithImpl(
+      _$CompletionStatusChangedImpl _value,
+      $Res Function(_$CompletionStatusChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -539,7 +542,7 @@ class __$$CompletionStatusChangedCopyWithImpl<$Res>
     Object? isDone = null,
     Object? instantSave = null,
   }) {
-    return _then(_$CompletionStatusChanged(
+    return _then(_$CompletionStatusChangedImpl(
       isDone: null == isDone
           ? _value.isDone
           : isDone // ignore: cast_nullable_to_non_nullable
@@ -554,8 +557,8 @@ class __$$CompletionStatusChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompletionStatusChanged implements CompletionStatusChanged {
-  const _$CompletionStatusChanged(
+class _$CompletionStatusChangedImpl implements CompletionStatusChanged {
+  const _$CompletionStatusChangedImpl(
       {required this.isDone, this.instantSave = false});
 
   @override
@@ -573,7 +576,7 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CompletionStatusChanged &&
+            other is _$CompletionStatusChangedImpl &&
             (identical(other.isDone, isDone) || other.isDone == isDone) &&
             (identical(other.instantSave, instantSave) ||
                 other.instantSave == instantSave));
@@ -585,9 +588,9 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CompletionStatusChangedCopyWith<_$CompletionStatusChanged> get copyWith =>
-      __$$CompletionStatusChangedCopyWithImpl<_$CompletionStatusChanged>(
-          this, _$identity);
+  _$$CompletionStatusChangedImplCopyWith<_$CompletionStatusChangedImpl>
+      get copyWith => __$$CompletionStatusChangedImplCopyWithImpl<
+          _$CompletionStatusChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -713,35 +716,35 @@ class _$CompletionStatusChanged implements CompletionStatusChanged {
 abstract class CompletionStatusChanged implements ChecklistEditEvent {
   const factory CompletionStatusChanged(
       {required final bool isDone,
-      final bool instantSave}) = _$CompletionStatusChanged;
+      final bool instantSave}) = _$CompletionStatusChangedImpl;
 
   bool get isDone;
   bool get instantSave;
   @JsonKey(ignore: true)
-  _$$CompletionStatusChangedCopyWith<_$CompletionStatusChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CompletionStatusChangedImplCopyWith<_$CompletionStatusChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ItemAddedCopyWith<$Res> {
-  factory _$$ItemAddedCopyWith(
-          _$ItemAdded value, $Res Function(_$ItemAdded) then) =
-      __$$ItemAddedCopyWithImpl<$Res>;
+abstract class _$$ItemAddedImplCopyWith<$Res> {
+  factory _$$ItemAddedImplCopyWith(
+          _$ItemAddedImpl value, $Res Function(_$ItemAddedImpl) then) =
+      __$$ItemAddedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ItemAddedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemAdded>
-    implements _$$ItemAddedCopyWith<$Res> {
-  __$$ItemAddedCopyWithImpl(
-      _$ItemAdded _value, $Res Function(_$ItemAdded) _then)
+class __$$ItemAddedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemAddedImpl>
+    implements _$$ItemAddedImplCopyWith<$Res> {
+  __$$ItemAddedImplCopyWithImpl(
+      _$ItemAddedImpl _value, $Res Function(_$ItemAddedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ItemAdded implements ItemAdded {
-  const _$ItemAdded();
+class _$ItemAddedImpl implements ItemAdded {
+  const _$ItemAddedImpl();
 
   @override
   String toString() {
@@ -751,7 +754,7 @@ class _$ItemAdded implements ItemAdded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ItemAdded);
+        (other.runtimeType == runtimeType && other is _$ItemAddedImpl);
   }
 
   @override
@@ -879,24 +882,24 @@ class _$ItemAdded implements ItemAdded {
 }
 
 abstract class ItemAdded implements ChecklistEditEvent {
-  const factory ItemAdded() = _$ItemAdded;
+  const factory ItemAdded() = _$ItemAddedImpl;
 }
 
 /// @nodoc
-abstract class _$$ItemNameChangedCopyWith<$Res> {
-  factory _$$ItemNameChangedCopyWith(
-          _$ItemNameChanged value, $Res Function(_$ItemNameChanged) then) =
-      __$$ItemNameChangedCopyWithImpl<$Res>;
+abstract class _$$ItemNameChangedImplCopyWith<$Res> {
+  factory _$$ItemNameChangedImplCopyWith(_$ItemNameChangedImpl value,
+          $Res Function(_$ItemNameChangedImpl) then) =
+      __$$ItemNameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index, String name});
 }
 
 /// @nodoc
-class __$$ItemNameChangedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemNameChanged>
-    implements _$$ItemNameChangedCopyWith<$Res> {
-  __$$ItemNameChangedCopyWithImpl(
-      _$ItemNameChanged _value, $Res Function(_$ItemNameChanged) _then)
+class __$$ItemNameChangedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemNameChangedImpl>
+    implements _$$ItemNameChangedImplCopyWith<$Res> {
+  __$$ItemNameChangedImplCopyWithImpl(
+      _$ItemNameChangedImpl _value, $Res Function(_$ItemNameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -905,7 +908,7 @@ class __$$ItemNameChangedCopyWithImpl<$Res>
     Object? index = null,
     Object? name = null,
   }) {
-    return _then(_$ItemNameChanged(
+    return _then(_$ItemNameChangedImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -920,8 +923,8 @@ class __$$ItemNameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ItemNameChanged implements ItemNameChanged {
-  const _$ItemNameChanged({required this.index, required this.name});
+class _$ItemNameChangedImpl implements ItemNameChanged {
+  const _$ItemNameChangedImpl({required this.index, required this.name});
 
   @override
   final int index;
@@ -937,7 +940,7 @@ class _$ItemNameChanged implements ItemNameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemNameChanged &&
+            other is _$ItemNameChangedImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -948,8 +951,9 @@ class _$ItemNameChanged implements ItemNameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemNameChangedCopyWith<_$ItemNameChanged> get copyWith =>
-      __$$ItemNameChangedCopyWithImpl<_$ItemNameChanged>(this, _$identity);
+  _$$ItemNameChangedImplCopyWith<_$ItemNameChangedImpl> get copyWith =>
+      __$$ItemNameChangedImplCopyWithImpl<_$ItemNameChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1075,33 +1079,33 @@ class _$ItemNameChanged implements ItemNameChanged {
 abstract class ItemNameChanged implements ChecklistEditEvent {
   const factory ItemNameChanged(
       {required final int index,
-      required final String name}) = _$ItemNameChanged;
+      required final String name}) = _$ItemNameChangedImpl;
 
   int get index;
   String get name;
   @JsonKey(ignore: true)
-  _$$ItemNameChangedCopyWith<_$ItemNameChanged> get copyWith =>
+  _$$ItemNameChangedImplCopyWith<_$ItemNameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ItemCompletionStatusChangedCopyWith<$Res> {
-  factory _$$ItemCompletionStatusChangedCopyWith(
-          _$ItemCompletionStatusChanged value,
-          $Res Function(_$ItemCompletionStatusChanged) then) =
-      __$$ItemCompletionStatusChangedCopyWithImpl<$Res>;
+abstract class _$$ItemCompletionStatusChangedImplCopyWith<$Res> {
+  factory _$$ItemCompletionStatusChangedImplCopyWith(
+          _$ItemCompletionStatusChangedImpl value,
+          $Res Function(_$ItemCompletionStatusChangedImpl) then) =
+      __$$ItemCompletionStatusChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index, bool isDone, bool instantSave});
 }
 
 /// @nodoc
-class __$$ItemCompletionStatusChangedCopyWithImpl<$Res>
+class __$$ItemCompletionStatusChangedImplCopyWithImpl<$Res>
     extends _$ChecklistEditEventCopyWithImpl<$Res,
-        _$ItemCompletionStatusChanged>
-    implements _$$ItemCompletionStatusChangedCopyWith<$Res> {
-  __$$ItemCompletionStatusChangedCopyWithImpl(
-      _$ItemCompletionStatusChanged _value,
-      $Res Function(_$ItemCompletionStatusChanged) _then)
+        _$ItemCompletionStatusChangedImpl>
+    implements _$$ItemCompletionStatusChangedImplCopyWith<$Res> {
+  __$$ItemCompletionStatusChangedImplCopyWithImpl(
+      _$ItemCompletionStatusChangedImpl _value,
+      $Res Function(_$ItemCompletionStatusChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1111,7 +1115,7 @@ class __$$ItemCompletionStatusChangedCopyWithImpl<$Res>
     Object? isDone = null,
     Object? instantSave = null,
   }) {
-    return _then(_$ItemCompletionStatusChanged(
+    return _then(_$ItemCompletionStatusChangedImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1130,8 +1134,8 @@ class __$$ItemCompletionStatusChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
-  const _$ItemCompletionStatusChanged(
+class _$ItemCompletionStatusChangedImpl implements ItemCompletionStatusChanged {
+  const _$ItemCompletionStatusChangedImpl(
       {required this.index, required this.isDone, this.instantSave = false});
 
   @override
@@ -1151,7 +1155,7 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemCompletionStatusChanged &&
+            other is _$ItemCompletionStatusChangedImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.isDone, isDone) || other.isDone == isDone) &&
             (identical(other.instantSave, instantSave) ||
@@ -1164,9 +1168,9 @@ class _$ItemCompletionStatusChanged implements ItemCompletionStatusChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemCompletionStatusChangedCopyWith<_$ItemCompletionStatusChanged>
-      get copyWith => __$$ItemCompletionStatusChangedCopyWithImpl<
-          _$ItemCompletionStatusChanged>(this, _$identity);
+  _$$ItemCompletionStatusChangedImplCopyWith<_$ItemCompletionStatusChangedImpl>
+      get copyWith => __$$ItemCompletionStatusChangedImplCopyWithImpl<
+          _$ItemCompletionStatusChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1293,31 +1297,31 @@ abstract class ItemCompletionStatusChanged implements ChecklistEditEvent {
   const factory ItemCompletionStatusChanged(
       {required final int index,
       required final bool isDone,
-      final bool instantSave}) = _$ItemCompletionStatusChanged;
+      final bool instantSave}) = _$ItemCompletionStatusChangedImpl;
 
   int get index;
   bool get isDone;
   bool get instantSave;
   @JsonKey(ignore: true)
-  _$$ItemCompletionStatusChangedCopyWith<_$ItemCompletionStatusChanged>
+  _$$ItemCompletionStatusChangedImplCopyWith<_$ItemCompletionStatusChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ItemsReorderedCopyWith<$Res> {
-  factory _$$ItemsReorderedCopyWith(
-          _$ItemsReordered value, $Res Function(_$ItemsReordered) then) =
-      __$$ItemsReorderedCopyWithImpl<$Res>;
+abstract class _$$ItemsReorderedImplCopyWith<$Res> {
+  factory _$$ItemsReorderedImplCopyWith(_$ItemsReorderedImpl value,
+          $Res Function(_$ItemsReorderedImpl) then) =
+      __$$ItemsReorderedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int oldIndex, int newIndex});
 }
 
 /// @nodoc
-class __$$ItemsReorderedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemsReordered>
-    implements _$$ItemsReorderedCopyWith<$Res> {
-  __$$ItemsReorderedCopyWithImpl(
-      _$ItemsReordered _value, $Res Function(_$ItemsReordered) _then)
+class __$$ItemsReorderedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemsReorderedImpl>
+    implements _$$ItemsReorderedImplCopyWith<$Res> {
+  __$$ItemsReorderedImplCopyWithImpl(
+      _$ItemsReorderedImpl _value, $Res Function(_$ItemsReorderedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1326,7 +1330,7 @@ class __$$ItemsReorderedCopyWithImpl<$Res>
     Object? oldIndex = null,
     Object? newIndex = null,
   }) {
-    return _then(_$ItemsReordered(
+    return _then(_$ItemsReorderedImpl(
       oldIndex: null == oldIndex
           ? _value.oldIndex
           : oldIndex // ignore: cast_nullable_to_non_nullable
@@ -1341,8 +1345,8 @@ class __$$ItemsReorderedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ItemsReordered implements ItemsReordered {
-  const _$ItemsReordered({required this.oldIndex, required this.newIndex});
+class _$ItemsReorderedImpl implements ItemsReordered {
+  const _$ItemsReorderedImpl({required this.oldIndex, required this.newIndex});
 
   @override
   final int oldIndex;
@@ -1358,7 +1362,7 @@ class _$ItemsReordered implements ItemsReordered {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemsReordered &&
+            other is _$ItemsReorderedImpl &&
             (identical(other.oldIndex, oldIndex) ||
                 other.oldIndex == oldIndex) &&
             (identical(other.newIndex, newIndex) ||
@@ -1371,8 +1375,9 @@ class _$ItemsReordered implements ItemsReordered {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemsReorderedCopyWith<_$ItemsReordered> get copyWith =>
-      __$$ItemsReorderedCopyWithImpl<_$ItemsReordered>(this, _$identity);
+  _$$ItemsReorderedImplCopyWith<_$ItemsReorderedImpl> get copyWith =>
+      __$$ItemsReorderedImplCopyWithImpl<_$ItemsReorderedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1498,30 +1503,30 @@ class _$ItemsReordered implements ItemsReordered {
 abstract class ItemsReordered implements ChecklistEditEvent {
   const factory ItemsReordered(
       {required final int oldIndex,
-      required final int newIndex}) = _$ItemsReordered;
+      required final int newIndex}) = _$ItemsReorderedImpl;
 
   int get oldIndex;
   int get newIndex;
   @JsonKey(ignore: true)
-  _$$ItemsReorderedCopyWith<_$ItemsReordered> get copyWith =>
+  _$$ItemsReorderedImplCopyWith<_$ItemsReorderedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ItemRemovedCopyWith<$Res> {
-  factory _$$ItemRemovedCopyWith(
-          _$ItemRemoved value, $Res Function(_$ItemRemoved) then) =
-      __$$ItemRemovedCopyWithImpl<$Res>;
+abstract class _$$ItemRemovedImplCopyWith<$Res> {
+  factory _$$ItemRemovedImplCopyWith(
+          _$ItemRemovedImpl value, $Res Function(_$ItemRemovedImpl) then) =
+      __$$ItemRemovedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ItemRemovedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemRemoved>
-    implements _$$ItemRemovedCopyWith<$Res> {
-  __$$ItemRemovedCopyWithImpl(
-      _$ItemRemoved _value, $Res Function(_$ItemRemoved) _then)
+class __$$ItemRemovedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ItemRemovedImpl>
+    implements _$$ItemRemovedImplCopyWith<$Res> {
+  __$$ItemRemovedImplCopyWithImpl(
+      _$ItemRemovedImpl _value, $Res Function(_$ItemRemovedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1529,7 +1534,7 @@ class __$$ItemRemovedCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ItemRemoved(
+    return _then(_$ItemRemovedImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -1540,8 +1545,8 @@ class __$$ItemRemovedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ItemRemoved implements ItemRemoved {
-  const _$ItemRemoved({required this.index});
+class _$ItemRemovedImpl implements ItemRemoved {
+  const _$ItemRemovedImpl({required this.index});
 
   @override
   final int index;
@@ -1555,7 +1560,7 @@ class _$ItemRemoved implements ItemRemoved {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemRemoved &&
+            other is _$ItemRemovedImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -1565,8 +1570,8 @@ class _$ItemRemoved implements ItemRemoved {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemRemovedCopyWith<_$ItemRemoved> get copyWith =>
-      __$$ItemRemovedCopyWithImpl<_$ItemRemoved>(this, _$identity);
+  _$$ItemRemovedImplCopyWith<_$ItemRemovedImpl> get copyWith =>
+      __$$ItemRemovedImplCopyWithImpl<_$ItemRemovedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1690,29 +1695,29 @@ class _$ItemRemoved implements ItemRemoved {
 }
 
 abstract class ItemRemoved implements ChecklistEditEvent {
-  const factory ItemRemoved({required final int index}) = _$ItemRemoved;
+  const factory ItemRemoved({required final int index}) = _$ItemRemovedImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ItemRemovedCopyWith<_$ItemRemoved> get copyWith =>
+  _$$ItemRemovedImplCopyWith<_$ItemRemovedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ColorChangedCopyWith<$Res> {
-  factory _$$ColorChangedCopyWith(
-          _$ColorChanged value, $Res Function(_$ColorChanged) then) =
-      __$$ColorChangedCopyWithImpl<$Res>;
+abstract class _$$ColorChangedImplCopyWith<$Res> {
+  factory _$$ColorChangedImplCopyWith(
+          _$ColorChangedImpl value, $Res Function(_$ColorChangedImpl) then) =
+      __$$ColorChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ChecklistColor color, bool instantSave});
 }
 
 /// @nodoc
-class __$$ColorChangedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ColorChanged>
-    implements _$$ColorChangedCopyWith<$Res> {
-  __$$ColorChangedCopyWithImpl(
-      _$ColorChanged _value, $Res Function(_$ColorChanged) _then)
+class __$$ColorChangedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$ColorChangedImpl>
+    implements _$$ColorChangedImplCopyWith<$Res> {
+  __$$ColorChangedImplCopyWithImpl(
+      _$ColorChangedImpl _value, $Res Function(_$ColorChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1721,7 +1726,7 @@ class __$$ColorChangedCopyWithImpl<$Res>
     Object? color = null,
     Object? instantSave = null,
   }) {
-    return _then(_$ColorChanged(
+    return _then(_$ColorChangedImpl(
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -1736,8 +1741,8 @@ class __$$ColorChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ColorChanged implements ColorChanged {
-  const _$ColorChanged({required this.color, this.instantSave = false});
+class _$ColorChangedImpl implements ColorChanged {
+  const _$ColorChangedImpl({required this.color, this.instantSave = false});
 
   @override
   final ChecklistColor color;
@@ -1754,7 +1759,7 @@ class _$ColorChanged implements ColorChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ColorChanged &&
+            other is _$ColorChangedImpl &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.instantSave, instantSave) ||
                 other.instantSave == instantSave));
@@ -1766,8 +1771,8 @@ class _$ColorChanged implements ColorChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ColorChangedCopyWith<_$ColorChanged> get copyWith =>
-      __$$ColorChangedCopyWithImpl<_$ColorChanged>(this, _$identity);
+  _$$ColorChangedImplCopyWith<_$ColorChangedImpl> get copyWith =>
+      __$$ColorChangedImplCopyWithImpl<_$ColorChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1893,33 +1898,35 @@ class _$ColorChanged implements ColorChanged {
 abstract class ColorChanged implements ChecklistEditEvent {
   const factory ColorChanged(
       {required final ChecklistColor color,
-      final bool instantSave}) = _$ColorChanged;
+      final bool instantSave}) = _$ColorChangedImpl;
 
   ChecklistColor get color;
   bool get instantSave;
   @JsonKey(ignore: true)
-  _$$ColorChangedCopyWith<_$ColorChanged> get copyWith =>
+  _$$ColorChangedImplCopyWith<_$ColorChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SavedCopyWith<$Res> {
-  factory _$$SavedCopyWith(_$Saved value, $Res Function(_$Saved) then) =
-      __$$SavedCopyWithImpl<$Res>;
+abstract class _$$SavedImplCopyWith<$Res> {
+  factory _$$SavedImplCopyWith(
+          _$SavedImpl value, $Res Function(_$SavedImpl) then) =
+      __$$SavedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SavedCopyWithImpl<$Res>
-    extends _$ChecklistEditEventCopyWithImpl<$Res, _$Saved>
-    implements _$$SavedCopyWith<$Res> {
-  __$$SavedCopyWithImpl(_$Saved _value, $Res Function(_$Saved) _then)
+class __$$SavedImplCopyWithImpl<$Res>
+    extends _$ChecklistEditEventCopyWithImpl<$Res, _$SavedImpl>
+    implements _$$SavedImplCopyWith<$Res> {
+  __$$SavedImplCopyWithImpl(
+      _$SavedImpl _value, $Res Function(_$SavedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Saved implements Saved {
-  const _$Saved();
+class _$SavedImpl implements Saved {
+  const _$SavedImpl();
 
   @override
   String toString() {
@@ -1929,7 +1936,7 @@ class _$Saved implements Saved {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Saved);
+        (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
 
   @override
@@ -2057,7 +2064,7 @@ class _$Saved implements Saved {
 }
 
 abstract class Saved implements ChecklistEditEvent {
-  const factory Saved() = _$Saved;
+  const factory Saved() = _$SavedImpl;
 }
 
 /// @nodoc
@@ -2143,11 +2150,11 @@ class _$ChecklistEditStateCopyWithImpl<$Res, $Val extends ChecklistEditState>
 }
 
 /// @nodoc
-abstract class _$$_ChecklistFormStateCopyWith<$Res>
+abstract class _$$ChecklistFormStateImplCopyWith<$Res>
     implements $ChecklistEditStateCopyWith<$Res> {
-  factory _$$_ChecklistFormStateCopyWith(_$_ChecklistFormState value,
-          $Res Function(_$_ChecklistFormState) then) =
-      __$$_ChecklistFormStateCopyWithImpl<$Res>;
+  factory _$$ChecklistFormStateImplCopyWith(_$ChecklistFormStateImpl value,
+          $Res Function(_$ChecklistFormStateImpl) then) =
+      __$$ChecklistFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2162,11 +2169,11 @@ abstract class _$$_ChecklistFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ChecklistFormStateCopyWithImpl<$Res>
-    extends _$ChecklistEditStateCopyWithImpl<$Res, _$_ChecklistFormState>
-    implements _$$_ChecklistFormStateCopyWith<$Res> {
-  __$$_ChecklistFormStateCopyWithImpl(
-      _$_ChecklistFormState _value, $Res Function(_$_ChecklistFormState) _then)
+class __$$ChecklistFormStateImplCopyWithImpl<$Res>
+    extends _$ChecklistEditStateCopyWithImpl<$Res, _$ChecklistFormStateImpl>
+    implements _$$ChecklistFormStateImplCopyWith<$Res> {
+  __$$ChecklistFormStateImplCopyWithImpl(_$ChecklistFormStateImpl _value,
+      $Res Function(_$ChecklistFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2178,7 +2185,7 @@ class __$$_ChecklistFormStateCopyWithImpl<$Res>
     Object? isSaving = null,
     Object? saveFailureOrSuccessOption = null,
   }) {
-    return _then(_$_ChecklistFormState(
+    return _then(_$ChecklistFormStateImpl(
       checklist: null == checklist
           ? _value.checklist
           : checklist // ignore: cast_nullable_to_non_nullable
@@ -2205,8 +2212,8 @@ class __$$_ChecklistFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChecklistFormState implements _ChecklistFormState {
-  const _$_ChecklistFormState(
+class _$ChecklistFormStateImpl implements _ChecklistFormState {
+  const _$ChecklistFormStateImpl(
       {required this.checklist,
       required this.autovalidateMode,
       required this.isEditing,
@@ -2233,7 +2240,7 @@ class _$_ChecklistFormState implements _ChecklistFormState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChecklistFormState &&
+            other is _$ChecklistFormStateImpl &&
             (identical(other.checklist, checklist) ||
                 other.checklist == checklist) &&
             (identical(other.autovalidateMode, autovalidateMode) ||
@@ -2255,8 +2262,8 @@ class _$_ChecklistFormState implements _ChecklistFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChecklistFormStateCopyWith<_$_ChecklistFormState> get copyWith =>
-      __$$_ChecklistFormStateCopyWithImpl<_$_ChecklistFormState>(
+  _$$ChecklistFormStateImplCopyWith<_$ChecklistFormStateImpl> get copyWith =>
+      __$$ChecklistFormStateImplCopyWithImpl<_$ChecklistFormStateImpl>(
           this, _$identity);
 }
 
@@ -2267,7 +2274,7 @@ abstract class _ChecklistFormState implements ChecklistEditState {
       required final bool isEditing,
       required final bool isSaving,
       required final Option<Either<ChecklistFailure, Unit>>
-          saveFailureOrSuccessOption}) = _$_ChecklistFormState;
+          saveFailureOrSuccessOption}) = _$ChecklistFormStateImpl;
 
   @override
   Checklist get checklist;
@@ -2281,6 +2288,6 @@ abstract class _ChecklistFormState implements ChecklistEditState {
   Option<Either<ChecklistFailure, Unit>> get saveFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_ChecklistFormStateCopyWith<_$_ChecklistFormState> get copyWith =>
+  _$$ChecklistFormStateImplCopyWith<_$ChecklistFormStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

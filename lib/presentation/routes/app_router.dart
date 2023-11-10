@@ -9,7 +9,6 @@ import 'package:listzen/presentation/auth/sign_in_page.dart';
 import 'package:listzen/presentation/auth/sign_up_page.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/checklists_overview_page.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/edit_checklist_page.dart';
-import 'package:listzen/presentation/splash/splash_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -20,9 +19,8 @@ class AppRouter extends _$AppRouter {
 
   @override
   final List<AutoRoute> routes = [
-    AutoRoute(page: SplashRoute.page, path: '/'),
     AutoRoute(page: SignInRoute.page),
-    AutoRoute(page: ChecklistsOverviewRoute.page),
+    AutoRoute(page: ChecklistsOverviewRoute.page, path: '/'),
     AutoRoute(page: EditChecklistRoute.page),
     AutoRoute(page: SignUpRoute.page),
     AutoRoute(page: ResetPasswordRoute.page),

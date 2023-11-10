@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'checklist_dtos.dart';
+part of 'firebase_checklist_dtos.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ChecklistDto _$ChecklistDtoFromJson(Map<String, dynamic> json) {
+FirebaseChecklistDto _$FirebaseChecklistDtoFromJson(Map<String, dynamic> json) {
   return _ChecklistDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ChecklistDto {
+mixin _$FirebaseChecklistDto {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
@@ -29,15 +29,15 @@ mixin _$ChecklistDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ChecklistDtoCopyWith<ChecklistDto> get copyWith =>
+  $FirebaseChecklistDtoCopyWith<FirebaseChecklistDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChecklistDtoCopyWith<$Res> {
-  factory $ChecklistDtoCopyWith(
-          ChecklistDto value, $Res Function(ChecklistDto) then) =
-      _$ChecklistDtoCopyWithImpl<$Res, ChecklistDto>;
+abstract class $FirebaseChecklistDtoCopyWith<$Res> {
+  factory $FirebaseChecklistDtoCopyWith(FirebaseChecklistDto value,
+          $Res Function(FirebaseChecklistDto) then) =
+      _$FirebaseChecklistDtoCopyWithImpl<$Res, FirebaseChecklistDto>;
   @useResult
   $Res call(
       {String id,
@@ -48,9 +48,10 @@ abstract class $ChecklistDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ChecklistDtoCopyWithImpl<$Res, $Val extends ChecklistDto>
-    implements $ChecklistDtoCopyWith<$Res> {
-  _$ChecklistDtoCopyWithImpl(this._value, this._then);
+class _$FirebaseChecklistDtoCopyWithImpl<$Res,
+        $Val extends FirebaseChecklistDto>
+    implements $FirebaseChecklistDtoCopyWith<$Res> {
+  _$FirebaseChecklistDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -92,11 +93,11 @@ class _$ChecklistDtoCopyWithImpl<$Res, $Val extends ChecklistDto>
 }
 
 /// @nodoc
-abstract class _$$_ChecklistDtoCopyWith<$Res>
-    implements $ChecklistDtoCopyWith<$Res> {
-  factory _$$_ChecklistDtoCopyWith(
-          _$_ChecklistDto value, $Res Function(_$_ChecklistDto) then) =
-      __$$_ChecklistDtoCopyWithImpl<$Res>;
+abstract class _$$ChecklistDtoImplCopyWith<$Res>
+    implements $FirebaseChecklistDtoCopyWith<$Res> {
+  factory _$$ChecklistDtoImplCopyWith(
+          _$ChecklistDtoImpl value, $Res Function(_$ChecklistDtoImpl) then) =
+      __$$ChecklistDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,11 +109,11 @@ abstract class _$$_ChecklistDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ChecklistDtoCopyWithImpl<$Res>
-    extends _$ChecklistDtoCopyWithImpl<$Res, _$_ChecklistDto>
-    implements _$$_ChecklistDtoCopyWith<$Res> {
-  __$$_ChecklistDtoCopyWithImpl(
-      _$_ChecklistDto _value, $Res Function(_$_ChecklistDto) _then)
+class __$$ChecklistDtoImplCopyWithImpl<$Res>
+    extends _$FirebaseChecklistDtoCopyWithImpl<$Res, _$ChecklistDtoImpl>
+    implements _$$ChecklistDtoImplCopyWith<$Res> {
+  __$$ChecklistDtoImplCopyWithImpl(
+      _$ChecklistDtoImpl _value, $Res Function(_$ChecklistDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +125,7 @@ class __$$_ChecklistDtoCopyWithImpl<$Res>
     Object? items = null,
     Object? serverTimeStamp = null,
   }) {
-    return _then(_$_ChecklistDto(
+    return _then(_$ChecklistDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -151,8 +152,8 @@ class __$$_ChecklistDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChecklistDto extends _ChecklistDto {
-  const _$_ChecklistDto(
+class _$ChecklistDtoImpl extends _ChecklistDto {
+  const _$ChecklistDtoImpl(
       {required this.id,
       required this.name,
       required this.color,
@@ -161,8 +162,8 @@ class _$_ChecklistDto extends _ChecklistDto {
       : _items = items,
         super._();
 
-  factory _$_ChecklistDto.fromJson(Map<String, dynamic> json) =>
-      _$$_ChecklistDtoFromJson(json);
+  factory _$ChecklistDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChecklistDtoImplFromJson(json);
 
   @override
   final String id;
@@ -184,14 +185,14 @@ class _$_ChecklistDto extends _ChecklistDto {
 
   @override
   String toString() {
-    return 'ChecklistDto(id: $id, name: $name, color: $color, items: $items, serverTimeStamp: $serverTimeStamp)';
+    return 'FirebaseChecklistDto(id: $id, name: $name, color: $color, items: $items, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChecklistDto &&
+            other is _$ChecklistDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
@@ -208,29 +209,29 @@ class _$_ChecklistDto extends _ChecklistDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChecklistDtoCopyWith<_$_ChecklistDto> get copyWith =>
-      __$$_ChecklistDtoCopyWithImpl<_$_ChecklistDto>(this, _$identity);
+  _$$ChecklistDtoImplCopyWith<_$ChecklistDtoImpl> get copyWith =>
+      __$$ChecklistDtoImplCopyWithImpl<_$ChecklistDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChecklistDtoToJson(
+    return _$$ChecklistDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _ChecklistDto extends ChecklistDto {
+abstract class _ChecklistDto extends FirebaseChecklistDto {
   const factory _ChecklistDto(
       {required final String id,
       required final String name,
       required final String color,
       required final List<ItemDto> items,
       @ServerTimeStampConverter()
-      required final FieldValue serverTimeStamp}) = _$_ChecklistDto;
+      required final FieldValue serverTimeStamp}) = _$ChecklistDtoImpl;
   const _ChecklistDto._() : super._();
 
   factory _ChecklistDto.fromJson(Map<String, dynamic> json) =
-      _$_ChecklistDto.fromJson;
+      _$ChecklistDtoImpl.fromJson;
 
   @override
   String get id;
@@ -245,7 +246,7 @@ abstract class _ChecklistDto extends ChecklistDto {
   FieldValue get serverTimeStamp;
   @override
   @JsonKey(ignore: true)
-  _$$_ChecklistDtoCopyWith<_$_ChecklistDto> get copyWith =>
+  _$$ChecklistDtoImplCopyWith<_$ChecklistDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -307,20 +308,21 @@ class _$ItemDtoCopyWithImpl<$Res, $Val extends ItemDto>
 }
 
 /// @nodoc
-abstract class _$$_ItemDtoCopyWith<$Res> implements $ItemDtoCopyWith<$Res> {
-  factory _$$_ItemDtoCopyWith(
-          _$_ItemDto value, $Res Function(_$_ItemDto) then) =
-      __$$_ItemDtoCopyWithImpl<$Res>;
+abstract class _$$ItemDtoImplCopyWith<$Res> implements $ItemDtoCopyWith<$Res> {
+  factory _$$ItemDtoImplCopyWith(
+          _$ItemDtoImpl value, $Res Function(_$ItemDtoImpl) then) =
+      __$$ItemDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, bool done});
 }
 
 /// @nodoc
-class __$$_ItemDtoCopyWithImpl<$Res>
-    extends _$ItemDtoCopyWithImpl<$Res, _$_ItemDto>
-    implements _$$_ItemDtoCopyWith<$Res> {
-  __$$_ItemDtoCopyWithImpl(_$_ItemDto _value, $Res Function(_$_ItemDto) _then)
+class __$$ItemDtoImplCopyWithImpl<$Res>
+    extends _$ItemDtoCopyWithImpl<$Res, _$ItemDtoImpl>
+    implements _$$ItemDtoImplCopyWith<$Res> {
+  __$$ItemDtoImplCopyWithImpl(
+      _$ItemDtoImpl _value, $Res Function(_$ItemDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -330,7 +332,7 @@ class __$$_ItemDtoCopyWithImpl<$Res>
     Object? name = null,
     Object? done = null,
   }) {
-    return _then(_$_ItemDto(
+    return _then(_$ItemDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -349,12 +351,13 @@ class __$$_ItemDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ItemDto extends _ItemDto {
-  const _$_ItemDto({required this.id, required this.name, required this.done})
+class _$ItemDtoImpl extends _ItemDto {
+  const _$ItemDtoImpl(
+      {required this.id, required this.name, required this.done})
       : super._();
 
-  factory _$_ItemDto.fromJson(Map<String, dynamic> json) =>
-      _$$_ItemDtoFromJson(json);
+  factory _$ItemDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ItemDtoImplFromJson(json);
 
   @override
   final String id;
@@ -372,7 +375,7 @@ class _$_ItemDto extends _ItemDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ItemDto &&
+            other is _$ItemDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.done, done) || other.done == done));
@@ -385,12 +388,12 @@ class _$_ItemDto extends _ItemDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ItemDtoCopyWith<_$_ItemDto> get copyWith =>
-      __$$_ItemDtoCopyWithImpl<_$_ItemDto>(this, _$identity);
+  _$$ItemDtoImplCopyWith<_$ItemDtoImpl> get copyWith =>
+      __$$ItemDtoImplCopyWithImpl<_$ItemDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ItemDtoToJson(
+    return _$$ItemDtoImplToJson(
       this,
     );
   }
@@ -400,10 +403,10 @@ abstract class _ItemDto extends ItemDto {
   const factory _ItemDto(
       {required final String id,
       required final String name,
-      required final bool done}) = _$_ItemDto;
+      required final bool done}) = _$ItemDtoImpl;
   const _ItemDto._() : super._();
 
-  factory _ItemDto.fromJson(Map<String, dynamic> json) = _$_ItemDto.fromJson;
+  factory _ItemDto.fromJson(Map<String, dynamic> json) = _$ItemDtoImpl.fromJson;
 
   @override
   String get id;
@@ -413,6 +416,6 @@ abstract class _ItemDto extends ItemDto {
   bool get done;
   @override
   @JsonKey(ignore: true)
-  _$$_ItemDtoCopyWith<_$_ItemDto> get copyWith =>
+  _$$ItemDtoImplCopyWith<_$ItemDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

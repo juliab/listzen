@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
@@ -20,30 +19,19 @@ class ChecklistsOverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ChecklistWatcherBloc>(
-          create: (context) => getIt<ChecklistWatcherBloc>()
-            ..add(const ChecklistWatcherEvent.watchAllStarted()),
-        ),
         BlocProvider<ChecklistActorBloc>(
           create: (context) => getIt<ChecklistActorBloc>(),
         ),
         BlocProvider<ChecklistEditBloc>(
           create: (context) => getIt<ChecklistEditBloc>(),
         ),
+        BlocProvider<ChecklistWatcherBloc>(
+          create: (context) => getIt<ChecklistWatcherBloc>()
+            ..add(const ChecklistWatcherEvent.watchAllStarted()),
+        ),
       ],
-      child: MultiBlocListener(
-        listeners: [
-          BlocListener<AuthBloc, AuthState>(
-            listener: (context, state) => state.maybeMap(
-              unauthenticated: (_) =>
-                  AutoRouter.of(context).push(const SignInRoute()),
-              orElse: () => null,
-            ),
-          ),
-          BlocListener<ChecklistActorBloc, ChecklistActorState>(
-            listener: _listenToDeleteResult,
-          ),
-        ],
+      child: BlocListener<ChecklistActorBloc, ChecklistActorState>(
+        listener: _listenToDeleteResult,
         child: const ChecklistsOverviewScaffold(),
       ),
     );
@@ -58,6 +46,7 @@ class ChecklistsOverviewPage extends StatelessWidget {
               'Unexpected error occured while deleting, please contact support.',
           insufficientPermissions: (_) => 'Insufficient permissions.',
           unableToAccess: (_) => 'Impossible error.',
+          databaseError: (_) => 'Could not delete checklist from database',
         ),
         context: context,
       ).show(),
@@ -82,9 +71,7 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: const Icon(
-                Icons.account_circle,
-              ),
+              icon: const Icon(Icons.account_circle),
               onPressed: () {
                 Scaffold.of(context).openEndDrawer();
               },

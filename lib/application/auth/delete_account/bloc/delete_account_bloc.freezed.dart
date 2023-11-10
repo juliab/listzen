@@ -69,25 +69,25 @@ class _$DeleteAccountEventCopyWithImpl<$Res, $Val extends DeleteAccountEvent>
 }
 
 /// @nodoc
-abstract class _$$DeleteConfirmedCopyWith<$Res> {
-  factory _$$DeleteConfirmedCopyWith(
-          _$DeleteConfirmed value, $Res Function(_$DeleteConfirmed) then) =
-      __$$DeleteConfirmedCopyWithImpl<$Res>;
+abstract class _$$DeleteConfirmedImplCopyWith<$Res> {
+  factory _$$DeleteConfirmedImplCopyWith(_$DeleteConfirmedImpl value,
+          $Res Function(_$DeleteConfirmedImpl) then) =
+      __$$DeleteConfirmedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DeleteConfirmedCopyWithImpl<$Res>
-    extends _$DeleteAccountEventCopyWithImpl<$Res, _$DeleteConfirmed>
-    implements _$$DeleteConfirmedCopyWith<$Res> {
-  __$$DeleteConfirmedCopyWithImpl(
-      _$DeleteConfirmed _value, $Res Function(_$DeleteConfirmed) _then)
+class __$$DeleteConfirmedImplCopyWithImpl<$Res>
+    extends _$DeleteAccountEventCopyWithImpl<$Res, _$DeleteConfirmedImpl>
+    implements _$$DeleteConfirmedImplCopyWith<$Res> {
+  __$$DeleteConfirmedImplCopyWithImpl(
+      _$DeleteConfirmedImpl _value, $Res Function(_$DeleteConfirmedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DeleteConfirmed implements DeleteConfirmed {
-  const _$DeleteConfirmed();
+class _$DeleteConfirmedImpl implements DeleteConfirmed {
+  const _$DeleteConfirmedImpl();
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class _$DeleteConfirmed implements DeleteConfirmed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DeleteConfirmed);
+        (other.runtimeType == runtimeType && other is _$DeleteConfirmedImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$DeleteConfirmed implements DeleteConfirmed {
 }
 
 abstract class DeleteConfirmed implements DeleteAccountEvent {
-  const factory DeleteConfirmed() = _$DeleteConfirmed;
+  const factory DeleteConfirmed() = _$DeleteConfirmedImpl;
 }
 
 /// @nodoc
@@ -216,11 +216,11 @@ class _$DeleteAccountStateCopyWithImpl<$Res, $Val extends DeleteAccountState>
 }
 
 /// @nodoc
-abstract class _$$_DeleteAccountStateCopyWith<$Res>
+abstract class _$$DeleteAccountStateImplCopyWith<$Res>
     implements $DeleteAccountStateCopyWith<$Res> {
-  factory _$$_DeleteAccountStateCopyWith(_$_DeleteAccountState value,
-          $Res Function(_$_DeleteAccountState) then) =
-      __$$_DeleteAccountStateCopyWithImpl<$Res>;
+  factory _$$DeleteAccountStateImplCopyWith(_$DeleteAccountStateImpl value,
+          $Res Function(_$DeleteAccountStateImpl) then) =
+      __$$DeleteAccountStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -229,11 +229,11 @@ abstract class _$$_DeleteAccountStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DeleteAccountStateCopyWithImpl<$Res>
-    extends _$DeleteAccountStateCopyWithImpl<$Res, _$_DeleteAccountState>
-    implements _$$_DeleteAccountStateCopyWith<$Res> {
-  __$$_DeleteAccountStateCopyWithImpl(
-      _$_DeleteAccountState _value, $Res Function(_$_DeleteAccountState) _then)
+class __$$DeleteAccountStateImplCopyWithImpl<$Res>
+    extends _$DeleteAccountStateCopyWithImpl<$Res, _$DeleteAccountStateImpl>
+    implements _$$DeleteAccountStateImplCopyWith<$Res> {
+  __$$DeleteAccountStateImplCopyWithImpl(_$DeleteAccountStateImpl _value,
+      $Res Function(_$DeleteAccountStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -242,7 +242,7 @@ class __$$_DeleteAccountStateCopyWithImpl<$Res>
     Object? isDeleting = null,
     Object? deleteFailureOrSuccessOption = null,
   }) {
-    return _then(_$_DeleteAccountState(
+    return _then(_$DeleteAccountStateImpl(
       isDeleting: null == isDeleting
           ? _value.isDeleting
           : isDeleting // ignore: cast_nullable_to_non_nullable
@@ -257,8 +257,8 @@ class __$$_DeleteAccountStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeleteAccountState implements _DeleteAccountState {
-  const _$_DeleteAccountState(
+class _$DeleteAccountStateImpl implements _DeleteAccountState {
+  const _$DeleteAccountStateImpl(
       {required this.isDeleting, required this.deleteFailureOrSuccessOption});
 
   @override
@@ -275,7 +275,7 @@ class _$_DeleteAccountState implements _DeleteAccountState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeleteAccountState &&
+            other is _$DeleteAccountStateImpl &&
             (identical(other.isDeleting, isDeleting) ||
                 other.isDeleting == isDeleting) &&
             (identical(other.deleteFailureOrSuccessOption,
@@ -291,8 +291,8 @@ class _$_DeleteAccountState implements _DeleteAccountState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeleteAccountStateCopyWith<_$_DeleteAccountState> get copyWith =>
-      __$$_DeleteAccountStateCopyWithImpl<_$_DeleteAccountState>(
+  _$$DeleteAccountStateImplCopyWith<_$DeleteAccountStateImpl> get copyWith =>
+      __$$DeleteAccountStateImplCopyWithImpl<_$DeleteAccountStateImpl>(
           this, _$identity);
 }
 
@@ -300,7 +300,7 @@ abstract class _DeleteAccountState implements DeleteAccountState {
   const factory _DeleteAccountState(
       {required final bool isDeleting,
       required final Option<Either<AuthFailure, Unit>>
-          deleteFailureOrSuccessOption}) = _$_DeleteAccountState;
+          deleteFailureOrSuccessOption}) = _$DeleteAccountStateImpl;
 
   @override
   bool get isDeleting;
@@ -308,6 +308,6 @@ abstract class _DeleteAccountState implements DeleteAccountState {
   Option<Either<AuthFailure, Unit>> get deleteFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_DeleteAccountStateCopyWith<_$_DeleteAccountState> get copyWith =>
+  _$$DeleteAccountStateImplCopyWith<_$DeleteAccountStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

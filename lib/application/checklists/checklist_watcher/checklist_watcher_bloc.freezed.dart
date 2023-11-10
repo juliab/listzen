@@ -19,7 +19,6 @@ mixin _$ChecklistWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function() watchUncompletedStarted,
     required TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
         checklistsReceived,
@@ -28,7 +27,6 @@ mixin _$ChecklistWatcherEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function()? watchUncompletedStarted,
     TResult? Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
@@ -37,7 +35,6 @@ mixin _$ChecklistWatcherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function()? watchUncompletedStarted,
     TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
@@ -47,22 +44,18 @@ mixin _$ChecklistWatcherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchUncompletedStarted value)
-        watchUncompletedStarted,
     required TResult Function(ChecklistsReceived value) checklistsReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchUncompletedStarted value)? watchUncompletedStarted,
     TResult? Function(ChecklistsReceived value)? checklistsReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchUncompletedStarted value)? watchUncompletedStarted,
     TResult Function(ChecklistsReceived value)? checklistsReceived,
     required TResult orElse(),
   }) =>
@@ -89,25 +82,25 @@ class _$ChecklistWatcherEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$WatchAllStartedCopyWith<$Res> {
-  factory _$$WatchAllStartedCopyWith(
-          _$WatchAllStarted value, $Res Function(_$WatchAllStarted) then) =
-      __$$WatchAllStartedCopyWithImpl<$Res>;
+abstract class _$$WatchAllStartedImplCopyWith<$Res> {
+  factory _$$WatchAllStartedImplCopyWith(_$WatchAllStartedImpl value,
+          $Res Function(_$WatchAllStartedImpl) then) =
+      __$$WatchAllStartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WatchAllStartedCopyWithImpl<$Res>
-    extends _$ChecklistWatcherEventCopyWithImpl<$Res, _$WatchAllStarted>
-    implements _$$WatchAllStartedCopyWith<$Res> {
-  __$$WatchAllStartedCopyWithImpl(
-      _$WatchAllStarted _value, $Res Function(_$WatchAllStarted) _then)
+class __$$WatchAllStartedImplCopyWithImpl<$Res>
+    extends _$ChecklistWatcherEventCopyWithImpl<$Res, _$WatchAllStartedImpl>
+    implements _$$WatchAllStartedImplCopyWith<$Res> {
+  __$$WatchAllStartedImplCopyWithImpl(
+      _$WatchAllStartedImpl _value, $Res Function(_$WatchAllStartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WatchAllStarted implements WatchAllStarted {
-  const _$WatchAllStarted();
+class _$WatchAllStartedImpl implements WatchAllStarted {
+  const _$WatchAllStartedImpl();
 
   @override
   String toString() {
@@ -117,7 +110,7 @@ class _$WatchAllStarted implements WatchAllStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WatchAllStarted);
+        (other.runtimeType == runtimeType && other is _$WatchAllStartedImpl);
   }
 
   @override
@@ -127,7 +120,6 @@ class _$WatchAllStarted implements WatchAllStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function() watchUncompletedStarted,
     required TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
         checklistsReceived,
@@ -139,7 +131,6 @@ class _$WatchAllStarted implements WatchAllStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function()? watchUncompletedStarted,
     TResult? Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
@@ -151,7 +142,6 @@ class _$WatchAllStarted implements WatchAllStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function()? watchUncompletedStarted,
     TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
@@ -167,8 +157,6 @@ class _$WatchAllStarted implements WatchAllStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchUncompletedStarted value)
-        watchUncompletedStarted,
     required TResult Function(ChecklistsReceived value) checklistsReceived,
   }) {
     return watchAllStarted(this);
@@ -178,7 +166,6 @@ class _$WatchAllStarted implements WatchAllStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchUncompletedStarted value)? watchUncompletedStarted,
     TResult? Function(ChecklistsReceived value)? checklistsReceived,
   }) {
     return watchAllStarted?.call(this);
@@ -188,7 +175,6 @@ class _$WatchAllStarted implements WatchAllStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchUncompletedStarted value)? watchUncompletedStarted,
     TResult Function(ChecklistsReceived value)? checklistsReceived,
     required TResult orElse(),
   }) {
@@ -200,140 +186,24 @@ class _$WatchAllStarted implements WatchAllStarted {
 }
 
 abstract class WatchAllStarted implements ChecklistWatcherEvent {
-  const factory WatchAllStarted() = _$WatchAllStarted;
+  const factory WatchAllStarted() = _$WatchAllStartedImpl;
 }
 
 /// @nodoc
-abstract class _$$WatchUncompletedStartedCopyWith<$Res> {
-  factory _$$WatchUncompletedStartedCopyWith(_$WatchUncompletedStarted value,
-          $Res Function(_$WatchUncompletedStarted) then) =
-      __$$WatchUncompletedStartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$WatchUncompletedStartedCopyWithImpl<$Res>
-    extends _$ChecklistWatcherEventCopyWithImpl<$Res, _$WatchUncompletedStarted>
-    implements _$$WatchUncompletedStartedCopyWith<$Res> {
-  __$$WatchUncompletedStartedCopyWithImpl(_$WatchUncompletedStarted _value,
-      $Res Function(_$WatchUncompletedStarted) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$WatchUncompletedStarted implements WatchUncompletedStarted {
-  const _$WatchUncompletedStarted();
-
-  @override
-  String toString() {
-    return 'ChecklistWatcherEvent.watchUncompletedStarted()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WatchUncompletedStarted);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchAllStarted,
-    required TResult Function() watchUncompletedStarted,
-    required TResult Function(
-            Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
-        checklistsReceived,
-  }) {
-    return watchUncompletedStarted();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? watchAllStarted,
-    TResult? Function()? watchUncompletedStarted,
-    TResult? Function(
-            Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
-        checklistsReceived,
-  }) {
-    return watchUncompletedStarted?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchAllStarted,
-    TResult Function()? watchUncompletedStarted,
-    TResult Function(
-            Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
-        checklistsReceived,
-    required TResult orElse(),
-  }) {
-    if (watchUncompletedStarted != null) {
-      return watchUncompletedStarted();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchUncompletedStarted value)
-        watchUncompletedStarted,
-    required TResult Function(ChecklistsReceived value) checklistsReceived,
-  }) {
-    return watchUncompletedStarted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchUncompletedStarted value)? watchUncompletedStarted,
-    TResult? Function(ChecklistsReceived value)? checklistsReceived,
-  }) {
-    return watchUncompletedStarted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchUncompletedStarted value)? watchUncompletedStarted,
-    TResult Function(ChecklistsReceived value)? checklistsReceived,
-    required TResult orElse(),
-  }) {
-    if (watchUncompletedStarted != null) {
-      return watchUncompletedStarted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class WatchUncompletedStarted implements ChecklistWatcherEvent {
-  const factory WatchUncompletedStarted() = _$WatchUncompletedStarted;
-}
-
-/// @nodoc
-abstract class _$$ChecklistsReceivedCopyWith<$Res> {
-  factory _$$ChecklistsReceivedCopyWith(_$ChecklistsReceived value,
-          $Res Function(_$ChecklistsReceived) then) =
-      __$$ChecklistsReceivedCopyWithImpl<$Res>;
+abstract class _$$ChecklistsReceivedImplCopyWith<$Res> {
+  factory _$$ChecklistsReceivedImplCopyWith(_$ChecklistsReceivedImpl value,
+          $Res Function(_$ChecklistsReceivedImpl) then) =
+      __$$ChecklistsReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Either<ChecklistFailure, List<Checklist>> failureOrChecklists});
 }
 
 /// @nodoc
-class __$$ChecklistsReceivedCopyWithImpl<$Res>
-    extends _$ChecklistWatcherEventCopyWithImpl<$Res, _$ChecklistsReceived>
-    implements _$$ChecklistsReceivedCopyWith<$Res> {
-  __$$ChecklistsReceivedCopyWithImpl(
-      _$ChecklistsReceived _value, $Res Function(_$ChecklistsReceived) _then)
+class __$$ChecklistsReceivedImplCopyWithImpl<$Res>
+    extends _$ChecklistWatcherEventCopyWithImpl<$Res, _$ChecklistsReceivedImpl>
+    implements _$$ChecklistsReceivedImplCopyWith<$Res> {
+  __$$ChecklistsReceivedImplCopyWithImpl(_$ChecklistsReceivedImpl _value,
+      $Res Function(_$ChecklistsReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -341,7 +211,7 @@ class __$$ChecklistsReceivedCopyWithImpl<$Res>
   $Res call({
     Object? failureOrChecklists = null,
   }) {
-    return _then(_$ChecklistsReceived(
+    return _then(_$ChecklistsReceivedImpl(
       null == failureOrChecklists
           ? _value.failureOrChecklists
           : failureOrChecklists // ignore: cast_nullable_to_non_nullable
@@ -352,8 +222,8 @@ class __$$ChecklistsReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChecklistsReceived implements ChecklistsReceived {
-  const _$ChecklistsReceived(this.failureOrChecklists);
+class _$ChecklistsReceivedImpl implements ChecklistsReceived {
+  const _$ChecklistsReceivedImpl(this.failureOrChecklists);
 
   @override
   final Either<ChecklistFailure, List<Checklist>> failureOrChecklists;
@@ -367,7 +237,7 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChecklistsReceived &&
+            other is _$ChecklistsReceivedImpl &&
             (identical(other.failureOrChecklists, failureOrChecklists) ||
                 other.failureOrChecklists == failureOrChecklists));
   }
@@ -378,15 +248,14 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChecklistsReceivedCopyWith<_$ChecklistsReceived> get copyWith =>
-      __$$ChecklistsReceivedCopyWithImpl<_$ChecklistsReceived>(
+  _$$ChecklistsReceivedImplCopyWith<_$ChecklistsReceivedImpl> get copyWith =>
+      __$$ChecklistsReceivedImplCopyWithImpl<_$ChecklistsReceivedImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function() watchUncompletedStarted,
     required TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
         checklistsReceived,
@@ -398,7 +267,6 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function()? watchUncompletedStarted,
     TResult? Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
@@ -410,7 +278,6 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function()? watchUncompletedStarted,
     TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
@@ -426,8 +293,6 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchUncompletedStarted value)
-        watchUncompletedStarted,
     required TResult Function(ChecklistsReceived value) checklistsReceived,
   }) {
     return checklistsReceived(this);
@@ -437,7 +302,6 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchUncompletedStarted value)? watchUncompletedStarted,
     TResult? Function(ChecklistsReceived value)? checklistsReceived,
   }) {
     return checklistsReceived?.call(this);
@@ -447,7 +311,6 @@ class _$ChecklistsReceived implements ChecklistsReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchUncompletedStarted value)? watchUncompletedStarted,
     TResult Function(ChecklistsReceived value)? checklistsReceived,
     required TResult orElse(),
   }) {
@@ -461,11 +324,11 @@ class _$ChecklistsReceived implements ChecklistsReceived {
 abstract class ChecklistsReceived implements ChecklistWatcherEvent {
   const factory ChecklistsReceived(
           final Either<ChecklistFailure, List<Checklist>> failureOrChecklists) =
-      _$ChecklistsReceived;
+      _$ChecklistsReceivedImpl;
 
   Either<ChecklistFailure, List<Checklist>> get failureOrChecklists;
   @JsonKey(ignore: true)
-  _$$ChecklistsReceivedCopyWith<_$ChecklistsReceived> get copyWith =>
+  _$$ChecklistsReceivedImplCopyWith<_$ChecklistsReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -543,23 +406,25 @@ class _$ChecklistWatcherStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial implements Initial {
-  const _$Initial();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -569,7 +434,7 @@ class _$Initial implements Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -651,29 +516,29 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements ChecklistWatcherState {
-  const factory Initial() = _$Initial;
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadInProgressCopyWith<$Res> {
-  factory _$$LoadInProgressCopyWith(
-          _$LoadInProgress value, $Res Function(_$LoadInProgress) then) =
-      __$$LoadInProgressCopyWithImpl<$Res>;
+abstract class _$$LoadInProgressImplCopyWith<$Res> {
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadInProgressCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadInProgress>
-    implements _$$LoadInProgressCopyWith<$Res> {
-  __$$LoadInProgressCopyWithImpl(
-      _$LoadInProgress _value, $Res Function(_$LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadInProgress implements LoadInProgress {
-  const _$LoadInProgress();
+class _$LoadInProgressImpl implements LoadInProgress {
+  const _$LoadInProgressImpl();
 
   @override
   String toString() {
@@ -683,7 +548,7 @@ class _$LoadInProgress implements LoadInProgress {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadInProgressImpl);
   }
 
   @override
@@ -765,24 +630,24 @@ class _$LoadInProgress implements LoadInProgress {
 }
 
 abstract class LoadInProgress implements ChecklistWatcherState {
-  const factory LoadInProgress() = _$LoadInProgress;
+  const factory LoadInProgress() = _$LoadInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadInSuccessCopyWith<$Res> {
-  factory _$$LoadInSuccessCopyWith(
-          _$LoadInSuccess value, $Res Function(_$LoadInSuccess) then) =
-      __$$LoadInSuccessCopyWithImpl<$Res>;
+abstract class _$$LoadInSuccessImplCopyWith<$Res> {
+  factory _$$LoadInSuccessImplCopyWith(
+          _$LoadInSuccessImpl value, $Res Function(_$LoadInSuccessImpl) then) =
+      __$$LoadInSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Checklist> checklists});
 }
 
 /// @nodoc
-class __$$LoadInSuccessCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadInSuccess>
-    implements _$$LoadInSuccessCopyWith<$Res> {
-  __$$LoadInSuccessCopyWithImpl(
-      _$LoadInSuccess _value, $Res Function(_$LoadInSuccess) _then)
+class __$$LoadInSuccessImplCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadInSuccessImpl>
+    implements _$$LoadInSuccessImplCopyWith<$Res> {
+  __$$LoadInSuccessImplCopyWithImpl(
+      _$LoadInSuccessImpl _value, $Res Function(_$LoadInSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -790,7 +655,7 @@ class __$$LoadInSuccessCopyWithImpl<$Res>
   $Res call({
     Object? checklists = null,
   }) {
-    return _then(_$LoadInSuccess(
+    return _then(_$LoadInSuccessImpl(
       null == checklists
           ? _value._checklists
           : checklists // ignore: cast_nullable_to_non_nullable
@@ -801,8 +666,8 @@ class __$$LoadInSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadInSuccess implements LoadInSuccess {
-  const _$LoadInSuccess(final List<Checklist> checklists)
+class _$LoadInSuccessImpl implements LoadInSuccess {
+  const _$LoadInSuccessImpl(final List<Checklist> checklists)
       : _checklists = checklists;
 
   final List<Checklist> _checklists;
@@ -822,7 +687,7 @@ class _$LoadInSuccess implements LoadInSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadInSuccess &&
+            other is _$LoadInSuccessImpl &&
             const DeepCollectionEquality()
                 .equals(other._checklists, _checklists));
   }
@@ -834,8 +699,8 @@ class _$LoadInSuccess implements LoadInSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadInSuccessCopyWith<_$LoadInSuccess> get copyWith =>
-      __$$LoadInSuccessCopyWithImpl<_$LoadInSuccess>(this, _$identity);
+  _$$LoadInSuccessImplCopyWith<_$LoadInSuccessImpl> get copyWith =>
+      __$$LoadInSuccessImplCopyWithImpl<_$LoadInSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -914,19 +779,19 @@ class _$LoadInSuccess implements LoadInSuccess {
 
 abstract class LoadInSuccess implements ChecklistWatcherState {
   const factory LoadInSuccess(final List<Checklist> checklists) =
-      _$LoadInSuccess;
+      _$LoadInSuccessImpl;
 
   List<Checklist> get checklists;
   @JsonKey(ignore: true)
-  _$$LoadInSuccessCopyWith<_$LoadInSuccess> get copyWith =>
+  _$$LoadInSuccessImplCopyWith<_$LoadInSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoadFailureCopyWith<$Res> {
-  factory _$$LoadFailureCopyWith(
-          _$LoadFailure value, $Res Function(_$LoadFailure) then) =
-      __$$LoadFailureCopyWithImpl<$Res>;
+abstract class _$$LoadFailureImplCopyWith<$Res> {
+  factory _$$LoadFailureImplCopyWith(
+          _$LoadFailureImpl value, $Res Function(_$LoadFailureImpl) then) =
+      __$$LoadFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ChecklistFailure failure});
 
@@ -934,11 +799,11 @@ abstract class _$$LoadFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LoadFailureCopyWithImpl<$Res>
-    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadFailure>
-    implements _$$LoadFailureCopyWith<$Res> {
-  __$$LoadFailureCopyWithImpl(
-      _$LoadFailure _value, $Res Function(_$LoadFailure) _then)
+class __$$LoadFailureImplCopyWithImpl<$Res>
+    extends _$ChecklistWatcherStateCopyWithImpl<$Res, _$LoadFailureImpl>
+    implements _$$LoadFailureImplCopyWith<$Res> {
+  __$$LoadFailureImplCopyWithImpl(
+      _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -946,7 +811,7 @@ class __$$LoadFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$LoadFailure(
+    return _then(_$LoadFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -965,8 +830,8 @@ class __$$LoadFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadFailure implements LoadFailure {
-  const _$LoadFailure(this.failure);
+class _$LoadFailureImpl implements LoadFailure {
+  const _$LoadFailureImpl(this.failure);
 
   @override
   final ChecklistFailure failure;
@@ -980,7 +845,7 @@ class _$LoadFailure implements LoadFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadFailure &&
+            other is _$LoadFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -990,8 +855,8 @@ class _$LoadFailure implements LoadFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadFailureCopyWith<_$LoadFailure> get copyWith =>
-      __$$LoadFailureCopyWithImpl<_$LoadFailure>(this, _$identity);
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
+      __$$LoadFailureImplCopyWithImpl<_$LoadFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1069,10 +934,10 @@ class _$LoadFailure implements LoadFailure {
 }
 
 abstract class LoadFailure implements ChecklistWatcherState {
-  const factory LoadFailure(final ChecklistFailure failure) = _$LoadFailure;
+  const factory LoadFailure(final ChecklistFailure failure) = _$LoadFailureImpl;
 
   ChecklistFailure get failure;
   @JsonKey(ignore: true)
-  _$$LoadFailureCopyWith<_$LoadFailure> get copyWith =>
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

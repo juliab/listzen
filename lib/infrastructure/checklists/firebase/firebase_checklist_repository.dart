@@ -1,29 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
 import 'package:listzen/domain/checklists/i_checklist_repository.dart';
-import 'package:listzen/infrastructure/checklists/checklist_dtos.dart';
-import 'package:listzen/infrastructure/core/firestore_helpers.dart';
+import 'package:listzen/infrastructure/checklists/firebase/firebase_checklist_dtos.dart';
+import 'package:listzen/infrastructure/checklists/firebase/firestore_helpers.dart';
+import 'package:rxdart/rxdart.dart';
 
-@LazySingleton(as: IChecklistRepository)
-class ChecklistRepository implements IChecklistRepository {
+@lazySingleton
+class FirebaseChecklistRepository implements IChecklistRepository {
   final FirebaseFirestore _firestore;
+  final FirebaseAuth _firebaseAuth;
 
-  ChecklistRepository(this._firestore);
+  FirebaseChecklistRepository(this._firestore, this._firebaseAuth);
 
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() async* {
     final userDoc = _firestore.userDocument();
+
     yield* userDoc.checklistCollection
         .snapshots()
         .map(
           (snapshot) => right<ChecklistFailure, List<Checklist>>(
             snapshot.docs
                 .map(
-                  (doc) => ChecklistDto.fromFirestore(
+                  (doc) => FirebaseChecklistDto.fromFirestore(
                     doc as DocumentSnapshot<Map<String, dynamic>>,
                   ).toDomain(),
                 )
@@ -40,38 +43,10 @@ class ChecklistRepository implements IChecklistRepository {
   }
 
   @override
-  Stream<Either<ChecklistFailure, List<Checklist>>> watchUncompleted() async* {
-    final userDoc = _firestore.userDocument();
-    yield* userDoc.checklistCollection
-        .snapshots()
-        .map(
-          (snapshot) => snapshot.docs.map(
-            (doc) => ChecklistDto.fromFirestore(
-              doc as DocumentSnapshot<Map<String, dynamic>>,
-            ).toDomain(),
-          ),
-        )
-        .map(
-          (checklists) => right<ChecklistFailure, List<Checklist>>(
-            checklists
-                .where((checklist) => checklist.items.any((item) => !item.done))
-                .toList(),
-          ),
-        )
-        .onErrorReturnWith((e, st) {
-      if (e is FirebaseException && e.code.contains('permission-denied')) {
-        return left(const ChecklistFailure.insufficientPermissions());
-      } else {
-        return left(const ChecklistFailure.unexpected());
-      }
-    });
-  }
-
-  @override
   Future<Either<ChecklistFailure, Unit>> create(Checklist checklist) async {
     try {
       final userDoc = _firestore.userDocument();
-      final checklistDto = ChecklistDto.fromDomain(checklist);
+      final checklistDto = FirebaseChecklistDto.fromDomain(checklist);
 
       await userDoc.checklistCollection
           .doc(checklistDto.id)
@@ -91,7 +66,7 @@ class ChecklistRepository implements IChecklistRepository {
   Future<Either<ChecklistFailure, Unit>> update(Checklist checklist) async {
     try {
       final userDoc = _firestore.userDocument();
-      final checklistDto = ChecklistDto.fromDomain(checklist);
+      final checklistDto = FirebaseChecklistDto.fromDomain(checklist);
 
       await userDoc.checklistCollection
           .doc(checklistDto.id)
@@ -150,5 +125,10 @@ class ChecklistRepository implements IChecklistRepository {
         return left(const ChecklistFailure.unexpected());
       }
     }
+  }
+
+  @override
+  bool isAvailable() {
+    return _firebaseAuth.currentUser != null;
   }
 }

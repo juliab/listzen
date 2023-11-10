@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/injection.dart';
@@ -21,33 +20,23 @@ class EditChecklistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthBloc, AuthState>(
-      listener: (context, state) {
-        state.maybeMap(
-          unauthenticated: (_) =>
-              AutoRouter.of(context).push(const SignInRoute()),
-          orElse: () {},
-        );
-      },
-      child: BlocProvider<ChecklistEditBloc>(
-        create: (context) => getIt<ChecklistEditBloc>()
-          ..add(ChecklistEditEvent.initialized(editedChecklistOption)),
-        child: BlocConsumer<ChecklistEditBloc, ChecklistEditState>(
-          listenWhen: (previous, current) =>
-              previous.saveFailureOrSuccessOption !=
-              current.saveFailureOrSuccessOption,
-          listener: _listenToSaveResult,
-          buildWhen: (previous, current) =>
-              previous.isSaving != current.isSaving,
-          builder: (context, state) => Stack(
-            children: [
-              const EditChecklistPageScaffold(),
-              InProgressOverlay(
-                inProgress: state.isSaving,
-                text: 'Saving',
-              ),
-            ],
-          ),
+    return BlocProvider<ChecklistEditBloc>(
+      create: (context) => getIt<ChecklistEditBloc>()
+        ..add(ChecklistEditEvent.initialized(editedChecklistOption)),
+      child: BlocConsumer<ChecklistEditBloc, ChecklistEditState>(
+        listenWhen: (previous, current) =>
+            previous.saveFailureOrSuccessOption !=
+            current.saveFailureOrSuccessOption,
+        listener: _listenToSaveResult,
+        buildWhen: (previous, current) => previous.isSaving != current.isSaving,
+        builder: (context, state) => Stack(
+          children: [
+            const EditChecklistPageScaffold(),
+            InProgressOverlay(
+              inProgress: state.isSaving,
+              text: 'Saving',
+            ),
+          ],
         ),
       ),
     );
@@ -65,7 +54,8 @@ class EditChecklistPage extends StatelessWidget {
                 unexpected: (_) =>
                     'Unexpected error occured, please contact support.',
                 insufficientPermissions: (_) => 'Insufficient permissions',
-                unableToAccess: (_) => "Unable to access checklist",
+                unableToAccess: (_) => 'Unable to access checklist',
+                databaseError: (_) => "Unexpected error when saving checklist",
               ),
               context: context,
             ).show();

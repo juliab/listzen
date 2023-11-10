@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:listzen/domain/auth/value_objects.dart';
-import 'package:listzen/domain/checklists/card_color.dart';
+import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/domain/checklists/item.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
 import 'package:listzen/domain/core/failures.dart';

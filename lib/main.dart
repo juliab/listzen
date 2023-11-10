@@ -4,8 +4,8 @@ import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/core/app_widget.dart';
 
 void main() async {
-  configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
   await Firebase.initializeApp();
   runApp(AppWidget());
 }

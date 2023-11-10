@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listzen/domain/checklists/card_color.dart';
+import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 

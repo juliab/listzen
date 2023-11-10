@@ -13,24 +13,51 @@ class ChecklistsOverviewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChecklistWatcherBloc, ChecklistWatcherState>(
         builder: (context, state) {
+      print('Rebuilding ChecklistsOverviewBody');
       return state.map(
         initial: (_) => Container(),
         loadInProgress: (_) => const Center(child: CircularProgressIndicator()),
-        loadSuccess: (state) => SlidableAutoCloseBehavior(
-          child: ListView.builder(
-            itemCount: state.checklists.length,
-            itemBuilder: (context, index) {
-              final checklist = state.checklists[index];
-              if (checklist.failureOption.isSome()) {
-                return ErrorChecklistCard(checklist: checklist);
-              } else {
-                return ChecklistCard(checklist: checklist);
-              }
-            },
-          ),
-        ),
+        loadSuccess: (state) {
+          final itemCount = state.checklists.length;
+          print('$itemCount checklists');
+          if (itemCount == 0) {
+            return const NoChecklistsText();
+          }
+          return SlidableAutoCloseBehavior(
+            child: ListView.builder(
+              itemCount: itemCount,
+              itemBuilder: (context, index) {
+                final checklist = state.checklists[index];
+                if (checklist.failureOption.isSome()) {
+                  return ErrorChecklistCard(checklist: checklist);
+                } else {
+                  return ChecklistCard(checklist: checklist);
+                }
+              },
+            ),
+          );
+        },
         loadFailure: (state) => CriticalFailureDisplay(failure: state.failure),
       );
     });
+  }
+}
+
+class NoChecklistsText extends StatelessWidget {
+  const NoChecklistsText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: Center(
+        child: Text(
+          'No checklists yet.\nStart creating your first checklist '
+          'to stay on track!',
+          style: Theme.of(context).textTheme.bodyLarge,
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
   }
 }

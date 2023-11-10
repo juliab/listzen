@@ -2,19 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:listzen/domain/auth/auth_failure.dart';
 import 'package:listzen/domain/auth/value_objects.dart';
-import 'package:listzen/domain/checklists/card_color.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/domain/checklists/item.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
 
-part 'checklist_dtos.freezed.dart';
-part 'checklist_dtos.g.dart';
+part 'firebase_checklist_dtos.freezed.dart';
+part 'firebase_checklist_dtos.g.dart';
 
 @freezed
-abstract class ChecklistDto implements _$ChecklistDto {
-  const ChecklistDto._();
+abstract class FirebaseChecklistDto implements _$FirebaseChecklistDto {
+  const FirebaseChecklistDto._();
 
-  const factory ChecklistDto({
+  const factory FirebaseChecklistDto({
     required String id,
     required String name,
     required String color,
@@ -22,8 +22,8 @@ abstract class ChecklistDto implements _$ChecklistDto {
     @ServerTimeStampConverter() required FieldValue serverTimeStamp,
   }) = _ChecklistDto;
 
-  factory ChecklistDto.fromDomain(Checklist checklist) {
-    return ChecklistDto(
+  factory FirebaseChecklistDto.fromDomain(Checklist checklist) {
+    return FirebaseChecklistDto(
       id: checklist.id.getOrCrash(),
       name: checklist.name.getOrCrash(),
       color: checklist.color.name,
@@ -41,17 +41,17 @@ abstract class ChecklistDto implements _$ChecklistDto {
     );
   }
 
-  factory ChecklistDto.fromJson(Map<String, dynamic> json) =>
-      _$ChecklistDtoFromJson(json);
+  factory FirebaseChecklistDto.fromJson(Map<String, dynamic> json) =>
+      _$FirebaseChecklistDtoFromJson(json);
 
-  factory ChecklistDto.fromFirestore(
+  factory FirebaseChecklistDto.fromFirestore(
     DocumentSnapshot<Map<String, dynamic>> doc,
   ) {
     if (doc.data() == null) {
       throw const ServerError();
     }
     final json = doc.data()?..putIfAbsent('id', () => doc.id);
-    return ChecklistDto.fromJson(json!);
+    return FirebaseChecklistDto.fromJson(json!);
   }
 }
 

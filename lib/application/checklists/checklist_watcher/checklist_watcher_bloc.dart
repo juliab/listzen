@@ -16,32 +16,21 @@ part 'checklist_watcher_bloc.freezed.dart';
 @injectable
 class ChecklistWatcherBloc
     extends Bloc<ChecklistWatcherEvent, ChecklistWatcherState> {
-  final IChecklistRepository _checklistRepository;
+  final IChecklistRepository _repository;
 
   late StreamSubscription<Either<ChecklistFailure, List<Checklist>>>
       _allChecklistsStreamSubscription;
 
-  late StreamSubscription<Either<ChecklistFailure, List<Checklist>>>
-      _uncompletedChecklistsStreamSubscription;
-
-  ChecklistWatcherBloc(this._checklistRepository) : super(const Initial()) {
+  ChecklistWatcherBloc(this._repository) : super(const Initial()) {
     on<WatchAllStarted>((event, emit) async {
       emit(const ChecklistWatcherState.loadInProgress());
-      _allChecklistsStreamSubscription = _checklistRepository.watchAll().listen(
+      _allChecklistsStreamSubscription = _repository.watchAll().listen(
             (failureOrChecklists) => add(
               ChecklistWatcherEvent.checklistsReceived(failureOrChecklists),
             ),
           );
     });
-    on<WatchUncompletedStarted>((event, emit) async {
-      emit(const ChecklistWatcherState.loadInProgress());
-      _uncompletedChecklistsStreamSubscription =
-          _checklistRepository.watchUncompleted().listen(
-                (failureOrChecklists) => add(
-                  ChecklistWatcherEvent.checklistsReceived(failureOrChecklists),
-                ),
-              );
-    });
+
     on<ChecklistsReceived>((event, emit) {
       emit(
         event.failureOrChecklists.fold(
@@ -55,7 +44,6 @@ class ChecklistWatcherBloc
   @override
   Future<void> close() async {
     await _allChecklistsStreamSubscription.cancel();
-    await _uncompletedChecklistsStreamSubscription.cancel();
     return super.close();
   }
 }

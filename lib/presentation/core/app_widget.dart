@@ -12,19 +12,13 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AuthBloc>(
-          create: (context) => getIt<AuthBloc>()
-            ..add(
-              const AuthEvent.authCheckRequested(),
-            ),
-        ),
-      ],
+    return BlocProvider<AuthBloc>(
+      create: (context) =>
+          getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
       child: MaterialApp.router(
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
-        title: 'Checklists',
+        title: 'ListZen',
         theme: appTheme,
         debugShowCheckedModeBanner: false,
       ),

@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'checklist_dtos.dart';
+part of 'firebase_checklist_dtos.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ChecklistDto _$$_ChecklistDtoFromJson(Map<String, dynamic> json) =>
-    _$_ChecklistDto(
+_$ChecklistDtoImpl _$$ChecklistDtoImplFromJson(Map<String, dynamic> json) =>
+    _$ChecklistDtoImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       color: json['color'] as String,
@@ -18,7 +18,7 @@ _$_ChecklistDto _$$_ChecklistDtoFromJson(Map<String, dynamic> json) =>
           const ServerTimeStampConverter().fromJson(json['serverTimeStamp']),
     );
 
-Map<String, dynamic> _$$_ChecklistDtoToJson(_$_ChecklistDto instance) =>
+Map<String, dynamic> _$$ChecklistDtoImplToJson(_$ChecklistDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -28,13 +28,14 @@ Map<String, dynamic> _$$_ChecklistDtoToJson(_$_ChecklistDto instance) =>
           const ServerTimeStampConverter().toJson(instance.serverTimeStamp),
     };
 
-_$_ItemDto _$$_ItemDtoFromJson(Map<String, dynamic> json) => _$_ItemDto(
+_$ItemDtoImpl _$$ItemDtoImplFromJson(Map<String, dynamic> json) =>
+    _$ItemDtoImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       done: json['done'] as bool,
     );
 
-Map<String, dynamic> _$$_ItemDtoToJson(_$_ItemDto instance) =>
+Map<String, dynamic> _$$ItemDtoImplToJson(_$ItemDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

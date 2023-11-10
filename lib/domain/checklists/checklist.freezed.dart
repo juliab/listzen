@@ -78,10 +78,11 @@ class _$ChecklistCopyWithImpl<$Res, $Val extends Checklist>
 }
 
 /// @nodoc
-abstract class _$$_CheckListCopyWith<$Res> implements $ChecklistCopyWith<$Res> {
-  factory _$$_CheckListCopyWith(
-          _$_CheckList value, $Res Function(_$_CheckList) then) =
-      __$$_CheckListCopyWithImpl<$Res>;
+abstract class _$$CheckListImplCopyWith<$Res>
+    implements $ChecklistCopyWith<$Res> {
+  factory _$$CheckListImplCopyWith(
+          _$CheckListImpl value, $Res Function(_$CheckListImpl) then) =
+      __$$CheckListImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -92,11 +93,11 @@ abstract class _$$_CheckListCopyWith<$Res> implements $ChecklistCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CheckListCopyWithImpl<$Res>
-    extends _$ChecklistCopyWithImpl<$Res, _$_CheckList>
-    implements _$$_CheckListCopyWith<$Res> {
-  __$$_CheckListCopyWithImpl(
-      _$_CheckList _value, $Res Function(_$_CheckList) _then)
+class __$$CheckListImplCopyWithImpl<$Res>
+    extends _$ChecklistCopyWithImpl<$Res, _$CheckListImpl>
+    implements _$$CheckListImplCopyWith<$Res> {
+  __$$CheckListImplCopyWithImpl(
+      _$CheckListImpl _value, $Res Function(_$CheckListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +108,7 @@ class __$$_CheckListCopyWithImpl<$Res>
     Object? color = null,
     Object? items = null,
   }) {
-    return _then(_$_CheckList(
+    return _then(_$CheckListImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -130,8 +131,8 @@ class __$$_CheckListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CheckList extends _CheckList {
-  const _$_CheckList(
+class _$CheckListImpl extends _CheckList {
+  const _$CheckListImpl(
       {required this.id,
       required this.name,
       required this.color,
@@ -162,7 +163,7 @@ class _$_CheckList extends _CheckList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheckList &&
+            other is _$CheckListImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
@@ -176,8 +177,8 @@ class _$_CheckList extends _CheckList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckListCopyWith<_$_CheckList> get copyWith =>
-      __$$_CheckListCopyWithImpl<_$_CheckList>(this, _$identity);
+  _$$CheckListImplCopyWith<_$CheckListImpl> get copyWith =>
+      __$$CheckListImplCopyWithImpl<_$CheckListImpl>(this, _$identity);
 }
 
 abstract class _CheckList extends Checklist {
@@ -185,7 +186,7 @@ abstract class _CheckList extends Checklist {
       {required final UniqueId id,
       required final ChecklistName name,
       required final ChecklistColor color,
-      required final List<Item> items}) = _$_CheckList;
+      required final List<Item> items}) = _$CheckListImpl;
   const _CheckList._() : super._();
 
   @override
@@ -198,6 +199,6 @@ abstract class _CheckList extends Checklist {
   List<Item> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_CheckListCopyWith<_$_CheckList> get copyWith =>
+  _$$CheckListImplCopyWith<_$CheckListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
