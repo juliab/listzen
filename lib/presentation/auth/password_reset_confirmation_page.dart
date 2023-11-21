@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
-import 'package:listzen/presentation/auth/widgets/back_to_login_link.dart';
+import 'package:listzen/presentation/auth/widgets/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/widgets/top_image.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()
 class PasswordResetConfirmationPage extends StatelessWidget {
@@ -51,7 +52,10 @@ class PasswordResetConfirmationPage extends StatelessWidget {
                       ?.copyWith(color: greyColor),
                 ),
                 const SizedBox(height: 40),
-                const BackToLoginLink(),
+                const BackToRouteLink(
+                  text: 'Back to login',
+                  routeName: SignUpRoute.name,
+                ),
               ]),
             ),
             //   ),

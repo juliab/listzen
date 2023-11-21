@@ -5,6 +5,7 @@ import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/accent_button.dart';
+import 'package:listzen/presentation/auth/widgets/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/widgets/email_field.dart';
 import 'package:listzen/presentation/auth/widgets/password_field.dart';
 import 'package:listzen/presentation/auth/widgets/social_sign_in_buttons_section.dart';
@@ -24,17 +25,23 @@ class SignInForm extends StatelessWidget {
           height: 630,
           decoration: formDecoration,
           padding:
-              const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 40),
+              const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 25),
           child: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
               children: [
+                const BackToRouteLink(
+                  text: 'Back to checklists',
+                  routeName: ChecklistsOverviewRoute.name,
+                  alignment: MainAxisAlignment.start,
+                ),
+                standardHeightSizedBox,
                 const EmailField(),
-                const SizedBox(height: 25),
+                standardHeightSizedBox,
                 const PasswordField(
                   showForgotPasswordLink: true,
                 ),
-                const SizedBox(height: 25),
+                standardHeightSizedBox,
                 AccentButton(
                   text: 'Login',
                   onPressed: () => context.read<SignInFormBloc>().add(

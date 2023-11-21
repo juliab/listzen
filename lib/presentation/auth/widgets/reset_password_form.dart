@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/accent_button.dart';
-import 'package:listzen/presentation/auth/widgets/back_to_login_link.dart';
+import 'package:listzen/presentation/auth/widgets/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/widgets/email_field.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
@@ -41,7 +41,10 @@ class ResetPasswordForm extends StatelessWidget {
                   const LinearProgressIndicator(),
                 ],
                 const SizedBox(height: 25),
-                const BackToLoginLink(),
+                const BackToRouteLink(
+                  text: 'Back to login',
+                  routeName: SignInRoute.name,
+                ),
               ],
             ),
           ),

@@ -2,20 +2,25 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'package:listzen/presentation/core/theming/style.dart';
-import 'package:listzen/presentation/routes/app_router.dart';
 
-class BackToLoginLink extends StatelessWidget {
-  const BackToLoginLink({
+class BackToRouteLink extends StatelessWidget {
+  final String text;
+  final String routeName;
+  final MainAxisAlignment alignment;
+
+  const BackToRouteLink({
     super.key,
+    required this.text,
+    required this.routeName,
+    this.alignment = MainAxisAlignment.center,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          AutoRouter.of(context).popUntilRouteWithName(SignInRoute.name),
+      onTap: () => AutoRouter.of(context).popUntilRouteWithName(routeName),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: alignment,
         children: [
           const Icon(
             Icons.arrow_back,
@@ -23,7 +28,7 @@ class BackToLoginLink extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Text(
-            'Back to login',
+            text,
             style: Theme.of(context)
                 .textTheme
                 .labelLarge
