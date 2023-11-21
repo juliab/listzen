@@ -7,11 +7,11 @@ import 'package:listzen/infrastructure/checklists/firebase/firebase_checklist_re
 import 'package:listzen/infrastructure/checklists/sqlite/drift_checklist_repository.dart';
 
 @LazySingleton(as: IChecklistRepository)
-class ChecklistRepositoryDecorator implements IChecklistRepository {
+class ChecklistRepositorySwitcher implements IChecklistRepository {
   final DriftChecklistRepository _sqliteRepository;
   final FirebaseChecklistRepository _firebaseRepository;
 
-  ChecklistRepositoryDecorator(
+  ChecklistRepositorySwitcher(
     this._sqliteRepository,
     this._firebaseRepository,
   );
@@ -50,5 +50,10 @@ class ChecklistRepositoryDecorator implements IChecklistRepository {
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() {
     return _getCurrentRepository().watchAll();
+  }
+
+  @override
+  Future<Either<ChecklistFailure, List<Checklist>>> getAll() {
+    return _getCurrentRepository().getAll();
   }
 }

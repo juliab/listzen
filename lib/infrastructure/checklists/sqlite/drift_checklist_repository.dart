@@ -8,6 +8,7 @@ import 'package:listzen/domain/checklists/i_checklist_repository.dart';
 import 'package:listzen/infrastructure/checklists/sqlite/drift_database.dart'
     as d;
 import 'package:listzen/infrastructure/checklists/sqlite/drift_helpers.dart';
+import 'package:rxdart/rxdart.dart';
 
 @lazySingleton
 class DriftChecklistRepository implements IChecklistRepository {
@@ -17,15 +18,25 @@ class DriftChecklistRepository implements IChecklistRepository {
 
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() async* {
+    final streamTransformer = StreamTransformer<List<d.Checklist>,
+            Either<ChecklistFailure, List<Checklist>>>.fromBind(
+        transformStreamToDomain);
+
+    yield* database
+        .watchChecklists()
+        .transform(streamTransformer)
+        .onErrorReturn(left(const ChecklistFailure.databaseError()));
+  }
+
+  @override
+  Future<Either<ChecklistFailure, List<Checklist>>> getAll() async {
     try {
-      await for (final _ in database.watchChecklists()) {
-        final checklistsList = (await database.getAllChecklists())
-            .map((checklist) => toDomain(checklist))
-            .toList();
-        yield right(checklistsList);
-      }
+      final checklists = (await database.getAllChecklists())
+          .map((checklist) => toDomain(checklist))
+          .toList();
+      return right(checklists);
     } on Exception catch (_) {
-      yield left(const ChecklistFailure.databaseError());
+      return left(const ChecklistFailure.databaseError());
     }
   }
 

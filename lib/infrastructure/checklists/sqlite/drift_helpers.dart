@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:dartz/dartz.dart';
 import 'package:listzen/domain/auth/value_objects.dart';
 import 'package:listzen/domain/checklists/checklist.dart' as c;
+import 'package:listzen/domain/checklists/checklist_failure.dart';
 import 'package:listzen/domain/checklists/item.dart' as i;
 import 'package:listzen/domain/checklists/value_objects.dart';
 import 'package:listzen/infrastructure/checklists/sqlite/drift_database.dart';
@@ -35,6 +37,12 @@ c.Checklist toDomain(Checklist checklist) {
         )
         .toList(),
   );
+}
+
+Stream<Either<ChecklistFailure, List<c.Checklist>>> transformStreamToDomain(
+    Stream<List<Checklist>> inputStream) {
+  return inputStream.map((inputList) =>
+      right(inputList.map((checklist) => toDomain(checklist)).toList()));
 }
 
 ChecklistsCompanion checklistDomainToCompanion(c.Checklist checklist) {
