@@ -22,7 +22,7 @@ class SignInForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return Container(
-          height: 630,
+          height: 750,
           decoration: formDecoration,
           padding:
               const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 25),
@@ -35,7 +35,7 @@ class SignInForm extends StatelessWidget {
                   routeName: ChecklistsOverviewRoute.name,
                   alignment: MainAxisAlignment.start,
                 ),
-                standardHeightSizedBox,
+                const SizedBox(height: 30.0),
                 const EmailField(),
                 standardHeightSizedBox,
                 const PasswordField(

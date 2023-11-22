@@ -25,7 +25,7 @@ class SignUpForm extends StatelessWidget {
           height: 800,
           decoration: formDecoration,
           padding:
-              const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 40),
+              const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 25),
           child: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
