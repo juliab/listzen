@@ -103,6 +103,12 @@ class EditItemTile extends HookWidget {
             name: value!,
           ),
         ),
+        onSubmitted: (_) {
+          FocusManager.instance.primaryFocus?.unfocus();
+          BlocProvider.of<ChecklistEditBloc>(context).add(
+            const ChecklistEditEvent.itemAdded(),
+          );
+        },
         autofocus: item.isNew,
         completionStatusCheckbox: CompletionStatusCheckbox(
           isCompleted: () => BlocProvider.of<ChecklistEditBloc>(context)

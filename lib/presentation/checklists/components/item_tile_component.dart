@@ -33,6 +33,7 @@ class ItemTile extends StatelessWidget {
   factory ItemTile.editable({
     required TextEditingController textEditingController,
     required Function(String?) onChanged,
+    required Function(String?) onSubmitted,
     required bool autofocus,
     Widget? completionStatusCheckbox,
     Function()? onRemove,
@@ -43,6 +44,7 @@ class ItemTile extends StatelessWidget {
       content: EditableItemNameField(
         textEditingController: textEditingController,
         onChanged: onChanged,
+        onSubmitted: onSubmitted,
         autofocus: autofocus,
       ),
       completionStatusCheckbox: completionStatusCheckbox,
@@ -111,12 +113,14 @@ class ReadOnlyItemNameField extends StatelessWidget {
 class EditableItemNameField extends StatelessWidget {
   final TextEditingController textEditingController;
   final Function(String?) onChanged;
+  final Function(String?) onSubmitted;
   final bool autofocus;
 
   const EditableItemNameField({
     super.key,
     required this.textEditingController,
     required this.onChanged,
+    required this.onSubmitted,
     required this.autofocus,
   });
 
@@ -129,8 +133,7 @@ class EditableItemNameField extends StatelessWidget {
       decoration: noBordersInputDecoration,
       maxLength: ItemName.maxLength,
       onChanged: onChanged,
-      maxLines: 3,
-      minLines: 1,
+      onFieldSubmitted: onSubmitted,
     );
   }
 }
