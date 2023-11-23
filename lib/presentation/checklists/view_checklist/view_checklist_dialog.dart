@@ -100,15 +100,17 @@ class ViewItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12.0),
-          child: GestureDetector(
-            onTap: () => BlocProvider.of<ChecklistEditBloc>(context).add(
-              ChecklistEditEvent.itemCompletionStatusChanged(
-                  index: index, isDone: !item.done, instantSave: true),
-            ),
+    return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      onTap: () => BlocProvider.of<ChecklistEditBloc>(context).add(
+        ChecklistEditEvent.itemCompletionStatusChanged(
+            index: index, isDone: !item.done, instantSave: true),
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: ItemTile.readOnly(
               name: item.name.getOrCrash(),
               completionStatusCheckbox: CompletionStatusCheckbox(
@@ -117,9 +119,9 @@ class ViewItemTile extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        const Divider(),
-      ],
+          const Divider(),
+        ],
+      ),
     );
   }
 }
