@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/auth_bloc.dart';
-import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/drawer_tile_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer_header.dart';
 import 'package:listzen/presentation/core/auth_helpers.dart';
@@ -45,7 +44,6 @@ class AuthenticatedArea extends StatelessWidget {
           icon: Icons.logout,
           title: 'Sign Out',
           onTap: () {
-            BlocProvider.of<ChecklistWatcherBloc>(context).close();
             BlocProvider.of<AuthBloc>(context).add(const AuthEvent.signedOut());
             AutoRouter.of(context).push(const ChecklistsOverviewRoute());
           },

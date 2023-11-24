@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
@@ -13,6 +14,7 @@ part 'checklist_edit_bloc.freezed.dart';
 part 'checklist_edit_event.dart';
 part 'checklist_edit_state.dart';
 
+@injectable
 class ChecklistEditBloc extends Bloc<ChecklistEditEvent, ChecklistEditState> {
   final IChecklistRepository _repository;
 

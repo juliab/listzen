@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
@@ -12,11 +13,12 @@ part 'checklist_watcher_event.dart';
 part 'checklist_watcher_state.dart';
 part 'checklist_watcher_bloc.freezed.dart';
 
+@injectable
 class ChecklistWatcherBloc
     extends Bloc<ChecklistWatcherEvent, ChecklistWatcherState> {
   final IChecklistRepository _repository;
 
-  StreamSubscription<Either<ChecklistFailure, List<Checklist>>>?
+  late StreamSubscription<Either<ChecklistFailure, List<Checklist>>>
       _allChecklistsStreamSubscription;
 
   ChecklistWatcherBloc(this._repository) : super(const Initial()) {
@@ -41,7 +43,7 @@ class ChecklistWatcherBloc
 
   @override
   Future<void> close() async {
-    await _allChecklistsStreamSubscription?.cancel();
+    await _allChecklistsStreamSubscription.cancel();
     return super.close();
   }
 }

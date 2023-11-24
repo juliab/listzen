@@ -1,40 +1,42 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
-import 'package:listzen/domain/checklists/i_checklist_repository.dart';
+import 'package:listzen/infrastructure/checklists/firebase/firebase_checklist_repository.dart';
+import 'package:listzen/infrastructure/checklists/sqlite/drift_checklist_repository.dart';
 
 part 'checklist_migrate_event.dart';
 part 'checklist_migrate_state.dart';
 part 'checklist_migrate_bloc.freezed.dart';
 
+@injectable
 class ChecklistMigrateBloc
     extends Bloc<ChecklistMigrateEvent, ChecklistMigrateState> {
-  final IChecklistRepository _origin;
-  final IChecklistRepository _destination;
+  final FirebaseChecklistRepository _firebaseRepository;
+  final DriftChecklistRepository _localRepository;
 
-  ChecklistMigrateBloc(this._origin, this._destination)
+  ChecklistMigrateBloc(this._firebaseRepository, this._localRepository)
       : super(const ChecklistMigrateState.initial()) {
     on<Start>(
       (event, emit) async {
         emit(const ChecklistMigrateState.inProgress());
 
-        final failureOrChecklists = await _origin.getAll();
+        final failureOrChecklists = await _localRepository.getAll();
 
         failureOrChecklists.fold(
           (failure) => emit(ChecklistMigrateState.migrationFailure(failure)),
-          (checklists) =>
-              add(ChecklistMigrateEvent.createDestination(checklists)),
+          (checklists) => add(ChecklistMigrateEvent.createRemote(checklists)),
         );
       },
     );
 
-    on<CreateDestination>((event, emit) async {
+    on<CreateRemote>((event, emit) async {
       Either<ChecklistFailure, Unit> failureOrSuccess = right(unit);
 
       for (final checklist in event.checklists) {
-        failureOrSuccess = await _destination.create(checklist);
+        failureOrSuccess = await _firebaseRepository.create(checklist);
 
         if (failureOrSuccess.isLeft()) {
           break;
@@ -43,12 +45,12 @@ class ChecklistMigrateBloc
 
       failureOrSuccess.fold(
         (failure) => emit(ChecklistMigrateState.migrationFailure(failure)),
-        (checklists) => add(const ChecklistMigrateEvent.deleteOrigin()),
+        (checklists) => add(const ChecklistMigrateEvent.deleteLocal()),
       );
     });
 
-    on<DeleteOrigin>((event, emit) async {
-      final failureOrSuccess = await _origin.deleteAll();
+    on<DeleteLocal>((event, emit) async {
+      final failureOrSuccess = await _localRepository.deleteAll();
       emit(failureOrSuccess.fold(
         (failure) => ChecklistMigrateState.migrationFailure(failure),
         (_) => const ChecklistMigrateState.migrationSuccess(),

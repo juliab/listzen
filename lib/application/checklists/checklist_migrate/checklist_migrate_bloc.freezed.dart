@@ -19,44 +19,44 @@ mixin _$ChecklistMigrateEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(List<Checklist> checklists) createDestination,
-    required TResult Function() deleteOrigin,
+    required TResult Function(List<Checklist> checklists) createRemote,
+    required TResult Function() deleteLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(List<Checklist> checklists)? createDestination,
-    TResult? Function()? deleteOrigin,
+    TResult? Function(List<Checklist> checklists)? createRemote,
+    TResult? Function()? deleteLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(List<Checklist> checklists)? createDestination,
-    TResult Function()? deleteOrigin,
+    TResult Function(List<Checklist> checklists)? createRemote,
+    TResult Function()? deleteLocal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Start value) start,
-    required TResult Function(CreateDestination value) createDestination,
-    required TResult Function(DeleteOrigin value) deleteOrigin,
+    required TResult Function(CreateRemote value) createRemote,
+    required TResult Function(DeleteLocal value) deleteLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Start value)? start,
-    TResult? Function(CreateDestination value)? createDestination,
-    TResult? Function(DeleteOrigin value)? deleteOrigin,
+    TResult? Function(CreateRemote value)? createRemote,
+    TResult? Function(DeleteLocal value)? deleteLocal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Start value)? start,
-    TResult Function(CreateDestination value)? createDestination,
-    TResult Function(DeleteOrigin value)? deleteOrigin,
+    TResult Function(CreateRemote value)? createRemote,
+    TResult Function(DeleteLocal value)? deleteLocal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,8 +120,8 @@ class _$StartImpl implements Start {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(List<Checklist> checklists) createDestination,
-    required TResult Function() deleteOrigin,
+    required TResult Function(List<Checklist> checklists) createRemote,
+    required TResult Function() deleteLocal,
   }) {
     return start();
   }
@@ -130,8 +130,8 @@ class _$StartImpl implements Start {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(List<Checklist> checklists)? createDestination,
-    TResult? Function()? deleteOrigin,
+    TResult? Function(List<Checklist> checklists)? createRemote,
+    TResult? Function()? deleteLocal,
   }) {
     return start?.call();
   }
@@ -140,8 +140,8 @@ class _$StartImpl implements Start {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(List<Checklist> checklists)? createDestination,
-    TResult Function()? deleteOrigin,
+    TResult Function(List<Checklist> checklists)? createRemote,
+    TResult Function()? deleteLocal,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -154,8 +154,8 @@ class _$StartImpl implements Start {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Start value) start,
-    required TResult Function(CreateDestination value) createDestination,
-    required TResult Function(DeleteOrigin value) deleteOrigin,
+    required TResult Function(CreateRemote value) createRemote,
+    required TResult Function(DeleteLocal value) deleteLocal,
   }) {
     return start(this);
   }
@@ -164,8 +164,8 @@ class _$StartImpl implements Start {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Start value)? start,
-    TResult? Function(CreateDestination value)? createDestination,
-    TResult? Function(DeleteOrigin value)? deleteOrigin,
+    TResult? Function(CreateRemote value)? createRemote,
+    TResult? Function(DeleteLocal value)? deleteLocal,
   }) {
     return start?.call(this);
   }
@@ -174,8 +174,8 @@ class _$StartImpl implements Start {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Start value)? start,
-    TResult Function(CreateDestination value)? createDestination,
-    TResult Function(DeleteOrigin value)? deleteOrigin,
+    TResult Function(CreateRemote value)? createRemote,
+    TResult Function(DeleteLocal value)? deleteLocal,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -190,20 +190,20 @@ abstract class Start implements ChecklistMigrateEvent {
 }
 
 /// @nodoc
-abstract class _$$CreateDestinationImplCopyWith<$Res> {
-  factory _$$CreateDestinationImplCopyWith(_$CreateDestinationImpl value,
-          $Res Function(_$CreateDestinationImpl) then) =
-      __$$CreateDestinationImplCopyWithImpl<$Res>;
+abstract class _$$CreateRemoteImplCopyWith<$Res> {
+  factory _$$CreateRemoteImplCopyWith(
+          _$CreateRemoteImpl value, $Res Function(_$CreateRemoteImpl) then) =
+      __$$CreateRemoteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Checklist> checklists});
 }
 
 /// @nodoc
-class __$$CreateDestinationImplCopyWithImpl<$Res>
-    extends _$ChecklistMigrateEventCopyWithImpl<$Res, _$CreateDestinationImpl>
-    implements _$$CreateDestinationImplCopyWith<$Res> {
-  __$$CreateDestinationImplCopyWithImpl(_$CreateDestinationImpl _value,
-      $Res Function(_$CreateDestinationImpl) _then)
+class __$$CreateRemoteImplCopyWithImpl<$Res>
+    extends _$ChecklistMigrateEventCopyWithImpl<$Res, _$CreateRemoteImpl>
+    implements _$$CreateRemoteImplCopyWith<$Res> {
+  __$$CreateRemoteImplCopyWithImpl(
+      _$CreateRemoteImpl _value, $Res Function(_$CreateRemoteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -211,7 +211,7 @@ class __$$CreateDestinationImplCopyWithImpl<$Res>
   $Res call({
     Object? checklists = null,
   }) {
-    return _then(_$CreateDestinationImpl(
+    return _then(_$CreateRemoteImpl(
       null == checklists
           ? _value._checklists
           : checklists // ignore: cast_nullable_to_non_nullable
@@ -222,8 +222,8 @@ class __$$CreateDestinationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateDestinationImpl implements CreateDestination {
-  const _$CreateDestinationImpl(final List<Checklist> checklists)
+class _$CreateRemoteImpl implements CreateRemote {
+  const _$CreateRemoteImpl(final List<Checklist> checklists)
       : _checklists = checklists;
 
   final List<Checklist> _checklists;
@@ -236,14 +236,14 @@ class _$CreateDestinationImpl implements CreateDestination {
 
   @override
   String toString() {
-    return 'ChecklistMigrateEvent.createDestination(checklists: $checklists)';
+    return 'ChecklistMigrateEvent.createRemote(checklists: $checklists)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateDestinationImpl &&
+            other is _$CreateRemoteImpl &&
             const DeepCollectionEquality()
                 .equals(other._checklists, _checklists));
   }
@@ -255,40 +255,39 @@ class _$CreateDestinationImpl implements CreateDestination {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateDestinationImplCopyWith<_$CreateDestinationImpl> get copyWith =>
-      __$$CreateDestinationImplCopyWithImpl<_$CreateDestinationImpl>(
-          this, _$identity);
+  _$$CreateRemoteImplCopyWith<_$CreateRemoteImpl> get copyWith =>
+      __$$CreateRemoteImplCopyWithImpl<_$CreateRemoteImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(List<Checklist> checklists) createDestination,
-    required TResult Function() deleteOrigin,
+    required TResult Function(List<Checklist> checklists) createRemote,
+    required TResult Function() deleteLocal,
   }) {
-    return createDestination(checklists);
+    return createRemote(checklists);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(List<Checklist> checklists)? createDestination,
-    TResult? Function()? deleteOrigin,
+    TResult? Function(List<Checklist> checklists)? createRemote,
+    TResult? Function()? deleteLocal,
   }) {
-    return createDestination?.call(checklists);
+    return createRemote?.call(checklists);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(List<Checklist> checklists)? createDestination,
-    TResult Function()? deleteOrigin,
+    TResult Function(List<Checklist> checklists)? createRemote,
+    TResult Function()? deleteLocal,
     required TResult orElse(),
   }) {
-    if (createDestination != null) {
-      return createDestination(checklists);
+    if (createRemote != null) {
+      return createRemote(checklists);
     }
     return orElse();
   }
@@ -297,77 +296,77 @@ class _$CreateDestinationImpl implements CreateDestination {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Start value) start,
-    required TResult Function(CreateDestination value) createDestination,
-    required TResult Function(DeleteOrigin value) deleteOrigin,
+    required TResult Function(CreateRemote value) createRemote,
+    required TResult Function(DeleteLocal value) deleteLocal,
   }) {
-    return createDestination(this);
+    return createRemote(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Start value)? start,
-    TResult? Function(CreateDestination value)? createDestination,
-    TResult? Function(DeleteOrigin value)? deleteOrigin,
+    TResult? Function(CreateRemote value)? createRemote,
+    TResult? Function(DeleteLocal value)? deleteLocal,
   }) {
-    return createDestination?.call(this);
+    return createRemote?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Start value)? start,
-    TResult Function(CreateDestination value)? createDestination,
-    TResult Function(DeleteOrigin value)? deleteOrigin,
+    TResult Function(CreateRemote value)? createRemote,
+    TResult Function(DeleteLocal value)? deleteLocal,
     required TResult orElse(),
   }) {
-    if (createDestination != null) {
-      return createDestination(this);
+    if (createRemote != null) {
+      return createRemote(this);
     }
     return orElse();
   }
 }
 
-abstract class CreateDestination implements ChecklistMigrateEvent {
-  const factory CreateDestination(final List<Checklist> checklists) =
-      _$CreateDestinationImpl;
+abstract class CreateRemote implements ChecklistMigrateEvent {
+  const factory CreateRemote(final List<Checklist> checklists) =
+      _$CreateRemoteImpl;
 
   List<Checklist> get checklists;
   @JsonKey(ignore: true)
-  _$$CreateDestinationImplCopyWith<_$CreateDestinationImpl> get copyWith =>
+  _$$CreateRemoteImplCopyWith<_$CreateRemoteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DeleteOriginImplCopyWith<$Res> {
-  factory _$$DeleteOriginImplCopyWith(
-          _$DeleteOriginImpl value, $Res Function(_$DeleteOriginImpl) then) =
-      __$$DeleteOriginImplCopyWithImpl<$Res>;
+abstract class _$$DeleteLocalImplCopyWith<$Res> {
+  factory _$$DeleteLocalImplCopyWith(
+          _$DeleteLocalImpl value, $Res Function(_$DeleteLocalImpl) then) =
+      __$$DeleteLocalImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DeleteOriginImplCopyWithImpl<$Res>
-    extends _$ChecklistMigrateEventCopyWithImpl<$Res, _$DeleteOriginImpl>
-    implements _$$DeleteOriginImplCopyWith<$Res> {
-  __$$DeleteOriginImplCopyWithImpl(
-      _$DeleteOriginImpl _value, $Res Function(_$DeleteOriginImpl) _then)
+class __$$DeleteLocalImplCopyWithImpl<$Res>
+    extends _$ChecklistMigrateEventCopyWithImpl<$Res, _$DeleteLocalImpl>
+    implements _$$DeleteLocalImplCopyWith<$Res> {
+  __$$DeleteLocalImplCopyWithImpl(
+      _$DeleteLocalImpl _value, $Res Function(_$DeleteLocalImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DeleteOriginImpl implements DeleteOrigin {
-  const _$DeleteOriginImpl();
+class _$DeleteLocalImpl implements DeleteLocal {
+  const _$DeleteLocalImpl();
 
   @override
   String toString() {
-    return 'ChecklistMigrateEvent.deleteOrigin()';
+    return 'ChecklistMigrateEvent.deleteLocal()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DeleteOriginImpl);
+        (other.runtimeType == runtimeType && other is _$DeleteLocalImpl);
   }
 
   @override
@@ -377,32 +376,32 @@ class _$DeleteOriginImpl implements DeleteOrigin {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() start,
-    required TResult Function(List<Checklist> checklists) createDestination,
-    required TResult Function() deleteOrigin,
+    required TResult Function(List<Checklist> checklists) createRemote,
+    required TResult Function() deleteLocal,
   }) {
-    return deleteOrigin();
+    return deleteLocal();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? start,
-    TResult? Function(List<Checklist> checklists)? createDestination,
-    TResult? Function()? deleteOrigin,
+    TResult? Function(List<Checklist> checklists)? createRemote,
+    TResult? Function()? deleteLocal,
   }) {
-    return deleteOrigin?.call();
+    return deleteLocal?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? start,
-    TResult Function(List<Checklist> checklists)? createDestination,
-    TResult Function()? deleteOrigin,
+    TResult Function(List<Checklist> checklists)? createRemote,
+    TResult Function()? deleteLocal,
     required TResult orElse(),
   }) {
-    if (deleteOrigin != null) {
-      return deleteOrigin();
+    if (deleteLocal != null) {
+      return deleteLocal();
     }
     return orElse();
   }
@@ -411,39 +410,39 @@ class _$DeleteOriginImpl implements DeleteOrigin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Start value) start,
-    required TResult Function(CreateDestination value) createDestination,
-    required TResult Function(DeleteOrigin value) deleteOrigin,
+    required TResult Function(CreateRemote value) createRemote,
+    required TResult Function(DeleteLocal value) deleteLocal,
   }) {
-    return deleteOrigin(this);
+    return deleteLocal(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Start value)? start,
-    TResult? Function(CreateDestination value)? createDestination,
-    TResult? Function(DeleteOrigin value)? deleteOrigin,
+    TResult? Function(CreateRemote value)? createRemote,
+    TResult? Function(DeleteLocal value)? deleteLocal,
   }) {
-    return deleteOrigin?.call(this);
+    return deleteLocal?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Start value)? start,
-    TResult Function(CreateDestination value)? createDestination,
-    TResult Function(DeleteOrigin value)? deleteOrigin,
+    TResult Function(CreateRemote value)? createRemote,
+    TResult Function(DeleteLocal value)? deleteLocal,
     required TResult orElse(),
   }) {
-    if (deleteOrigin != null) {
-      return deleteOrigin(this);
+    if (deleteLocal != null) {
+      return deleteLocal(this);
     }
     return orElse();
   }
 }
 
-abstract class DeleteOrigin implements ChecklistMigrateEvent {
-  const factory DeleteOrigin() = _$DeleteOriginImpl;
+abstract class DeleteLocal implements ChecklistMigrateEvent {
+  const factory DeleteLocal() = _$DeleteLocalImpl;
 }
 
 /// @nodoc
