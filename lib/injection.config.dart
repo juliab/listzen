@@ -15,23 +15,13 @@ import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'application/auth/auth_bloc.dart' as _i10;
-import 'application/auth/delete_account/bloc/delete_account_bloc.dart' as _i18;
 import 'application/auth/sign_in_form/bloc/sign_in_form_bloc.dart' as _i9;
-import 'application/checklists/checklist_actor/checklist_actor_bloc.dart'
-    as _i14;
-import 'application/checklists/checklist_edit/checklist_edit_bloc.dart' as _i15;
-import 'application/checklists/checklist_migrate/checklist_migrate_bloc.dart'
-    as _i16;
-import 'application/checklists/checklist_watcher/checklist_watcher_bloc.dart'
-    as _i17;
 import 'domain/auth/i_auth_facade.dart' as _i7;
-import 'domain/checklists/i_checklist_repository.dart' as _i12;
 import 'infrastructure/auth/firebase_auth_facade.dart' as _i8;
-import 'infrastructure/checklists/checklist_repository_switcher.dart' as _i13;
 import 'infrastructure/checklists/firebase/firebase_checklist_repository.dart'
     as _i11;
 import 'infrastructure/checklists/firebase/firebase_injectable_module.dart'
-    as _i19;
+    as _i12;
 import 'infrastructure/checklists/sqlite/drift_checklist_repository.dart'
     as _i3;
 
@@ -67,26 +57,7 @@ _i1.GetIt init(
             gh<_i5.FirebaseFirestore>(),
             gh<_i4.FirebaseAuth>(),
           ));
-  gh.lazySingleton<_i12.IChecklistRepository>(
-      () => _i13.ChecklistRepositorySwitcher(
-            gh<_i3.DriftChecklistRepository>(),
-            gh<_i11.FirebaseChecklistRepository>(),
-          ));
-  gh.factory<_i14.ChecklistActorBloc>(
-      () => _i14.ChecklistActorBloc(gh<_i12.IChecklistRepository>()));
-  gh.factory<_i15.ChecklistEditBloc>(
-      () => _i15.ChecklistEditBloc(gh<_i12.IChecklistRepository>()));
-  gh.factory<_i16.ChecklistMigrateBloc>(() => _i16.ChecklistMigrateBloc(
-        gh<_i11.FirebaseChecklistRepository>(),
-        gh<_i3.DriftChecklistRepository>(),
-      ));
-  gh.factory<_i17.ChecklistWatcherBloc>(
-      () => _i17.ChecklistWatcherBloc(gh<_i12.IChecklistRepository>()));
-  gh.factory<_i18.DeleteAccountBloc>(() => _i18.DeleteAccountBloc(
-        gh<_i7.IAuthFacade>(),
-        gh<_i12.IChecklistRepository>(),
-      ));
   return getIt;
 }
 
-class _$FirebaseInjectableModule extends _i19.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i12.FirebaseInjectableModule {}

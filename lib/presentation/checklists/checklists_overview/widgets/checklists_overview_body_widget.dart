@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
-import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklist_card_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/critical_failure_display_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/error_checklist_card_widget.dart';
@@ -12,13 +11,8 @@ class ChecklistsOverviewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ChecklistWatcherBloc>(
-      create: (BuildContext context) => getIt<ChecklistWatcherBloc>()
-        ..add(
-          const ChecklistWatcherEvent.watchAllStarted(),
-        ),
-      child: BlocBuilder<ChecklistWatcherBloc, ChecklistWatcherState>(
-          builder: (context, state) {
+    return BlocBuilder<ChecklistWatcherBloc, ChecklistWatcherState>(
+        builder: (context, state) {
         return state.map(initial: (_) {
           return Container();
         }, loadInProgress: (_) {
@@ -44,8 +38,7 @@ class ChecklistsOverviewBody extends StatelessWidget {
         }, loadFailure: (state) {
           return CriticalFailureDisplay(failure: state.failure);
         });
-      }),
-    );
+    });
   }
 }
 
