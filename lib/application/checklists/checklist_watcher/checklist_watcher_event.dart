@@ -6,4 +6,5 @@ class ChecklistWatcherEvent with _$ChecklistWatcherEvent {
   const factory ChecklistWatcherEvent.checklistsReceived(
           Either<ChecklistFailure, List<Checklist>> failureOrChecklists) =
       ChecklistsReceived;
+  const factory ChecklistWatcherEvent.stopWatching() = StopWatching;
 }

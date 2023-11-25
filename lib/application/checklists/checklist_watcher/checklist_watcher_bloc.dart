@@ -18,7 +18,7 @@ class ChecklistWatcherBloc
     extends Bloc<ChecklistWatcherEvent, ChecklistWatcherState> {
   final IChecklistRepository _repository;
 
-  late StreamSubscription<Either<ChecklistFailure, List<Checklist>>>
+  StreamSubscription<Either<ChecklistFailure, List<Checklist>>>?
       _allChecklistsStreamSubscription;
 
   ChecklistWatcherBloc(this._repository) : super(const Initial()) {
@@ -39,11 +39,14 @@ class ChecklistWatcherBloc
         ),
       );
     });
+
+    on<StopWatching>((event, emit) {});
   }
 
   @override
   Future<void> close() async {
-    await _allChecklistsStreamSubscription.cancel();
+    await _allChecklistsStreamSubscription?.cancel();
+    print('Stream is closed');
     return super.close();
   }
 }

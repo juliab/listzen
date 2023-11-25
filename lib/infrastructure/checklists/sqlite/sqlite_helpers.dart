@@ -6,7 +6,7 @@ import 'package:listzen/domain/checklists/checklist.dart' as c;
 import 'package:listzen/domain/checklists/checklist_failure.dart';
 import 'package:listzen/domain/checklists/item.dart' as i;
 import 'package:listzen/domain/checklists/value_objects.dart';
-import 'package:listzen/infrastructure/checklists/sqlite/drift_database.dart';
+import 'package:listzen/infrastructure/checklists/sqlite/sqlite_database.dart';
 
 i.Item jsonToItem(Map<String, dynamic> json) {
   return i.Item(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
+import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer.dart';
@@ -23,6 +24,10 @@ class ChecklistsOverviewPage extends StatelessWidget {
         ),
         BlocProvider<ChecklistEditBloc>(
           create: (context) => getIt<ChecklistEditBloc>(),
+        ),
+        BlocProvider<ChecklistWatcherBloc>(
+          create: (BuildContext context) => getIt<ChecklistWatcherBloc>()
+            ..add(const ChecklistWatcherEvent.watchAllStarted()),
         ),
       ],
       child: BlocListener<ChecklistActorBloc, ChecklistActorState>(

@@ -5,16 +5,16 @@ import 'package:injectable/injectable.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
 import 'package:listzen/domain/checklists/i_checklist_repository.dart';
-import 'package:listzen/infrastructure/checklists/sqlite/drift_database.dart'
+import 'package:listzen/infrastructure/checklists/sqlite/sqlite_database.dart'
     as d;
-import 'package:listzen/infrastructure/checklists/sqlite/drift_helpers.dart';
+import 'package:listzen/infrastructure/checklists/sqlite/sqlite_helpers.dart';
 import 'package:rxdart/rxdart.dart';
 
 @lazySingleton
-class DriftChecklistRepository implements IChecklistRepository {
+class SqliteChecklistRepository implements IChecklistRepository {
   final database = d.SqliteDatabase();
 
-  DriftChecklistRepository();
+  SqliteChecklistRepository();
 
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() async* {

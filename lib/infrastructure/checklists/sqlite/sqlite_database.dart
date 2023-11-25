@@ -6,7 +6,7 @@ import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-part 'drift_database.g.dart';
+part 'sqlite_database.g.dart';
 
 class Checklists extends Table {
   TextColumn get id => text()();

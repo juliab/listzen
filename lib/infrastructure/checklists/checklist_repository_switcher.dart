@@ -4,11 +4,11 @@ import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
 import 'package:listzen/domain/checklists/i_checklist_repository.dart';
 import 'package:listzen/infrastructure/checklists/firebase/firebase_checklist_repository.dart';
-import 'package:listzen/infrastructure/checklists/sqlite/drift_checklist_repository.dart';
+import 'package:listzen/infrastructure/checklists/sqlite/sqlite_checklist_repository.dart';
 
 @LazySingleton(as: IChecklistRepository)
 class ChecklistRepositorySwitcher implements IChecklistRepository {
-  final DriftChecklistRepository _sqliteRepository;
+  final SqliteChecklistRepository _sqliteRepository;
   final FirebaseChecklistRepository _firebaseRepository;
 
   ChecklistRepositorySwitcher(
