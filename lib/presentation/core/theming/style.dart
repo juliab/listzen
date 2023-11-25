@@ -41,6 +41,8 @@ InputDecoration switchBordersInputDecoration(bool hasError) {
   );
 }
 
+const floatingButtonSize = 55.0;
+
 /* SnackBar */
 const EdgeInsetsGeometry snackbarPadding = EdgeInsets.only(top: 20);
 
@@ -88,11 +90,4 @@ Decoration cardTopDecoration = const BoxDecoration(
     topRight: Radius.circular(30),
   ),
   color: backgroundColor,
-);
-
-TextStyle stickyNoteTextStyle = const TextStyle(
-  fontFamily: 'Architex',
-  color: Colors.brown,
-  fontSize: 50,
-  fontWeight: FontWeight.bold,
 );
