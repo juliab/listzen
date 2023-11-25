@@ -39,14 +39,11 @@ class ChecklistWatcherBloc
         ),
       );
     });
-
-    on<StopWatching>((event, emit) {});
   }
 
   @override
   Future<void> close() async {
     await _allChecklistsStreamSubscription?.cancel();
-    print('Stream is closed');
     return super.close();
   }
 }

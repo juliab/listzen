@@ -22,7 +22,6 @@ mixin _$ChecklistWatcherEvent {
     required TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
         checklistsReceived,
-    required TResult Function() stopWatching,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +30,6 @@ mixin _$ChecklistWatcherEvent {
     TResult? Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
-    TResult? Function()? stopWatching,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +38,6 @@ mixin _$ChecklistWatcherEvent {
     TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
-    TResult Function()? stopWatching,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,21 +45,18 @@ mixin _$ChecklistWatcherEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(ChecklistsReceived value) checklistsReceived,
-    required TResult Function(StopWatching value) stopWatching,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(ChecklistsReceived value)? checklistsReceived,
-    TResult? Function(StopWatching value)? stopWatching,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(ChecklistsReceived value)? checklistsReceived,
-    TResult Function(StopWatching value)? stopWatching,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,7 +123,6 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     required TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
         checklistsReceived,
-    required TResult Function() stopWatching,
   }) {
     return watchAllStarted();
   }
@@ -141,7 +134,6 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     TResult? Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
-    TResult? Function()? stopWatching,
   }) {
     return watchAllStarted?.call();
   }
@@ -153,7 +145,6 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
-    TResult Function()? stopWatching,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -167,7 +158,6 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(ChecklistsReceived value) checklistsReceived,
-    required TResult Function(StopWatching value) stopWatching,
   }) {
     return watchAllStarted(this);
   }
@@ -177,7 +167,6 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(ChecklistsReceived value)? checklistsReceived,
-    TResult? Function(StopWatching value)? stopWatching,
   }) {
     return watchAllStarted?.call(this);
   }
@@ -187,7 +176,6 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(ChecklistsReceived value)? checklistsReceived,
-    TResult Function(StopWatching value)? stopWatching,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -271,7 +259,6 @@ class _$ChecklistsReceivedImpl implements ChecklistsReceived {
     required TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
         checklistsReceived,
-    required TResult Function() stopWatching,
   }) {
     return checklistsReceived(failureOrChecklists);
   }
@@ -283,7 +270,6 @@ class _$ChecklistsReceivedImpl implements ChecklistsReceived {
     TResult? Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
-    TResult? Function()? stopWatching,
   }) {
     return checklistsReceived?.call(failureOrChecklists);
   }
@@ -295,7 +281,6 @@ class _$ChecklistsReceivedImpl implements ChecklistsReceived {
     TResult Function(
             Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
         checklistsReceived,
-    TResult Function()? stopWatching,
     required TResult orElse(),
   }) {
     if (checklistsReceived != null) {
@@ -309,7 +294,6 @@ class _$ChecklistsReceivedImpl implements ChecklistsReceived {
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(ChecklistsReceived value) checklistsReceived,
-    required TResult Function(StopWatching value) stopWatching,
   }) {
     return checklistsReceived(this);
   }
@@ -319,7 +303,6 @@ class _$ChecklistsReceivedImpl implements ChecklistsReceived {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(ChecklistsReceived value)? checklistsReceived,
-    TResult? Function(StopWatching value)? stopWatching,
   }) {
     return checklistsReceived?.call(this);
   }
@@ -329,7 +312,6 @@ class _$ChecklistsReceivedImpl implements ChecklistsReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(ChecklistsReceived value)? checklistsReceived,
-    TResult Function(StopWatching value)? stopWatching,
     required TResult orElse(),
   }) {
     if (checklistsReceived != null) {
@@ -348,120 +330,6 @@ abstract class ChecklistsReceived implements ChecklistWatcherEvent {
   @JsonKey(ignore: true)
   _$$ChecklistsReceivedImplCopyWith<_$ChecklistsReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$StopWatchingImplCopyWith<$Res> {
-  factory _$$StopWatchingImplCopyWith(
-          _$StopWatchingImpl value, $Res Function(_$StopWatchingImpl) then) =
-      __$$StopWatchingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StopWatchingImplCopyWithImpl<$Res>
-    extends _$ChecklistWatcherEventCopyWithImpl<$Res, _$StopWatchingImpl>
-    implements _$$StopWatchingImplCopyWith<$Res> {
-  __$$StopWatchingImplCopyWithImpl(
-      _$StopWatchingImpl _value, $Res Function(_$StopWatchingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$StopWatchingImpl implements StopWatching {
-  const _$StopWatchingImpl();
-
-  @override
-  String toString() {
-    return 'ChecklistWatcherEvent.stopWatching()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StopWatchingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() watchAllStarted,
-    required TResult Function(
-            Either<ChecklistFailure, List<Checklist>> failureOrChecklists)
-        checklistsReceived,
-    required TResult Function() stopWatching,
-  }) {
-    return stopWatching();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? watchAllStarted,
-    TResult? Function(
-            Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
-        checklistsReceived,
-    TResult? Function()? stopWatching,
-  }) {
-    return stopWatching?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? watchAllStarted,
-    TResult Function(
-            Either<ChecklistFailure, List<Checklist>> failureOrChecklists)?
-        checklistsReceived,
-    TResult Function()? stopWatching,
-    required TResult orElse(),
-  }) {
-    if (stopWatching != null) {
-      return stopWatching();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(ChecklistsReceived value) checklistsReceived,
-    required TResult Function(StopWatching value) stopWatching,
-  }) {
-    return stopWatching(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(ChecklistsReceived value)? checklistsReceived,
-    TResult? Function(StopWatching value)? stopWatching,
-  }) {
-    return stopWatching?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(ChecklistsReceived value)? checklistsReceived,
-    TResult Function(StopWatching value)? stopWatching,
-    required TResult orElse(),
-  }) {
-    if (stopWatching != null) {
-      return stopWatching(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class StopWatching implements ChecklistWatcherEvent {
-  const factory StopWatching() = _$StopWatchingImpl;
 }
 
 /// @nodoc
