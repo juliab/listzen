@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
@@ -17,23 +18,31 @@ class ChecklistsOverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<ChecklistActorBloc>(
-          create: (context) => getIt<ChecklistActorBloc>(),
-        ),
-        BlocProvider<ChecklistEditBloc>(
-          create: (context) => getIt<ChecklistEditBloc>(),
-        ),
-        BlocProvider<ChecklistWatcherBloc>(
-          create: (BuildContext context) => getIt<ChecklistWatcherBloc>()
-            ..add(const ChecklistWatcherEvent.watchAllStarted()),
-        ),
-      ],
-      child: BlocListener<ChecklistActorBloc, ChecklistActorState>(
-        listener: _listenToDeleteResult,
-        child: const ChecklistsOverviewScaffold(),
-      ),
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        return state.maybeMap(
+          signOutInProgress: (value) =>
+              const Center(child: CircularProgressIndicator()),
+          orElse: () => MultiBlocProvider(
+            providers: [
+              BlocProvider<ChecklistActorBloc>(
+                create: (context) => getIt<ChecklistActorBloc>(),
+              ),
+              BlocProvider<ChecklistEditBloc>(
+                create: (context) => getIt<ChecklistEditBloc>(),
+              ),
+              BlocProvider<ChecklistWatcherBloc>(
+                create: (BuildContext context) => getIt<ChecklistWatcherBloc>()
+                  ..add(const ChecklistWatcherEvent.watchAllStarted()),
+              ),
+            ],
+            child: BlocListener<ChecklistActorBloc, ChecklistActorState>(
+              listener: _listenToDeleteResult,
+              child: const ChecklistsOverviewScaffold(),
+            ),
+          ),
+        );
+      },
     );
   }
 

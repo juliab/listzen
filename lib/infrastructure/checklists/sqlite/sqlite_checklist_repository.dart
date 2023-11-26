@@ -79,10 +79,4 @@ class SqliteChecklistRepository implements IChecklistRepository {
       return left(const ChecklistFailure.databaseError());
     }
   }
-
-  @override
-  bool isAvailable() {
-    // TODO check if file is available
-    return true;
-  }
 }

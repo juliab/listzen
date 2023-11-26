@@ -284,6 +284,7 @@ mixin _$AuthState {
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() signOutInProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -291,6 +292,7 @@ mixin _$AuthState {
     TResult? Function()? initial,
     TResult? Function(User user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? signOutInProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -298,6 +300,7 @@ mixin _$AuthState {
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? signOutInProgress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -306,6 +309,7 @@ mixin _$AuthState {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(SignOutInProgress value) signOutInProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -313,6 +317,7 @@ mixin _$AuthState {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(SignOutInProgress value)? signOutInProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -320,6 +325,7 @@ mixin _$AuthState {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(SignOutInProgress value)? signOutInProgress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -383,6 +389,7 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() signOutInProgress,
   }) {
     return initial();
   }
@@ -393,6 +400,7 @@ class _$InitialImpl implements Initial {
     TResult? Function()? initial,
     TResult? Function(User user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? signOutInProgress,
   }) {
     return initial?.call();
   }
@@ -403,6 +411,7 @@ class _$InitialImpl implements Initial {
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? signOutInProgress,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -417,6 +426,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(SignOutInProgress value) signOutInProgress,
   }) {
     return initial(this);
   }
@@ -427,6 +437,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(SignOutInProgress value)? signOutInProgress,
   }) {
     return initial?.call(this);
   }
@@ -437,6 +448,7 @@ class _$InitialImpl implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(SignOutInProgress value)? signOutInProgress,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -527,6 +539,7 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() signOutInProgress,
   }) {
     return authenticated(user);
   }
@@ -537,6 +550,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function()? initial,
     TResult? Function(User user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? signOutInProgress,
   }) {
     return authenticated?.call(user);
   }
@@ -547,6 +561,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? signOutInProgress,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -561,6 +576,7 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(SignOutInProgress value) signOutInProgress,
   }) {
     return authenticated(this);
   }
@@ -571,6 +587,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(SignOutInProgress value)? signOutInProgress,
   }) {
     return authenticated?.call(this);
   }
@@ -581,6 +598,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(SignOutInProgress value)? signOutInProgress,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -640,6 +658,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     required TResult Function() initial,
     required TResult Function(User user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() signOutInProgress,
   }) {
     return unauthenticated();
   }
@@ -650,6 +669,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult? Function()? initial,
     TResult? Function(User user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? signOutInProgress,
   }) {
     return unauthenticated?.call();
   }
@@ -660,6 +680,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult Function()? initial,
     TResult Function(User user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? signOutInProgress,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -674,6 +695,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(SignOutInProgress value) signOutInProgress,
   }) {
     return unauthenticated(this);
   }
@@ -684,6 +706,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(SignOutInProgress value)? signOutInProgress,
   }) {
     return unauthenticated?.call(this);
   }
@@ -694,6 +717,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(SignOutInProgress value)? signOutInProgress,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -705,4 +729,118 @@ class _$UnauthenticatedImpl implements Unauthenticated {
 
 abstract class Unauthenticated implements AuthState {
   const factory Unauthenticated() = _$UnauthenticatedImpl;
+}
+
+/// @nodoc
+abstract class _$$SignOutInProgressImplCopyWith<$Res> {
+  factory _$$SignOutInProgressImplCopyWith(_$SignOutInProgressImpl value,
+          $Res Function(_$SignOutInProgressImpl) then) =
+      __$$SignOutInProgressImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignOutInProgressImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$SignOutInProgressImpl>
+    implements _$$SignOutInProgressImplCopyWith<$Res> {
+  __$$SignOutInProgressImplCopyWithImpl(_$SignOutInProgressImpl _value,
+      $Res Function(_$SignOutInProgressImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignOutInProgressImpl implements SignOutInProgress {
+  const _$SignOutInProgressImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.signOutInProgress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignOutInProgressImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(User user) authenticated,
+    required TResult Function() unauthenticated,
+    required TResult Function() signOutInProgress,
+  }) {
+    return signOutInProgress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(User user)? authenticated,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? signOutInProgress,
+  }) {
+    return signOutInProgress?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authenticated,
+    TResult Function()? unauthenticated,
+    TResult Function()? signOutInProgress,
+    required TResult orElse(),
+  }) {
+    if (signOutInProgress != null) {
+      return signOutInProgress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(SignOutInProgress value) signOutInProgress,
+  }) {
+    return signOutInProgress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(SignOutInProgress value)? signOutInProgress,
+  }) {
+    return signOutInProgress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(SignOutInProgress value)? signOutInProgress,
+    required TResult orElse(),
+  }) {
+    if (signOutInProgress != null) {
+      return signOutInProgress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutInProgress implements AuthState {
+  const factory SignOutInProgress() = _$SignOutInProgressImpl;
 }

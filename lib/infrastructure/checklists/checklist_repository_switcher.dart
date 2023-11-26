@@ -8,52 +8,46 @@ import 'package:listzen/infrastructure/checklists/sqlite/sqlite_checklist_reposi
 
 @LazySingleton(as: IChecklistRepository)
 class ChecklistRepositorySwitcher implements IChecklistRepository {
+  late IChecklistRepository _currentRepository;
   final SqliteChecklistRepository _sqliteRepository;
   final FirebaseChecklistRepository _firebaseRepository;
 
   ChecklistRepositorySwitcher(
     this._sqliteRepository,
     this._firebaseRepository,
-  );
-
-  IChecklistRepository _getCurrentRepository() {
-    return _firebaseRepository.isAvailable()
-        ? _firebaseRepository
-        : _sqliteRepository;
-  }
-
-  @override
-  bool isAvailable() {
-    return true;
+  ) {
+    _firebaseRepository.isAvailable().listen((available) {
+      _currentRepository = available ? _firebaseRepository : _sqliteRepository;
+    });
   }
 
   @override
   Future<Either<ChecklistFailure, Unit>> deleteAll() {
-    return _getCurrentRepository().deleteAll();
+    return _currentRepository.deleteAll();
   }
 
   @override
   Future<Either<ChecklistFailure, Unit>> update(Checklist checklist) {
-    return _getCurrentRepository().update(checklist);
+    return _currentRepository.update(checklist);
   }
 
   @override
   Future<Either<ChecklistFailure, Unit>> create(Checklist checklist) {
-    return _getCurrentRepository().create(checklist);
+    return _currentRepository.create(checklist);
   }
 
   @override
   Future<Either<ChecklistFailure, Unit>> delete(Checklist checklist) {
-    return _getCurrentRepository().delete(checklist);
+    return _currentRepository.delete(checklist);
   }
 
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() {
-    return _getCurrentRepository().watchAll();
+    return _currentRepository.watchAll();
   }
 
   @override
   Future<Either<ChecklistFailure, List<Checklist>>> getAll() {
-    return _getCurrentRepository().getAll();
+    return _currentRepository.getAll();
   }
 }

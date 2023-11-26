@@ -155,8 +155,12 @@ class FirebaseChecklistRepository implements IChecklistRepository {
     }
   }
 
-  @override
-  bool isAvailable() {
-    return _firebaseAuth.currentUser != null;
+  Stream<bool> isAvailable() {
+    final streamTransformer =
+        StreamTransformer<User?, bool>.fromBind((userStream) {
+      return userStream.map((user) => user != null);
+    });
+
+    return _firebaseAuth.authStateChanges().transform(streamTransformer);
   }
 }

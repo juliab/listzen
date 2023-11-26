@@ -22,6 +22,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<SignedOut>((event, emit) async {
+      emit(const AuthState.signOutInProgress());
       await _iAuthFacade.signOut();
       emit(const AuthState.unauthenticated());
     });

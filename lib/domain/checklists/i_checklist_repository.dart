@@ -4,7 +4,6 @@ import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_failure.dart';
 
 abstract class IChecklistRepository {
-  bool isAvailable();
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll();
   Future<Either<ChecklistFailure, List<Checklist>>> getAll();
   Future<Either<ChecklistFailure, Unit>> create(Checklist checklist);
