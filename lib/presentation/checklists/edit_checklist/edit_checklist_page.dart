@@ -47,7 +47,9 @@ class EditChecklistPage extends StatelessWidget {
         buildWhen: (previous, current) => previous.isSaving != current.isSaving,
         builder: (context, state) => Stack(
           children: [
-            const EditChecklistPageScaffold(),
+            EditChecklistPageScaffold(
+              autofocus: editedChecklistOption.isNone(),
+            ),
             InProgressOverlay(
               inProgress: state.isSaving,
               text: 'Saving',
@@ -87,8 +89,11 @@ class EditChecklistPage extends StatelessWidget {
 }
 
 class EditChecklistPageScaffold extends StatelessWidget {
+  final bool autofocus;
+
   const EditChecklistPageScaffold({
     super.key,
+    this.autofocus = false,
   });
 
   @override
@@ -103,16 +108,15 @@ class EditChecklistPageScaffold extends StatelessWidget {
             SaveChecklistButton(),
           ],
         ),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                EditChecklistInfoTile(),
-                Flexible(child: ItemsList()),
-              ],
-            ),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              EditChecklistInfoTile(
+                autofocus: autofocus,
+              ),
+              const Flexible(child: ItemsList()),
+            ],
           ),
         ),
       ),

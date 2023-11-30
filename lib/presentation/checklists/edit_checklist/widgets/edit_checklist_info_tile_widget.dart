@@ -9,7 +9,12 @@ import 'package:listzen/presentation/checklists/components/completion_status_che
 import 'package:listzen/presentation/checklists/components/validation_error_message_component.dart';
 
 class EditChecklistInfoTile extends HookWidget {
-  const EditChecklistInfoTile({super.key});
+  final bool autofocus;
+
+  const EditChecklistInfoTile({
+    super.key,
+    this.autofocus = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +47,7 @@ class EditChecklistInfoTile extends HookWidget {
                   insideCard: true,
                 ),
                 statistics: ChecklistStatistics(checklist: state.checklist),
+                autofocus: autofocus,
               ),
               if (state.autovalidateMode == AutovalidateMode.always &&
                   state.checklist.name.value.isLeft()) ...[

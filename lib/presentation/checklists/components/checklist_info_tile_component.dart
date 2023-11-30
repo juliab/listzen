@@ -8,12 +8,14 @@ class ChecklistInfoTile extends StatelessWidget {
   final Widget content;
   final Widget? completionStatusCheckbox;
   final Widget? statistics;
+  final bool autofocus;
 
   const ChecklistInfoTile._({
     required this.color,
     required this.content,
     this.completionStatusCheckbox,
     this.statistics,
+    this.autofocus = false,
   });
 
   factory ChecklistInfoTile.readOnly({
@@ -38,15 +40,18 @@ class ChecklistInfoTile extends StatelessWidget {
     required Function(String value) onChanged,
     Widget? completionStatusCheckbox,
     Widget? statistics,
+    required bool autofocus,
   }) {
     return ChecklistInfoTile._(
       color: color,
       content: EditableChecklistNameField(
         textEditingController: textEditingController,
         onChanged: onChanged,
+        autofocus: autofocus,
       ),
       completionStatusCheckbox: completionStatusCheckbox,
       statistics: statistics,
+      autofocus: autofocus,
     );
   }
 
@@ -108,16 +113,19 @@ class ReadOnlyChecklistNameField extends StatelessWidget {
 class EditableChecklistNameField extends StatelessWidget {
   final TextEditingController textEditingController;
   final Function(String value) onChanged;
+  final bool autofocus;
 
   const EditableChecklistNameField({
     super.key,
     required this.textEditingController,
     required this.onChanged,
+    required this.autofocus,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: autofocus,
       textCapitalization: TextCapitalization.sentences,
       controller: textEditingController,
       decoration:
