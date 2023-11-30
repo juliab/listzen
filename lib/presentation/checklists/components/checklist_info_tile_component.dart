@@ -118,7 +118,6 @@ class EditableChecklistNameField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autofocus: true,
       textCapitalization: TextCapitalization.sentences,
       controller: textEditingController,
       decoration:

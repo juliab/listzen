@@ -8,6 +8,7 @@ class ItemTile extends StatelessWidget {
   final Function()? onRemove;
   final bool reorderable;
   final int? index;
+  final FocusNode? focusNode;
 
   const ItemTile._({
     required this.content,
@@ -15,6 +16,7 @@ class ItemTile extends StatelessWidget {
     this.onRemove,
     this.reorderable = false,
     this.index,
+    this.focusNode,
   }) : assert(reorderable && index != null || !reorderable,
             'index must be set for reorderable checklist item');
 
@@ -34,23 +36,24 @@ class ItemTile extends StatelessWidget {
     required TextEditingController textEditingController,
     required Function(String?) onChanged,
     required Function(String?) onSubmitted,
-    required bool autofocus,
     Widget? completionStatusCheckbox,
     Function()? onRemove,
     bool reorderable = false,
     int? index,
+    FocusNode? focusNode,
   }) {
     return ItemTile._(
       content: EditableItemNameField(
         textEditingController: textEditingController,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
-        autofocus: autofocus,
+        focusNode: focusNode,
       ),
       completionStatusCheckbox: completionStatusCheckbox,
       onRemove: onRemove,
       reorderable: reorderable,
       index: index,
+      focusNode: focusNode,
     );
   }
 
@@ -114,26 +117,27 @@ class EditableItemNameField extends StatelessWidget {
   final TextEditingController textEditingController;
   final Function(String?) onChanged;
   final Function(String?) onSubmitted;
-  final bool autofocus;
+  final FocusNode? focusNode;
 
   const EditableItemNameField({
     super.key,
     required this.textEditingController,
     required this.onChanged,
     required this.onSubmitted,
-    required this.autofocus,
+    this.focusNode,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autofocus: autofocus,
       controller: textEditingController,
       textCapitalization: TextCapitalization.sentences,
       decoration: noBordersInputDecoration,
       maxLength: ItemName.maxLength,
       onChanged: onChanged,
       onFieldSubmitted: onSubmitted,
+      focusNode: focusNode,
+      onEditingComplete: () {},
     );
   }
 }

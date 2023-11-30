@@ -9,6 +9,7 @@ import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
@@ -24,9 +25,20 @@ class EditChecklistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ChecklistEditBloc>(
-      create: (context) => getIt<ChecklistEditBloc>()
-        ..add(ChecklistEditEvent.initialized(editedChecklistOption)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ChecklistEditBloc>(
+          create: (context) => getIt<ChecklistEditBloc>()
+            ..add(ChecklistEditEvent.initialized(editedChecklistOption)),
+        ),
+        BlocProvider<ManageFocusCubit>(
+          create: (context) {
+            final itemsNumber = editedChecklistOption.fold(
+                () => 0, (checklist) => checklist.items.length);
+            return getIt<ManageFocusCubit>()..initializeFocusNodes(itemsNumber);
+          },
+        ),
+      ],
       child: BlocConsumer<ChecklistEditBloc, ChecklistEditState>(
         listenWhen: (previous, current) =>
             previous.saveFailureOrSuccessOption !=
@@ -172,7 +184,7 @@ class AddItemButton extends StatelessWidget {
     return FloatingActionButton(
       child: const Icon(Icons.add),
       onPressed: () {
-        FocusManager.instance.primaryFocus?.unfocus();
+        BlocProvider.of<ManageFocusCubit>(context).addNodeAndRequestFocus();
         BlocProvider.of<ChecklistEditBloc>(context).add(
           const ChecklistEditEvent.itemAdded(),
         );
