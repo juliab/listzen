@@ -31,6 +31,7 @@ class ErrorFlushbar extends StatelessWidget {
   }
 
   void show() {
+    FocusScope.of(context).requestFocus(FocusNode());
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(_snackbar);
