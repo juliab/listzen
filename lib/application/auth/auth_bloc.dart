@@ -13,6 +13,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _iAuthFacade;
 
   AuthBloc(this._iAuthFacade) : super(const Initial()) {
+    _iAuthFacade.authStateChanges().listen(
+          (_) => add(const AuthEvent.authCheckRequested()),
+        );
+
     on<AuthCheckRequested>((event, emit) async {
       final userOption = _iAuthFacade.getSignedInUser();
       userOption.fold(

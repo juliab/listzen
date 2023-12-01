@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
@@ -27,6 +28,13 @@ class FirebaseAuthFacade implements IAuthFacade {
       return none();
     }
     return some(user.toDomain());
+  }
+
+  @override
+  Stream<sc.User?> authStateChanges() {
+    return _firebaseAuth.authStateChanges().transform(
+        StreamTransformer.fromBind(
+            (stream) => stream.map((user) => user?.toDomain())));
   }
 
   @override

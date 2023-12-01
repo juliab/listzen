@@ -140,7 +140,7 @@ class AccountDeletedDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () async {
-            AutoRouter.of(context).push(const SignInRoute());
+            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
           },
           child: const Text(
             'OK',

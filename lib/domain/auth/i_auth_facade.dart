@@ -5,6 +5,7 @@ import 'package:listzen/domain/auth/value_objects.dart';
 
 abstract class IAuthFacade {
   Option<User> getSignedInUser();
+  Stream<User?> authStateChanges();
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
