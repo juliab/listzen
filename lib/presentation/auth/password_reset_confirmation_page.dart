@@ -54,7 +54,7 @@ class PasswordResetConfirmationPage extends StatelessWidget {
                 const SizedBox(height: 40),
                 const BackToRouteLink(
                   text: 'Back to login',
-                  routeName: SignUpRoute.name,
+                  routeName: SignInRoute.name,
                 ),
               ]),
             ),
