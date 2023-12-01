@@ -4,10 +4,6 @@
 
 Welcome to **ListZen** app: Your Ultimate Checklist Companion!
 
-We're thrilled to have you on board! 🚀
-
-At ListZen, we understand the power of staying organized, and we're here to make your life simpler, more efficient, and a whole lot more enjoyable. Whether you're a seasoned list-maker or just getting started, our app is designed to be your perfect checklist companion.
-
 ## Key features
 
 ***Create, Edit, and Delete Checklists***: Craft your checklists tailored to your needs. Organize your tasks, routines, and to-do lists effortlessly.
@@ -22,7 +18,7 @@ At ListZen, we understand the power of staying organized, and we're here to make
 
 <img src="/assets/view_checklist.png" width="150">
 
-***𝐒𝐢𝐠𝐧 𝐈𝐧 𝐟𝐨𝐫 𝐌𝐮𝐥𝐭𝐢-𝐃𝐞𝐯𝐢𝐜𝐞 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧𝐚𝐥𝐢𝐭𝐲***: You have the option to sign in for seamless access across multiple devices.
+***Sign In for Multi-Device Functionality***: You have the option to sign in for seamless access across multiple devices.
 
 <img src="/assets/sign_in.png" width="150"> <img src="/assets/sign_up.png" width="150">
 
