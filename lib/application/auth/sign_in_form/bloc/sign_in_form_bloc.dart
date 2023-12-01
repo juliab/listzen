@@ -52,8 +52,9 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
       final isEmailValid = state.emailAddress.isValid();
       final isPasswordValid = state.password.isValid();
+      final isConfirmPasswordValid = state.confirmPassword.isValid();
 
-      if (isEmailValid && isPasswordValid) {
+      if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
         emit(
           state.copyWith(
             isSubmitting: true,
