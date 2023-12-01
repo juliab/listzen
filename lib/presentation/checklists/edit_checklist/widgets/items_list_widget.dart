@@ -153,6 +153,7 @@ class EditItemTile extends HookWidget {
           FocusManager.instance.primaryFocus?.unfocus();
           BlocProvider.of<ChecklistEditBloc>(context)
               .add(ChecklistEditEvent.itemRemoved(index: index));
+          BlocProvider.of<ManageFocusCubit>(context).disposeNode(index);
         },
         reorderable: true,
         index: index,

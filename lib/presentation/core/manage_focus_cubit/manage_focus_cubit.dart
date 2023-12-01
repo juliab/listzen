@@ -31,6 +31,15 @@ class ManageFocusCubit extends Cubit<ManageFocusState> {
     state.nodes.last.requestFocus();
   }
 
+  void disposeNode(int index) {
+    state.nodes[index].dispose();
+    emit(
+      state.copyWith(
+        nodes: [...state.nodes]..removeAt(index),
+      ),
+    );
+  }
+
   @override
   Future<void> close() {
     for (final node in state.nodes) {
