@@ -29,7 +29,10 @@ class DrawerTileWidget extends StatelessWidget {
         leading: Icon(icon),
         titleTextStyle:
             Theme.of(context).textTheme.titleMedium?.copyWith(color: darkColor),
-        title: Text(title),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Text(title),
+        ),
         trailing: const Icon(
           Icons.arrow_forward_ios,
           size: 15,

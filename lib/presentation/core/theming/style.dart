@@ -15,7 +15,7 @@ const Color greenColor = Colors.green;
 
 BorderRadius standardBorderRadius = BorderRadius.circular(12);
 
-TextStyle buttonTextStyle = const TextStyle(
+TextStyle mainTextStyle = const TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
 );

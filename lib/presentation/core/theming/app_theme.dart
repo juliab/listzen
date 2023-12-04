@@ -28,6 +28,11 @@ ThemeData appTheme = ThemeData(
       fontWeight: FontWeight.normal,
       fontSize: 12,
     ),
+    bodyLarge: TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 16,
+      letterSpacing: -0.3,
+    ),
     headlineSmall: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
@@ -84,6 +89,7 @@ ThemeData appTheme = ThemeData(
       shape: RoundedRectangleBorder(
         borderRadius: standardBorderRadius,
       ),
+      side: BorderSide.none,
       minimumSize: const Size.fromHeight(50),
     ),
   ),
@@ -95,7 +101,6 @@ ThemeData appTheme = ThemeData(
     foregroundColor: darkColor,
     extendedTextStyle: const TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -0.5,
       fontSize: 14,
     ),
   ),

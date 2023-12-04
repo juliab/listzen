@@ -42,8 +42,16 @@ class SignInWithGoogleButton extends StatelessWidget {
       logo: const Logo(name: 'icons/google.png'),
       text: Text(
         'Sign in with Google',
-        style: buttonTextStyle.copyWith(color: blackColor),
+        style: mainTextStyle.copyWith(color: blackColor),
       ),
+      style: Theme.of(context).outlinedButtonTheme.style?.copyWith(
+            side: const MaterialStatePropertyAll<BorderSide>(
+              BorderSide(
+                color: borderColor,
+                width: 2,
+              ),
+            ),
+          ),
     );
   }
 }
@@ -70,7 +78,7 @@ class SignInWithAppleButton extends StatelessWidget {
       ),
       text: Text(
         'Sign in with Apple',
-        style: buttonTextStyle.copyWith(color: whiteColor),
+        style: mainTextStyle.copyWith(color: whiteColor),
       ),
       style: appleButtonStyle,
     );

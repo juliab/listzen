@@ -108,7 +108,7 @@ class ReadOnlyItemNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       name,
-      style: buttonTextStyle,
+      style: mainTextStyle,
     );
   }
 }
@@ -138,6 +138,7 @@ class EditableItemNameField extends StatelessWidget {
       onFieldSubmitted: onSubmitted,
       focusNode: focusNode,
       onEditingComplete: () {},
+      style: mainTextStyle,
     );
   }
 }

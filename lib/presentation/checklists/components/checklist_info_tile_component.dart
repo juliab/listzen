@@ -132,9 +132,7 @@ class EditableChecklistNameField extends StatelessWidget {
           cardInputDecoration.copyWith(hintText: 'Enter checklist name'),
       maxLength: ChecklistName.maxString,
       onChanged: onChanged,
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
+      style: mainTextStyle.copyWith(
         color: Colors.white.withOpacity(0.7),
       ),
     );
