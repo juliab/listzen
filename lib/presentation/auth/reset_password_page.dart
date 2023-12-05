@@ -13,24 +13,26 @@ class ResetPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-        child: BlocProvider(
-          create: (context) => getIt<SignInFormBloc>(),
-          child: Stack(
-            children: [
-              const MainImage(),
-              KeyboardVisibilityBuilder(
-                builder: (context, isKeyboardVisible) => Align(
-                  alignment: isKeyboardVisible
-                      ? Alignment.center
-                      : Alignment.bottomCenter,
-                  child: const ResetPasswordForm(),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: BlocProvider(
+            create: (context) => getIt<SignInFormBloc>(),
+            child: Stack(
+              children: [
+                const MainImage(),
+                KeyboardVisibilityBuilder(
+                  builder: (context, isKeyboardVisible) => Align(
+                    alignment: isKeyboardVisible
+                        ? Alignment.center
+                        : Alignment.bottomCenter,
+                    child: const ResetPasswordForm(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

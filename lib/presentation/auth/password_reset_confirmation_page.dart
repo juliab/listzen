@@ -17,50 +17,52 @@ class PasswordResetConfirmationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          const MainImage(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 400,
-              decoration: formDecoration,
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, bottom: 60, top: 40),
-              child: Column(children: [
-                const MailIcon(),
-                const SizedBox(height: 25),
-                Text(
-                  'Check you email',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                const SizedBox(height: 25),
-                Text(
-                  'We sent a password reset link to',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(color: greyColor),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  emailAddress,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(color: greyColor),
-                ),
-                const SizedBox(height: 40),
-                const BackToRouteLink(
-                  text: 'Back to login',
-                  routeName: SignInRoute.name,
-                ),
-              ]),
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            const MainImage(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 400,
+                decoration: formDecoration,
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20, bottom: 60, top: 40),
+                child: Column(children: [
+                  const MailIcon(),
+                  const SizedBox(height: 25),
+                  Text(
+                    'Check you email',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 25),
+                  Text(
+                    'We sent a password reset link to',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.copyWith(color: greyColor),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    emailAddress,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.copyWith(color: greyColor),
+                  ),
+                  const SizedBox(height: 40),
+                  const BackToRouteLink(
+                    text: 'Back to login',
+                    routeName: SignInRoute.name,
+                  ),
+                ]),
+              ),
+              //   ),
             ),
-            //   ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

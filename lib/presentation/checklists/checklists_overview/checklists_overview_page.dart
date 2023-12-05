@@ -71,37 +71,54 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      endDrawer: const MyAccountDrawer(),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('Checklists'),
-        actions: [
-          Builder(
-            builder: (context) => IconButton(
-              icon: const Icon(Icons.account_circle),
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        endDrawer: const MyAccountDrawer(),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Center(child: Text('Checklists')),
+          actions: [
+            Builder(
+              builder: (context) => IconButton(
+                icon: const Icon(Icons.account_circle),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
             ),
+          ],
+        ),
+        floatingActionButton: const AddChecklistButton(),
+        body: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: ChecklistsOverviewBody(),
           ),
-        ],
+        ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+    );
+  }
+}
+
+class AddChecklistButton extends StatelessWidget {
+  const AddChecklistButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: FloatingActionButton.extended(
         onPressed: () => AutoRouter.of(context).push(
           EditChecklistRoute(editedChecklistOption: none()),
         ),
         icon: const Icon(Icons.add),
         label: const Text('Add checklist'),
-      ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-        child: const Padding(
-          padding: EdgeInsets.all(12.0),
-          child: ChecklistsOverviewBody(),
-        ),
       ),
     );
   }
