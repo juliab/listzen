@@ -54,7 +54,9 @@ class AuthenticatedArea extends StatelessWidget {
           icon: Icons.person_remove,
           title: 'Delete My Account',
           dangerousArea: true,
-          onTap: () => AutoRouter.of(context).push(const DeleteAccountRoute()),
+          onTap: () => AutoRouter.of(context)
+            ..pop()
+            ..push(const DeleteAccountRoute()),
         ),
       ],
     );
@@ -76,7 +78,9 @@ class UnauthenticatedArea extends StatelessWidget {
         DrawerTileWidget(
           icon: Icons.login,
           title: 'Sign In',
-          onTap: () => AutoRouter.of(context).push(const SignInRoute()),
+          onTap: () => AutoRouter.of(context)
+            ..pop()
+            ..push(const SignInRoute()),
         ),
       ],
     );
