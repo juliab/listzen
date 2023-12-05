@@ -1,4 +1,4 @@
-package com.example.android
+package com.siroshtan.listzen
 
 import io.flutter.embedding.android.FlutterActivity
 
