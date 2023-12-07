@@ -22,8 +22,8 @@ TextStyle mainTextStyle = const TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-double signInFormHeight = Platform.isIOS ? 750 : 680;
-double signUpFormHeight = Platform.isIOS ? 800 : 730;
+double signInFormHeight = Platform.isIOS ? 750 : 620;
+double signUpFormHeight = Platform.isIOS ? 800 : 760;
 
 InputDecoration noBordersInputDecoration = const InputDecoration(
   counterText: '',

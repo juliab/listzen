@@ -15,6 +15,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
           child: BlocProvider(
@@ -23,12 +24,14 @@ class SignUpPage extends StatelessWidget {
               children: [
                 const MainImage(),
                 KeyboardVisibilityBuilder(
-                  builder: (context, isKeyboardVisible) => Align(
-                    alignment: isKeyboardVisible
-                        ? const Alignment(0, -0.4)
-                        : Alignment.bottomCenter,
-                    child: const SignUpForm(),
-                  ),
+                  builder: (context, isKeyboardVisible) {
+                    return Align(
+                      alignment: isKeyboardVisible
+                          ? const Alignment(0, -0.4)
+                          : Alignment.bottomCenter,
+                      child: const SignUpForm(),
+                    );
+                  },
                 ),
               ],
             ),

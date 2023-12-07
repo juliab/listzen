@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:listzen/application/checklists/checklist_actor/checklist_actor_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
-import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
+import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/presentation/checklists/components/checklist_info_tile_component.dart';
 import 'package:listzen/presentation/checklists/components/checklist_statistics_component.dart';
 import 'package:listzen/presentation/checklists/view_checklist/view_checklist_dialog.dart';
@@ -92,6 +92,7 @@ class ColorSlidableAction extends StatelessWidget {
       backgroundColor: Color(color.colorValues[0]),
       foregroundColor: whiteColorWithOpacity,
       borderRadius: standardBorderRadius,
+      padding: const EdgeInsets.all(10),
     );
   }
 }

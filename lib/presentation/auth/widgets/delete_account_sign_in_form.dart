@@ -21,7 +21,7 @@ class DeleteAccountSignInForm extends StatelessWidget {
           height: 530,
           decoration: formDecoration,
           padding:
-              const EdgeInsets.only(left: 20, right: 20, bottom: 60, top: 30),
+              const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 30),
           child: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
