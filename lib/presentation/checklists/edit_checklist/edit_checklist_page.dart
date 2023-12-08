@@ -44,18 +44,27 @@ class EditChecklistPage extends StatelessWidget {
             previous.saveFailureOrSuccessOption !=
             current.saveFailureOrSuccessOption,
         listener: _listenToSaveResult,
-        buildWhen: (previous, current) => previous.isSaving != current.isSaving,
-        builder: (context, state) => Stack(
-          children: [
-            EditChecklistPageScaffold(
-              autofocus: editedChecklistOption.isNone(),
-            ),
-            InProgressOverlay(
-              inProgress: state.isSaving,
-              text: 'Saving',
-            ),
-          ],
-        ),
+        buildWhen: (previous, current) =>
+            previous.isSaving != current.isSaving ||
+            previous.isEditing != current.isEditing,
+        builder: (context, state) {
+          if (editedChecklistOption.isSome() && !state.isEditing) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }
+          return Stack(
+            children: [
+              EditChecklistPageScaffold(
+                autofocus: editedChecklistOption.isNone(),
+              ),
+              InProgressOverlay(
+                inProgress: state.isSaving,
+                text: 'Saving',
+              ),
+            ],
+          );
+        },
       ),
     );
   }
@@ -157,8 +166,10 @@ class ScreenTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
       buildWhen: (previous, current) => previous.isEditing != current.isEditing,
-      builder: (context, state) => Text(
-        state.isEditing ? 'Edit checklist' : 'Create checklist',
+      builder: (context, state) => Center(
+        child: Text(
+          state.isEditing ? 'Edit checklist' : 'Create checklist',
+        ),
       ),
     );
   }

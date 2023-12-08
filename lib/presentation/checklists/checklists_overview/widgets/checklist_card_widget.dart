@@ -81,13 +81,11 @@ class ColorSlidableAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlidableAction(
-      onPressed: (context) {
-        BlocProvider.of<ChecklistEditBloc>(context)
-            .add(ChecklistEditEvent.initialized(some(checklist)));
-        BlocProvider.of<ChecklistEditBloc>(context).add(
+      onPressed: (context) => BlocProvider.of<ChecklistEditBloc>(context)
+        ..add(ChecklistEditEvent.initialized(some(checklist)))
+        ..add(
           ChecklistEditEvent.colorChanged(color: color, instantSave: true),
-        );
-      },
+        ),
       icon: Icons.color_lens,
       backgroundColor: Color(color.colorValues[0]),
       foregroundColor: whiteColorWithOpacity,

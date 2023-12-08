@@ -20,13 +20,11 @@ class EditChecklistInfoTile extends HookWidget {
   Widget build(BuildContext context) {
     final textEditingController = useTextEditingController();
 
-    return BlocConsumer<ChecklistEditBloc, ChecklistEditState>(
-      listenWhen: (previous, current) =>
-          previous.isEditing != current.isEditing,
-      listener: (context, state) {
-        textEditingController.text = state.checklist.name.getOrCrash();
-      },
+    return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
       builder: (context, state) {
+        if (state.isEditing) {
+          textEditingController.text = state.checklist.name.getOrCrash();
+        }
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Column(
