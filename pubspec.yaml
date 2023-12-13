@@ -35,7 +35,6 @@ dependencies:
   path_provider: ^2.1.1
   path: ^1.8.3
   floating_draggable_widget: ^2.1.4
-  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -49,7 +48,13 @@ dev_dependencies:
   drift_dev: ^2.14.0
 
 flutter_native_splash:
-  background_image: assets/main_image.jpg
+  color: "#0097b2"
+  image: assets/splash.png
+  web: false
+  ios: true
+  android: true
+  android_12:
+    color: "#0097b2"
 
 flutter:
   uses-material-design: true
