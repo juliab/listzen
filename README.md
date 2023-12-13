@@ -1,5 +1,5 @@
 
-![ListZen Icon](ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-72x72@2x.png)
+![ListZen Icon](ios/Runner/Assets.xcassets/AppIcon.appiconset/80 1.png)
 # ListZen
 
 Welcome to **ListZen** app: Your Ultimate Checklist Companion!
