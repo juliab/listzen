@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/app_theme.dart';
 
@@ -21,9 +19,6 @@ TextStyle mainTextStyle = const TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
 );
-
-double signInFormHeight = Platform.isIOS ? 750 : 620;
-double signUpFormHeight = Platform.isIOS ? 800 : 760;
 
 InputDecoration noBordersInputDecoration = const InputDecoration(
   counterText: '',

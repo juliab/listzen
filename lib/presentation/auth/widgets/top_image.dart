@@ -8,9 +8,10 @@ class MainImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/main_image.jpg',
-      height: MediaQuery.of(context).size.height,
-      fit: BoxFit.fitHeight,
+      'assets/main_image.png',
+      width: MediaQuery.of(context).size.width,
+      fit: BoxFit.fitWidth,
+      alignment: Alignment.topCenter,
     );
   }
 }
