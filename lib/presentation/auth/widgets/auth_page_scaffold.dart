@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:listzen/presentation/auth/widgets/top_image.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 
 class AuthPageScaffold extends StatelessWidget {
   final Widget form;
@@ -24,12 +24,13 @@ class AuthPageScaffold extends StatelessWidget {
                 children: [
                   const Spacer(),
                   form,
-                  KeyboardVisibilityBuilder(builder: (_, isKeyboardVisible) {
+                  Builder(builder: (context) {
                     final keyboardHeight =
                         MediaQuery.of(context).viewInsets.bottom;
                     return AnimatedContainer(
-                      duration: const Duration(milliseconds: 200),
-                      height: isKeyboardVisible ? keyboardHeight : 0,
+                      duration: const Duration(milliseconds: 50),
+                      height: keyboardHeight,
+                      color: backgroundColor,
                     );
                   }),
                 ],
