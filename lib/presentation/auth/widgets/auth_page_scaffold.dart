@@ -27,7 +27,7 @@ class AuthPageScaffold extends StatelessWidget {
                   final keyboardHeight =
                       MediaQuery.of(context).viewInsets.bottom;
                   return AnimatedContainer(
-                    duration: const Duration(milliseconds: 50),
+                    duration: const Duration(milliseconds: 10),
                     height: keyboardHeight,
                     color: backgroundColor,
                   );

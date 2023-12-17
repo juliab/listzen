@@ -40,11 +40,11 @@ class ResetPasswordForm extends StatelessWidget {
             child: Column(
               children: [
                 const BackToRouteLink(
-                  text: 'Back to checklists',
-                  routeName: ChecklistsOverviewRoute.name,
+                  text: 'Back to login',
+                  routeName: SignInRoute.name,
                   alignment: MainAxisAlignment.start,
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 30.0),
                 const EmailField(),
                 const SizedBox(height: 25),
                 AccentButton(
@@ -60,10 +60,6 @@ class ResetPasswordForm extends StatelessWidget {
                   const LinearProgressIndicator(),
                 ],
                 const SizedBox(height: 30),
-                const BackToRouteLink(
-                  text: 'Back to login',
-                  routeName: SignInRoute.name,
-                ),
               ],
             ),
           ),

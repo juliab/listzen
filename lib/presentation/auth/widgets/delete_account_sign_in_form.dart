@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/domain/auth/user.dart';
-import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/accent_button.dart';
+import 'package:listzen/presentation/auth/widgets/auth_form_container.dart';
 import 'package:listzen/presentation/auth/widgets/password_field.dart';
 import 'package:listzen/presentation/auth/widgets/social_sign_in_buttons_section.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
@@ -17,12 +17,8 @@ class DeleteAccountSignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
-        return Container(
-          height: 530,
-          decoration: formDecoration,
-          padding:
-              const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 30),
-          child: Form(
+        return AuthFormContainer(
+          form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
               children: [

@@ -47,7 +47,7 @@ class SignInForm extends StatelessWidget {
                   routeName: ChecklistsOverviewRoute.name,
                   alignment: MainAxisAlignment.start,
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 30.0),
                 const EmailField(),
                 standardHeightSizedBox,
                 const PasswordField(
