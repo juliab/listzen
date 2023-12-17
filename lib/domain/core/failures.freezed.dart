@@ -24,7 +24,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) =>
@@ -58,7 +58,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,7 +69,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) =>
       throw _privateConstructorUsedError;
@@ -80,7 +80,7 @@ mixin _$ValueFailure<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) =>
@@ -206,7 +206,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
     return exceedingLength(failedValue, max);
@@ -220,7 +220,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
     return exceedingLength?.call(failedValue, max);
@@ -234,7 +234,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -252,7 +252,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
     return exceedingLength(this);
@@ -266,7 +266,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
     return exceedingLength?.call(this);
@@ -280,7 +280,7 @@ class _$ExceedingLengthImpl<T> implements ExceedingLength<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -378,7 +378,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
     return empty(failedValue);
@@ -392,7 +392,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
     return empty?.call(failedValue);
@@ -406,7 +406,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -424,7 +424,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
     return empty(this);
@@ -438,7 +438,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
     return empty?.call(this);
@@ -452,7 +452,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -547,7 +547,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
     return multiline(failedValue);
@@ -561,7 +561,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
     return multiline?.call(failedValue);
@@ -575,7 +575,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -593,7 +593,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
     return multiline(this);
@@ -607,7 +607,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
     return multiline?.call(this);
@@ -621,7 +621,7 @@ class _$MultilineImpl<T> implements Multiline<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -725,7 +725,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
     return listTooLong(failedValue, max);
@@ -739,7 +739,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
     return listTooLong?.call(failedValue, max);
@@ -753,7 +753,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -771,7 +771,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
     return listTooLong(this);
@@ -785,7 +785,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
     return listTooLong?.call(this);
@@ -799,7 +799,7 @@ class _$ListTooLongImpl<T> implements ListTooLong<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -898,7 +898,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
     return invalidEmail(failedValue);
@@ -912,7 +912,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
     return invalidEmail?.call(failedValue);
@@ -926,7 +926,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -944,7 +944,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
     return invalidEmail(this);
@@ -958,7 +958,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
     return invalidEmail?.call(this);
@@ -972,7 +972,7 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -1038,7 +1038,7 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.shortPassword(failedValue: $failedValue)';
+    return 'ValueFailure<$T>.insecurePassword(failedValue: $failedValue)';
   }
 
   @override
@@ -1069,10 +1069,10 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
-    return shortPassword(failedValue);
+    return insecurePassword(failedValue);
   }
 
   @override
@@ -1083,10 +1083,10 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
-    return shortPassword?.call(failedValue);
+    return insecurePassword?.call(failedValue);
   }
 
   @override
@@ -1097,12 +1097,12 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
-    if (shortPassword != null) {
-      return shortPassword(failedValue);
+    if (insecurePassword != null) {
+      return insecurePassword(failedValue);
     }
     return orElse();
   }
@@ -1115,10 +1115,10 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
-    return shortPassword(this);
+    return insecurePassword(this);
   }
 
   @override
@@ -1129,10 +1129,10 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
-    return shortPassword?.call(this);
+    return insecurePassword?.call(this);
   }
 
   @override
@@ -1143,12 +1143,12 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {
-    if (shortPassword != null) {
-      return shortPassword(this);
+    if (insecurePassword != null) {
+      return insecurePassword(this);
     }
     return orElse();
   }
@@ -1240,7 +1240,7 @@ class _$PasswordsDontMatchImpl<T> implements PasswordsDontMatch<T> {
     required TResult Function(T failedValue) multiline,
     required TResult Function(T failedValue, int max) listTooLong,
     required TResult Function(T failedValue) invalidEmail,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) insecurePassword,
     required TResult Function(T failedValue) passwordsDontMatch,
   }) {
     return passwordsDontMatch(failedValue);
@@ -1254,7 +1254,7 @@ class _$PasswordsDontMatchImpl<T> implements PasswordsDontMatch<T> {
     TResult? Function(T failedValue)? multiline,
     TResult? Function(T failedValue, int max)? listTooLong,
     TResult? Function(T failedValue)? invalidEmail,
-    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? insecurePassword,
     TResult? Function(T failedValue)? passwordsDontMatch,
   }) {
     return passwordsDontMatch?.call(failedValue);
@@ -1268,7 +1268,7 @@ class _$PasswordsDontMatchImpl<T> implements PasswordsDontMatch<T> {
     TResult Function(T failedValue)? multiline,
     TResult Function(T failedValue, int max)? listTooLong,
     TResult Function(T failedValue)? invalidEmail,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? insecurePassword,
     TResult Function(T failedValue)? passwordsDontMatch,
     required TResult orElse(),
   }) {
@@ -1286,7 +1286,7 @@ class _$PasswordsDontMatchImpl<T> implements PasswordsDontMatch<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) insecurePassword,
     required TResult Function(PasswordsDontMatch<T> value) passwordsDontMatch,
   }) {
     return passwordsDontMatch(this);
@@ -1300,7 +1300,7 @@ class _$PasswordsDontMatchImpl<T> implements PasswordsDontMatch<T> {
     TResult? Function(Multiline<T> value)? multiline,
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ShortPassword<T> value)? insecurePassword,
     TResult? Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
   }) {
     return passwordsDontMatch?.call(this);
@@ -1314,7 +1314,7 @@ class _$PasswordsDontMatchImpl<T> implements PasswordsDontMatch<T> {
     TResult Function(Multiline<T> value)? multiline,
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? insecurePassword,
     TResult Function(PasswordsDontMatch<T> value)? passwordsDontMatch,
     required TResult orElse(),
   }) {

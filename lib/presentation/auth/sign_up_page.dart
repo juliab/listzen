@@ -47,10 +47,13 @@ class SignUpForm extends StatelessWidget {
                   alignment: MainAxisAlignment.start,
                 ),
                 const SizedBox(height: 30.0),
-                const EmailField(),
+                const EmailField(
+                  showValidCheckbox: true,
+                ),
                 standardHeightSizedBox,
                 const PasswordField(
                   showConfirmPasswordField: true,
+                  showValidCheckbox: true,
                 ),
                 standardHeightSizedBox,
                 AccentButton(

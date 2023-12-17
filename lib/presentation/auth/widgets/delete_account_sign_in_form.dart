@@ -93,9 +93,7 @@ class SignInButton extends StatelessWidget {
               case AuthProvider.email:
                 return Column(
                   children: [
-                    const PasswordField(
-                      showForgotPasswordLink: false,
-                    ),
+                    const PasswordField(),
                     const SizedBox(height: 25),
                     AccentButton(
                       text: 'Login',

@@ -20,6 +20,10 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
+  final email = validateStringNotEmpty(input);
+  if (email.isLeft()) {
+    return email;
+  }
   const emailRegex =
       r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
@@ -29,19 +33,27 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
 }
 
 Either<ValueFailure<String>, String> validatePassword(String input) {
-  if (input.length >= 6) {
+  final password = validateStringNotEmpty(input);
+  if (password.isLeft()) {
+    return password;
+  }
+
+  const passwordRegex =
+      r"""^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$""";
+  if (RegExp(passwordRegex).hasMatch(input)) {
     return right(input);
   }
-  return left(ValueFailure.shortPassword(failedValue: input));
+  return left(ValueFailure.insecurePassword(failedValue: input));
 }
 
 Either<ValueFailure<String>, String> validateConfirmPassword(
     String confirmPassword, String originalPassword) {
+  final password = validateStringNotEmpty(confirmPassword);
+  if (password.isLeft()) {
+    return password;
+  }
   if (confirmPassword != originalPassword) {
     return left(ValueFailure.passwordsDontMatch(failedValue: confirmPassword));
-  }
-  if (confirmPassword.length < 6) {
-    return left(ValueFailure.shortPassword(failedValue: confirmPassword));
   }
   return right(confirmPassword);
 }

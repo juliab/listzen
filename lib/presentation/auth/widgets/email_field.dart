@@ -4,7 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 
 class EmailField extends StatelessWidget {
-  const EmailField({super.key});
+  final bool showValidCheckbox;
+
+  const EmailField({
+    super.key,
+    this.showValidCheckbox = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,8 @@ class EmailField extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
                 const SizedBox(width: 5),
-                if (state.emailAddress.value.isRight()) ...[
+                if (showValidCheckbox &&
+                    state.emailAddress.value.isRight()) ...[
                   const Icon(
                     Icons.check,
                     color: Colors.green,
@@ -41,7 +47,8 @@ class EmailField extends StatelessWidget {
           validator: (_) =>
               context.read<SignInFormBloc>().state.emailAddress.value.fold(
                     (f) => f.maybeMap(
-                      invalidEmail: (_) => 'Invalid Email',
+                      empty: (_) => 'Field is required',
+                      invalidEmail: (_) => 'Invalid email',
                       orElse: () => null,
                     ),
                     (_) => null,

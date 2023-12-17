@@ -80,10 +80,10 @@ ThemeData appTheme = ThemeData(
     errorBorder: inputBorder(color: errorColor),
     focusedErrorBorder: inputBorder(color: errorColor, width: 2),
     errorStyle: const TextStyle(
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       letterSpacing: -1,
-      fontStyle: FontStyle.italic,
     ),
+    errorMaxLines: 3,
     contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
   ),
   cardTheme: CardTheme(

@@ -5,14 +5,21 @@ import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dar
 import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/auth/widgets/forgot_password_link.dart';
 
+const validationError = "Password must be at least 6 characters long, "
+    "including one letter, one digit, and one special character";
+
+const emptyError = "Field is required";
+
 class PasswordField extends StatelessWidget {
   final bool showForgotPasswordLink;
   final bool showConfirmPasswordField;
+  final bool showValidCheckbox;
 
   const PasswordField({
     super.key,
     this.showForgotPasswordLink = false,
     this.showConfirmPasswordField = false,
+    this.showValidCheckbox = false,
   });
 
   @override
@@ -28,7 +35,7 @@ class PasswordField extends StatelessWidget {
               builder: (context, state) {
                 return PasswordFieldLabel(
                   name: 'Password',
-                  isValid: state.password.value.isRight(),
+                  isValid: showValidCheckbox && state.password.value.isRight(),
                 );
               },
             ),
@@ -45,7 +52,8 @@ class PasswordField extends StatelessWidget {
           validator: (_) =>
               context.read<SignInFormBloc>().state.password.value.fold(
                     (f) => f.maybeMap(
-                      shortPassword: (_) => 'Short password',
+                      empty: (_) => emptyError,
+                      insecurePassword: (_) => validationError,
                       orElse: () => null,
                     ),
                     (_) => null,
@@ -58,7 +66,7 @@ class PasswordField extends StatelessWidget {
             builder: (context, state) {
               return PasswordFieldLabel(
                 name: 'Confirm Password',
-                isValid: state.confirmPassword.isValid(),
+                isValid: showValidCheckbox && state.confirmPassword.isValid(),
               );
             },
           ),
@@ -72,8 +80,8 @@ class PasswordField extends StatelessWidget {
             validator: (_) =>
                 context.read<SignInFormBloc>().state.confirmPassword.value.fold(
                       (f) => f.maybeMap(
+                        empty: (_) => emptyError,
                         passwordsDontMatch: (_) => "Passwords don't match",
-                        shortPassword: (_) => 'Short password',
                         orElse: () => null,
                       ),
                       (_) => null,
