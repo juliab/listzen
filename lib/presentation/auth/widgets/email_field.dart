@@ -19,7 +19,7 @@ class EmailField extends StatelessWidget {
               children: [
                 Text(
                   'Email',
-                  style: Theme.of(context).textTheme.labelLarge,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
                 const SizedBox(width: 5),
                 if (state.emailAddress.value.isRight()) ...[

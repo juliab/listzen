@@ -23,7 +23,10 @@ class AccentButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: mainTextStyle.copyWith(color: backgroundColor),
+          style: Theme.of(context)
+              .textTheme
+              .labelLarge
+              ?.copyWith(color: backgroundColor),
         ),
       ),
     );

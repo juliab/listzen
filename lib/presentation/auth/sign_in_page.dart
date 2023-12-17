@@ -47,7 +47,7 @@ class SignInForm extends StatelessWidget {
                   routeName: ChecklistsOverviewRoute.name,
                   alignment: MainAxisAlignment.start,
                 ),
-                const SizedBox(height: 30.0),
+                const SizedBox(height: 20.0),
                 const EmailField(),
                 standardHeightSizedBox,
                 const PasswordField(
@@ -66,7 +66,7 @@ class SignInForm extends StatelessWidget {
                   standardHeightSizedBox,
                   const LinearProgressIndicator(),
                 ],
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 RedirectLink(
                   leadingText: "Don't have an account?",
                   linkText: 'Sign up',

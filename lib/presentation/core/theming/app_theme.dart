@@ -59,6 +59,11 @@ ThemeData appTheme = ThemeData(
       letterSpacing: -1,
       fontSize: 14,
     ),
+    labelMedium: TextStyle(
+      fontWeight: FontWeight.bold,
+      letterSpacing: -1,
+      fontSize: 12,
+    ),
   ),
   scaffoldBackgroundColor: backgroundColor,
   appBarTheme: const AppBarTheme(
@@ -76,7 +81,10 @@ ThemeData appTheme = ThemeData(
     focusedErrorBorder: inputBorder(color: errorColor, width: 2),
     errorStyle: const TextStyle(
       fontWeight: FontWeight.bold,
+      letterSpacing: -1,
+      fontStyle: FontStyle.italic,
     ),
+    contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
   ),
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(
@@ -90,7 +98,7 @@ ThemeData appTheme = ThemeData(
         borderRadius: standardBorderRadius,
       ),
       side: BorderSide.none,
-      minimumSize: const Size.fromHeight(50),
+      minimumSize: const Size.fromHeight(40),
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(

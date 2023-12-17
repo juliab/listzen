@@ -13,7 +13,7 @@ class AuthFormContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: formDecoration,
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30, top: 30),
+      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15, top: 20),
       child: form,
     );
   }

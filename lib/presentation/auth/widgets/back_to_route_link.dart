@@ -25,13 +25,14 @@ class BackToRouteLink extends StatelessWidget {
           const Icon(
             Icons.arrow_back,
             color: greyColor,
+            size: 16,
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 5),
           Text(
             text,
             style: Theme.of(context)
                 .textTheme
-                .labelLarge
+                .labelMedium
                 ?.copyWith(color: greyColor),
           ),
         ],

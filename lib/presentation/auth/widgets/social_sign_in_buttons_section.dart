@@ -21,7 +21,9 @@ class SocialSignInButtonsSection extends StatelessWidget {
       children: [
         SignInWithGoogleButton(relogin: relogin),
         if (Platform.isIOS) ...[
-          standardHeightSizedBox,
+          const SizedBox(
+            height: 8,
+          ),
           SignInWithAppleButton(relogin: relogin),
         ]
       ],
@@ -46,13 +48,14 @@ class SignInWithGoogleButton extends StatelessWidget {
       logo: const Logo(name: 'icons/google.png'),
       text: Text(
         'Sign in with Google',
-        style: mainTextStyle.copyWith(color: blackColor),
+        style:
+            Theme.of(context).textTheme.labelLarge?.copyWith(color: blackColor),
       ),
       style: Theme.of(context).outlinedButtonTheme.style?.copyWith(
             side: const MaterialStatePropertyAll<BorderSide>(
               BorderSide(
                 color: borderColor,
-                width: 2,
+                width: 1.5,
               ),
             ),
           ),
@@ -82,7 +85,8 @@ class SignInWithAppleButton extends StatelessWidget {
       ),
       text: Text(
         'Sign in with Apple',
-        style: mainTextStyle.copyWith(color: whiteColor),
+        style:
+            Theme.of(context).textTheme.labelLarge?.copyWith(color: whiteColor),
       ),
       style: appleButtonStyle,
     );

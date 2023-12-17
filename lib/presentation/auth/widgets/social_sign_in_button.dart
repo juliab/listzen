@@ -23,7 +23,7 @@ class SocialSignInButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           logo,
-          const SizedBox(width: 15),
+          const SizedBox(width: 10),
           text,
         ],
       ),
@@ -45,7 +45,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       name,
-      width: 23,
+      width: 18,
       color: color,
     );
   }

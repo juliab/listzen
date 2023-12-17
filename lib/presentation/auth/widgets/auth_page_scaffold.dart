@@ -25,12 +25,12 @@ class AuthPageScaffold extends StatelessWidget {
                   const Spacer(),
                   form,
                   KeyboardVisibilityBuilder(builder: (_, isKeyboardVisible) {
-                    if (isKeyboardVisible) {
-                      return SizedBox(
-                        height: MediaQuery.of(context).viewInsets.bottom,
-                      );
-                    }
-                    return Container();
+                    final keyboardHeight =
+                        MediaQuery.of(context).viewInsets.bottom;
+                    return AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      height: isKeyboardVisible ? keyboardHeight : 0,
+                    );
                   }),
                 ],
               ),

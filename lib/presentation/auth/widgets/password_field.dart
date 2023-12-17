@@ -106,7 +106,7 @@ class PasswordFieldLabel extends StatelessWidget {
       children: [
         Text(
           name,
-          style: Theme.of(context).textTheme.labelLarge,
+          style: Theme.of(context).textTheme.labelMedium,
         ),
         const SizedBox(width: 5),
         if (isValid) ...[

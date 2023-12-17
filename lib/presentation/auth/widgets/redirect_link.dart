@@ -24,7 +24,7 @@ class RedirectLink extends StatelessWidget {
             leadingText,
             style: Theme.of(context)
                 .textTheme
-                .labelLarge
+                .labelMedium
                 ?.copyWith(color: greyColor),
           ),
           const SizedBox(width: 8),
@@ -32,7 +32,7 @@ class RedirectLink extends StatelessWidget {
             linkText,
             style: Theme.of(context)
                 .textTheme
-                .labelLarge
+                .labelMedium
                 ?.copyWith(color: darkColor),
           ),
         ],
