@@ -12,31 +12,29 @@ class AuthPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: Stack(
-            children: [
-              const MainImage(),
-              Column(
-                children: [
-                  const Spacer(),
-                  form,
-                  Builder(builder: (context) {
-                    final keyboardHeight =
-                        MediaQuery.of(context).viewInsets.bottom;
-                    return AnimatedContainer(
-                      duration: const Duration(milliseconds: 50),
-                      height: keyboardHeight,
-                      color: backgroundColor,
-                    );
-                  }),
-                ],
-              ),
-            ],
-          ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        child: Stack(
+          children: [
+            const MainImage(),
+            Column(
+              children: [
+                const Spacer(),
+                form,
+                Builder(builder: (context) {
+                  final keyboardHeight =
+                      MediaQuery.of(context).viewInsets.bottom;
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 50),
+                    height: keyboardHeight,
+                    color: backgroundColor,
+                  );
+                }),
+              ],
+            ),
+          ],
         ),
       ),
     );

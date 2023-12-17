@@ -107,34 +107,31 @@ class EditChecklistPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: FloatingDraggableWidget(
-        mainScreenWidget: Scaffold(
-          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-          appBar: AppBar(
-            leading: const CancelButton(),
-            title: const ScreenTitle(),
-            actions: const [
-              SaveChecklistButton(),
+    return FloatingDraggableWidget(
+      mainScreenWidget: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        appBar: AppBar(
+          leading: const CancelButton(),
+          title: const ScreenTitle(),
+          actions: const [
+            SaveChecklistButton(),
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              EditChecklistInfoTile(
+                autofocus: autofocus,
+              ),
+              const Flexible(child: ItemsList()),
             ],
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                EditChecklistInfoTile(
-                  autofocus: autofocus,
-                ),
-                const Flexible(child: ItemsList()),
-              ],
-            ),
-          ),
         ),
-        floatingWidget: const AddItemButton(),
-        floatingWidgetHeight: floatingButtonSize,
-        floatingWidgetWidth: floatingButtonSize,
       ),
+      floatingWidget: const AddItemButton(),
+      floatingWidgetHeight: floatingButtonSize,
+      floatingWidgetWidth: floatingButtonSize,
     );
   }
 }

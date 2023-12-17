@@ -39,6 +39,12 @@ class ResetPasswordForm extends StatelessWidget {
             autovalidateMode: state.autovalidateMode,
             child: Column(
               children: [
+                const BackToRouteLink(
+                  text: 'Back to checklists',
+                  routeName: ChecklistsOverviewRoute.name,
+                  alignment: MainAxisAlignment.start,
+                ),
+                const SizedBox(height: 20.0),
                 const EmailField(),
                 const SizedBox(height: 25),
                 AccentButton(

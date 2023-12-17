@@ -71,33 +71,30 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        endDrawer: const MyAccountDrawer(),
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Center(child: Text('Checklists')),
-          actions: [
-            Builder(
-              builder: (context) => IconButton(
-                icon: const Icon(Icons.account_circle),
-                onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                },
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              ),
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      endDrawer: const MyAccountDrawer(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Center(child: Text('Checklists')),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.account_circle),
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             ),
-          ],
-        ),
-        floatingActionButton: const AddChecklistButton(),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: ChecklistsOverviewBody(),
           ),
+        ],
+      ),
+      floatingActionButton: const AddChecklistButton(),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        child: const Padding(
+          padding: EdgeInsets.all(12.0),
+          child: ChecklistsOverviewBody(),
         ),
       ),
     );
