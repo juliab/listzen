@@ -42,9 +42,12 @@ class SignInWithGoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SocialSignInButton(
-      onPressed: () => context.read<SignInFormBloc>().add(relogin
-          ? const SignInFormEvent.reloginWithGooglePressed()
-          : const SignInFormEvent.signInWithGooglePressed()),
+      onPressed: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+        context.read<SignInFormBloc>().add(relogin
+            ? const SignInFormEvent.reloginWithGooglePressed()
+            : const SignInFormEvent.signInWithGooglePressed());
+      },
       logo: const Logo(name: 'icons/google.png'),
       text: Text(
         'Sign in with Google',
@@ -74,11 +77,14 @@ class SignInWithAppleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SocialSignInButton(
-      onPressed: () => context.read<SignInFormBloc>().add(
-            relogin
-                ? const SignInFormEvent.reloginWithApplePressed()
-                : const SignInFormEvent.signInWithApplePressed(),
-          ),
+      onPressed: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+        context.read<SignInFormBloc>().add(
+              relogin
+                  ? const SignInFormEvent.reloginWithApplePressed()
+                  : const SignInFormEvent.signInWithApplePressed(),
+            );
+      },
       logo: const Logo(
         name: 'icons/apple.png',
         color: whiteColor,

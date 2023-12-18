@@ -49,9 +49,12 @@ class ResetPasswordForm extends StatelessWidget {
                 const SizedBox(height: 25),
                 AccentButton(
                   text: 'Reset Password',
-                  onPressed: () => context
-                      .read<SignInFormBloc>()
-                      .add(const SignInFormEvent.resetPasswordPressed()),
+                  onPressed: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                    context
+                        .read<SignInFormBloc>()
+                        .add(const SignInFormEvent.resetPasswordPressed());
+                  },
                 ),
                 if (state.isSubmitting) ...[
                   const SizedBox(
