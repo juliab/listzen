@@ -14,6 +14,8 @@ abstract class ValueObject<T> {
 
   bool isValid() => value.isRight();
 
+  bool isEmpty() => value == left(const ValueFailure.empty(failedValue: ""));
+
   Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
     return value.fold((f) => left(f), (_) => right(unit));
   }

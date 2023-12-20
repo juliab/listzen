@@ -48,10 +48,13 @@ class SignInForm extends StatelessWidget {
                   alignment: MainAxisAlignment.start,
                 ),
                 const SizedBox(height: 30.0),
-                const EmailField(),
+                const EmailField(
+                  showValidationError: false,
+                ),
                 standardHeightSizedBox,
                 const PasswordField(
                   showForgotPasswordLink: true,
+                  showValidationError: false,
                 ),
                 standardHeightSizedBox,
                 AccentButton(

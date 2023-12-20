@@ -45,7 +45,9 @@ class ResetPasswordForm extends StatelessWidget {
                   alignment: MainAxisAlignment.start,
                 ),
                 const SizedBox(height: 30.0),
-                const EmailField(),
+                const EmailField(
+                  showValidationError: false,
+                ),
                 const SizedBox(height: 25),
                 AccentButton(
                   text: 'Reset Password',

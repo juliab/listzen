@@ -3,23 +3,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/auth/widgets/auth_text_field.dart';
 import 'package:listzen/presentation/auth/widgets/forgot_password_link.dart';
 
-const validationError = "Password must be at least 6 characters long, "
+const insecurePasswordError = "Password must be at least 6 characters long, "
     "including one letter, one digit, and one special character";
 
-const emptyError = "Field is required";
+const passwordsDontMatchError = "Passwords don't match";
 
 class PasswordField extends StatelessWidget {
   final bool showForgotPasswordLink;
   final bool showConfirmPasswordField;
   final bool showValidCheckbox;
+  final bool showValidationError;
 
   const PasswordField({
     super.key,
     this.showForgotPasswordLink = false,
     this.showConfirmPasswordField = false,
     this.showValidCheckbox = false,
+    this.showValidationError = true,
   });
 
   @override
@@ -27,103 +30,93 @@ class PasswordField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            BlocBuilder<SignInFormBloc, SignInFormState>(
-              buildWhen: _rebuildLabel,
-              builder: (context, state) {
-                return PasswordFieldLabel(
-                  name: 'Password',
-                  isValid: showValidCheckbox && state.password.value.isRight(),
-                );
-              },
-            ),
-            if (showForgotPasswordLink) ...[const ForgotPasswordLink()],
-          ],
-        ),
-        const SizedBox(height: 6),
-        TextFormField(
-          autocorrect: false,
-          obscureText: true,
-          onChanged: (value) => context
-              .read<SignInFormBloc>()
-              .add(SignInFormEvent.passwordChanged(value)),
-          validator: (_) =>
-              context.read<SignInFormBloc>().state.password.value.fold(
-                    (f) => f.maybeMap(
-                      empty: (_) => emptyError,
-                      insecurePassword: (_) => validationError,
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  ),
-        ),
+        _passwordWidget(context),
         if (showConfirmPasswordField) ...[
           standardHeightSizedBox,
-          BlocBuilder<SignInFormBloc, SignInFormState>(
-            buildWhen: _rebuildLabel,
-            builder: (context, state) {
-              return PasswordFieldLabel(
-                name: 'Confirm Password',
-                isValid: showValidCheckbox && state.confirmPassword.isValid(),
-              );
-            },
-          ),
-          const SizedBox(height: 6),
-          TextFormField(
-            autocorrect: false,
-            obscureText: true,
-            onChanged: (value) => context
-                .read<SignInFormBloc>()
-                .add(SignInFormEvent.confirmPasswordChanged(value)),
-            validator: (_) =>
-                context.read<SignInFormBloc>().state.confirmPassword.value.fold(
-                      (f) => f.maybeMap(
-                        empty: (_) => emptyError,
-                        passwordsDontMatch: (_) => "Passwords don't match",
-                        orElse: () => null,
-                      ),
-                      (_) => null,
-                    ),
-          ),
-        ]
-      ],
-    );
-  }
-
-  bool _rebuildLabel(SignInFormState previous, SignInFormState current) {
-    return previous.password.value != current.password.value ||
-        previous.confirmPassword.value != current.confirmPassword.value;
-  }
-}
-
-class PasswordFieldLabel extends StatelessWidget {
-  final String name;
-  final bool isValid;
-
-  const PasswordFieldLabel({
-    super.key,
-    required this.name,
-    required this.isValid,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          name,
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
-        const SizedBox(width: 5),
-        if (isValid) ...[
-          const Icon(
-            Icons.check,
-            color: Colors.green,
-          ),
+          _confirmPasswordWidget(context),
         ],
       ],
     );
   }
+
+  Widget _passwordWidget(BuildContext context) {
+    return AuthTextField(
+      labelName: "Password",
+      validCheckbox: _passwordValidCheckbox(context),
+      linkOnTheRight:
+          showForgotPasswordLink ? const ForgotPasswordLink() : null,
+      obscureText: true,
+      onChanged: (value) => context
+          .read<SignInFormBloc>()
+          .add(SignInFormEvent.passwordChanged(value)),
+      validator: _passwordValidator(context),
+    );
+  }
+
+  Widget? _passwordValidCheckbox(BuildContext context) {
+    if (!showValidCheckbox) {
+      return null;
+    }
+    return BlocBuilder<SignInFormBloc, SignInFormState>(
+      buildWhen: _rebuildValidCheckbox,
+      builder: (context, state) =>
+          state.password.value.isRight() ? const ValidCheckbox() : Container(),
+    );
+  }
+
+  String? Function()? _passwordValidator(BuildContext context) {
+    return () => context.read<SignInFormBloc>().state.password.value.fold(
+          (f) => f.maybeMap(
+            insecurePassword: (_) =>
+                showValidationError ? insecurePasswordError : null,
+            orElse: () => null,
+          ),
+          (_) => null,
+        );
+  }
+
+  Widget _confirmPasswordWidget(BuildContext context) {
+    return AuthTextField(
+      labelName: "Confirm Password",
+      validCheckbox: _confirmPasswordValidCheckbox(context),
+      linkOnTheRight:
+          showForgotPasswordLink ? const ForgotPasswordLink() : null,
+      obscureText: true,
+      onChanged: (value) => context
+          .read<SignInFormBloc>()
+          .add(SignInFormEvent.confirmPasswordChanged(value)),
+      validator: _confirmPasswordValidator(context),
+    );
+  }
+
+  Widget? _confirmPasswordValidCheckbox(BuildContext context) {
+    if (!showValidCheckbox) {
+      return null;
+    }
+    return BlocBuilder<SignInFormBloc, SignInFormState>(
+      buildWhen: _rebuildValidCheckbox,
+      builder: (context, state) => state.confirmPassword.value.isRight()
+          ? const ValidCheckbox()
+          : Container(),
+    );
+  }
+
+  String? Function()? _confirmPasswordValidator(BuildContext context) {
+    return () =>
+        context.read<SignInFormBloc>().state.confirmPassword.value.fold(
+              (f) => f.maybeMap(
+                insecurePassword: (_) =>
+                    showValidationError ? insecurePasswordError : null,
+                passwordsDontMatch: (_) =>
+                    showValidationError ? passwordsDontMatchError : null,
+                orElse: () => null,
+              ),
+              (_) => null,
+            );
+  }
+}
+
+bool _rebuildValidCheckbox(SignInFormState previous, SignInFormState current) {
+  return previous.password.value != current.password.value ||
+      previous.confirmPassword.value != current.confirmPassword.value;
 }

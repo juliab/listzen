@@ -82,29 +82,53 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<SignInWithEmailAndPasswordPressed>((event, emit) async {
       Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 
-      final isEmailValid = state.emailAddress.isValid();
-      final isPasswordValid = state.password.isValid();
-
-      if (isEmailValid && isPasswordValid) {
+      // If either email address or password is empty then show validation error
+      if (state.emailAddress.isEmpty() || state.password.isEmpty()) {
         emit(
           state.copyWith(
-            isSubmitting: true,
-            authFailureOrSuccessOption: none(),
+            isSubmitting: false,
+            autovalidateMode: AutovalidateMode.always,
           ),
         );
-
-        failureOrSuccess = some(
-          await _authFacade.signInWithEmailAndPassword(
-            emailAddress: state.emailAddress,
-            password: state.password,
-          ),
-        );
+        return;
       }
+
+      final emailAndPasswordValid =
+          state.emailAddress.isValid() && state.password.isValid();
+
+      // If either email address or password is invalid then emit
+      // AuthFailure.invalidEmailAndPasswordCombination()
+      if (!emailAndPasswordValid) {
+        emit(
+          state.copyWith(
+            isSubmitting: false,
+            autovalidateMode: AutovalidateMode.disabled,
+            authFailureOrSuccessOption: some(
+                left(const AuthFailure.invalidEmailAndPasswordCombination())),
+          ),
+        );
+        return;
+      }
+
+      // If email address and password are valid then proceed with sign-in
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+
+      failureOrSuccess = some(
+        await _authFacade.signInWithEmailAndPassword(
+          emailAddress: state.emailAddress,
+          password: state.password,
+        ),
+      );
 
       emit(
         state.copyWith(
           isSubmitting: false,
-          autovalidateMode: AutovalidateMode.always,
+          autovalidateMode: AutovalidateMode.disabled,
           authFailureOrSuccessOption: failureOrSuccess,
         ),
       );
@@ -113,27 +137,48 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<ReloginWithPasswordPressed>((event, emit) async {
       Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 
-      final isPasswordValid = state.password.isValid();
-
-      if (isPasswordValid) {
+      // If password is empty then then show validation error
+      if (state.password.isEmpty()) {
         emit(
           state.copyWith(
-            isSubmitting: true,
-            authFailureOrSuccessOption: none(),
+            isSubmitting: false,
+            autovalidateMode: AutovalidateMode.always,
           ),
         );
-
-        failureOrSuccess = some(
-          await _authFacade.reauthenticateWithPassword(
-            password: state.password,
-          ),
-        );
+        return;
       }
+
+      // If password is invalid then emit AuthFailure.invalidEmailAndPasswordCombination()
+      if (!state.password.isValid()) {
+        emit(
+          state.copyWith(
+            isSubmitting: false,
+            autovalidateMode: AutovalidateMode.disabled,
+            authFailureOrSuccessOption: some(
+                left(const AuthFailure.invalidEmailAndPasswordCombination())),
+          ),
+        );
+        return;
+      }
+
+      // If email password is valid then proceed with sign-in
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+
+      failureOrSuccess = some(
+        await _authFacade.reauthenticateWithPassword(
+          password: state.password,
+        ),
+      );
 
       emit(
         state.copyWith(
           isSubmitting: false,
-          autovalidateMode: AutovalidateMode.always,
+          autovalidateMode: AutovalidateMode.disabled,
           authFailureOrSuccessOption: failureOrSuccess,
         ),
       );
@@ -218,25 +263,48 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<ResetPasswordPressed>((event, emit) async {
       Option<Either<AuthFailure, Unit>> failureOrSuccess = none();
 
-      if (state.emailAddress.isValid()) {
+      // If email address is empty then show validation error
+      if (state.emailAddress.isEmpty()) {
         emit(
           state.copyWith(
-            isSubmitting: true,
-            authFailureOrSuccessOption: none(),
+            isSubmitting: false,
+            autovalidateMode: AutovalidateMode.always,
           ),
         );
-
-        failureOrSuccess = some(
-          await _authFacade.getResetPasswordEmail(
-            emailAddress: state.emailAddress,
-          ),
-        );
+        return;
       }
+
+      // If email address is invalid then emit AuthFailure.userNotFound()
+      if (!state.emailAddress.isValid()) {
+        emit(
+          state.copyWith(
+            isSubmitting: false,
+            autovalidateMode: AutovalidateMode.disabled,
+            authFailureOrSuccessOption:
+                some(left(const AuthFailure.userNotFound())),
+          ),
+        );
+        return;
+      }
+
+      // If email address is valid then proceed with password reset
+      emit(
+        state.copyWith(
+          isSubmitting: true,
+          authFailureOrSuccessOption: none(),
+        ),
+      );
+
+      failureOrSuccess = some(
+        await _authFacade.getResetPasswordEmail(
+          emailAddress: state.emailAddress,
+        ),
+      );
 
       emit(
         state.copyWith(
           isSubmitting: false,
-          autovalidateMode: AutovalidateMode.always,
+          autovalidateMode: AutovalidateMode.disabled,
           authFailureOrSuccessOption: failureOrSuccess,
         ),
       );
