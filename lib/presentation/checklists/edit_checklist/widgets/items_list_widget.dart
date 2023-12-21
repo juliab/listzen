@@ -4,9 +4,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/domain/checklists/item.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
-import 'package:listzen/presentation/checklists/components/completion_status_checkbox_component.dart';
-import 'package:listzen/presentation/checklists/components/item_tile_component.dart';
-import 'package:listzen/presentation/checklists/components/validation_error_message_component.dart';
+import 'package:listzen/presentation/checklists/components/completion_status_checkbox.dart';
+import 'package:listzen/presentation/checklists/components/item_tile.dart';
+import 'package:listzen/presentation/checklists/components/validation_error_message.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
@@ -23,7 +23,7 @@ class ItemsList extends StatelessWidget {
           builder: (context) =>
               BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
             builder: (context, state) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Theme(
                 data: Theme.of(context).copyWith(
                   canvasColor: backgroundColor,
@@ -55,6 +55,7 @@ class ItemsListBuider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ReorderableListView.builder(
+      buildDefaultDragHandles: false,
       shrinkWrap: true,
       itemCount: items.length,
       itemBuilder: (context, index) {

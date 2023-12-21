@@ -5,10 +5,10 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/item.dart';
 import 'package:listzen/injection.dart';
-import 'package:listzen/presentation/checklists/components/checklist_info_tile_component.dart';
-import 'package:listzen/presentation/checklists/components/checklist_statistics_component.dart';
-import 'package:listzen/presentation/checklists/components/completion_status_checkbox_component.dart';
-import 'package:listzen/presentation/checklists/components/item_tile_component.dart';
+import 'package:listzen/presentation/checklists/components/checklist_info_tile.dart';
+import 'package:listzen/presentation/checklists/components/checklist_statistics.dart';
+import 'package:listzen/presentation/checklists/components/completion_status_checkbox.dart';
+import 'package:listzen/presentation/checklists/components/item_tile.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
 class ViewChecklistDialog extends StatelessWidget {

@@ -27,6 +27,7 @@ InputDecoration noBordersInputDecoration = const InputDecoration(
   focusedBorder: InputBorder.none,
   errorBorder: InputBorder.none,
   focusedErrorBorder: InputBorder.none,
+  contentPadding: EdgeInsets.zero,
 );
 
 InputDecoration switchBordersInputDecoration(bool hasError) {

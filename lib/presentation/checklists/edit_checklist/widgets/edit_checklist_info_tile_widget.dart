@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
-import 'package:listzen/presentation/checklists/components/checklist_info_tile_component.dart';
-import 'package:listzen/presentation/checklists/components/checklist_statistics_component.dart';
-import 'package:listzen/presentation/checklists/components/completion_status_checkbox_component.dart';
-import 'package:listzen/presentation/checklists/components/validation_error_message_component.dart';
+import 'package:listzen/presentation/checklists/components/checklist_info_tile.dart';
+import 'package:listzen/presentation/checklists/components/checklist_statistics.dart';
+import 'package:listzen/presentation/checklists/components/completion_status_checkbox.dart';
+import 'package:listzen/presentation/checklists/components/validation_error_message.dart';
 
 class EditChecklistInfoTile extends HookWidget {
   final bool autofocus;
