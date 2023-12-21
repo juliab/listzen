@@ -166,7 +166,7 @@ class DeleteSlidableAction extends StatelessWidget {
       },
       icon: Icons.delete,
       label: 'Delete',
-      backgroundColor: errorColor,
+      backgroundColor: redColor,
       foregroundColor: whiteColorWithOpacity,
       borderRadius: cardBorderRadius,
     );

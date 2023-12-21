@@ -11,6 +11,7 @@ const Color greyColor = Color(0xFF9398A4);
 const Color borderColor = Color(0xFFDBDBDB);
 const Color focusedBorderColor = Color(0xFF5E85FA);
 const Color errorColor = Color(0xFFe57373);
+const Color redColor = Colors.red;
 const Color greenColor = Colors.green;
 
 BorderRadius standardBorderRadius = BorderRadius.circular(12);
