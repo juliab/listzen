@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:floating_draggable_widget/floating_draggable_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
@@ -107,31 +106,27 @@ class EditChecklistPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingDraggableWidget(
-      mainScreenWidget: Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        appBar: AppBar(
-          leading: const CancelButton(),
-          title: const ScreenTitle(),
-          actions: const [
-            SaveChecklistButton(),
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      appBar: AppBar(
+        leading: const CancelButton(),
+        title: const ScreenTitle(),
+        actions: const [
+          SaveChecklistButton(),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            EditChecklistInfoTile(
+              autofocus: autofocus,
+            ),
+            const Flexible(child: ItemsList()),
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              EditChecklistInfoTile(
-                autofocus: autofocus,
-              ),
-              const Flexible(child: ItemsList()),
-            ],
-          ),
-        ),
       ),
-      floatingWidget: const AddItemButton(),
-      floatingWidgetHeight: floatingButtonSize,
-      floatingWidgetWidth: floatingButtonSize,
+      floatingActionButton: const AddItemButton(),
     );
   }
 }
