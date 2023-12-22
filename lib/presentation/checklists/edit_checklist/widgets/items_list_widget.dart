@@ -23,7 +23,7 @@ class ItemsList extends StatelessWidget {
           builder: (context) =>
               BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
             builder: (context, state) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Theme(
                 data: Theme.of(context).copyWith(
                   canvasColor: backgroundColor,
@@ -55,7 +55,6 @@ class ItemsListBuider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ReorderableListView.builder(
-      buildDefaultDragHandles: false,
       shrinkWrap: true,
       itemCount: items.length,
       itemBuilder: (context, index) {

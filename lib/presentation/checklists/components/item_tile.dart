@@ -59,23 +59,20 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return reorderable
-        ? ReorderableDragStartListener(
-            index: index ?? 0,
-            child: InkWell(
-              splashColor: backgroundColor,
-              highlightColor: backgroundColor,
-              focusColor: backgroundColor,
-              onTap: () => focusNode?.requestFocus(),
-              child: _itemTileRow(context),
-            ),
-          )
-        : _itemTileRow(context);
-  }
-
-  Widget _itemTileRow(BuildContext context) {
     return Row(
       children: [
+        if (reorderable) ...[
+          const ReorderableDragStartListener(
+            index: 0,
+            child: Padding(
+              padding: EdgeInsets.only(left: 5, right: 15.0),
+              child: Icon(
+                Icons.swap_vert_outlined,
+                color: greyColor,
+              ),
+            ),
+          ),
+        ],
         if (completionStatusCheckbox != null) ...[
           completionStatusCheckbox!,
           const SizedBox(
@@ -132,18 +129,16 @@ class EditableItemNameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AbsorbPointer(
-      child: TextFormField(
-        controller: textEditingController,
-        textCapitalization: TextCapitalization.sentences,
-        decoration: noBordersInputDecoration,
-        maxLength: ItemName.maxLength,
-        onChanged: onChanged,
-        onFieldSubmitted: onSubmitted,
-        focusNode: focusNode,
-        onEditingComplete: () {},
-        style: mainTextStyle,
-      ),
+    return TextFormField(
+      controller: textEditingController,
+      textCapitalization: TextCapitalization.sentences,
+      decoration: noBordersInputDecoration,
+      maxLength: ItemName.maxLength,
+      onChanged: onChanged,
+      onFieldSubmitted: onSubmitted,
+      focusNode: focusNode,
+      onEditingComplete: () {},
+      style: mainTextStyle,
     );
   }
 }
