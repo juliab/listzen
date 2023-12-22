@@ -56,8 +56,13 @@ class ItemsListBuider extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReorderableListView.builder(
       shrinkWrap: true,
-      itemCount: items.length,
+      itemCount: items.length + 1,
       itemBuilder: (context, index) {
+        // Add bottom SizedBox widget so that FAB wouldn't cover the items
+        if (index == items.length) {
+          return const SizedBox(key: ValueKey(0), height: 80);
+        }
+
         final item = items[index];
         return Column(
           key: ValueKey(item.id),
