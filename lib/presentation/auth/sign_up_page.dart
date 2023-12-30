@@ -58,13 +58,9 @@ class SignUpForm extends StatelessWidget {
                 standardHeightSizedBox,
                 AccentButton(
                   text: 'Create account',
-                  onPressed: () {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                    context.read<SignInFormBloc>().add(
-                          const SignInFormEvent
-                              .registerWithEmailAndPasswordPressed(),
-                        );
-                  },
+                  onPressed: () => context.read<SignInFormBloc>().add(
+                      const SignInFormEvent
+                          .registerWithEmailAndPasswordPressed()),
                 ),
                 const SizedBox(height: 30),
                 RedirectLink(

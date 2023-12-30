@@ -59,11 +59,9 @@ class SignInForm extends StatelessWidget {
                 standardHeightSizedBox,
                 AccentButton(
                   text: 'Login',
-                  onPressed: () {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                    context.read<SignInFormBloc>().add(const SignInFormEvent
-                        .signInWithEmailAndPasswordPressed());
-                  },
+                  onPressed: () => context.read<SignInFormBloc>().add(
+                      const SignInFormEvent
+                          .signInWithEmailAndPasswordPressed()),
                 ),
                 const LoginButtonsDivider(),
                 const SocialSignInButtonsSection(),
