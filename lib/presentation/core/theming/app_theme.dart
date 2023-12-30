@@ -67,12 +67,15 @@ ThemeData appTheme = ThemeData(
   ),
   scaffoldBackgroundColor: backgroundColor,
   appBarTheme: const AppBarTheme(
+    centerTitle: true,
     color: appBarColor,
     foregroundColor: darkColor,
     iconTheme: IconThemeData(
       size: 30,
       color: darkColor,
     ),
+    shadowColor: greyColor,
+    elevation: 0,
   ),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
@@ -118,7 +121,7 @@ ThemeData appTheme = ThemeData(
     checkColor: MaterialStateProperty.all(Colors.green),
   ),
   dividerTheme: const DividerThemeData(
-    color: borderColor,
+    color: Color(0XFFc2c8d6),
     thickness: 1.2,
     indent: 0,
     endIndent: 0,

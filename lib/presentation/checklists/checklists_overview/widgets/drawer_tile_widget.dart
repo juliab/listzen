@@ -30,7 +30,7 @@ class DrawerTileWidget extends StatelessWidget {
         titleTextStyle:
             Theme.of(context).textTheme.titleMedium?.copyWith(color: darkColor),
         title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Text(title),
         ),
         trailing: const Icon(
@@ -38,7 +38,7 @@ class DrawerTileWidget extends StatelessWidget {
           size: 15,
         ),
         horizontalTitleGap: 0,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
         onTap: onTap,
       ),
     );
