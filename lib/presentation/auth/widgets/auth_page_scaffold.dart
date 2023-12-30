@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/auth/widgets/top_image.dart';
+import 'package:listzen/presentation/core/keyboard_dismisser.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
 class AuthPageScaffold extends StatelessWidget {
@@ -12,11 +13,10 @@ class AuthPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-        child: Stack(
+    return KeyboardDismisser(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
           children: [
             const MainImage(),
             Column(

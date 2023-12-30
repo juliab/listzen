@@ -8,6 +8,7 @@ import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
 import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/core/keyboard_dismisser.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
@@ -106,27 +107,29 @@ class EditChecklistPageScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      appBar: AppBar(
-        leading: const CancelButton(),
-        title: const ScreenTitle(),
-        actions: const [
-          SaveChecklistButton(),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            EditChecklistInfoTile(
-              autofocus: autofocus,
-            ),
-            const Flexible(child: ItemsList()),
+    return KeyboardDismisser(
+      child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        appBar: AppBar(
+          leading: const CancelButton(),
+          title: const ScreenTitle(),
+          actions: const [
+            SaveChecklistButton(),
           ],
         ),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              EditChecklistInfoTile(
+                autofocus: autofocus,
+              ),
+              const Flexible(child: ItemsList()),
+            ],
+          ),
+        ),
+        floatingActionButton: const AddItemButton(),
       ),
-      floatingActionButton: const AddItemButton(),
     );
   }
 }
