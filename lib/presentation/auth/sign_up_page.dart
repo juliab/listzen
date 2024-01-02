@@ -36,7 +36,8 @@ class SignUpForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return AuthFormContainer(
-          topPadding: 12.0,
+          topPadding: 15.0,
+          bottomPadding: 15.0,
           form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
@@ -63,11 +64,12 @@ class SignUpForm extends StatelessWidget {
                       const SignInFormEvent
                           .registerWithEmailAndPasswordPressed()),
                 ),
-                const SizedBox(height: 30),
+                standardHeightSizedBox,
                 RedirectLink(
                   leadingText: "Already have an account?",
                   linkText: 'Login',
                   onTap: () => AutoRouter.of(context).pop(),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                 ),
               ],
             ),

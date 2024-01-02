@@ -83,9 +83,7 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
             Builder(
               builder: (context) => IconButton(
                 icon: const Icon(Icons.account_circle),
-                onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                },
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               ),
             ),

@@ -38,7 +38,8 @@ class SignInForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return AuthFormContainer(
-          topPadding: 12.0,
+          topPadding: 15.0,
+          bottomPadding: 15.0,
           form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
@@ -70,11 +71,12 @@ class SignInForm extends StatelessWidget {
                   standardHeightSizedBox,
                   const LinearProgressIndicator(),
                 ],
-                const SizedBox(height: 20),
+                standardHeightSizedBox,
                 RedirectLink(
                   leadingText: "Don't have an account?",
                   linkText: 'Sign up',
                   onTap: () => AutoRouter.of(context).push(const SignUpRoute()),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                 ),
               ],
             ),
