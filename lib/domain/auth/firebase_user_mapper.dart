@@ -7,7 +7,7 @@ extension FirebaseUserDomainX on User {
     // if user signed in anonymously email will be empty
     return sc.User(
       id: UniqueId.fromUniqueString(uid),
-      email: email ?? '',
+      email: providerData.first.email ?? '',
       provider: _getAuthProvider(providerData.first.providerId),
     );
   }
