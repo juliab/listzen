@@ -56,10 +56,13 @@ class PasswordResetConfirmationForm extends StatelessWidget {
         style:
             Theme.of(context).textTheme.titleMedium?.copyWith(color: greyColor),
       ),
-      const BackToRouteLink(
+      standardHeightSizedBox,
+      BackToRouteLink(
         text: 'Back to login',
         routeName: SignInRoute.name,
-        padding: EdgeInsets.symmetric(vertical: 15.0),
+        textStyle: Theme.of(context).textTheme.labelLarge,
+        smallIcon: false,
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
       ),
     ]);
   }
