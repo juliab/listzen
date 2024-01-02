@@ -38,6 +38,7 @@ class SignInForm extends StatelessWidget {
       listener: _listenToAuthFailure,
       builder: (context, state) {
         return AuthFormContainer(
+          topPadding: 12.0,
           form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
@@ -46,8 +47,8 @@ class SignInForm extends StatelessWidget {
                   text: 'Back to checklists',
                   routeName: ChecklistsOverviewRoute.name,
                   alignment: MainAxisAlignment.start,
+                  padding: EdgeInsets.symmetric(vertical: 12.0),
                 ),
-                const SizedBox(height: 30.0),
                 const EmailField(
                   showValidationError: false,
                 ),
