@@ -37,13 +37,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test: ^1.21.6
   auto_route_generator: ^7.3.2
-  build_runner: ^2.4.7
+  build_runner: ^2.4.8
   injectable_generator: ^2.4.1
   json_serializable: ^6.7.1
   lint: ^2.2.0
   flutter_native_splash: ^2.3.8
   drift_dev: ^2.14.0
+  mockito: ^5.4.4
+  analyzer: ^5.13.0
 
 flutter_native_splash:
   color: "#0097b2"

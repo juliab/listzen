@@ -12,9 +12,9 @@ import 'package:rxdart/rxdart.dart';
 
 @lazySingleton
 class SqliteChecklistRepository implements IChecklistRepository {
-  final database = d.SqliteDatabase();
+  final d.SqliteDatabase _database;
 
-  SqliteChecklistRepository();
+  SqliteChecklistRepository(this._database);
 
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() async* {
@@ -22,7 +22,7 @@ class SqliteChecklistRepository implements IChecklistRepository {
             Either<ChecklistFailure, List<Checklist>>>.fromBind(
         transformStreamToDomain);
 
-    yield* database
+    yield* _database
         .watchChecklists()
         .transform(streamTransformer)
         .onErrorReturn(left(const ChecklistFailure.databaseError()));
@@ -31,7 +31,7 @@ class SqliteChecklistRepository implements IChecklistRepository {
   @override
   Future<Either<ChecklistFailure, List<Checklist>>> getAll() async {
     try {
-      final checklists = (await database.getAllChecklists())
+      final checklists = (await _database.getAllChecklists())
           .map((checklist) => toDomain(checklist))
           .toList();
       return right(checklists);
@@ -43,7 +43,7 @@ class SqliteChecklistRepository implements IChecklistRepository {
   @override
   Future<Either<ChecklistFailure, Unit>> create(Checklist checklist) async {
     try {
-      await database.createChecklist(checklistDomainToCompanion(checklist));
+      await _database.createChecklist(checklistDomainToCompanion(checklist));
       return right(unit);
     } on Exception catch (_) {
       return left(const ChecklistFailure.databaseError());
@@ -53,7 +53,7 @@ class SqliteChecklistRepository implements IChecklistRepository {
   @override
   Future<Either<ChecklistFailure, Unit>> update(Checklist checklist) async {
     try {
-      await database.updateChecklist(checklistDomainToCompanion(checklist));
+      await _database.updateChecklist(checklistDomainToCompanion(checklist));
       return right(unit);
     } on Exception catch (_) {
       return left(const ChecklistFailure.databaseError());
@@ -63,7 +63,7 @@ class SqliteChecklistRepository implements IChecklistRepository {
   @override
   Future<Either<ChecklistFailure, Unit>> delete(Checklist checklist) async {
     try {
-      await database.deleteChecklist(checklist.id.getOrCrash());
+      await _database.deleteChecklist(checklist.id.getOrCrash());
       return right(unit);
     } on Exception catch (_) {
       return left(const ChecklistFailure.databaseError());
@@ -73,7 +73,7 @@ class SqliteChecklistRepository implements IChecklistRepository {
   @override
   Future<Either<ChecklistFailure, Unit>> deleteAll() async {
     try {
-      await database.deleteAll();
+      await _database.deleteAll();
       return right(unit);
     } on Exception catch (_) {
       return left(const ChecklistFailure.databaseError());
