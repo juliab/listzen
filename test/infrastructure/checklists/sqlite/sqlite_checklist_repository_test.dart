@@ -22,7 +22,7 @@ void main() {
     repository = SqliteChecklistRepository(mockDatabase);
   });
 
-  group('create', () {
+  group('create method tests', () {
     final checklist = d.Checklist(
       id: UniqueId(),
       name: ChecklistName("Test checklist"),

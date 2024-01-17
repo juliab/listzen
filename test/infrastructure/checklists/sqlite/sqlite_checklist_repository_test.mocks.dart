@@ -2,7 +2,7 @@
 // in listzen/test/infrastructure/checklists/sqlite/sqlite_checklist_repository_test.dart.
 // Do not manually edit this file.
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+// ignore_for_file: no_leading_underscores_for_library_prefixes, invalid_use_of_internal_member
 import 'dart:async' as _i5;
 
 import 'package:drift/drift.dart' as _i3;
