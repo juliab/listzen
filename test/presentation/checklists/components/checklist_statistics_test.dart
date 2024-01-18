@@ -7,24 +7,13 @@ import 'package:listzen/domain/checklists/item.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
 import 'package:listzen/presentation/checklists/components/checklist_statistics.dart';
 
+import '../../../data/test_data_generator.dart';
+
 void main() {
   testWidgets("Checklist completion statistics is displayed correctly",
       (tester) async {
-    // Test checklist contains 15 items. 8 of them are marked as completed
-    const checklistName = 'Orange checklist';
-    final checklist = Checklist(
-      id: UniqueId(),
-      name: ChecklistName(checklistName),
-      color: ChecklistColor.orange,
-      items: List<Item>.generate(
-        15,
-        (i) => Item(
-          id: UniqueId(),
-          name: ItemName('Item $i'),
-          done: i.isEven,
-        ),
-      ),
-    );
+    // Test checklist contains 16 items. 8 of them are marked as completed
+    final checklist = TestDataGenerator.checklistItemsHalfCompleted(16);
 
     // Build the widget
     await tester.pumpWidget(MaterialApp(
@@ -34,6 +23,6 @@ void main() {
     ));
 
     // Verify statistics is displayed correclty
-    expect(find.text('8 / 15'), findsOneWidget);
+    expect(find.text('8 / 16'), findsOneWidget);
   });
 }
