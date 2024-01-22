@@ -29,3 +29,4 @@ success_check.iml
 .DS_Store
 .vscode
 */Podfile.lock
+coverage
