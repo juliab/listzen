@@ -72,10 +72,8 @@ class ScreenTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
       buildWhen: (previous, current) => previous.isEditing != current.isEditing,
-      builder: (context, state) => Center(
-        child: Text(
-          state.isEditing ? 'Edit checklist' : 'Create checklist',
-        ),
+      builder: (context, state) => Text(
+        state.isEditing ? 'Edit checklist' : 'Create checklist',
       ),
     );
   }

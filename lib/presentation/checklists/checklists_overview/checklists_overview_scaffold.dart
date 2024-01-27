@@ -17,27 +17,44 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         endDrawer: const MyAccountDrawer(),
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Center(child: Text('Checklists')),
-          actions: [
-            Builder(
-              builder: (context) => IconButton(
-                icon: const Icon(Icons.account_circle),
-                onPressed: () => Scaffold.of(context).openEndDrawer(),
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              ),
+        floatingActionButton: const AddChecklistButton(),
+        body: CustomScrollView(
+          slivers: [
+            _buildSliverAppBar(),
+            const SliverPadding(
+              padding: EdgeInsets.all(12.0),
+              sliver: ChecklistsOverviewBody(),
             ),
           ],
         ),
-        floatingActionButton: const AddChecklistButton(),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: ChecklistsOverviewBody(),
-          ),
-        ),
+      ),
+    );
+  }
+
+  Widget _buildSliverAppBar() {
+    return const SliverAppBar(
+      automaticallyImplyLeading: false,
+      centerTitle: true,
+      snap: true,
+      floating: true,
+      title: Text('Checklists'),
+      actions: [
+        AccountIconButton(),
+      ],
+    );
+  }
+}
+
+class AccountIconButton extends StatelessWidget {
+  const AccountIconButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) => IconButton(
+        icon: const Icon(Icons.account_circle),
+        onPressed: () => Scaffold.of(context).openEndDrawer(),
+        tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
       ),
     );
   }

@@ -125,45 +125,43 @@ class EditItemTile extends HookWidget {
     final textEditingController = useTextEditingController(
         text: item.name.value.fold((f) => f.failedValue, (name) => name));
 
-    return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
-      builder: (context, state) => ItemTile.editable(
-        textEditingController: textEditingController,
-        onChanged: (value) => BlocProvider.of<ChecklistEditBloc>(context).add(
-          ChecklistEditEvent.itemNameChanged(
-            index: index,
-            name: value!,
-          ),
+    return ItemTile.editable(
+      textEditingController: textEditingController,
+      onChanged: (value) => BlocProvider.of<ChecklistEditBloc>(context).add(
+        ChecklistEditEvent.itemNameChanged(
+          index: index,
+          name: value!,
         ),
-        onSubmitted: (_) {
-          BlocProvider.of<ManageFocusCubit>(context).addNodeAndRequestFocus();
-          BlocProvider.of<ChecklistEditBloc>(context).add(
-            const ChecklistEditEvent.itemAdded(),
-          );
-        },
-        completionStatusCheckbox: CompletionStatusCheckbox(
-          isCompleted: () => BlocProvider.of<ChecklistEditBloc>(context)
-              .state
-              .checklist
-              .items[index]
-              .done,
-          onChanged: (value) => BlocProvider.of<ChecklistEditBloc>(context).add(
-            ChecklistEditEvent.itemCompletionStatusChanged(
-              index: index,
-              isDone: value!,
-            ),
-          ),
-          insideCard: false,
-        ),
-        onRemove: () {
-          FocusManager.instance.primaryFocus?.unfocus();
-          BlocProvider.of<ChecklistEditBloc>(context)
-              .add(ChecklistEditEvent.itemRemoved(index: index));
-          BlocProvider.of<ManageFocusCubit>(context).disposeNode(index);
-        },
-        reorderable: true,
-        index: index,
-        focusNode: focusNode,
       ),
+      onSubmitted: (_) {
+        BlocProvider.of<ManageFocusCubit>(context).addNodeAndRequestFocus();
+        BlocProvider.of<ChecklistEditBloc>(context).add(
+          const ChecklistEditEvent.itemAdded(),
+        );
+      },
+      completionStatusCheckbox: CompletionStatusCheckbox(
+        isCompleted: () => BlocProvider.of<ChecklistEditBloc>(context)
+            .state
+            .checklist
+            .items[index]
+            .done,
+        onChanged: (value) => BlocProvider.of<ChecklistEditBloc>(context).add(
+          ChecklistEditEvent.itemCompletionStatusChanged(
+            index: index,
+            isDone: value!,
+          ),
+        ),
+        insideCard: false,
+      ),
+      onRemove: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+        BlocProvider.of<ChecklistEditBloc>(context)
+            .add(ChecklistEditEvent.itemRemoved(index: index));
+        BlocProvider.of<ManageFocusCubit>(context).disposeNode(index);
+      },
+      reorderable: true,
+      index: index,
+      focusNode: focusNode,
     );
   }
 }

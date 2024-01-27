@@ -14,29 +14,32 @@ class ChecklistsOverviewBody extends StatelessWidget {
     return BlocBuilder<ChecklistWatcherBloc, ChecklistWatcherState>(
         builder: (context, state) {
       return state.map(initial: (_) {
-        return Container();
+        return const SliverFillRemaining();
       }, loadInProgress: (_) {
-        return const Center(child: CircularProgressIndicator());
+        return const SliverFillRemaining(
+            child: Center(child: CircularProgressIndicator()));
       }, loadSuccess: (state) {
         final itemCount = state.checklists.length;
         if (itemCount == 0) {
           return const NoChecklistsText();
         }
         return SlidableAutoCloseBehavior(
-          child: ListView.builder(
-            itemCount: itemCount,
-            itemBuilder: (context, index) {
+          child: SliverFixedExtentList(
+            itemExtent: 80,
+            delegate: SliverChildBuilderDelegate((context, index) {
               final checklist = state.checklists[index];
               if (checklist.failureOption.isSome()) {
                 return ErrorChecklistCard(checklist: checklist);
               } else {
                 return ChecklistCard(checklist: checklist);
               }
-            },
+            }, childCount: itemCount),
           ),
         );
       }, loadFailure: (state) {
-        return CriticalFailureDisplay(failure: state.failure);
+        return SliverFillRemaining(
+          child: CriticalFailureDisplay(failure: state.failure),
+        );
       });
     });
   }
@@ -47,14 +50,16 @@ class NoChecklistsText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      child: Center(
-        child: Text(
-          'No checklists yet.\nStart creating your first checklist '
-          'to stay on track!',
-          style: Theme.of(context).textTheme.bodyLarge,
-          textAlign: TextAlign.center,
+      sliver: SliverFillRemaining(
+        child: Center(
+          child: Text(
+            'No checklists yet.\nStart creating your first checklist '
+            'to stay on track!',
+            style: Theme.of(context).textTheme.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );
