@@ -19,24 +19,34 @@ class AuthPageScaffold extends StatelessWidget {
         body: Stack(
           children: [
             const MainImage(),
-            Column(
-              children: [
-                const Spacer(),
-                form,
-                Builder(builder: (context) {
-                  final keyboardHeight =
-                      MediaQuery.of(context).viewInsets.bottom;
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 10),
-                    height: keyboardHeight,
-                    color: backgroundColor,
-                  );
-                }),
-              ],
+            LayoutBuilder(
+              builder: (context, viewportConstraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: viewportConstraints.maxHeight,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        form,
+                        _buildContainerToCoverKeyboard(context),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
       ),
     );
   }
+
+  Widget _buildContainerToCoverKeyboard(BuildContext context) =>
+      AnimatedContainer(
+        duration: const Duration(milliseconds: 10),
+        height: MediaQuery.of(context).viewInsets.bottom, // keyboard height
+        color: backgroundColor,
+      );
 }
