@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:listzen/presentation/auth/components/auth_form_container.dart';
+import 'package:listzen/presentation/auth/components/auth_page_scaffold.dart';
+import 'package:listzen/presentation/auth/components/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
-import 'package:listzen/presentation/auth/widgets/auth_form_container.dart';
-import 'package:listzen/presentation/auth/widgets/auth_page_scaffold.dart';
-import 'package:listzen/presentation/auth/widgets/back_to_route_link.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 

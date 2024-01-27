@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
-import 'package:listzen/presentation/auth/widgets/social_sign_in_button.dart';
+import 'package:listzen/presentation/auth/sign_in/social_sign_in_button.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
 class SocialSignInButtonsSection extends StatelessWidget {

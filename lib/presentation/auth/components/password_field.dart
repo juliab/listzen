@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
-import 'package:listzen/presentation/auth/widgets/auth_text_field.dart';
-import 'package:listzen/presentation/auth/widgets/forgot_password_link.dart';
+import 'package:listzen/presentation/auth/components/auth_text_field.dart';
+import 'package:listzen/presentation/auth/components/forgot_password_link.dart';
 
 const insecurePasswordError = "Password must be at least 6 characters long, "
     "including one letter, one digit, and one special character";

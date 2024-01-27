@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listzen/presentation/auth/widgets/top_image.dart';
+import 'package:listzen/presentation/auth/components/top_image.dart';
 import 'package:listzen/presentation/core/keyboard_dismisser.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
