@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 
 class AuthTextField extends StatelessWidget {
   final String labelName;
   final Widget? validCheckbox;
-  final Widget? linkOnTheRight;
+  final Widget? link;
   final bool obscureText;
   final Function(String) onChanged;
   final String? Function()? validator;
@@ -13,7 +14,7 @@ class AuthTextField extends StatelessWidget {
     super.key,
     required this.labelName,
     this.validCheckbox,
-    this.linkOnTheRight,
+    this.link,
     this.obscureText = false,
     required this.onChanged,
     required this.validator,
@@ -26,55 +27,46 @@ class AuthTextField extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            AuthFieldLabel(
-              labelName: labelName,
-              validCheckbox: validCheckbox,
-            ),
-            if (linkOnTheRight != null) ...[
-              linkOnTheRight!,
+            _buildAuthFieldLabel(context),
+            if (link != null) ...[
+              link!,
             ]
           ],
         ),
-        const SizedBox(height: 6),
-        TextFormField(
-            autocorrect: false,
-            obscureText: obscureText,
-            onChanged: onChanged,
-            validator: (value) {
-              if (value != null && value.isEmpty) {
-                return "Field is required";
-              }
-              return validator?.call();
-            }),
+        const Spacing.vertical(factor: 0.3),
+        _buildTextFormField(context),
       ],
     );
   }
-}
 
-class AuthFieldLabel extends StatelessWidget {
-  final String labelName;
-  final Widget? validCheckbox;
-
-  const AuthFieldLabel({
-    super.key,
-    required this.labelName,
-    required this.validCheckbox,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildAuthFieldLabel(BuildContext context) {
     return Row(
       children: [
         Text(
           labelName,
-          style: Theme.of(context).textTheme.labelMedium,
+          style: Theme.of(context).textTheme.labelSmall,
         ),
         if (validCheckbox != null) ...[
-          const SizedBox(width: 5),
+          const Spacing.horizontal(factor: 0.5),
           validCheckbox!,
         ]
       ],
+    );
+  }
+
+  Widget _buildTextFormField(BuildContext context) {
+    return TextFormField(
+      autocorrect: false,
+      obscureText: obscureText,
+      onChanged: onChanged,
+      validator: (value) {
+        if (value != null && value.isEmpty) {
+          return "Field is required";
+        }
+        return validator?.call();
+      },
     );
   }
 }

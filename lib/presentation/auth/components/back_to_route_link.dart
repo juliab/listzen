@@ -1,60 +1,61 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
+import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 const iconData = Icons.arrow_back;
-const smallIconSize = 16.0;
 
 class BackToRouteLink extends StatelessWidget {
   final String text;
   final String? routeName;
   final MainAxisAlignment alignment;
-  final EdgeInsetsGeometry padding;
-  final TextStyle? textStyle;
   final Color color;
-  final bool? smallIcon;
 
   const BackToRouteLink({
     super.key,
     required this.text,
     this.routeName,
     this.alignment = MainAxisAlignment.center,
-    this.padding = EdgeInsets.zero,
-    this.textStyle,
     this.color = greyColor,
-    this.smallIcon = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => routeName != null
-          ? AutoRouter.of(context).popUntilRouteWithName(routeName!)
-          : AutoRouter.of(context).pop(),
-      child: Padding(
-        padding: padding,
+      onTap: _pop(context),
+      child: StandardPadding.vertical(
         child: Row(
           mainAxisAlignment: alignment,
           children: [
-            Icon(
-              iconData,
-              color: color,
-              size: smallIcon! ? smallIconSize : null,
-            ),
-            const SizedBox(width: 5),
-            Text(
-              text,
-              style: textStyle != null
-                  ? textStyle!.copyWith(color: color)
-                  : Theme.of(context)
-                      .textTheme
-                      .labelMedium
-                      ?.copyWith(color: color),
-            ),
+            _buildBackIcon(context),
+            const Spacing.horizontal(factor: 0.3),
+            _buildLinkText(context),
           ],
         ),
       ),
+    );
+  }
+
+  void Function()? _pop(BuildContext context) {
+    return () => routeName != null
+        ? AutoRouter.of(context).popUntilRouteWithName(routeName!)
+        : AutoRouter.of(context).pop();
+  }
+
+  Widget _buildBackIcon(BuildContext context) {
+    return Icon(
+      iconData,
+      color: color,
+      size: backIconSize(context),
+    );
+  }
+
+  Widget _buildLinkText(BuildContext context) {
+    return Text(
+      text,
+      style: authLinkTextStyle(context)?.copyWith(color: color),
     );
   }
 }

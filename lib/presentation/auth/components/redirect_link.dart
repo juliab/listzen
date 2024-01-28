@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class RedirectLink extends StatelessWidget {
   final String leadingText;
   final String linkText;
   final Function()? onTap;
-  final EdgeInsetsGeometry padding;
 
   const RedirectLink({
     super.key,
     required this.leadingText,
     required this.linkText,
     required this.onTap,
-    this.padding = EdgeInsets.zero,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Padding(
-        padding: padding,
+      child: StandardPadding.vertical(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              leadingText,
-              style: Theme.of(context)
-                  .textTheme
-                  .labelMedium
-                  ?.copyWith(color: greyColor),
-            ),
-            const SizedBox(width: 8),
-            Text(
-              linkText,
-              style: Theme.of(context)
-                  .textTheme
-                  .labelMedium
-                  ?.copyWith(color: darkColor),
-            ),
+            _buildLeadingText(context),
+            const Spacing.horizontal(factor: 0.7),
+            _buildLinkText(context),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildLeadingText(BuildContext context) {
+    return Text(
+      leadingText,
+      style: authLinkTextStyle(context)?.copyWith(color: greyColor),
+    );
+  }
+
+  Widget _buildLinkText(BuildContext context) {
+    return Text(
+      linkText,
+      style: authLinkTextStyle(context)?.copyWith(color: darkColor),
     );
   }
 }

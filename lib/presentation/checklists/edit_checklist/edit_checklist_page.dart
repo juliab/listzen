@@ -6,8 +6,8 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/edit_checklist_scaffold.dart';
-import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
+import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 

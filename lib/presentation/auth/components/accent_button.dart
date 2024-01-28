@@ -21,12 +21,10 @@ class AccentButton extends StatelessWidget {
       ),
       child: OutlinedButton(
         onPressed: onPressed,
+        style: authButtonStyle(context),
         child: Text(
           text,
-          style: Theme.of(context)
-              .textTheme
-              .labelLarge
-              ?.copyWith(color: backgroundColor),
+          style: authButtonTextStyle(context)?.copyWith(color: backgroundColor),
         ),
       ),
     );

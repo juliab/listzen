@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
-import 'package:listzen/presentation/core/keyboard_dismisser.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/keyboard_dismisser.dart';
 
 class EditChecklistPageScaffold extends StatelessWidget {
   final bool autofocus;

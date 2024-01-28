@@ -5,7 +5,7 @@ import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dar
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/auth/components/auth_page_scaffold.dart';
 import 'package:listzen/presentation/auth/reset_password/reset_password_form.dart';
-import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()

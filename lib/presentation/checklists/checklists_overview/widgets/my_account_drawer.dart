@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/auth_bloc.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/drawer_tile_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer_header.dart';
-import 'package:listzen/presentation/core/auth_helpers.dart';
+import 'package:listzen/presentation/auth/auth_helpers.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 

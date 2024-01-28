@@ -10,7 +10,7 @@ import 'package:listzen/presentation/auth/components/login_buttons_divider.dart'
 import 'package:listzen/presentation/auth/components/password_field.dart';
 import 'package:listzen/presentation/auth/components/redirect_link.dart';
 import 'package:listzen/presentation/auth/sign_in/social_sign_in_buttons_section.dart';
-import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 class SignInForm extends StatelessWidget {
@@ -21,51 +21,60 @@ class SignInForm extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return AuthFormContainer(
-          topPadding: 15.0,
-          bottomPadding: 15.0,
           form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
               children: [
-                const BackToRouteLink(
-                  text: 'Back to checklists',
-                  routeName: ChecklistsOverviewRoute.name,
-                  alignment: MainAxisAlignment.start,
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                ),
+                _buildBackToChecklistLink(),
+                const Spacing.vertical(),
                 const EmailField(
                   showValidationError: false,
                 ),
-                standardHeightSizedBox,
+                const Spacing.vertical(),
                 const PasswordField(
                   showForgotPasswordLink: true,
                   showValidationError: false,
                 ),
-                standardHeightSizedBox,
-                AccentButton(
-                  text: 'Login',
-                  onPressed: () => context.read<SignInFormBloc>().add(
-                      const SignInFormEvent
-                          .signInWithEmailAndPasswordPressed()),
-                ),
+                const Spacing.vertical(factor: 1.5),
+                _buildLoginButton(context),
                 const LoginButtonsDivider(),
                 const SocialSignInButtonsSection(),
                 if (state.isSubmitting) ...[
-                  standardHeightSizedBox,
+                  const Spacing.vertical(),
                   const LinearProgressIndicator(),
                 ],
-                standardHeightSizedBox,
-                RedirectLink(
-                  leadingText: "Don't have an account?",
-                  linkText: 'Sign up',
-                  onTap: () => AutoRouter.of(context).push(const SignUpRoute()),
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                ),
+                const Spacing.vertical(),
+                _buildSignUpLink(context),
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildBackToChecklistLink() {
+    return const BackToRouteLink(
+      text: 'Back to checklists',
+      routeName: ChecklistsOverviewRoute.name,
+      alignment: MainAxisAlignment.start,
+    );
+  }
+
+  Widget _buildLoginButton(BuildContext context) {
+    return AccentButton(
+      text: 'Login',
+      onPressed: () => context.read<SignInFormBloc>().add(
+            const SignInFormEvent.signInWithEmailAndPasswordPressed(),
+          ),
+    );
+  }
+
+  Widget _buildSignUpLink(BuildContext context) {
+    return RedirectLink(
+      leadingText: "Don't have an account?",
+      linkText: 'Sign up',
+      onTap: () => AutoRouter.of(context).push(const SignUpRoute()),
     );
   }
 }

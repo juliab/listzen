@@ -24,9 +24,13 @@ ThemeData appTheme = ThemeData(
     ),
   ),
   textTheme: const TextTheme(
-    bodyMedium: TextStyle(
+    bodySmall: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
+    ),
+    bodyMedium: TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 14,
     ),
     bodyLarge: TextStyle(
       fontWeight: FontWeight.normal,
@@ -45,24 +49,33 @@ ThemeData appTheme = ThemeData(
     ),
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      fontSize: 14,
+      letterSpacing: -1,
+      fontSize: 17,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.bold,
       letterSpacing: -1,
+      fontSize: 16,
     ),
     titleLarge: TextStyle(
       fontWeight: FontWeight.bold,
+      letterSpacing: -1,
+      fontSize: 18,
     ),
     labelLarge: TextStyle(
       fontWeight: FontWeight.bold,
       letterSpacing: -1,
-      fontSize: 14,
+      fontSize: 16,
     ),
     labelMedium: TextStyle(
       fontWeight: FontWeight.bold,
       letterSpacing: -1,
-      fontSize: 12,
+      fontSize: 15,
+    ),
+    labelSmall: TextStyle(
+      fontWeight: FontWeight.bold,
+      letterSpacing: -1,
+      fontSize: 14,
     ),
   ),
   scaffoldBackgroundColor: backgroundColor,
@@ -87,7 +100,7 @@ ThemeData appTheme = ThemeData(
       letterSpacing: -1,
     ),
     errorMaxLines: 3,
-    contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
+    contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
   ),
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(
@@ -101,7 +114,6 @@ ThemeData appTheme = ThemeData(
         borderRadius: standardBorderRadius,
       ),
       side: BorderSide.none,
-      minimumSize: const Size.fromHeight(40),
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(

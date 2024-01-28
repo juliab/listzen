@@ -6,6 +6,7 @@ import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dar
 import 'package:listzen/presentation/auth/sign_in/social_sign_in_button.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 
 class SocialSignInButtonsSection extends StatelessWidget {
   final bool relogin;
@@ -19,13 +20,11 @@ class SocialSignInButtonsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SignInWithGoogleButton(relogin: relogin),
         if (Platform.isIOS) ...[
-          const SizedBox(
-            height: 8,
-          ),
           SignInWithAppleButton(relogin: relogin),
-        ]
+          const Spacing.vertical(factor: 1.3),
+        ],
+        SignInWithGoogleButton(relogin: relogin),
       ],
     );
   }
@@ -42,27 +41,29 @@ class SignInWithGoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SocialSignInButton(
-      onPressed: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-        context.read<SignInFormBloc>().add(relogin
-            ? const SignInFormEvent.reloginWithGooglePressed()
-            : const SignInFormEvent.signInWithGooglePressed());
-      },
-      logo: const Logo(name: 'icons/google.png'),
+      onPressed: _signIn(context),
+      logo: _buildLogo(),
       text: Text(
         'Sign in with Google',
-        style:
-            Theme.of(context).textTheme.labelLarge?.copyWith(color: blackColor),
+        style: authButtonTextStyle(context)?.copyWith(color: blackColor),
       ),
-      style: Theme.of(context).outlinedButtonTheme.style?.copyWith(
-            side: const MaterialStatePropertyAll<BorderSide>(
-              BorderSide(
-                color: borderColor,
-                width: 1.5,
-              ),
-            ),
-          ),
+      style: googleButtonStyle(context),
     );
+  }
+
+  dynamic Function() _signIn(BuildContext context) {
+    return () {
+      FocusManager.instance.primaryFocus?.unfocus();
+      context.read<SignInFormBloc>().add(
+            relogin
+                ? const SignInFormEvent.reloginWithGooglePressed()
+                : const SignInFormEvent.signInWithGooglePressed(),
+          );
+    };
+  }
+
+  Logo _buildLogo() {
+    return const Logo(name: 'icons/google.png');
   }
 }
 
@@ -77,24 +78,31 @@ class SignInWithAppleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SocialSignInButton(
-      onPressed: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-        context.read<SignInFormBloc>().add(
-              relogin
-                  ? const SignInFormEvent.reloginWithApplePressed()
-                  : const SignInFormEvent.signInWithApplePressed(),
-            );
-      },
-      logo: const Logo(
-        name: 'icons/apple.png',
-        color: whiteColor,
-      ),
+      onPressed: _signIn(context),
+      logo: _buildLogo(),
       text: Text(
         'Sign in with Apple',
-        style:
-            Theme.of(context).textTheme.labelLarge?.copyWith(color: whiteColor),
+        style: authButtonTextStyle(context)?.copyWith(color: whiteColor),
       ),
-      style: appleButtonStyle,
+      style: appleButtonStyle(context),
+    );
+  }
+
+  dynamic Function() _signIn(BuildContext context) {
+    return () {
+      FocusManager.instance.primaryFocus?.unfocus();
+      context.read<SignInFormBloc>().add(
+            relogin
+                ? const SignInFormEvent.reloginWithApplePressed()
+                : const SignInFormEvent.signInWithApplePressed(),
+          );
+    };
+  }
+
+  Logo _buildLogo() {
+    return const Logo(
+      name: 'icons/apple.png',
+      color: whiteColor,
     );
   }
 }

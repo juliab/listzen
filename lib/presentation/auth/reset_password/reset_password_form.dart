@@ -14,7 +14,6 @@ class ResetPasswordForm extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return AuthFormContainer(
-          topPadding: 5.0,
           form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
@@ -22,7 +21,6 @@ class ResetPasswordForm extends StatelessWidget {
                 const BackToRouteLink(
                   text: 'Back to login',
                   alignment: MainAxisAlignment.start,
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
                 ),
                 const EmailField(
                   showValidationError: false,

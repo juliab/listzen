@@ -18,29 +18,17 @@ class EmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AuthTextField(
       labelName: "Email",
-      validCheckbox: _getValidCheckbox(context),
-      onChanged: (value) => context.read<SignInFormBloc>().add(
-            SignInFormEvent.emailChanged(value),
-          ),
-      validator: () => context
-          .read<SignInFormBloc>()
-          .state
-          .emailAddress
-          .value
-          .fold(
-            (f) => f.maybeMap(
-              invalidEmail: (_) => showValidationError ? 'Invalid email' : null,
-              orElse: () => null,
-            ),
-            (_) => null,
-          ),
+      validCheckbox: _buildValidCheckbox(context),
+      onChanged: (value) => _updateEmail(context, value),
+      validator: _validate(context),
     );
   }
 
-  Widget? _getValidCheckbox(BuildContext context) {
+  Widget? _buildValidCheckbox(BuildContext context) {
     if (!showValidCheckbox) {
       return null;
     }
+
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       buildWhen: (previous, current) =>
           previous.emailAddress.value != current.emailAddress.value,
@@ -48,5 +36,21 @@ class EmailField extends StatelessWidget {
           ? const ValidCheckbox()
           : Container(),
     );
+  }
+
+  dynamic Function(String) _updateEmail(BuildContext context, String value) {
+    return (value) => context.read<SignInFormBloc>().add(
+          SignInFormEvent.emailChanged(value),
+        );
+  }
+
+  String? Function()? _validate(BuildContext context) {
+    return () => context.read<SignInFormBloc>().state.emailAddress.value.fold(
+          (f) => f.maybeMap(
+            invalidEmail: (_) => showValidationError ? 'Invalid email' : null,
+            orElse: () => null,
+          ),
+          (_) => null,
+        );
   }
 }

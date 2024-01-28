@@ -17,7 +17,7 @@ class ForgotPasswordLink extends StatelessWidget {
         ),
         child: Text(
           'Forgot password?',
-          style: Theme.of(context).textTheme.labelMedium,
+          style: authLinkTextStyle(context),
         ),
       ),
     );

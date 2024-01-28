@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer.dart';
-import 'package:listzen/presentation/core/keyboard_dismisser.dart';
+import 'package:listzen/presentation/core/widgets/keyboard_dismisser.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 class ChecklistsOverviewScaffold extends StatelessWidget {

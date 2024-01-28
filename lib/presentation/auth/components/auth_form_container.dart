@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
-
-const double sidePadding = 20.0;
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class AuthFormContainer extends StatelessWidget {
   final Widget form;
-  final double topPadding;
-  final double bottomPadding;
 
   const AuthFormContainer({
     super.key,
     required this.form,
-    this.topPadding = 25.0,
-    this.bottomPadding = 30.0,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: formDecoration,
-      padding: EdgeInsets.only(
-        left: sidePadding,
-        right: sidePadding,
-        top: topPadding,
-        bottom: bottomPadding,
-      ),
+      padding: StandardPadding.edgeInsetsOnly(
+        context: context,
+        topFactor: 1,
+        leftFactor: 1.2,
+        rightFactor: 1.2,
+      ).copyWith(bottom: MediaQuery.of(context).padding.bottom),
       child: form,
     );
   }

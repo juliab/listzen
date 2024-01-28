@@ -18,7 +18,6 @@ class DeleteAccountSignInForm extends StatelessWidget {
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       builder: (context, state) {
         return AuthFormContainer(
-          bottomPadding: 15.0,
           form: Form(
             autovalidateMode: state.autovalidateMode,
             child: Column(
@@ -48,11 +47,8 @@ class DeleteAccountSignInForm extends StatelessWidget {
                   const LinearProgressIndicator(),
                 ],
                 standardHeightSizedBox,
-                BackToRouteLink(
+                const BackToRouteLink(
                   text: 'Cancel and return to the app',
-                  textStyle: Theme.of(context).textTheme.labelLarge,
-                  smallIcon: false,
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                 ),
               ],
             ),

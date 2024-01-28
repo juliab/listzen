@@ -20,7 +20,6 @@ class PasswordResetConfirmationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AuthPageScaffold(
       form: AuthFormContainer(
-        bottomPadding: 15.0,
         form: PasswordResetConfirmationForm(emailAddress: emailAddress),
       ),
     );
@@ -57,12 +56,9 @@ class PasswordResetConfirmationForm extends StatelessWidget {
             Theme.of(context).textTheme.titleMedium?.copyWith(color: greyColor),
       ),
       standardHeightSizedBox,
-      BackToRouteLink(
+      const BackToRouteLink(
         text: 'Back to login',
         routeName: SignInRoute.name,
-        textStyle: Theme.of(context).textTheme.labelLarge,
-        smallIcon: false,
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
       ),
     ]);
   }

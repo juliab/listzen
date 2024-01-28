@@ -8,8 +8,8 @@ import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/auth/components/auth_page_scaffold.dart';
 import 'package:listzen/presentation/auth/delete_account/delete_account_confirmation_dialog.dart';
 import 'package:listzen/presentation/auth/delete_account/delete_account_sign_in_form.dart';
-import 'package:listzen/presentation/core/error_flushbar.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 

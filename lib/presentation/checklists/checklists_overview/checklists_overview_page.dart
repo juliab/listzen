@@ -7,7 +7,7 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/checklists_overview_scaffold.dart';
-import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 
 @RoutePage()
 class ChecklistsOverviewPage extends StatelessWidget {
