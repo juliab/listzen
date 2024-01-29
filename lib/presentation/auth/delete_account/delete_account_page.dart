@@ -166,9 +166,8 @@ class DeletionConfirmationDialog extends StatelessWidget {
       ),
       actions: [
         TextButton(
-          onPressed: () async {
-            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
-          },
+          onPressed: () async =>
+              AutoRouter.of(context).push(const ChecklistsOverviewRoute()),
           child: const Text(
             'OK',
           ),
