@@ -38,8 +38,8 @@ class EmailField extends StatelessWidget {
     );
   }
 
-  dynamic Function(String) _updateEmail(BuildContext context, String value) {
-    return (value) => context.read<SignInFormBloc>().add(
+  void _updateEmail(BuildContext context, String value) {
+    context.read<SignInFormBloc>().add(
           SignInFormEvent.emailChanged(value),
         );
   }

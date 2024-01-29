@@ -47,7 +47,7 @@ class PasswordField extends StatelessWidget {
       onChanged: (value) => context
           .read<SignInFormBloc>()
           .add(SignInFormEvent.passwordChanged(value)),
-      validator: _validate(context),
+      validator: _passwordValidator(context),
     );
   }
 
@@ -62,7 +62,7 @@ class PasswordField extends StatelessWidget {
     );
   }
 
-  String? Function()? _validate(BuildContext context) {
+  String? Function()? _passwordValidator(BuildContext context) {
     return () => context.read<SignInFormBloc>().state.password.value.fold(
           (f) => f.maybeMap(
             insecurePassword: (_) =>
