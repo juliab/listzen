@@ -8,7 +8,7 @@ import 'package:listzen/presentation/auth/components/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/components/email_field.dart';
 import 'package:listzen/presentation/auth/components/password_field.dart';
 import 'package:listzen/presentation/auth/components/redirect_link.dart';
-import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -24,37 +24,50 @@ class SignUpForm extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const BackToRouteLink(
-                  text: 'Back to checklists',
-                  routeName: ChecklistsOverviewRoute.name,
-                  alignment: MainAxisAlignment.start,
-                ),
+                _buildBackToChecklistLink(),
+                const Spacing.vertical(),
                 const EmailField(
                   showValidCheckbox: true,
                 ),
-                standardHeightSizedBox,
+                const Spacing.vertical(),
                 const PasswordField(
                   showConfirmPasswordField: true,
                   showValidCheckbox: true,
                 ),
-                standardHeightSizedBox,
-                AccentButton(
-                  text: 'Create account',
-                  onPressed: () => context.read<SignInFormBloc>().add(
-                      const SignInFormEvent
-                          .registerWithEmailAndPasswordPressed()),
-                ),
-                standardHeightSizedBox,
-                RedirectLink(
-                  leadingText: "Already have an account?",
-                  linkText: 'Login',
-                  onTap: () => AutoRouter.of(context).pop(),
-                ),
+                const Spacing.vertical(factor: 1.5),
+                _buildCreateAccountButton(context),
+                const Spacing.vertical(factor: 1.5),
+                _buildSignInLink(context),
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildBackToChecklistLink() {
+    return const BackToRouteLink(
+      text: 'Back to checklists',
+      routeName: ChecklistsOverviewRoute.name,
+      alignment: MainAxisAlignment.start,
+    );
+  }
+
+  Widget _buildCreateAccountButton(BuildContext context) {
+    return AccentButton(
+      text: 'Create account',
+      onPressed: () => context.read<SignInFormBloc>().add(
+            const SignInFormEvent.registerWithEmailAndPasswordPressed(),
+          ),
+    );
+  }
+
+  Widget _buildSignInLink(BuildContext context) {
+    return RedirectLink(
+      leadingText: "Already have an account?",
+      linkText: 'Login',
+      onTap: () => AutoRouter.of(context).pop(),
     );
   }
 }

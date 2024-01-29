@@ -44,21 +44,22 @@ class SignUpPage extends StatelessWidget {
   void _listenToAuthFailure(BuildContext context, SignInFormState state) {
     state.authFailureOrSuccessOption.fold(
       () {},
-      (either) => either.fold((failure) {
-        final errorMessage = failure.maybeMap(
-          cancelledByUser: (_) => 'Sign in cancelled',
-          serverError: (_) => 'Server error. Please try again later.',
-          emailAlreadyInUse: (_) => 'Email already in use',
-          orElse: () => 'Authentication error. Please contact support.',
-        );
-        ErrorFlushbar(
-          title: 'Error',
-          message: errorMessage,
-          context: context,
-        ).show();
-      }, (_) {
-        AutoRouter.of(context).push(const ChecklistsOverviewRoute());
-      }),
+      (either) => either.fold(
+        (failure) {
+          final errorMessage = failure.maybeMap(
+            cancelledByUser: (_) => 'Sign in cancelled',
+            serverError: (_) => 'Server error. Please try again later.',
+            emailAlreadyInUse: (_) => 'Email already in use',
+            orElse: () => 'Authentication error. Please contact support.',
+          );
+          ErrorFlushbar(
+            title: 'Error',
+            message: errorMessage,
+            context: context,
+          ).show();
+        },
+        (_) => AutoRouter.of(context).push(const ChecklistsOverviewRoute()),
+      ),
     );
   }
 }
