@@ -47,7 +47,7 @@ double? backIconSize(BuildContext context) {
 /* Buttons */
 ButtonStyle? authButtonStyle(BuildContext context) {
   final double buttonHeight =
-      MediaQuery.of(context).devicePixelRatio > 2 ? 55 : 40;
+      MediaQuery.of(context).devicePixelRatio > 2 ? 55 : 45;
   return Theme.of(context).outlinedButtonTheme.style?.copyWith(
         minimumSize: MaterialStatePropertyAll<Size>(
           Size(double.infinity, buttonHeight),
