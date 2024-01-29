@@ -19,6 +19,7 @@ BorderRadius standardBorderRadius = BorderRadius.circular(12);
 TextStyle mainTextStyle = const TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
+  letterSpacing: -0.5,
 );
 
 InputDecoration noBordersInputDecoration = const InputDecoration(

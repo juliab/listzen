@@ -27,7 +27,10 @@ class DrawerTileWidget extends StatelessWidget {
           borderRadius: standardBorderRadius,
         ),
         child: ListTile(
-          leading: Icon(icon),
+          leading: Icon(
+            icon,
+            color: darkColor,
+          ),
           titleTextStyle: Theme.of(context)
               .textTheme
               .labelMedium

@@ -12,6 +12,8 @@ import 'package:listzen/presentation/checklists/components/checklist_info_tile.d
 import 'package:listzen/presentation/checklists/components/checklist_statistics.dart';
 import 'package:listzen/presentation/checklists/view_checklist/view_checklist_dialog.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/delete_confirmation_dialog.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 class ChecklistCard extends StatelessWidget {
@@ -24,19 +26,11 @@ class ChecklistCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+    return StandardPadding.vertical(
+      factor: 0.4,
       child: Slidable(
         groupTag: '0',
-        startActionPane: ActionPane(
-          extentRatio: 0.7,
-          motion: const DrawerMotion(),
-          children: ChecklistColor.values
-              .where((color) => color != checklist.color)
-              .map((color) =>
-                  ColorSlidableAction(checklist: checklist, color: color))
-              .toList(),
-        ),
+        startActionPane: _buildColorActionPane(),
         endActionPane: ActionPane(
           motion: const DrawerMotion(),
           children: [
@@ -66,6 +60,19 @@ class ChecklistCard extends StatelessWidget {
       ),
     );
   }
+
+  ActionPane _buildColorActionPane() {
+    return ActionPane(
+      extentRatio: 0.7,
+      motion: const DrawerMotion(),
+      children: ChecklistColor.values
+          .where((color) => color != checklist.color)
+          .map(
+            (color) => ColorSlidableAction(checklist: checklist, color: color),
+          )
+          .toList(),
+    );
+  }
 }
 
 class ColorSlidableAction extends StatelessWidget {
@@ -90,7 +97,10 @@ class ColorSlidableAction extends StatelessWidget {
       backgroundColor: Color(color.colorValues[0]),
       foregroundColor: whiteColorWithOpacity,
       borderRadius: standardBorderRadius,
-      padding: const EdgeInsets.all(10),
+      padding: StandardPadding.edgeInsetsAll(
+        context: context,
+        factor: 0.8,
+      ),
     );
   }
 }
@@ -133,35 +143,7 @@ class DeleteSlidableAction extends StatelessWidget {
         final bloc = BlocProvider.of<ChecklistActorBloc>(context);
         showCupertinoDialog(
           context: context,
-          builder: (context) => CupertinoAlertDialog(
-            content: Text(
-              'Checklist "${checklist.name.getOrCrash()}" will be deleted '
-              'permanently.\nPlease confirm.',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: darkColor,
-                  ),
-            ),
-            actions: [
-              TextButton(
-                child: const Text(
-                  'Cancel',
-                  style: TextStyle(color: darkColor),
-                ),
-                onPressed: () => AutoRouter.of(context).pop(),
-              ),
-              TextButton(
-                child: const Text(
-                  'Delete',
-                  style: TextStyle(color: errorColor),
-                ),
-                onPressed: () {
-                  bloc.add(ChecklistActorEvent.deleted(checklist));
-                  AutoRouter.of(context).pop();
-                },
-              ),
-            ],
-          ),
+          builder: (context) => _buildDeleteConfirmationDialog(context, bloc),
         );
       },
       icon: Icons.delete,
@@ -169,6 +151,22 @@ class DeleteSlidableAction extends StatelessWidget {
       backgroundColor: redColor,
       foregroundColor: whiteColorWithOpacity,
       borderRadius: cardBorderRadius,
+    );
+  }
+
+  Widget _buildDeleteConfirmationDialog(
+    BuildContext context,
+    ChecklistActorBloc bloc,
+  ) {
+    return DeleteConfirmationDialog(
+      title: 'Are you sure?',
+      text: 'Checklist "${checklist.name.getOrCrash()}" will be deleted '
+          'permanently.\nPlease confirm.',
+      onCancel: () => AutoRouter.of(context).pop(),
+      onDelete: () {
+        bloc.add(ChecklistActorEvent.deleted(checklist));
+        AutoRouter.of(context).pop();
+      },
     );
   }
 }

@@ -113,12 +113,14 @@ class DrawerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+    return StandardPadding.horizontal(
+      factor: 0.7,
       child: Text(
         text,
-        style:
-            Theme.of(context).textTheme.labelLarge?.copyWith(color: darkColor),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: darkColor,
+              letterSpacing: -0.5,
+            ),
       ),
     );
   }

@@ -35,48 +35,48 @@ ThemeData appTheme = ThemeData(
     bodyLarge: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 16,
-      letterSpacing: -0.3,
+      letterSpacing: -0.5,
     ),
     headlineSmall: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 20,
     ),
     headlineMedium: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 22,
     ),
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 17,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 16,
     ),
     titleLarge: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 18,
     ),
     labelLarge: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 16,
     ),
     labelMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 15,
     ),
     labelSmall: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 14,
     ),
   ),
@@ -94,7 +94,7 @@ ThemeData appTheme = ThemeData(
     titleTextStyle: TextStyle(
       fontWeight: FontWeight.bold,
       fontFamily: 'Montserrat',
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 20,
       color: darkColor,
     ),
@@ -106,10 +106,13 @@ ThemeData appTheme = ThemeData(
     focusedErrorBorder: inputBorder(color: errorColor, width: 2),
     errorStyle: const TextStyle(
       fontWeight: FontWeight.normal,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
     ),
     errorMaxLines: 3,
-    contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+    contentPadding: const EdgeInsets.symmetric(
+      vertical: 13,
+      horizontal: 13,
+    ),
   ),
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(
@@ -123,6 +126,12 @@ ThemeData appTheme = ThemeData(
         borderRadius: standardBorderRadius,
       ),
       side: BorderSide.none,
+      textStyle: const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.5,
+        fontFamily: 'Montserrat',
+      ),
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -132,7 +141,7 @@ ThemeData appTheme = ThemeData(
     ),
     foregroundColor: darkColor,
     extendedTextStyle: const TextStyle(
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     ),
