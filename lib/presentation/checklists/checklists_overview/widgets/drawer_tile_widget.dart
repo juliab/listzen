@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class DrawerTileWidget extends StatelessWidget {
   final IconData icon;
@@ -19,27 +20,32 @@ class DrawerTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: standardBorderRadius,
-      ),
-      child: ListTile(
-        leading: Icon(icon),
-        titleTextStyle:
-            Theme.of(context).textTheme.titleMedium?.copyWith(color: darkColor),
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: Text(title),
+    return StandardPadding.vertical(
+      child: Container(
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: standardBorderRadius,
         ),
-        trailing: const Icon(
-          Icons.arrow_forward_ios,
-          size: 15,
+        child: ListTile(
+          leading: Icon(icon),
+          titleTextStyle: Theme.of(context)
+              .textTheme
+              .labelMedium
+              ?.copyWith(color: darkColor),
+          title: StandardPadding.horizontal(
+            child: Text(title),
+          ),
+          trailing: const Icon(
+            Icons.arrow_forward_ios,
+            size: 13,
+          ),
+          horizontalTitleGap: 0,
+          contentPadding: StandardPadding.edgeInsetsSymmetric(
+            horizontalFactor: 1,
+            context: context,
+          ),
+          onTap: onTap,
         ),
-        horizontalTitleGap: 0,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
-        onTap: onTap,
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
 import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer.dart';
 import 'package:listzen/presentation/core/widgets/keyboard_dismisser.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 class ChecklistsOverviewScaffold extends StatelessWidget {
@@ -21,9 +22,10 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             _buildSliverAppBar(),
-            const SliverPadding(
-              padding: EdgeInsets.all(12.0),
-              sliver: ChecklistsOverviewBody(),
+            SliverPadding(
+              padding:
+                  StandardPadding.edgeInsetsAll(factor: 0.7, context: context),
+              sliver: const ChecklistsOverviewBody(),
             ),
           ],
         ),
@@ -67,8 +69,8 @@ class AddChecklistButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+    return StandardPadding.only(
+      bottomFactor: 1,
       child: FloatingActionButton.extended(
         onPressed: () => AutoRouter.of(context).push(
           EditChecklistRoute(editedChecklistOption: none()),

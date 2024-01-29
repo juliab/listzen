@@ -41,11 +41,13 @@ ThemeData appTheme = ThemeData(
       fontWeight: FontWeight.bold,
       color: Colors.black,
       letterSpacing: -1,
+      fontSize: 20,
     ),
     headlineMedium: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
       letterSpacing: -1,
+      fontSize: 22,
     ),
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
@@ -89,6 +91,13 @@ ThemeData appTheme = ThemeData(
     ),
     shadowColor: greyColor,
     elevation: 0,
+    titleTextStyle: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Montserrat',
+      letterSpacing: -1,
+      fontSize: 20,
+      color: darkColor,
+    ),
   ),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
@@ -123,6 +132,7 @@ ThemeData appTheme = ThemeData(
     ),
     foregroundColor: darkColor,
     extendedTextStyle: const TextStyle(
+      letterSpacing: -1,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     ),
