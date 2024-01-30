@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/auth_bloc.dart';
@@ -7,11 +6,8 @@ import 'package:listzen/application/checklists/checklist_actor/checklist_actor_b
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/application/checklists/checklist_watcher/checklist_watcher_bloc.dart';
 import 'package:listzen/injection.dart';
-import 'package:listzen/presentation/checklists/checklists_overview/widgets/checklists_overview_body_widget.dart';
-import 'package:listzen/presentation/checklists/checklists_overview/widgets/my_account_drawer.dart';
-import 'package:listzen/presentation/core/error_flushbar.dart';
-import 'package:listzen/presentation/core/keyboard_dismisser.dart';
-import 'package:listzen/presentation/routes/app_router.dart';
+import 'package:listzen/presentation/checklists/checklists_overview/checklists_overview_scaffold.dart';
+import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 
 @RoutePage()
 class ChecklistsOverviewPage extends StatelessWidget {
@@ -19,31 +15,59 @@ class ChecklistsOverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        _watcherBlocProvider(),
+        _actorBlocProvider(),
+        _editBlocProvider(),
+      ],
+      child: _authBlocBuilder(
+        child: _actorBlocListener(
+          child: const ChecklistsOverviewScaffold(),
+        ),
+      ),
+    );
+  }
+
+  BlocProvider<ChecklistActorBloc> _actorBlocProvider() {
+    return BlocProvider<ChecklistActorBloc>(
+      create: (context) => getIt<ChecklistActorBloc>(),
+    );
+  }
+
+  BlocProvider<ChecklistEditBloc> _editBlocProvider() {
+    return BlocProvider<ChecklistEditBloc>(
+      create: (context) => getIt<ChecklistEditBloc>(),
+    );
+  }
+
+  BlocProvider<ChecklistWatcherBloc> _watcherBlocProvider() {
+    return BlocProvider<ChecklistWatcherBloc>(
+      create: (BuildContext context) => getIt<ChecklistWatcherBloc>()
+        ..add(const ChecklistWatcherEvent.watchAllStarted()),
+    );
+  }
+
+  BlocBuilder<AuthBloc, AuthState> _authBlocBuilder({
+    required Widget child,
+  }) {
     return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
         return state.maybeMap(
-          signOutInProgress: (value) =>
+          signOutInProgress: (_) =>
               const Center(child: CircularProgressIndicator()),
-          orElse: () => MultiBlocProvider(
-            providers: [
-              BlocProvider<ChecklistActorBloc>(
-                create: (context) => getIt<ChecklistActorBloc>(),
-              ),
-              BlocProvider<ChecklistEditBloc>(
-                create: (context) => getIt<ChecklistEditBloc>(),
-              ),
-              BlocProvider<ChecklistWatcherBloc>(
-                create: (BuildContext context) => getIt<ChecklistWatcherBloc>()
-                  ..add(const ChecklistWatcherEvent.watchAllStarted()),
-              ),
-            ],
-            child: BlocListener<ChecklistActorBloc, ChecklistActorState>(
-              listener: _listenToDeleteResult,
-              child: const ChecklistsOverviewScaffold(),
-            ),
-          ),
+          orElse: () => child,
         );
       },
+    );
+  }
+
+  BlocListener<ChecklistActorBloc, ChecklistActorState> _actorBlocListener({
+    required Widget child,
+  }) {
+    return BlocListener<ChecklistActorBloc, ChecklistActorState>(
+      listener: _listenToDeleteResult,
+      child: child,
     );
   }
 
@@ -61,63 +85,6 @@ class ChecklistsOverviewPage extends StatelessWidget {
         context: context,
       ).show(),
       orElse: () {},
-    );
-  }
-}
-
-class ChecklistsOverviewScaffold extends StatelessWidget {
-  const ChecklistsOverviewScaffold({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return KeyboardDismisser(
-      child: Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        endDrawer: const MyAccountDrawer(),
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Center(child: Text('Checklists')),
-          actions: [
-            Builder(
-              builder: (context) => IconButton(
-                icon: const Icon(Icons.account_circle),
-                onPressed: () => Scaffold.of(context).openEndDrawer(),
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              ),
-            ),
-          ],
-        ),
-        floatingActionButton: const AddChecklistButton(),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: const Padding(
-            padding: EdgeInsets.all(12.0),
-            child: ChecklistsOverviewBody(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AddChecklistButton extends StatelessWidget {
-  const AddChecklistButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: FloatingActionButton.extended(
-        onPressed: () => AutoRouter.of(context).push(
-          EditChecklistRoute(editedChecklistOption: none()),
-        ),
-        icon: const Icon(Icons.add),
-        label: const Text('Add checklist'),
-      ),
     );
   }
 }

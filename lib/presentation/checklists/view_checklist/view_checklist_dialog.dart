@@ -18,9 +18,7 @@ class ViewChecklistDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ChecklistEditBloc>(
-      create: (context) => getIt<ChecklistEditBloc>()
-        ..add(ChecklistEditEvent.initialized(some(checklist))),
+    return _editBlocProvider(
       child: BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
         builder: (context, state) {
           return Dialog(
@@ -84,6 +82,16 @@ class ViewChecklistDialog extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  BlocProvider<ChecklistEditBloc> _editBlocProvider({
+    required Widget child,
+  }) {
+    return BlocProvider<ChecklistEditBloc>(
+      create: (context) => getIt<ChecklistEditBloc>()
+        ..add(ChecklistEditEvent.initialized(some(checklist))),
+      child: child,
     );
   }
 }

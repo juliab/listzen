@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 
 class SocialSignInButton extends StatelessWidget {
   final Function() onPressed;
@@ -23,7 +24,7 @@ class SocialSignInButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           logo,
-          const SizedBox(width: 10),
+          const Spacing.horizontal(factor: 0.7),
           text,
         ],
       ),

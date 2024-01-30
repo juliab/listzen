@@ -62,9 +62,9 @@ class ItemTile extends StatelessWidget {
     return Row(
       children: [
         if (reorderable) ...[
-          const ReorderableDragStartListener(
-            index: 0,
-            child: Padding(
+          ReorderableDragStartListener(
+            index: index ?? 0,
+            child: const Padding(
               padding: EdgeInsets.only(left: 5, right: 15.0),
               child: Icon(
                 Icons.swap_vert_outlined,

@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:listzen/presentation/auth/components/auth_form_container.dart';
+import 'package:listzen/presentation/auth/components/auth_page_scaffold.dart';
+import 'package:listzen/presentation/auth/components/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
-import 'package:listzen/presentation/auth/widgets/auth_form_container.dart';
-import 'package:listzen/presentation/auth/widgets/auth_page_scaffold.dart';
-import 'package:listzen/presentation/auth/widgets/back_to_route_link.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -20,7 +21,6 @@ class PasswordResetConfirmationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AuthPageScaffold(
       form: AuthFormContainer(
-        bottomPadding: 15.0,
         form: PasswordResetConfirmationForm(emailAddress: emailAddress),
       ),
     );
@@ -39,30 +39,29 @@ class PasswordResetConfirmationForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       const MailIcon(),
-      const SizedBox(height: 25),
+      const Spacing.vertical(factor: 2),
       Text(
         'Check you email',
         style: Theme.of(context).textTheme.headlineSmall,
       ),
-      const SizedBox(height: 25),
+      const Spacing.vertical(factor: 2),
       Text(
         'We sent a password reset link to',
-        style:
-            Theme.of(context).textTheme.titleMedium?.copyWith(color: greyColor),
+        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+              color: greyColor,
+            ),
       ),
-      const SizedBox(height: 10),
+      const Spacing.vertical(factor: 0.5),
       Text(
         emailAddress,
-        style:
-            Theme.of(context).textTheme.titleMedium?.copyWith(color: greyColor),
+        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+              color: greyColor,
+            ),
       ),
-      standardHeightSizedBox,
-      BackToRouteLink(
+      const Spacing.vertical(factor: 3),
+      const BackToRouteLink(
         text: 'Back to login',
         routeName: SignInRoute.name,
-        textStyle: Theme.of(context).textTheme.labelLarge,
-        smallIcon: false,
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
       ),
     ]);
   }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
-import 'package:listzen/presentation/auth/theming/style.dart';
-import 'package:listzen/presentation/auth/widgets/auth_text_field.dart';
-import 'package:listzen/presentation/auth/widgets/forgot_password_link.dart';
+import 'package:listzen/presentation/auth/components/auth_text_field.dart';
+import 'package:listzen/presentation/auth/components/forgot_password_link.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 
 const insecurePasswordError = "Password must be at least 6 characters long, "
     "including one letter, one digit, and one special character";
@@ -30,21 +29,20 @@ class PasswordField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _passwordWidget(context),
+        _buildPasswordField(context),
         if (showConfirmPasswordField) ...[
-          standardHeightSizedBox,
-          _confirmPasswordWidget(context),
+          const Spacing.vertical(factor: 1.3),
+          _buildConfirmPasswordField(context),
         ],
       ],
     );
   }
 
-  Widget _passwordWidget(BuildContext context) {
+  Widget _buildPasswordField(BuildContext context) {
     return AuthTextField(
       labelName: "Password",
-      validCheckbox: _passwordValidCheckbox(context),
-      linkOnTheRight:
-          showForgotPasswordLink ? const ForgotPasswordLink() : null,
+      validCheckbox: _buildPasswordValidCheckbox(context),
+      link: showForgotPasswordLink ? const ForgotPasswordLink() : null,
       obscureText: true,
       onChanged: (value) => context
           .read<SignInFormBloc>()
@@ -53,7 +51,7 @@ class PasswordField extends StatelessWidget {
     );
   }
 
-  Widget? _passwordValidCheckbox(BuildContext context) {
+  Widget? _buildPasswordValidCheckbox(BuildContext context) {
     if (!showValidCheckbox) {
       return null;
     }
@@ -75,12 +73,11 @@ class PasswordField extends StatelessWidget {
         );
   }
 
-  Widget _confirmPasswordWidget(BuildContext context) {
+  Widget _buildConfirmPasswordField(BuildContext context) {
     return AuthTextField(
       labelName: "Confirm Password",
       validCheckbox: _confirmPasswordValidCheckbox(context),
-      linkOnTheRight:
-          showForgotPasswordLink ? const ForgotPasswordLink() : null,
+      link: showForgotPasswordLink ? const ForgotPasswordLink() : null,
       obscureText: true,
       onChanged: (value) => context
           .read<SignInFormBloc>()
@@ -101,6 +98,12 @@ class PasswordField extends StatelessWidget {
     );
   }
 
+  bool _rebuildValidCheckbox(
+      SignInFormState previous, SignInFormState current) {
+    return previous.password.value != current.password.value ||
+        previous.confirmPassword.value != current.confirmPassword.value;
+  }
+
   String? Function()? _confirmPasswordValidator(BuildContext context) {
     return () =>
         context.read<SignInFormBloc>().state.confirmPassword.value.fold(
@@ -114,9 +117,4 @@ class PasswordField extends StatelessWidget {
               (_) => null,
             );
   }
-}
-
-bool _rebuildValidCheckbox(SignInFormState previous, SignInFormState current) {
-  return previous.password.value != current.password.value ||
-      previous.confirmPassword.value != current.confirmPassword.value;
 }

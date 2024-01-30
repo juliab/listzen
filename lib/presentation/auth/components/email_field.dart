@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
-import 'package:listzen/presentation/auth/widgets/auth_text_field.dart';
+import 'package:listzen/presentation/auth/components/auth_text_field.dart';
 
 class EmailField extends StatelessWidget {
   final bool showValidCheckbox;
@@ -18,29 +18,17 @@ class EmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AuthTextField(
       labelName: "Email",
-      validCheckbox: _getValidCheckbox(context),
-      onChanged: (value) => context.read<SignInFormBloc>().add(
-            SignInFormEvent.emailChanged(value),
-          ),
-      validator: () => context
-          .read<SignInFormBloc>()
-          .state
-          .emailAddress
-          .value
-          .fold(
-            (f) => f.maybeMap(
-              invalidEmail: (_) => showValidationError ? 'Invalid email' : null,
-              orElse: () => null,
-            ),
-            (_) => null,
-          ),
+      validCheckbox: _buildValidCheckbox(context),
+      onChanged: (value) => _updateEmail(context, value),
+      validator: _validate(context),
     );
   }
 
-  Widget? _getValidCheckbox(BuildContext context) {
+  Widget? _buildValidCheckbox(BuildContext context) {
     if (!showValidCheckbox) {
       return null;
     }
+
     return BlocBuilder<SignInFormBloc, SignInFormState>(
       buildWhen: (previous, current) =>
           previous.emailAddress.value != current.emailAddress.value,
@@ -48,5 +36,21 @@ class EmailField extends StatelessWidget {
           ? const ValidCheckbox()
           : Container(),
     );
+  }
+
+  void _updateEmail(BuildContext context, String value) {
+    context.read<SignInFormBloc>().add(
+          SignInFormEvent.emailChanged(value),
+        );
+  }
+
+  String? Function()? _validate(BuildContext context) {
+    return () => context.read<SignInFormBloc>().state.emailAddress.value.fold(
+          (f) => f.maybeMap(
+            invalidEmail: (_) => showValidationError ? 'Invalid email' : null,
+            orElse: () => null,
+          ),
+          (_) => null,
+        );
   }
 }

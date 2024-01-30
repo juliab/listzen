@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:listzen/application/auth/delete_account/bloc/delete_account_bloc.dart';
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/injection.dart';
-import 'package:listzen/presentation/auth/widgets/auth_page_scaffold.dart';
-import 'package:listzen/presentation/auth/widgets/delete_account_confirmation_dialog.dart';
-import 'package:listzen/presentation/auth/widgets/delete_account_sign_in_form.dart';
-import 'package:listzen/presentation/core/error_flushbar.dart';
+import 'package:listzen/presentation/auth/components/auth_page_scaffold.dart';
+import 'package:listzen/presentation/auth/delete_account/delete_account_confirmation_dialog.dart';
+import 'package:listzen/presentation/auth/delete_account/delete_account_sign_in_form.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
@@ -21,44 +21,70 @@ class DeleteAccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SignInFormBloc>(
-          create: (context) => getIt<SignInFormBloc>(),
-        ),
-        BlocProvider<DeleteAccountBloc>(
-          create: (context) => getIt<DeleteAccountBloc>(),
-        ),
+        _signInBlocProvider(),
+        _deleteAccountBlocProvider(),
       ],
       child: MultiBlocListener(
         listeners: [
-          BlocListener<SignInFormBloc, SignInFormState>(
-            listenWhen: (previous, current) =>
-                previous.authFailureOrSuccessOption !=
-                current.authFailureOrSuccessOption,
-            listener: _listenToAuthFailure,
-          ),
-          BlocListener<DeleteAccountBloc, DeleteAccountState>(
-            listenWhen: (previous, current) =>
-                previous.deleteFailureOrSuccessOption !=
-                current.deleteFailureOrSuccessOption,
-            listener: _listenToDeleteFailure,
-          ),
+          _signInBlocListener(),
+          _deleteAccountBlocListener(),
         ],
-        child: BlocBuilder<DeleteAccountBloc, DeleteAccountState>(
-            buildWhen: (previous, current) =>
-                previous.isDeleting != current.isDeleting,
-            builder: (context, state) {
-              return Stack(
-                children: [
-                  const AuthPageScaffold(
-                    form: DeleteAccountSignInForm(),
-                  ),
-                  InProgressOverlay(
-                    inProgress: state.isDeleting,
-                  ),
-                ],
-              );
-            }),
+        child: _deleteAccountBlocBuilder(
+          child: const AuthPageScaffold(
+            form: DeleteAccountSignInForm(),
+          ),
+        ),
       ),
+    );
+  }
+
+  BlocProvider<SignInFormBloc> _signInBlocProvider() {
+    return BlocProvider<SignInFormBloc>(
+      create: (context) => getIt<SignInFormBloc>(),
+    );
+  }
+
+  BlocProvider<DeleteAccountBloc> _deleteAccountBlocProvider() {
+    return BlocProvider<DeleteAccountBloc>(
+      create: (context) => getIt<DeleteAccountBloc>(),
+    );
+  }
+
+  BlocListener<SignInFormBloc, SignInFormState> _signInBlocListener() {
+    return BlocListener<SignInFormBloc, SignInFormState>(
+      listenWhen: (previous, current) =>
+          previous.authFailureOrSuccessOption !=
+          current.authFailureOrSuccessOption,
+      listener: _listenToAuthFailure,
+    );
+  }
+
+  BlocListener<DeleteAccountBloc, DeleteAccountState>
+      _deleteAccountBlocListener() {
+    return BlocListener<DeleteAccountBloc, DeleteAccountState>(
+      listenWhen: (previous, current) =>
+          previous.deleteFailureOrSuccessOption !=
+          current.deleteFailureOrSuccessOption,
+      listener: _listenToDeleteFailure,
+    );
+  }
+
+  BlocBuilder<DeleteAccountBloc, DeleteAccountState> _deleteAccountBlocBuilder({
+    required Widget child,
+  }) {
+    return BlocBuilder<DeleteAccountBloc, DeleteAccountState>(
+      buildWhen: (previous, current) =>
+          previous.isDeleting != current.isDeleting,
+      builder: (context, state) {
+        return Stack(
+          children: [
+            child,
+            InProgressOverlay(
+              inProgress: state.isDeleting,
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -112,15 +138,15 @@ class DeleteAccountPage extends StatelessWidget {
         showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (context) => const AccountDeletedDialog(),
+          builder: (context) => const DeletionConfirmationDialog(),
         );
       }),
     );
   }
 }
 
-class AccountDeletedDialog extends StatelessWidget {
-  const AccountDeletedDialog({
+class DeletionConfirmationDialog extends StatelessWidget {
+  const DeletionConfirmationDialog({
     super.key,
   });
 

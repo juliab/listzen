@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listzen/presentation/core/auth_helpers.dart';
+import 'package:listzen/presentation/auth/auth_helpers.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
 class MyAccountDrawerHeader extends StatelessWidget {
