@@ -27,7 +27,7 @@ class CompletionStatusCheckbox extends StatelessWidget {
         child: Checkbox(
           onChanged: onChanged,
           value: isCompleted(),
-          checkColor: insideCard ? whiteColorWithOpacity : Colors.green,
+          checkColor: insideCard ? cardForegroundColor : Colors.green,
         ),
       ),
     );

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/app_theme.dart';
 
 const Color backgroundColor = Colors.white;
-final Color whiteColorWithOpacity = Colors.white.withOpacity(0.8);
+Color cardForegroundColor = Colors.white.withOpacity(0.7);
 const Color blackColor = Colors.black;
-const Color whiteColor = Colors.white;
-const Color appBarColor = Color(0xFFf9e5b8);
+const Color whiteColor = Color.fromARGB(255, 138, 96, 96);
+const Color appBarColor = Color(0XFFcdbaa6);
 const Color darkColor = Color(0xFF393939);
 const Color greyColor = Color(0xFF9398A4);
 const Color borderColor = Color(0xFFDBDBDB);
@@ -80,7 +80,7 @@ BoxDecoration checkboxDecoration({required bool insideCard}) {
   return BoxDecoration(
     borderRadius: BorderRadius.circular(4),
     border: Border.all(
-      color: insideCard ? whiteColorWithOpacity : greyColor,
+      color: insideCard ? cardForegroundColor : greyColor,
       width: 2,
     ),
   );

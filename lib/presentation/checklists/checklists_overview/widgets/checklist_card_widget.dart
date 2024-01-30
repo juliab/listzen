@@ -88,14 +88,17 @@ class ColorSlidableAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlidableAction(
-      onPressed: (context) => BlocProvider.of<ChecklistEditBloc>(context)
+      onPressed: (context) => context.read<ChecklistEditBloc>()
         ..add(ChecklistEditEvent.initialized(some(checklist)))
         ..add(
-          ChecklistEditEvent.colorChanged(color: color, instantSave: true),
+          ChecklistEditEvent.colorChanged(
+            color: color,
+            instantSave: true,
+          ),
         ),
       icon: Icons.color_lens,
       backgroundColor: Color(color.colorValues[0]),
-      foregroundColor: whiteColorWithOpacity,
+      foregroundColor: cardForegroundColor,
       borderRadius: standardBorderRadius,
       padding: StandardPadding.edgeInsetsAll(
         context: context,
@@ -122,7 +125,7 @@ class EditSlidableAction extends StatelessWidget {
       icon: Icons.edit,
       label: 'Edit',
       backgroundColor: greenColor,
-      foregroundColor: whiteColorWithOpacity,
+      foregroundColor: cardForegroundColor,
       borderRadius: cardBorderRadius,
     );
   }
@@ -140,7 +143,7 @@ class DeleteSlidableAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return SlidableAction(
       onPressed: (context) {
-        final bloc = BlocProvider.of<ChecklistActorBloc>(context);
+        final bloc = context.read<ChecklistActorBloc>();
         showCupertinoDialog(
           context: context,
           builder: (context) => _buildDeleteConfirmationDialog(context, bloc),
@@ -149,7 +152,7 @@ class DeleteSlidableAction extends StatelessWidget {
       icon: Icons.delete,
       label: 'Delete',
       backgroundColor: redColor,
-      foregroundColor: whiteColorWithOpacity,
+      foregroundColor: cardForegroundColor,
       borderRadius: cardBorderRadius,
     );
   }

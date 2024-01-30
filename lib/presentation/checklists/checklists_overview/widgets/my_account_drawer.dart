@@ -55,7 +55,7 @@ class AuthenticatedArea extends StatelessWidget {
       icon: Icons.logout,
       title: 'Sign Out',
       onTap: () {
-        BlocProvider.of<AuthBloc>(context).add(const AuthEvent.signedOut());
+        context.read<AuthBloc>().add(const AuthEvent.signedOut());
         AutoRouter.of(context).push(const ChecklistsOverviewRoute());
       },
     );

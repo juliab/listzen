@@ -10,17 +10,22 @@ ThemeData appTheme = ThemeData(
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 14,
-      color: whiteColorWithOpacity,
+      color: cardForegroundColor,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
-      color: whiteColorWithOpacity,
+      color: cardForegroundColor,
     ),
     bodyMedium: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
-      color: whiteColorWithOpacity,
+      color: cardForegroundColor,
+    ),
+    bodySmall: TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 12,
+      color: cardForegroundColor,
     ),
   ),
   textTheme: const TextTheme(

@@ -2,14 +2,14 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:listzen/domain/checklists/checklist_color.dart';
-import 'package:listzen/presentation/core/app_widget.dart';
+import 'package:listzen/presentation/core/listzen_app.dart';
 
 import 'data/test_checklist.dart';
 import 'finders.dart';
 
 extension WidgetTesterX on WidgetTester {
   Future<void> loadAppWidget() async {
-    await pumpWidget(AppWidget());
+    await pumpWidget(ListZenApp());
     await pumpAndSettle();
   }
 

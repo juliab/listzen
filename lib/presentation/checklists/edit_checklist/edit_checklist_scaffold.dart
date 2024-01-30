@@ -5,8 +5,8 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
-import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/core/widgets/keyboard_dismisser.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class EditChecklistPageScaffold extends StatelessWidget {
   final bool autofocus;
@@ -28,8 +28,8 @@ class EditChecklistPageScaffold extends StatelessWidget {
             SaveChecklistButton(),
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
+        body: StandardPadding.all(
+          factor: 0.7,
           child: Column(
             children: [
               EditChecklistInfoTile(
@@ -55,10 +55,11 @@ class SaveChecklistButton extends StatelessWidget {
     return IconButton(
       icon: const Icon(
         Icons.check,
-        color: greenColor,
+        color: Color(0XFF0c5a02),
       ),
-      onPressed: () => BlocProvider.of<ChecklistEditBloc>(context)
-          .add(const ChecklistEditEvent.saved()),
+      onPressed: () => context.read<ChecklistEditBloc>().add(
+            const ChecklistEditEvent.saved(),
+          ),
     );
   }
 }
@@ -88,8 +89,8 @@ class CancelButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: const Icon(
-        Icons.cancel_outlined,
-        color: greyColor,
+        Icons.close,
+        color: Color(0XFF696969),
       ),
       onPressed: () => AutoRouter.of(context).pop(),
     );
@@ -106,10 +107,10 @@ class AddItemButton extends StatelessWidget {
     return FloatingActionButton(
       child: const Icon(Icons.add),
       onPressed: () {
-        BlocProvider.of<ManageFocusCubit>(context).addNodeAndRequestFocus();
-        BlocProvider.of<ChecklistEditBloc>(context).add(
-          const ChecklistEditEvent.itemAdded(),
-        );
+        context.read<ManageFocusCubit>().addNodeAndRequestFocus();
+        context.read<ChecklistEditBloc>().add(
+              const ChecklistEditEvent.itemAdded(),
+            );
       },
     );
   }

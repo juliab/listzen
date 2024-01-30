@@ -39,13 +39,12 @@ class ViewChecklistDialog extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () =>
-                        BlocProvider.of<ChecklistEditBloc>(context).add(
-                      ChecklistEditEvent.completionStatusChanged(
-                        isDone: !state.checklist.isCompleted(),
-                        instantSave: true,
-                      ),
-                    ),
+                    onTap: () => context.read<ChecklistEditBloc>().add(
+                          ChecklistEditEvent.completionStatusChanged(
+                            isDone: !state.checklist.isCompleted(),
+                            instantSave: true,
+                          ),
+                        ),
                     child: ChecklistInfoTile.readOnly(
                       color: checklist.color,
                       name: checklist.name.getOrCrash(),
@@ -111,10 +110,10 @@ class ViewItemTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () => BlocProvider.of<ChecklistEditBloc>(context).add(
-        ChecklistEditEvent.itemCompletionStatusChanged(
-            index: index, isDone: !item.done, instantSave: true),
-      ),
+      onTap: () => context.read<ChecklistEditBloc>().add(
+            ChecklistEditEvent.itemCompletionStatusChanged(
+                index: index, isDone: !item.done, instantSave: true),
+          ),
       child: Column(
         children: [
           Padding(
