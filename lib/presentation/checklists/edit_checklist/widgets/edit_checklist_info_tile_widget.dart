@@ -69,7 +69,7 @@ class EditChecklistInfoTile extends HookWidget {
 
   Widget _buildCheckbox(BuildContext context, Checklist checklist) {
     return CompletionStatusCheckbox(
-      isCompleted: () => checklist.isCompleted(),
+      isCompleted: checklist.isCompleted,
       onChanged: (value) => context.read<ChecklistEditBloc>().add(
             ChecklistEditEvent.completionStatusChanged(isDone: value!),
           ),

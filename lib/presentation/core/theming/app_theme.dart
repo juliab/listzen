@@ -154,7 +154,7 @@ ThemeData appTheme = ThemeData(
   checkboxTheme: CheckboxThemeData(
     side: BorderSide.none,
     fillColor: MaterialStateProperty.all(Colors.transparent),
-    checkColor: MaterialStateProperty.all(Colors.green),
+    checkColor: MaterialStateProperty.all(greenColor),
   ),
   dividerTheme: const DividerThemeData(
     color: Color(0XFFc2c8d6),

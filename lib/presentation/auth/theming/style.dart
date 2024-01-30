@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
-const standardHeightSizedBox = SizedBox(height: 12);
-
 /* Form decoration */
 const Decoration formDecoration = BoxDecoration(
   color: Colors.white,

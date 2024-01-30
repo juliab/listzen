@@ -24,7 +24,9 @@ class AccentButton extends StatelessWidget {
         style: authButtonStyle(context),
         child: Text(
           text,
-          style: authButtonTextStyle(context)?.copyWith(color: backgroundColor),
+          style: authButtonTextStyle(context)?.copyWith(
+            color: buttonForegroundColor,
+          ),
         ),
       ),
     );

@@ -6,6 +6,7 @@ import 'package:listzen/presentation/auth/components/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/theming/style.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/core/widgets/spacing.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
 
 @RoutePage()
@@ -76,9 +77,9 @@ class MailIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: outerCircleDecoration,
-      padding: const EdgeInsets.all(10),
+      padding: StandardPadding.edgeInsetsAll(context: context, factor: 0.8),
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: StandardPadding.edgeInsetsAll(context: context, factor: 0.8),
         decoration: innerCircleDecoration,
         child: const Icon(
           Icons.mail_outline,

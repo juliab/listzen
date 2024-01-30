@@ -36,8 +36,8 @@ void main() {
             body: ChecklistInfoTile.readOnly(
               color: ChecklistColor.blue,
               name: checklistName,
-              completionStatusCheckbox: CompletionStatusCheckbox(
-                isCompleted: () => false,
+              completionStatusCheckbox: const CompletionStatusCheckbox(
+                isCompleted: false,
                 insideCard: false,
               ),
             ),

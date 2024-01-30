@@ -8,6 +8,7 @@ import 'package:listzen/application/checklists/checklist_actor/checklist_actor_b
 import 'package:listzen/application/checklists/checklist_edit/checklist_edit_bloc.dart';
 import 'package:listzen/domain/checklists/checklist.dart';
 import 'package:listzen/domain/checklists/checklist_color.dart';
+import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/checklists/components/checklist_info_tile.dart';
 import 'package:listzen/presentation/checklists/components/checklist_statistics.dart';
 import 'package:listzen/presentation/checklists/view_checklist/view_checklist_dialog.dart';
@@ -43,7 +44,11 @@ class ChecklistCard extends StatelessWidget {
             if (checklist.items.isNotEmpty) {
               showDialog(
                 context: context,
-                builder: (_) => ViewChecklistDialog(checklist: checklist),
+                builder: (_) => BlocProvider<ChecklistEditBloc>(
+                  create: (context) => getIt<ChecklistEditBloc>()
+                    ..add(ChecklistEditEvent.initialized(some(checklist))),
+                  child: ViewChecklistDialog(checklist: checklist),
+                ),
               );
             } else {
               AutoRouter.of(context).push(

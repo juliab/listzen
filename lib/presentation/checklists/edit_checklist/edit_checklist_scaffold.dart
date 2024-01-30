@@ -5,6 +5,7 @@ import 'package:listzen/application/checklists/checklist_edit/checklist_edit_blo
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/edit_checklist_info_tile_widget.dart';
 import 'package:listzen/presentation/checklists/edit_checklist/widgets/items_list_widget.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
+import 'package:listzen/presentation/core/theming/style.dart';
 import 'package:listzen/presentation/core/widgets/keyboard_dismisser.dart';
 import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
@@ -55,7 +56,7 @@ class SaveChecklistButton extends StatelessWidget {
     return IconButton(
       icon: const Icon(
         Icons.check,
-        color: Color(0XFF0c5a02),
+        color: greenColor,
       ),
       onPressed: () => context.read<ChecklistEditBloc>().add(
             const ChecklistEditEvent.saved(),

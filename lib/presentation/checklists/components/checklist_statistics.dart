@@ -13,7 +13,7 @@ class ChecklistStatistics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '${checklist.getNumberOfCompletedItems()} / ${checklist.items.length}',
+      '${checklist.itemsCompleted} / ${checklist.items.length}',
       style: Theme.of(context).primaryTextTheme.bodySmall,
     );
   }
