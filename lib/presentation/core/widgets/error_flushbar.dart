@@ -1,6 +1,6 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class ErrorFlushbar extends StatelessWidget {
   final String title;
@@ -15,7 +15,10 @@ class ErrorFlushbar extends StatelessWidget {
     required this.context,
   }) : _snackbar = SnackBar(
           elevation: 0,
-          padding: snackbarPadding,
+          padding: StandardPadding.edgeInsetsOnly(
+            context: context,
+            topFactor: 1.5,
+          ),
           behavior: SnackBarBehavior.fixed,
           backgroundColor: Colors.transparent,
           content: AwesomeSnackbarContent(

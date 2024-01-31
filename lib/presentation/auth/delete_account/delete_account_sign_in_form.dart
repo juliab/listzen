@@ -8,7 +8,7 @@ import 'package:listzen/presentation/auth/components/auth_form_container.dart';
 import 'package:listzen/presentation/auth/components/back_to_route_link.dart';
 import 'package:listzen/presentation/auth/components/password_field.dart';
 import 'package:listzen/presentation/auth/sign_in/social_sign_in_buttons_section.dart';
-import 'package:listzen/presentation/auth/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
 
 class DeleteAccountSignInForm extends StatelessWidget {
   const DeleteAccountSignInForm({super.key});
@@ -22,31 +22,30 @@ class DeleteAccountSignInForm extends StatelessWidget {
             autovalidateMode: state.autovalidateMode,
             child: Column(
               children: [
+                const Spacing.vertical(),
                 Text(
                   'Delete Account',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-                const SizedBox(height: 20),
+                const Spacing.vertical(factor: 1.5),
                 Text(
                   'Deleting your account will remove all your checklists from '
                   'our database. This action cannot be reversed.\n\nTo '
                   'initiate the account deletion process, please re-login '
                   'to the app.',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-                const SizedBox(height: 35),
+                const Spacing.vertical(factor: 3),
                 const SignInButton(),
                 if (state.isSubmitting) ...[
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const Spacing.vertical(factor: 1.5),
                   const LinearProgressIndicator(),
                 ],
-                standardHeightSizedBox,
+                const Spacing.vertical(),
                 const BackToRouteLink(
                   text: 'Cancel and return to the app',
                 ),

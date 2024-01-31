@@ -10,17 +10,22 @@ ThemeData appTheme = ThemeData(
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 14,
-      color: whiteColorWithOpacity,
+      color: cardForegroundColor,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
-      color: whiteColorWithOpacity,
+      color: cardForegroundColor,
     ),
     bodyMedium: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 12,
-      color: whiteColorWithOpacity,
+      color: cardForegroundColor,
+    ),
+    bodySmall: TextStyle(
+      fontWeight: FontWeight.normal,
+      fontSize: 12,
+      color: cardForegroundColor,
     ),
   ),
   textTheme: const TextTheme(
@@ -35,46 +40,48 @@ ThemeData appTheme = ThemeData(
     bodyLarge: TextStyle(
       fontWeight: FontWeight.normal,
       fontSize: 16,
-      letterSpacing: -0.3,
+      letterSpacing: -0.5,
     ),
     headlineSmall: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
+      fontSize: 20,
     ),
     headlineMedium: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
+      fontSize: 22,
     ),
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 17,
     ),
     titleSmall: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 16,
     ),
     titleLarge: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 18,
     ),
     labelLarge: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 16,
     ),
     labelMedium: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 15,
     ),
     labelSmall: TextStyle(
       fontWeight: FontWeight.bold,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
       fontSize: 14,
     ),
   ),
@@ -89,6 +96,13 @@ ThemeData appTheme = ThemeData(
     ),
     shadowColor: greyColor,
     elevation: 0,
+    titleTextStyle: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Montserrat',
+      letterSpacing: -0.5,
+      fontSize: 20,
+      color: darkColor,
+    ),
   ),
   inputDecorationTheme: InputDecorationTheme(
     enabledBorder: inputBorder(color: borderColor),
@@ -97,10 +111,13 @@ ThemeData appTheme = ThemeData(
     focusedErrorBorder: inputBorder(color: errorColor, width: 2),
     errorStyle: const TextStyle(
       fontWeight: FontWeight.normal,
-      letterSpacing: -1,
+      letterSpacing: -0.5,
     ),
     errorMaxLines: 3,
-    contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+    contentPadding: const EdgeInsets.symmetric(
+      vertical: 13,
+      horizontal: 13,
+    ),
   ),
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(
@@ -114,6 +131,12 @@ ThemeData appTheme = ThemeData(
         borderRadius: standardBorderRadius,
       ),
       side: BorderSide.none,
+      textStyle: const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.5,
+        fontFamily: 'Montserrat',
+      ),
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -123,6 +146,7 @@ ThemeData appTheme = ThemeData(
     ),
     foregroundColor: darkColor,
     extendedTextStyle: const TextStyle(
+      letterSpacing: -0.5,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     ),
@@ -130,7 +154,7 @@ ThemeData appTheme = ThemeData(
   checkboxTheme: CheckboxThemeData(
     side: BorderSide.none,
     fillColor: MaterialStateProperty.all(Colors.transparent),
-    checkColor: MaterialStateProperty.all(Colors.green),
+    checkColor: MaterialStateProperty.all(greenColor),
   ),
   dividerTheme: const DividerThemeData(
     color: Color(0XFFc2c8d6),
@@ -139,10 +163,6 @@ ThemeData appTheme = ThemeData(
     endIndent: 0,
     space: 0,
   ),
-);
-
-const BorderSide borderSide = BorderSide(
-  width: 1.5,
 );
 
 InputBorder inputBorder({

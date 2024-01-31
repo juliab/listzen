@@ -9,6 +9,8 @@ import 'package:listzen/presentation/checklists/components/item_tile.dart';
 import 'package:listzen/presentation/checklists/components/validation_error_message.dart';
 import 'package:listzen/presentation/core/manage_focus_cubit/manage_focus_cubit.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class ItemsList extends StatelessWidget {
   const ItemsList({super.key});
@@ -22,8 +24,8 @@ class ItemsList extends StatelessWidget {
         OverlayEntry(
           builder: (context) =>
               BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
-            builder: (context, state) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            builder: (context, state) => StandardPadding.horizontal(
+              factor: 0.3,
               child: Theme(
                 data: Theme.of(context).copyWith(
                   canvasColor: backgroundColor,
@@ -56,23 +58,16 @@ class ItemsListBuider extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReorderableListView.builder(
       shrinkWrap: true,
-      itemCount: items.length + 1,
+      itemCount: items.length,
       itemBuilder: (context, index) {
-        // Add bottom SizedBox widget so that FAB wouldn't cover the items
-        if (index == items.length) {
-          return const SizedBox(key: ValueKey(0), height: 80);
-        }
-
         final item = items[index];
         return Column(
           key: ValueKey(item.id),
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(),
             EditItemTile(
               index: index,
-              focusNode:
-                  BlocProvider.of<ManageFocusCubit>(context).state.nodes[index],
+              focusNode: context.read<ManageFocusCubit>().state.nodes[index],
             ),
             if (autovalidateMode == AutovalidateMode.always &&
                 item.name.value.isLeft()) ...[
@@ -85,13 +80,13 @@ class ItemsListBuider extends StatelessWidget {
         );
       },
       onReorderStart: (_) => FocusManager.instance.primaryFocus?.unfocus(),
-      onReorder: (oldIndex, newIndex) =>
-          BlocProvider.of<ChecklistEditBloc>(context).add(
-        ChecklistEditEvent.itemsReordered(
-          oldIndex: oldIndex,
-          newIndex: newIndex,
-        ),
-      ),
+      onReorder: (oldIndex, newIndex) => context.read<ChecklistEditBloc>().add(
+            ChecklistEditEvent.itemsReordered(
+              oldIndex: oldIndex,
+              newIndex: newIndex,
+            ),
+          ),
+      footer: const Spacing.vertical(factor: 7),
     );
   }
 
@@ -117,51 +112,56 @@ class EditItemTile extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final item = BlocProvider.of<ChecklistEditBloc>(context)
-        .state
-        .checklist
-        .items[index];
+    final item = context.read<ChecklistEditBloc>().state.checklist.items[index];
 
     final textEditingController = useTextEditingController(
         text: item.name.value.fold((f) => f.failedValue, (name) => name));
 
     return ItemTile.editable(
       textEditingController: textEditingController,
-      onChanged: (value) => BlocProvider.of<ChecklistEditBloc>(context).add(
-        ChecklistEditEvent.itemNameChanged(
-          index: index,
-          name: value!,
-        ),
-      ),
-      onSubmitted: (_) {
-        BlocProvider.of<ManageFocusCubit>(context).addNodeAndRequestFocus();
-        BlocProvider.of<ChecklistEditBloc>(context).add(
-          const ChecklistEditEvent.itemAdded(),
-        );
-      },
-      completionStatusCheckbox: CompletionStatusCheckbox(
-        isCompleted: () => BlocProvider.of<ChecklistEditBloc>(context)
-            .state
-            .checklist
-            .items[index]
-            .done,
-        onChanged: (value) => BlocProvider.of<ChecklistEditBloc>(context).add(
-          ChecklistEditEvent.itemCompletionStatusChanged(
-            index: index,
-            isDone: value!,
-          ),
-        ),
-        insideCard: false,
-      ),
-      onRemove: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-        BlocProvider.of<ChecklistEditBloc>(context)
-            .add(ChecklistEditEvent.itemRemoved(index: index));
-        BlocProvider.of<ManageFocusCubit>(context).disposeNode(index);
-      },
+      onChanged: (value) => _updateName(context, value!),
+      onSubmitted: (_) => _addItem(context),
+      completionStatusCheckbox: _buildCheckbox(context),
+      onRemove: () => _removeItem(context),
       reorderable: true,
       index: index,
       focusNode: focusNode,
     );
+  }
+
+  void _updateName(BuildContext context, String name) {
+    context.read<ChecklistEditBloc>().add(
+          ChecklistEditEvent.itemNameChanged(
+            index: index,
+            name: name,
+          ),
+        );
+  }
+
+  void _addItem(BuildContext context) {
+    context.read<ManageFocusCubit>().addNodeAndRequestFocus();
+    context.read<ChecklistEditBloc>().add(const ChecklistEditEvent.itemAdded());
+  }
+
+  Widget _buildCheckbox(BuildContext context) {
+    return CompletionStatusCheckbox(
+      isCompleted:
+          context.read<ChecklistEditBloc>().state.checklist.items[index].done,
+      onChanged: (value) => context.read<ChecklistEditBloc>().add(
+            ChecklistEditEvent.itemCompletionStatusChanged(
+              index: index,
+              isDone: value!,
+            ),
+          ),
+      insideCard: false,
+    );
+  }
+
+  void _removeItem(BuildContext context) {
+    FocusManager.instance.primaryFocus?.unfocus();
+    context
+        .read<ChecklistEditBloc>()
+        .add(ChecklistEditEvent.itemRemoved(index: index));
+    context.read<ManageFocusCubit>().disposeNode(index);
   }
 }

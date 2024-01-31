@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:listzen/domain/checklists/checklist_color.dart';
 import 'package:listzen/domain/checklists/value_objects.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/spacing.dart';
+import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class ChecklistInfoTile extends StatelessWidget {
   final ChecklistColor color;
@@ -58,7 +60,8 @@ class ChecklistInfoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: StandardPadding.edgeInsetsSymmetric(
+          context: context, horizontalFactor: 1.2),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: color.colorValues.map((value) => Color(value)).toList(),
@@ -70,17 +73,13 @@ class ChecklistInfoTile extends StatelessWidget {
         children: [
           if (completionStatusCheckbox != null) ...[
             completionStatusCheckbox!,
-            const SizedBox(
-              width: 20,
-            ),
+            const Spacing.horizontal(factor: 1.2),
           ],
           Expanded(
             child: content,
           ),
           if (statistics != null) ...[
-            const SizedBox(
-              width: 20,
-            ),
+            const Spacing.horizontal(factor: 1.2),
             statistics!
           ],
         ],
@@ -101,10 +100,8 @@ class ReadOnlyChecklistNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       name,
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.white.withOpacity(0.7),
+      style: mainTextStyle.copyWith(
+        color: cardForegroundColor,
       ),
     );
   }
@@ -133,8 +130,9 @@ class EditableChecklistNameField extends StatelessWidget {
       maxLength: ChecklistName.maxString,
       onChanged: onChanged,
       style: mainTextStyle.copyWith(
-        color: Colors.white.withOpacity(0.7),
+        color: cardForegroundColor,
       ),
+      cursorColor: cardForegroundColor,
     );
   }
 }

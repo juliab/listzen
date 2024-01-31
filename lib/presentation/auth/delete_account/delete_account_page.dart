@@ -6,9 +6,9 @@ import 'package:listzen/application/auth/delete_account/bloc/delete_account_bloc
 import 'package:listzen/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:listzen/injection.dart';
 import 'package:listzen/presentation/auth/components/auth_page_scaffold.dart';
-import 'package:listzen/presentation/auth/delete_account/delete_account_confirmation_dialog.dart';
 import 'package:listzen/presentation/auth/delete_account/delete_account_sign_in_form.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
+import 'package:listzen/presentation/core/widgets/delete_confirmation_dialog.dart';
 import 'package:listzen/presentation/core/widgets/error_flushbar.dart';
 import 'package:listzen/presentation/core/widgets/in_progress_overlay.dart';
 import 'package:listzen/presentation/routes/app_router.dart';
@@ -109,14 +109,26 @@ class DeleteAccountPage extends StatelessWidget {
         showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (context) => const DeleteAccountConfirmationDialog(),
-        ).then((value) {
-          if (value == true) {
-            bloc.add(const DeleteAccountEvent.deleteConfirmed());
-          }
-        });
+          builder: (context) => _buildDeleteConfirmationDialog(context, bloc),
+        );
       }),
     );
+  }
+
+  Widget _buildDeleteConfirmationDialog(
+    BuildContext context,
+    DeleteAccountBloc bloc,
+  ) {
+    return DeleteConfirmationDialog(
+        title: 'Are you sure?',
+        text: 'Are you sure you want to delete your account along with all '
+            'the checklists you have created?',
+        onCancel: () => AutoRouter.of(context)
+            .popUntilRouteWithName(ChecklistsOverviewRoute.name),
+        onDelete: () {
+          AutoRouter.of(context).pop(true);
+          bloc.add(const DeleteAccountEvent.deleteConfirmed());
+        });
   }
 
   void _listenToDeleteFailure(BuildContext context, DeleteAccountState state) {
@@ -138,15 +150,15 @@ class DeleteAccountPage extends StatelessWidget {
         showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (context) => const DeletionConfirmationDialog(),
+          builder: (context) => const AccountDeletedModal(),
         );
       }),
     );
   }
 }
 
-class DeletionConfirmationDialog extends StatelessWidget {
-  const DeletionConfirmationDialog({
+class AccountDeletedModal extends StatelessWidget {
+  const AccountDeletedModal({
     super.key,
   });
 
@@ -157,8 +169,7 @@ class DeletionConfirmationDialog extends StatelessWidget {
         children: [
           Text(
             'Your account has been deleted successfully',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: darkColor,
                 ),
           ),
@@ -166,9 +177,8 @@ class DeletionConfirmationDialog extends StatelessWidget {
       ),
       actions: [
         TextButton(
-          onPressed: () async {
-            AutoRouter.of(context).push(const ChecklistsOverviewRoute());
-          },
+          onPressed: () async =>
+              AutoRouter.of(context).push(const ChecklistsOverviewRoute()),
           child: const Text(
             'OK',
           ),

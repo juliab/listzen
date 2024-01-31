@@ -8,18 +8,19 @@ enum ChecklistColor {
   ),
   orange(
     colorValues: [
-      0XFFE95C15,
-      0XFFEE7E16,
-      0XFFF3981B,
+      0XFF993000,
+      0XFFb23800,
+      0XFFcb4100,
+      0XFFe54800,
     ],
   ),
   yellow(
     colorValues: [
-      0XFFCDA027,
-      0XFFD7AA34,
-      0XFFE3B63F,
-      0XFFEBBE49,
-      0XFFF3C851,
+      0XFF7e6e07,
+      0XFF837308,
+      0XFF8c7b07,
+      0XFFab9300,
+      0XFFb69d00,
     ],
   ),
   teal(
@@ -39,9 +40,12 @@ enum ChecklistColor {
   ),
   violet(
     colorValues: [
-      0xFF320164,
-      0xFF4A277d,
-      0xFF7358B8,
+      0xFF2c2a62,
+      0xFF2d2b65,
+      0xFF2d2b67,
+      0xFF302e75,
+      0xFF34327f,
+      0xFF3e3b96,
     ],
   );
 

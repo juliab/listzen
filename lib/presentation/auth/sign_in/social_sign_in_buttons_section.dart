@@ -82,7 +82,9 @@ class SignInWithAppleButton extends StatelessWidget {
       logo: _buildLogo(),
       text: Text(
         'Sign in with Apple',
-        style: authButtonTextStyle(context)?.copyWith(color: whiteColor),
+        style: authButtonTextStyle(context)?.copyWith(
+          color: buttonForegroundColor,
+        ),
       ),
       style: appleButtonStyle(context),
     );
@@ -100,9 +102,9 @@ class SignInWithAppleButton extends StatelessWidget {
   }
 
   Logo _buildLogo() {
-    return const Logo(
+    return Logo(
       name: 'icons/apple.png',
-      color: whiteColor,
+      color: buttonForegroundColor,
     );
   }
 }

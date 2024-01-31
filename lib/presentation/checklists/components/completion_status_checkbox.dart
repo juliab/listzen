@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
 
 class CompletionStatusCheckbox extends StatelessWidget {
-  final bool Function() isCompleted;
+  final bool isCompleted;
   final Function(bool?)? onChanged;
   final bool insideCard;
 
@@ -26,8 +26,8 @@ class CompletionStatusCheckbox extends StatelessWidget {
         scale: 1.5,
         child: Checkbox(
           onChanged: onChanged,
-          value: isCompleted(),
-          checkColor: insideCard ? whiteColorWithOpacity : Colors.green,
+          value: isCompleted,
+          checkColor: insideCard ? cardForegroundColor : greenColor,
         ),
       ),
     );
