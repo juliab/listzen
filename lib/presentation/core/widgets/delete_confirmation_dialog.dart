@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:listzen/presentation/core/theming/style.dart';
-import 'package:listzen/presentation/core/widgets/spacing.dart';
 import 'package:listzen/presentation/core/widgets/standard_padding.dart';
 
 class DeleteConfirmationDialog extends StatelessWidget {
@@ -31,7 +30,10 @@ class DeleteConfirmationDialog extends StatelessWidget {
                   ),
             ),
             const StandardPadding.vertical(
-              child: Divider(color: greyColor),
+              child: Divider(
+                color: greyColor,
+                thickness: 0.5,
+              ),
             ),
           ],
           Text(
@@ -40,7 +42,6 @@ class DeleteConfirmationDialog extends StatelessWidget {
                   color: darkColor,
                 ),
           ),
-          const Spacing.vertical(factor: 0.5),
         ],
       ),
       actions: [
@@ -55,7 +56,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
           onPressed: onCancel,
           child: const Text(
             'Cancel',
-            style: TextStyle(color: darkColor),
+            style: TextStyle(color: darkColor, fontWeight: FontWeight.w500),
           ),
         ),
       ],

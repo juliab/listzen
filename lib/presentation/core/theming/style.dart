@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:listzen/presentation/core/theming/app_theme.dart';
 
 const Color backgroundColor = Colors.white;
 Color cardForegroundColor = Colors.white.withOpacity(0.7);
@@ -33,23 +32,6 @@ InputDecoration noBordersInputDecoration = const InputDecoration(
   contentPadding: EdgeInsets.zero,
 );
 
-InputDecoration switchBordersInputDecoration(bool hasError) {
-  return InputDecoration(
-    enabledBorder: hasError
-        ? inputBorder(color: errorColor)
-        : inputBorder(color: greyColor),
-    focusedBorder: hasError
-        ? inputBorder(color: errorColor)
-        : inputBorder(color: focusedBorderColor, width: 2),
-    counterText: '',
-  );
-}
-
-const floatingButtonSize = 55.0;
-
-/* SnackBar */
-const EdgeInsetsGeometry snackbarPadding = EdgeInsets.only(top: 20);
-
 /* Card */
 BorderRadius cardBorderRadius = BorderRadius.circular(20);
 const double cardHeight = 70;
@@ -69,12 +51,6 @@ InputDecoration cardInputDecoration = InputDecoration(
     fontWeight: FontWeight.normal,
   ),
 );
-const Gradient cardGradient = LinearGradient(colors: [
-  Color(0xFF17805D),
-  Color(0xFF02797A),
-  Color(0xFF218F85),
-  Color(0xFF32A293),
-]);
 
 /* Completion status checkbox */
 BoxDecoration checkboxDecoration({required bool insideCard}) {
@@ -86,12 +62,3 @@ BoxDecoration checkboxDecoration({required bool insideCard}) {
     ),
   );
 }
-
-/* Auth Card */
-Decoration cardTopDecoration = const BoxDecoration(
-  borderRadius: BorderRadius.only(
-    topLeft: Radius.circular(30),
-    topRight: Radius.circular(30),
-  ),
-  color: backgroundColor,
-);

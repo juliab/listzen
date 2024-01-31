@@ -19,7 +19,7 @@ class LoginButtonsDivider extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .labelMedium
-                  ?.copyWith(color: borderColor),
+                  ?.copyWith(color: greyColor),
             ),
           ),
           const Expanded(child: Divider()),

@@ -132,7 +132,7 @@ ThemeData appTheme = ThemeData(
       ),
       side: BorderSide.none,
       textStyle: const TextStyle(
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: FontWeight.bold,
         letterSpacing: -0.5,
         fontFamily: 'Montserrat',
@@ -163,10 +163,6 @@ ThemeData appTheme = ThemeData(
     endIndent: 0,
     space: 0,
   ),
-);
-
-const BorderSide borderSide = BorderSide(
-  width: 1.5,
 );
 
 InputBorder inputBorder({

@@ -70,7 +70,9 @@ class NoChecklistsText extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverPadding(
       padding: StandardPadding.edgeInsetsSymmetric(
-          horizontalFactor: 1, context: context),
+        context: context,
+        horizontalFactor: 1,
+      ),
       sliver: SliverFillRemaining(
         child: Center(
           child: Text(

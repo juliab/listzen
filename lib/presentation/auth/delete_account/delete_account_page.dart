@@ -169,7 +169,7 @@ class AccountDeletedModal extends StatelessWidget {
         children: [
           Text(
             'Your account has been deleted successfully',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: darkColor,
                 ),
           ),

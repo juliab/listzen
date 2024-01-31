@@ -24,7 +24,7 @@ class ChecklistsOverviewScaffold extends StatelessWidget {
             _buildSliverAppBar(),
             SliverPadding(
               padding:
-                  StandardPadding.edgeInsetsAll(factor: 0.7, context: context),
+                  StandardPadding.edgeInsetsAll(context: context, factor: 0.7),
               sliver: const ChecklistsOverviewBody(),
             ),
           ],
