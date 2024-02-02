@@ -125,8 +125,13 @@ class EditableChecklistNameField extends StatelessWidget {
       autofocus: autofocus,
       textCapitalization: TextCapitalization.sentences,
       controller: textEditingController,
-      decoration:
-          cardInputDecoration.copyWith(hintText: 'Enter checklist name'),
+      decoration: cardInputDecoration.copyWith(
+        hintText: 'Enter checklist name',
+        hintStyle: TextStyle(
+          color: cardForegroundColor.withOpacity(0.4),
+          fontWeight: FontWeight.normal,
+        ),
+      ),
       maxLength: ChecklistName.maxString,
       onChanged: onChanged,
       style: mainTextStyle.copyWith(

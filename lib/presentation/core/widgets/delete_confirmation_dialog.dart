@@ -49,14 +49,17 @@ class DeleteConfirmationDialog extends StatelessWidget {
           onPressed: onDelete,
           child: const Text(
             'Delete',
-            style: TextStyle(color: errorColor),
+            style: TextStyle(color: redColor),
           ),
         ),
         TextButton(
           onPressed: onCancel,
           child: const Text(
             'Cancel',
-            style: TextStyle(color: darkColor, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              color: darkColor,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ],
