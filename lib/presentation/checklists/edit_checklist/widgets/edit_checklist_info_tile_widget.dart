@@ -25,7 +25,7 @@ class EditChecklistInfoTile extends HookWidget {
     return BlocBuilder<ChecklistEditBloc, ChecklistEditState>(
       builder: (context, state) {
         if (state.isEditing) {
-          textEditingController.text = state.checklist.name.getOrCrash();
+          textEditingController.text = state.checklist.name.beforeValidation;
         }
         return StandardPadding.vertical(
           factor: 0.6,

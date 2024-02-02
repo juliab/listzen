@@ -114,8 +114,8 @@ class EditItemTile extends HookWidget {
   Widget build(BuildContext context) {
     final item = context.read<ChecklistEditBloc>().state.checklist.items[index];
 
-    final textEditingController = useTextEditingController(
-        text: item.name.value.fold((f) => f.failedValue, (name) => name));
+    final textEditingController =
+        useTextEditingController(text: item.name.beforeValidation);
 
     return ItemTile.editable(
       textEditingController: textEditingController,

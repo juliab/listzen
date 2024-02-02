@@ -31,4 +31,8 @@ abstract class ValueObject<T> {
 
   @override
   String toString() => 'Value($value)';
+
+  T get beforeValidation {
+    return value.fold((f) => f.failedValue, (v) => v);
+  }
 }

@@ -30,8 +30,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         state.copyWith(
           password: Password(event.passwordStr),
           confirmPassword: ConfirmPassword(
-              state.confirmPassword.value.fold((f) => f.failedValue, (r) => r),
-              event.passwordStr),
+              state.confirmPassword.beforeValidation, event.passwordStr),
           authFailureOrSuccessOption: none(),
         ),
       );
@@ -40,8 +39,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<ConfirmPasswordChanged>((event, emit) async {
       emit(
         state.copyWith(
-          confirmPassword: ConfirmPassword(event.passwordStr,
-              state.password.value.fold((f) => f.failedValue, (r) => r)),
+          confirmPassword: ConfirmPassword(
+              event.passwordStr, state.password.beforeValidation),
           authFailureOrSuccessOption: none(),
         ),
       );
