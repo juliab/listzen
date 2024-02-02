@@ -93,8 +93,9 @@ class ViewChecklistDialog extends StatelessWidget {
 
   Widget _buildItemsList(BuildContext context) {
     return Flexible(
-      child: StandardPadding.all(
-        factor: 0.6,
+      child: StandardPadding.symmetric(
+        verticalFactor: 0.6,
+        horizontalFactor: 1.2,
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: checklist.items.length,

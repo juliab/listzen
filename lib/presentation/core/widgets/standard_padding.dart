@@ -26,6 +26,18 @@ class StandardPadding extends StatelessWidget {
         leftFactor = factor,
         rightFactor = factor;
 
+  /// Creates a CustomPadding with symmetric padding applied.
+  /// The [verticalFactor] and [horizontalFactor] parameters control the scaling
+  /// of standard padding value based on the current device pixel ratio.
+  const StandardPadding.symmetric({
+    required this.child,
+    double verticalFactor = 0,
+    double horizontalFactor = 0,
+  })  : topFactor = verticalFactor,
+        bottomFactor = verticalFactor,
+        leftFactor = horizontalFactor,
+        rightFactor = horizontalFactor;
+
   /// Creates a CustomPadding with vertical padding applied.
   /// The [factor] parameter controls the scaling of standard padding values
   /// based on the current device pixel ratio.
@@ -49,8 +61,9 @@ class StandardPadding extends StatelessWidget {
         rightFactor = factor;
 
   /// Creates a CustomPadding with padding applied selectively on specified
-  /// sides. The [factor] parameter controls the scaling of standard padding
-  /// values based on the current device pixel ratio.
+  /// sides. The [topFactor], [bottomFactor], [leftFactor], [rightFactor]
+  /// parameters control the scaling of standard padding values based on the
+  /// current device pixel ratio.
   const StandardPadding.only({
     required this.child,
     this.topFactor = 0,
@@ -70,8 +83,8 @@ class StandardPadding extends StatelessWidget {
   }
 
   /// Creates [EdgeInsets] instance with symmetric padding.
-  /// The [factor] parameter controls the scaling of standard padding values
-  /// based on the current device pixel ratio.
+  /// The [verticalFactor] and [horizontalFactor] parameters control the scaling
+  /// of standard padding values based on the current device pixel ratio.
   static EdgeInsets edgeInsetsSymmetric({
     required BuildContext context,
     double verticalFactor = 0,
@@ -85,8 +98,9 @@ class StandardPadding extends StatelessWidget {
   }
 
   /// Creates [EdgeInsets] instance with padding applied selectively on
-  /// specified sides. The [factor] parameter controls the scaling of standard
-  /// padding values based on the current device pixel ratio.
+  /// specified sides. The [topFactor], [bottomFactor], [leftFactor],
+  /// [rightFactor] parameter controls the scaling of standard padding values
+  /// based on the current device pixel ratio.
   static EdgeInsets edgeInsetsOnly({
     required BuildContext context,
     double topFactor = 0,
