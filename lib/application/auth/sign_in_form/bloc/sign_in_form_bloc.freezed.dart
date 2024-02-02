@@ -187,7 +187,7 @@ class _$EmailChangedImpl implements EmailChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmailChangedImpl &&
@@ -389,7 +389,7 @@ class _$PasswordChangedImpl implements PasswordChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PasswordChangedImpl &&
@@ -595,7 +595,7 @@ class _$ConfirmPasswordChangedImpl implements ConfirmPasswordChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConfirmPasswordChangedImpl &&
@@ -785,7 +785,7 @@ class _$RegisterWithEmailAndPasswordPressedImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterWithEmailAndPasswordPressedImpl);
@@ -961,7 +961,7 @@ class _$SignInWithEmailAndPasswordPressedImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignInWithEmailAndPasswordPressedImpl);
@@ -1136,7 +1136,7 @@ class _$ReloginWithPasswordPressedImpl implements ReloginWithPasswordPressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReloginWithPasswordPressedImpl);
@@ -1309,7 +1309,7 @@ class _$SignInWithGooglePressedImpl implements SignInWithGooglePressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignInWithGooglePressedImpl);
@@ -1482,7 +1482,7 @@ class _$ReloginWithGooglePressedImpl implements ReloginWithGooglePressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReloginWithGooglePressedImpl);
@@ -1655,7 +1655,7 @@ class _$SignInWithApplePressedImpl implements SignInWithApplePressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignInWithApplePressedImpl);
@@ -1828,7 +1828,7 @@ class _$ReloginWithApplePressedImpl implements ReloginWithApplePressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReloginWithApplePressedImpl);
@@ -1999,7 +1999,7 @@ class _$ResetPasswordPressedImpl implements ResetPasswordPressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResetPasswordPressedImpl);
@@ -2316,7 +2316,7 @@ class _$SignInFormStateImpl implements _SignInFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignInFormStateImpl &&

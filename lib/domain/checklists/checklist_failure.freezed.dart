@@ -114,7 +114,7 @@ class _$UnexpectedImpl implements Unexpected {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnexpectedImpl);
   }
@@ -231,7 +231,7 @@ class _$InsufficientPermissionsImpl implements InsufficientPermissions {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InsufficientPermissionsImpl);
@@ -347,7 +347,7 @@ class _$UnableToUpdateImpl implements UnableToUpdate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$UnableToUpdateImpl);
   }
@@ -462,7 +462,7 @@ class _$DatabaseErrorImpl implements DatabaseError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$DatabaseErrorImpl);
   }

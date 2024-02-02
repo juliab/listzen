@@ -177,7 +177,7 @@ class _$InitializedImpl implements Initialized {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitializedImpl &&
@@ -370,7 +370,7 @@ class _$NameChangedImpl implements NameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NameChangedImpl &&
@@ -573,7 +573,7 @@ class _$CompletionStatusChangedImpl implements CompletionStatusChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompletionStatusChangedImpl &&
@@ -752,7 +752,7 @@ class _$ItemAddedImpl implements ItemAdded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ItemAddedImpl);
   }
@@ -937,7 +937,7 @@ class _$ItemNameChangedImpl implements ItemNameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemNameChangedImpl &&
@@ -1152,7 +1152,7 @@ class _$ItemCompletionStatusChangedImpl implements ItemCompletionStatusChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemCompletionStatusChangedImpl &&
@@ -1359,7 +1359,7 @@ class _$ItemsReorderedImpl implements ItemsReordered {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemsReorderedImpl &&
@@ -1557,7 +1557,7 @@ class _$ItemRemovedImpl implements ItemRemoved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemRemovedImpl &&
@@ -1756,7 +1756,7 @@ class _$ColorChangedImpl implements ColorChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ColorChangedImpl &&
@@ -1934,7 +1934,7 @@ class _$SavedImpl implements Saved {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SavedImpl);
   }
@@ -2237,7 +2237,7 @@ class _$ChecklistFormStateImpl implements _ChecklistFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChecklistFormStateImpl &&

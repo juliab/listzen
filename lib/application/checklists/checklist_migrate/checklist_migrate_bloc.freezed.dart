@@ -108,7 +108,7 @@ class _$StartImpl implements Start {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$StartImpl);
   }
@@ -240,7 +240,7 @@ class _$CreateDestinationImpl implements CreateDestination {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateDestinationImpl &&
@@ -365,7 +365,7 @@ class _$DeleteOriginImpl implements DeleteOrigin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$DeleteOriginImpl);
   }
@@ -547,7 +547,7 @@ class _$InitialImpl implements Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
@@ -662,7 +662,7 @@ class _$InProgressImpl implements InProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$InProgressImpl);
   }
@@ -805,7 +805,7 @@ class _$MigrationFailureImpl implements MigrationFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MigrationFailureImpl &&
@@ -936,7 +936,7 @@ class _$MigrationSuccessImpl implements MigrationSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$MigrationSuccessImpl);
   }
