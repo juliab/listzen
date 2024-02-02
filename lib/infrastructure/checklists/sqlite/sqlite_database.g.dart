@@ -30,6 +30,14 @@ class $ChecklistsTable extends Checklists
   late final GeneratedColumn<String> items = GeneratedColumn<String>(
       'items', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime,
+      requiredDuringInsert: false,
+      defaultValue: Constant(DateTime(2000)));
   static const VerificationMeta _updatedAtMeta =
       const VerificationMeta('updatedAt');
   @override
@@ -37,7 +45,8 @@ class $ChecklistsTable extends Checklists
       'updated_at', aliasedName, false,
       type: DriftSqlType.dateTime, requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns => [id, name, color, items, updatedAt];
+  List<GeneratedColumn> get $columns =>
+      [id, name, color, items, createdAt, updatedAt];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -66,6 +75,10 @@ class $ChecklistsTable extends Checklists
     } else if (isInserting) {
       context.missing(_itemsMeta);
     }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    }
     if (data.containsKey('updated_at')) {
       context.handle(_updatedAtMeta,
           updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
@@ -90,6 +103,8 @@ class $ChecklistsTable extends Checklists
           .read(DriftSqlType.string, data['${effectivePrefix}color'])!),
       items: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}items'])!,
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
       updatedAt: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
     );
@@ -109,12 +124,14 @@ class Checklist extends DataClass implements Insertable<Checklist> {
   final String name;
   final ChecklistColor color;
   final String items;
+  final DateTime createdAt;
   final DateTime updatedAt;
   const Checklist(
       {required this.id,
       required this.name,
       required this.color,
       required this.items,
+      required this.createdAt,
       required this.updatedAt});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -122,10 +139,11 @@ class Checklist extends DataClass implements Insertable<Checklist> {
     map['id'] = Variable<String>(id);
     map['name'] = Variable<String>(name);
     {
-      final converter = $ChecklistsTable.$convertercolor;
-      map['color'] = Variable<String>(converter.toSql(color));
+      map['color'] =
+          Variable<String>($ChecklistsTable.$convertercolor.toSql(color));
     }
     map['items'] = Variable<String>(items);
+    map['created_at'] = Variable<DateTime>(createdAt);
     map['updated_at'] = Variable<DateTime>(updatedAt);
     return map;
   }
@@ -136,6 +154,7 @@ class Checklist extends DataClass implements Insertable<Checklist> {
       name: Value(name),
       color: Value(color),
       items: Value(items),
+      createdAt: Value(createdAt),
       updatedAt: Value(updatedAt),
     );
   }
@@ -149,6 +168,7 @@ class Checklist extends DataClass implements Insertable<Checklist> {
       color: $ChecklistsTable.$convertercolor
           .fromJson(serializer.fromJson<String>(json['color'])),
       items: serializer.fromJson<String>(json['items']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
       updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
     );
   }
@@ -161,6 +181,7 @@ class Checklist extends DataClass implements Insertable<Checklist> {
       'color': serializer
           .toJson<String>($ChecklistsTable.$convertercolor.toJson(color)),
       'items': serializer.toJson<String>(items),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
       'updatedAt': serializer.toJson<DateTime>(updatedAt),
     };
   }
@@ -170,12 +191,14 @@ class Checklist extends DataClass implements Insertable<Checklist> {
           String? name,
           ChecklistColor? color,
           String? items,
+          DateTime? createdAt,
           DateTime? updatedAt}) =>
       Checklist(
         id: id ?? this.id,
         name: name ?? this.name,
         color: color ?? this.color,
         items: items ?? this.items,
+        createdAt: createdAt ?? this.createdAt,
         updatedAt: updatedAt ?? this.updatedAt,
       );
   @override
@@ -185,13 +208,14 @@ class Checklist extends DataClass implements Insertable<Checklist> {
           ..write('name: $name, ')
           ..write('color: $color, ')
           ..write('items: $items, ')
+          ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, name, color, items, updatedAt);
+  int get hashCode => Object.hash(id, name, color, items, createdAt, updatedAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -200,6 +224,7 @@ class Checklist extends DataClass implements Insertable<Checklist> {
           other.name == this.name &&
           other.color == this.color &&
           other.items == this.items &&
+          other.createdAt == this.createdAt &&
           other.updatedAt == this.updatedAt);
 }
 
@@ -208,6 +233,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
   final Value<String> name;
   final Value<ChecklistColor> color;
   final Value<String> items;
+  final Value<DateTime> createdAt;
   final Value<DateTime> updatedAt;
   final Value<int> rowid;
   const ChecklistsCompanion({
@@ -215,6 +241,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
     this.name = const Value.absent(),
     this.color = const Value.absent(),
     this.items = const Value.absent(),
+    this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
     this.rowid = const Value.absent(),
   });
@@ -223,6 +250,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
     required String name,
     required ChecklistColor color,
     required String items,
+    this.createdAt = const Value.absent(),
     required DateTime updatedAt,
     this.rowid = const Value.absent(),
   })  : id = Value(id),
@@ -235,6 +263,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
     Expression<String>? name,
     Expression<String>? color,
     Expression<String>? items,
+    Expression<DateTime>? createdAt,
     Expression<DateTime>? updatedAt,
     Expression<int>? rowid,
   }) {
@@ -243,6 +272,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
       if (name != null) 'name': name,
       if (color != null) 'color': color,
       if (items != null) 'items': items,
+      if (createdAt != null) 'created_at': createdAt,
       if (updatedAt != null) 'updated_at': updatedAt,
       if (rowid != null) 'rowid': rowid,
     });
@@ -253,6 +283,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
       Value<String>? name,
       Value<ChecklistColor>? color,
       Value<String>? items,
+      Value<DateTime>? createdAt,
       Value<DateTime>? updatedAt,
       Value<int>? rowid}) {
     return ChecklistsCompanion(
@@ -260,6 +291,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
       name: name ?? this.name,
       color: color ?? this.color,
       items: items ?? this.items,
+      createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       rowid: rowid ?? this.rowid,
     );
@@ -275,12 +307,14 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
       map['name'] = Variable<String>(name.value);
     }
     if (color.present) {
-      final converter = $ChecklistsTable.$convertercolor;
-
-      map['color'] = Variable<String>(converter.toSql(color.value));
+      map['color'] =
+          Variable<String>($ChecklistsTable.$convertercolor.toSql(color.value));
     }
     if (items.present) {
       map['items'] = Variable<String>(items.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
     }
     if (updatedAt.present) {
       map['updated_at'] = Variable<DateTime>(updatedAt.value);
@@ -298,6 +332,7 @@ class ChecklistsCompanion extends UpdateCompanion<Checklist> {
           ..write('name: $name, ')
           ..write('color: $color, ')
           ..write('items: $items, ')
+          ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt, ')
           ..write('rowid: $rowid')
           ..write(')'))

@@ -20,7 +20,11 @@ class FirebaseChecklistRepository implements IChecklistRepository {
 
   @override
   Stream<Either<ChecklistFailure, List<Checklist>>> watchAll() async* {
-    final userDoc = _firestore.userDocument();
+    final snapshots = _firestore
+        .userDocument()
+        .checklistCollection
+        .orderBy('createdAt', descending: true)
+        .snapshots();
 
     final streamTransformer = StreamTransformer<
         QuerySnapshot<Map<String, dynamic>>,
@@ -30,10 +34,7 @@ class FirebaseChecklistRepository implements IChecklistRepository {
               _snapshotToChecklists(snapshot)));
     });
 
-    yield* userDoc.checklistCollection
-        .snapshots()
-        .transform(streamTransformer)
-        .onErrorReturnWith((e, st) {
+    yield* snapshots.transform(streamTransformer).onErrorReturnWith((e, st) {
       if (e is FirebaseException && e.code.contains('permission-denied')) {
         return left(const ChecklistFailure.insufficientPermissions());
       } else {
@@ -44,12 +45,12 @@ class FirebaseChecklistRepository implements IChecklistRepository {
 
   @override
   Future<Either<ChecklistFailure, List<Checklist>>> getAll() async {
-    final userDoc = _firestore.userDocument();
-
     try {
-      final checklists = userDoc.checklistCollection.get().then((snapshot) =>
-          right<ChecklistFailure, List<Checklist>>(
-              _snapshotToChecklists(snapshot)));
+      final checklists =
+          _firestore.userDocument().checklistCollection.get().then(
+                (snapshot) => right<ChecklistFailure, List<Checklist>>(
+                    _snapshotToChecklists(snapshot)),
+              );
       return checklists;
     } on FirebaseException catch (e) {
       if (e.code.contains('permission-denied')) {
@@ -74,7 +75,8 @@ class FirebaseChecklistRepository implements IChecklistRepository {
   Future<Either<ChecklistFailure, Unit>> create(Checklist checklist) async {
     try {
       final userDoc = _firestore.userDocument();
-      final checklistDto = FirebaseChecklistDto.fromDomain(checklist);
+      final checklistDto =
+          FirebaseChecklistDto.fromDomain(checklist).setCreatedAt();
 
       await userDoc.checklistCollection
           .doc(checklistDto.id)
@@ -98,7 +100,7 @@ class FirebaseChecklistRepository implements IChecklistRepository {
 
       await userDoc.checklistCollection
           .doc(checklistDto.id)
-          .update(checklistDto.toJson());
+          .update(checklistDto.toJson()..remove('createdAt'));
 
       return right(unit);
     } on FirebaseException catch (e) {

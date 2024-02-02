@@ -19,7 +19,8 @@ abstract class FirebaseChecklistDto implements _$FirebaseChecklistDto {
     required String name,
     required String color,
     required List<ItemDto> items,
-    @ServerTimeStampConverter() required FieldValue serverTimeStamp,
+    @ServerTimeStampConverter() required FieldValue createdAt,
+    @ServerTimeStampConverter() required FieldValue updatedAt,
   }) = _ChecklistDto;
 
   factory FirebaseChecklistDto.fromDomain(Checklist checklist) {
@@ -28,8 +29,13 @@ abstract class FirebaseChecklistDto implements _$FirebaseChecklistDto {
       name: checklist.name.getOrCrash(),
       color: checklist.color.name,
       items: checklist.items.map((item) => ItemDto.fromDomain(item)).toList(),
-      serverTimeStamp: FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
     );
+  }
+
+  FirebaseChecklistDto setCreatedAt() {
+    return copyWith(createdAt: FieldValue.serverTimestamp());
   }
 
   Checklist toDomain() {

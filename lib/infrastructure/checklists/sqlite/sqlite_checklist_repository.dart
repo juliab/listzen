@@ -23,9 +23,11 @@ class SqliteChecklistRepository implements IChecklistRepository {
         transformStreamToDomain);
 
     yield* _database
-        .watchChecklists()
+        .watchChecklistsOrderedByCreation()
         .transform(streamTransformer)
-        .onErrorReturn(left(const ChecklistFailure.databaseError()));
+        .onErrorReturn(
+          left(const ChecklistFailure.databaseError()),
+        );
   }
 
   @override

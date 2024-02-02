@@ -13,6 +13,8 @@ class Checklists extends Table {
   TextColumn get name => text()();
   TextColumn get color => textEnum<ChecklistColor>()();
   TextColumn get items => text()();
+  DateTimeColumn get createdAt =>
+      dateTime().withDefault(Constant(DateTime(2000)))();
   DateTimeColumn get updatedAt => dateTime()();
 }
 
@@ -27,10 +29,37 @@ class SqliteDatabase extends _$SqliteDatabase {
   SqliteDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
-  Stream<List<Checklist>> watchChecklists() {
-    return select(checklists).watch();
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onCreate: (Migrator m) async {
+        await m.createAll();
+      },
+      onUpgrade: (Migrator m, int from, int to) async {
+        if (from < 2) {
+          await m.addColumn(checklists, checklists.createdAt);
+        }
+      },
+      beforeOpen: (details) async {
+        if (details.hadUpgrade) {
+          for (final checklist in await getAllChecklists()) {
+            (update(checklists)..where((c) => c.id.equals(checklist.id))).write(
+              ChecklistsCompanion(
+                createdAt: Value(checklist.updatedAt),
+              ),
+            );
+          }
+        }
+      },
+    );
+  }
+
+  Stream<List<Checklist>> watchChecklistsOrderedByCreation() {
+    return (select(checklists)
+          ..orderBy([(checklists) => OrderingTerm.desc(checklists.createdAt)]))
+        .watch();
   }
 
   Future<List<Checklist>> getAllChecklists() {
@@ -38,7 +67,11 @@ class SqliteDatabase extends _$SqliteDatabase {
   }
 
   Future<void> createChecklist(ChecklistsCompanion checklist) {
-    return into(checklists).insert(checklist);
+    return into(checklists).insert(
+      checklist.copyWith(
+        createdAt: Value(DateTime.now()),
+      ),
+    );
   }
 
   Future<void> deleteChecklist(String checklistId) {
@@ -51,7 +84,7 @@ class SqliteDatabase extends _$SqliteDatabase {
 
   Future<void> updateChecklist(ChecklistsCompanion checklist) {
     return (update(checklists)..where((c) => c.id.equals(checklist.id.value)))
-        .write(checklist);
+        .write(checklist.copyWith(createdAt: const Value.absent()));
   }
 }
 

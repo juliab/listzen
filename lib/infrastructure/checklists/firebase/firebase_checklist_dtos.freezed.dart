@@ -25,7 +25,9 @@ mixin _$FirebaseChecklistDto {
   String get color => throw _privateConstructorUsedError;
   List<ItemDto> get items => throw _privateConstructorUsedError;
   @ServerTimeStampConverter()
-  FieldValue get serverTimeStamp => throw _privateConstructorUsedError;
+  FieldValue get createdAt => throw _privateConstructorUsedError;
+  @ServerTimeStampConverter()
+  FieldValue get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +46,8 @@ abstract class $FirebaseChecklistDtoCopyWith<$Res> {
       String name,
       String color,
       List<ItemDto> items,
-      @ServerTimeStampConverter() FieldValue serverTimeStamp});
+      @ServerTimeStampConverter() FieldValue createdAt,
+      @ServerTimeStampConverter() FieldValue updatedAt});
 }
 
 /// @nodoc
@@ -65,7 +68,8 @@ class _$FirebaseChecklistDtoCopyWithImpl<$Res,
     Object? name = null,
     Object? color = null,
     Object? items = null,
-    Object? serverTimeStamp = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -84,9 +88,13 @@ class _$FirebaseChecklistDtoCopyWithImpl<$Res,
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ItemDto>,
-      serverTimeStamp: null == serverTimeStamp
-          ? _value.serverTimeStamp
-          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as FieldValue,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as FieldValue,
     ) as $Val);
   }
@@ -105,7 +113,8 @@ abstract class _$$ChecklistDtoImplCopyWith<$Res>
       String name,
       String color,
       List<ItemDto> items,
-      @ServerTimeStampConverter() FieldValue serverTimeStamp});
+      @ServerTimeStampConverter() FieldValue createdAt,
+      @ServerTimeStampConverter() FieldValue updatedAt});
 }
 
 /// @nodoc
@@ -123,7 +132,8 @@ class __$$ChecklistDtoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? color = null,
     Object? items = null,
-    Object? serverTimeStamp = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$ChecklistDtoImpl(
       id: null == id
@@ -142,9 +152,13 @@ class __$$ChecklistDtoImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<ItemDto>,
-      serverTimeStamp: null == serverTimeStamp
-          ? _value.serverTimeStamp
-          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as FieldValue,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as FieldValue,
     ));
   }
@@ -158,7 +172,8 @@ class _$ChecklistDtoImpl extends _ChecklistDto {
       required this.name,
       required this.color,
       required final List<ItemDto> items,
-      @ServerTimeStampConverter() required this.serverTimeStamp})
+      @ServerTimeStampConverter() required this.createdAt,
+      @ServerTimeStampConverter() required this.updatedAt})
       : _items = items,
         super._();
 
@@ -181,15 +196,18 @@ class _$ChecklistDtoImpl extends _ChecklistDto {
 
   @override
   @ServerTimeStampConverter()
-  final FieldValue serverTimeStamp;
+  final FieldValue createdAt;
+  @override
+  @ServerTimeStampConverter()
+  final FieldValue updatedAt;
 
   @override
   String toString() {
-    return 'FirebaseChecklistDto(id: $id, name: $name, color: $color, items: $items, serverTimeStamp: $serverTimeStamp)';
+    return 'FirebaseChecklistDto(id: $id, name: $name, color: $color, items: $items, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChecklistDtoImpl &&
@@ -197,14 +215,16 @@ class _$ChecklistDtoImpl extends _ChecklistDto {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
-            (identical(other.serverTimeStamp, serverTimeStamp) ||
-                other.serverTimeStamp == serverTimeStamp));
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, color,
-      const DeepCollectionEquality().hash(_items), serverTimeStamp);
+      const DeepCollectionEquality().hash(_items), createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -222,12 +242,13 @@ class _$ChecklistDtoImpl extends _ChecklistDto {
 
 abstract class _ChecklistDto extends FirebaseChecklistDto {
   const factory _ChecklistDto(
-      {required final String id,
-      required final String name,
-      required final String color,
-      required final List<ItemDto> items,
-      @ServerTimeStampConverter()
-      required final FieldValue serverTimeStamp}) = _$ChecklistDtoImpl;
+          {required final String id,
+          required final String name,
+          required final String color,
+          required final List<ItemDto> items,
+          @ServerTimeStampConverter() required final FieldValue createdAt,
+          @ServerTimeStampConverter() required final FieldValue updatedAt}) =
+      _$ChecklistDtoImpl;
   const _ChecklistDto._() : super._();
 
   factory _ChecklistDto.fromJson(Map<String, dynamic> json) =
@@ -243,7 +264,10 @@ abstract class _ChecklistDto extends FirebaseChecklistDto {
   List<ItemDto> get items;
   @override
   @ServerTimeStampConverter()
-  FieldValue get serverTimeStamp;
+  FieldValue get createdAt;
+  @override
+  @ServerTimeStampConverter()
+  FieldValue get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$ChecklistDtoImplCopyWith<_$ChecklistDtoImpl> get copyWith =>
@@ -372,7 +396,7 @@ class _$ItemDtoImpl extends _ItemDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemDtoImpl &&

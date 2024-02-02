@@ -14,8 +14,8 @@ _$ChecklistDtoImpl _$$ChecklistDtoImplFromJson(Map<String, dynamic> json) =>
       items: (json['items'] as List<dynamic>)
           .map((e) => ItemDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      serverTimeStamp:
-          const ServerTimeStampConverter().fromJson(json['serverTimeStamp']),
+      createdAt: const ServerTimeStampConverter().fromJson(json['createdAt']),
+      updatedAt: const ServerTimeStampConverter().fromJson(json['updatedAt']),
     );
 
 Map<String, dynamic> _$$ChecklistDtoImplToJson(_$ChecklistDtoImpl instance) =>
@@ -24,8 +24,8 @@ Map<String, dynamic> _$$ChecklistDtoImplToJson(_$ChecklistDtoImpl instance) =>
       'name': instance.name,
       'color': instance.color,
       'items': instance.items.map((e) => e.toJson()).toList(),
-      'serverTimeStamp':
-          const ServerTimeStampConverter().toJson(instance.serverTimeStamp),
+      'createdAt': const ServerTimeStampConverter().toJson(instance.createdAt),
+      'updatedAt': const ServerTimeStampConverter().toJson(instance.updatedAt),
     };
 
 _$ItemDtoImpl _$$ItemDtoImplFromJson(Map<String, dynamic> json) =>
