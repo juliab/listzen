@@ -23,6 +23,7 @@ class ValidationErrorMessage extends StatelessWidget {
         style: const TextStyle(
           color: errorColor,
           fontSize: 13,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
