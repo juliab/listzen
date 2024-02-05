@@ -4,6 +4,10 @@ Are you someone who depends on checklists? I certainly am! Whether it's planning
 
 ![showcase](https://github.com/juliab/listzen/assets/983597/41237a47-54fd-4ff7-ab51-a4044787224e)
 
+## App download
+
+This app is available on the [App Store](https://apps.apple.com/ca/app/listzen/id6464216710)
+
 ## Tech stack
 
 This app is built using the amazing [Flutter](https://flutter.dev) technology.
