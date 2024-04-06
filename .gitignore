@@ -30,3 +30,4 @@ success_check.iml
 .vscode
 */Podfile.lock
 coverage
+integration_test/appium/target
