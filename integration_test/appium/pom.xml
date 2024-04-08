@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.juliasiroshtan.listzentest</groupId>
-  <artifactId>listzen-ios-tests</artifactId>
+  <artifactId>listzentest</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>listzen-ios-tests</name>
@@ -14,7 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <app.path>${project.basedir}/build/ios/iphoneos/Runner.app</app.path>
   </properties>
 
   <dependencies>

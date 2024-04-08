@@ -81,7 +81,10 @@ class AddChecklistButton extends StatelessWidget {
           EditChecklistRoute(editedChecklistOption: none()),
         ),
         icon: const Icon(Icons.add),
-        label: const Text('Add checklist'),
+        label: Semantics(
+          identifier: 'add_checklist_button',
+          child: const Text('Add checklist'),
+        ),
       ),
     );
   }

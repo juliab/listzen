@@ -129,16 +129,19 @@ class EditableItemNameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: textEditingController,
-      textCapitalization: TextCapitalization.sentences,
-      decoration: noBordersInputDecoration,
-      maxLength: ItemName.maxLength,
-      onChanged: onChanged,
-      onFieldSubmitted: onSubmitted,
-      focusNode: focusNode,
-      onEditingComplete: () {},
-      style: mainTextStyle,
+    return Semantics(
+      identifier: 'item_name_input',
+      child: TextFormField(
+        controller: textEditingController,
+        textCapitalization: TextCapitalization.sentences,
+        decoration: noBordersInputDecoration,
+        maxLength: ItemName.maxLength,
+        onChanged: onChanged,
+        onFieldSubmitted: onSubmitted,
+        focusNode: focusNode,
+        onEditingComplete: () {},
+        style: mainTextStyle,
+      ),
     );
   }
 }
