@@ -7,6 +7,9 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 import java.util.List;
 
+/**
+ * This class represents a page for editing a checklist.
+ */
 public class EditChecklistPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "checklist_name_input")

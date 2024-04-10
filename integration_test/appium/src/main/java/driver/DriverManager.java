@@ -1,7 +1,5 @@
 package driver;
 
-import java.net.MalformedURLException;
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
@@ -10,6 +8,9 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 import java.io.File;
 
+/**
+ * This class provides methods to manage the Appium driver.
+ */
 public class DriverManager {
 
     private static ThreadLocal<AppiumDriver> driver = new ThreadLocal<AppiumDriver>();
@@ -23,23 +24,25 @@ public class DriverManager {
         driver.set(d);
     }
 
-    public static void quitDriver() {
-        if (getDriver() != null) {
-            getDriver().quit();
-            driver.remove();
-        }
-    }
-
-    public static AppiumDriver getDriverInstance() throws MalformedURLException {
+    /**
+     * Starts the Appium server and creates a new Appium driver instance if it
+     * doesn't exist.
+     * 
+     * @return The Appium driver instance
+     */
+    public static AppiumDriver getDriverInstance() {
         if (getDriver() == null) {
             appiumLocalService = new AppiumServiceBuilder().usingAnyFreePort().build();
             appiumLocalService.start();
+
+            String appPath = new File(System.getProperty("user.dir")).getParentFile().getParent()
+                    + PropertyManager.getProperty("app");
 
             XCUITestOptions options = new XCUITestOptions()
                     .setAutomationName(PropertyManager.getProperty("automationName"))
                     .setPlatformName(PropertyManager.getProperty("platformName"))
                     .setUdid(PropertyManager.getProperty("udid"))
-                    .setApp(new File(System.getProperty("user.dir")).getParentFile().getParent()+ PropertyManager.getProperty("app"));
+                    .setApp(appPath);
 
             IOSDriver driver = new IOSDriver(appiumLocalService, options);
             setDriver(driver);
@@ -47,6 +50,9 @@ public class DriverManager {
         return getDriver();
     }
 
+    /**
+     * Terminates the Appium driver and stops the Appium server.
+     */
     public static void terminate() {
         if (getDriver() != null) {
             getDriver().quit();
@@ -54,5 +60,4 @@ public class DriverManager {
         }
     }
 
-    
 }

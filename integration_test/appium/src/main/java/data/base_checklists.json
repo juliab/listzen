@@ -1,0 +1,222 @@
+[
+    {
+        "name": "Grocery Shopping",
+        "isDone": false,
+        "items": [
+            {"name": "Milk", "isDone": true},
+            {"name": "Eggs", "isDone": true},
+            {"name": "Bread", "isDone": false},
+            {"name": "Butter", "isDone": false},
+            {"name": "Cheese", "isDone": false}
+        ]
+    },
+    {
+        "name": "Workout Routine",
+        "isDone": false,
+        "items": [
+            {"name": "Push-ups", "isDone": false},
+            {"name": "Sit-ups", "isDone": false},
+            {"name": "Squats", "isDone": false},
+            {"name": "Lunges", "isDone": false},
+            {"name": "Plank", "isDone": false}
+        ]
+    },
+    {
+        "name": "Book Reading",
+        "isDone": false,
+        "items": [
+            {"name": "Moby Dick", "isDone": true},
+            {"name": "War and Peace", "isDone": false},
+            {"name": "1984", "isDone": false},
+            {"name": "To Kill a Mockingbird", "isDone": false},
+            {"name": "The Great Gatsby", "isDone": false}
+        ]
+    },
+    {
+        "name": "Travel Packing",
+        "isDone": false,
+        "items": [
+            {"name": "Passport", "isDone": true},
+            {"name": "Tickets", "isDone": true},
+            {"name": "Luggage", "isDone": false},
+            {"name": "Clothes", "isDone": false},
+            {"name": "Toiletries", "isDone": false}
+        ]
+    },
+    {
+        "name": "House Cleaning",
+        "isDone": false,
+        "items": [
+            {"name": "Living Room", "isDone": true},
+            {"name": "Kitchen", "isDone": false},
+            {"name": "Bathroom", "isDone": false},
+            {"name": "Bedroom", "isDone": false},
+            {"name": "Garage", "isDone": false}
+        ]
+    },
+    {
+        "name": "Car Maintenance",
+        "isDone": false,
+        "items": [
+            {"name": "Oil Change", "isDone": true},
+            {"name": "Tire Rotation", "isDone": false},
+            {"name": "Brake Check", "isDone": false},
+            {"name": "Battery Check", "isDone": false},
+            {"name": "Coolant Check", "isDone": false}
+        ]
+    },
+    {
+        "name": "Study Plan",
+        "isDone": false,
+        "items": [
+            {"name": "Math", "isDone": true},
+            {"name": "Science", "isDone": false},
+            {"name": "English", "isDone": false},
+            {"name": "History", "isDone": false},
+            {"name": "Art", "isDone": false}
+        ]
+    },
+    {
+        "name": "Meal Prep",
+        "isDone": false,
+        "items": [
+            {"name": "Breakfast", "isDone": true},
+            {"name": "Lunch", "isDone": false},
+            {"name": "Dinner", "isDone": false},
+            {"name": "Snacks", "isDone": false},
+            {"name": "Drinks", "isDone": false}
+        ]
+    },
+    {
+        "name": "Gardening",
+        "isDone": false,
+        "items": [
+            {"name": "Watering", "isDone": true},
+            {"name": "Weeding", "isDone": false},
+            {"name": "Planting", "isDone": false},
+            {"name": "Pruning", "isDone": false},
+            {"name": "Harvesting", "isDone": false}
+        ]
+    },
+    {
+        "name": "Home Repair",
+        "isDone": false,
+        "items": [
+            {"name": "Leaky Faucet", "isDone": true},
+            {"name": "Squeaky Door", "isDone": false},
+            {"name": "Loose Tile", "isDone": false},
+            {"name": "Chipped Paint", "isDone": false},
+            {"name": "Broken Window", "isDone": false}
+        ]
+    },
+    {
+        "name": "Pet Care",
+        "isDone": false,
+        "items": [
+            {"name": "Feed Pet", "isDone": true},
+            {"name": "Walk Pet", "isDone": false},
+            {"name": "Pet Grooming", "isDone": false},
+            {"name": "Vet Visit", "isDone": false},
+            {"name": "Buy Pet Supplies", "isDone": false}
+        ]
+    },
+    {
+        "name": "Party Planning",
+        "isDone": false,
+        "items": [
+            {"name": "Send Invitations", "isDone": true},
+            {"name": "Plan Menu", "isDone": false},
+            {"name": "Decorate Venue", "isDone": false},
+            {"name": "Arrange Music", "isDone": false},
+            {"name": "Buy Party Favors", "isDone": false}
+        ]
+    },
+    {
+        "name": "Car Wash",
+        "isDone": false,
+        "items": [
+            {"name": "Wash Exterior", "isDone": true},
+            {"name": "Vacuum Interior", "isDone": false},
+            {"name": "Clean Windows", "isDone": false},
+            {"name": "Polish", "isDone": false},
+            {"name": "Air Freshener", "isDone": false}
+        ]
+    },
+    {
+        "name": "Laundry",
+        "isDone": false,
+        "items": [
+            {"name": "Sort Laundry", "isDone": true},
+            {"name": "Wash", "isDone": false},
+            {"name": "Dry", "isDone": false},
+            {"name": "Fold", "isDone": false},
+            {"name": "Put Away", "isDone": false}
+        ]
+    },
+    {
+        "name": "Cooking",
+        "isDone": false,
+        "items": [
+            {"name": "Prepare Ingredients", "isDone": true},
+            {"name": "Cook", "isDone": false},
+            {"name": "Serve", "isDone": false},
+            {"name": "Clean Up", "isDone": false},
+            {"name": "Store Leftovers", "isDone": false}
+        ]
+    },
+    {
+        "name": "Baking",
+        "isDone": false,
+        "items": [
+            {"name": "Prepare Ingredients", "isDone": true},
+            {"name": "Mix", "isDone": false},
+            {"name": "Bake", "isDone": false},
+            {"name": "Decorate", "isDone": false},
+            {"name": "Clean Up", "isDone": false}
+        ]
+    },
+    {
+        "name": "Camping",
+        "isDone": false,
+        "items": [
+            {"name": "Pack Gear", "isDone": true},
+            {"name": "Set Up Tent", "isDone": false},
+            {"name": "Start Fire", "isDone": false},
+            {"name": "Cook Meal", "isDone": false},
+            {"name": "Explore", "isDone": false}
+        ]
+    },
+    {
+        "name": "Fishing",
+        "isDone": false,
+        "items": [
+            {"name": "Pack Gear", "isDone": true},
+            {"name": "Find Spot", "isDone": false},
+            {"name": "Bait Hook", "isDone": false},
+            {"name": "Cast Line", "isDone": false},
+            {"name": "Catch Fish", "isDone": false}
+        ]
+    },
+    {
+        "name": "Hiking",
+        "isDone": false,
+        "items": [
+            {"name": "Pack Gear", "isDone": true},
+            {"name": "Choose Trail", "isDone": false},
+            {"name": "Start Hike", "isDone": false},
+            {"name": "Take Breaks", "isDone": false},
+            {"name": "Reach Destination", "isDone": false}
+        ]
+    },
+    {
+        "name": "Photography",
+        "isDone": false,
+        "items": [
+            {"name": "Pack Gear", "isDone": true},
+            {"name": "Choose Location", "isDone": false},
+            {"name": "Set Up", "isDone": false},
+            {"name": "Take Photos", "isDone": false},
+            {"name": "Edit Photos", "isDone": false}
+        ]
+    }
+]

@@ -56,10 +56,13 @@ class ChecklistCard extends StatelessWidget {
               );
             }
           },
-          child: ChecklistInfoTile.readOnly(
-            color: checklist.color,
-            name: checklist.name.getOrCrash(),
-            statistics: ChecklistStatistics(checklist: checklist),
+          child: Semantics(
+            identifier: 'checklist_card',
+            child: ChecklistInfoTile.readOnly(
+              color: checklist.color,
+              name: checklist.name.getOrCrash(),
+              statistics: ChecklistStatistics(checklist: checklist),
+            ),
           ),
         ),
       ),

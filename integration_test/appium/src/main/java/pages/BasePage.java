@@ -5,6 +5,9 @@ import org.openqa.selenium.support.PageFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
+/**
+ * This class represents a base page of the mobile application under test.
+ */
 public class BasePage {
 
     protected AppiumDriver driver;

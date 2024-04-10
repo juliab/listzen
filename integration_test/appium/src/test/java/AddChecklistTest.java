@@ -1,15 +1,13 @@
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import data.ChecklistDataGenerator;
 import driver.DriverManager;
-
-import java.net.MalformedURLException;
 
 import io.appium.java_client.AppiumDriver;
 import model.Checklist;
-import model.Item;
 import pages.ChecklistsOverviewPage;
 
 public class AddChecklistTest {
@@ -18,25 +16,20 @@ public class AddChecklistTest {
     private Checklist checklist;
 
     @BeforeClass
-    public void setUp() throws MalformedURLException {
+    public void setUp() {
         driver = DriverManager.getDriverInstance();
-    }
-
-    @BeforeTest
-    public void createChecklist() {
-        checklist = new Checklist("Test Checklist")
-            .addItem(new Item("Test Item 1"))
-            .addItem(new Item("Test Item 2"));
     }
         
     @Test
-    public void addChecklistTest() throws InterruptedException {
-        new ChecklistsOverviewPage(driver).tapAddChecklistButton()
+    public void addEmptyChecklistTest() {
+        checklist = ChecklistDataGenerator.getEmptyChecklist();
+
+        ChecklistsOverviewPage overviewPage = new ChecklistsOverviewPage(driver).tapAddChecklistButton()
             .enterChecklistName(checklist.getName())
-            .tapAddItemButton()
-            .enterItemName(checklist.getItems().get(0).getName())
-            .enterItemName(checklist.getItems().get(1).getName())
-            .tapAddItemButton();
+            .tapSaveButton();
+        
+        Assert.assertEquals(overviewPage.readTopChecklistName(), checklist.getName());
+        Assert.assertEquals(overviewPage.readTopChecklistStatistics(), "0 / 0");
     }
 
     @AfterClass
