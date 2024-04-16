@@ -111,17 +111,17 @@ class AddItemButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      identifier: 'add_item_button',
-      child: FloatingActionButton(
+    return FloatingActionButton(
+      child: Semantics(
+        identifier: 'add_item_button',
         child: const Icon(Icons.add),
-        onPressed: () {
-          context.read<ManageFocusCubit>().addNodeAndRequestFocus();
-          context.read<ChecklistEditBloc>().add(
-                const ChecklistEditEvent.itemAdded(),
-              );
-        },
       ),
+      onPressed: () {
+        context.read<ManageFocusCubit>().addNodeAndRequestFocus();
+        context.read<ChecklistEditBloc>().add(
+              const ChecklistEditEvent.itemAdded(),
+            );
+      },
     );
   }
 }
