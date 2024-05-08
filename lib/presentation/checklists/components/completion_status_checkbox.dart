@@ -24,10 +24,13 @@ class CompletionStatusCheckbox extends StatelessWidget {
       height: size,
       child: Transform.scale(
         scale: 1.5,
-        child: Checkbox(
-          onChanged: onChanged,
-          value: isCompleted,
-          checkColor: insideCard ? cardForegroundColor : greenColor,
+        child: Semantics(
+          identifier: 'item_edit_checkbox',
+          child: Checkbox(
+            onChanged: onChanged,
+            value: isCompleted,
+            checkColor: insideCard ? cardForegroundColor : greenColor,
+          ),
         ),
       ),
     );

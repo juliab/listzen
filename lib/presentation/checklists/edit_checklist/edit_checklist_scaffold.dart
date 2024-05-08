@@ -53,14 +53,17 @@ class SaveChecklistButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(
-        Icons.check,
-        color: greenColor,
+    return Semantics(
+      identifier: 'save_button',
+      child: IconButton(
+        icon: const Icon(
+          Icons.check,
+          color: greenColor,
+        ),
+        onPressed: () => context.read<ChecklistEditBloc>().add(
+              const ChecklistEditEvent.saved(),
+            ),
       ),
-      onPressed: () => context.read<ChecklistEditBloc>().add(
-            const ChecklistEditEvent.saved(),
-          ),
     );
   }
 }
@@ -88,12 +91,15 @@ class CancelButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(
-        Icons.close,
-        color: Color(0XFF696969),
+    return Semantics(
+      identifier: 'cancel_button',
+      child: IconButton(
+        icon: const Icon(
+          Icons.close,
+          color: Color(0XFF696969),
+        ),
+        onPressed: () => AutoRouter.of(context).pop(),
       ),
-      onPressed: () => AutoRouter.of(context).pop(),
     );
   }
 }
@@ -106,7 +112,10 @@ class AddItemButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      child: const Icon(Icons.add),
+      child: Semantics(
+        identifier: 'add_item_button',
+        child: const Icon(Icons.add),
+      ),
       onPressed: () {
         context.read<ManageFocusCubit>().addNodeAndRequestFocus();
         context.read<ChecklistEditBloc>().add(

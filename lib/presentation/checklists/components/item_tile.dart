@@ -59,42 +59,48 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (reorderable) ...[
-          ReorderableDragStartListener(
-            index: index ?? 0,
-            child: const Padding(
-              padding: EdgeInsets.only(left: 5, right: 15.0),
-              child: Icon(
-                Icons.swap_vert_outlined,
+    return Semantics(
+      identifier: 'item_tile',
+      child: Row(
+        children: [
+          if (reorderable) ...[
+            Semantics(
+              identifier: 'item_reorder',
+              child: ReorderableDragStartListener(
+                index: index ?? 0,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 5, right: 15.0),
+                  child: Icon(
+                    Icons.swap_vert_outlined,
+                    color: greyColor,
+                  ),
+                ),
+              ),
+            ),
+          ],
+          if (completionStatusCheckbox != null) ...[
+            completionStatusCheckbox!,
+            const SizedBox(
+              width: 15,
+            ),
+          ],
+          Expanded(
+            child: content,
+          ),
+          if (onRemove != null) ...[
+            const SizedBox(
+              width: 15,
+            ),
+            InkWell(
+              onTap: onRemove,
+              child: const Icon(
+                Icons.remove_circle,
                 color: greyColor,
               ),
             ),
-          ),
+          ],
         ],
-        if (completionStatusCheckbox != null) ...[
-          completionStatusCheckbox!,
-          const SizedBox(
-            width: 15,
-          ),
-        ],
-        Expanded(
-          child: content,
-        ),
-        if (onRemove != null) ...[
-          const SizedBox(
-            width: 15,
-          ),
-          InkWell(
-            onTap: onRemove,
-            child: const Icon(
-              Icons.remove_circle,
-              color: greyColor,
-            ),
-          ),
-        ],
-      ],
+      ),
     );
   }
 }
@@ -129,16 +135,19 @@ class EditableItemNameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: textEditingController,
-      textCapitalization: TextCapitalization.sentences,
-      decoration: noBordersInputDecoration,
-      maxLength: ItemName.maxLength,
-      onChanged: onChanged,
-      onFieldSubmitted: onSubmitted,
-      focusNode: focusNode,
-      onEditingComplete: () {},
-      style: mainTextStyle,
+    return Semantics(
+      identifier: 'item_edit_name',
+      child: TextFormField(
+        controller: textEditingController,
+        textCapitalization: TextCapitalization.sentences,
+        decoration: noBordersInputDecoration,
+        maxLength: ItemName.maxLength,
+        onChanged: onChanged,
+        onFieldSubmitted: onSubmitted,
+        focusNode: focusNode,
+        onEditingComplete: () {},
+        style: mainTextStyle,
+      ),
     );
   }
 }
